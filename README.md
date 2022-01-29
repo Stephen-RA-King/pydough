@@ -55,6 +55,16 @@ simply type the following:
 cookiecutter https://github.com/stephen-ra-king/cc_template
 ```
 
+cookiecutter will prompt you for a selection of inputs and eventually pip-tools will
+pin your dependencies from the inputs you have given.
+This template uses layered requirements files (the default being "development").
+Now install the packages using pip
+
+```sh
+pip install -r requirements.txt
+```
+
+
 ## Release History
 
 * 0.0.1
