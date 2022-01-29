@@ -47,7 +47,7 @@ def init_git():
     if not (SLUG_DIRECTORY / '.git').is_dir():
         execute("git", "config", "--global", "init.defaultBranch", "main", cwd=SLUG_DIRECTORY)
         execute("git", "init", cwd=SLUG_DIRECTORY)
-        execute("git", "cobfig", "commit.template", ".gitmessage", cwd=SLUG_DIRECTORY)
+        execute("git", "config", "commit.template", ".gitmessage", cwd=SLUG_DIRECTORY)
         # execute("git", "remote", "add", "origin", "https://github.com/{{ cookiecutter.github_id }}/{{ cookiecutter.pkg_name }}.git", cwd=SLUG_DIRECTORY)
 
 

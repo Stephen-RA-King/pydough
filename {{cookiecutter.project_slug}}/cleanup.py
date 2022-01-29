@@ -25,7 +25,6 @@ def execute(*args, supress_exception=False, cwd=None):
 
 def remove_modules(module_list):
     current_list = execute(sys.executable, "-m", "pip", "freeze", "-q", "-l")
-    print(current_list)
     for module in module_list:
         if module in current_list:
             execute(
