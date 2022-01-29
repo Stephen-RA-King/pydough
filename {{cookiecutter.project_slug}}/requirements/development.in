@@ -1,0 +1,38 @@
+-r base.txt
+
+
+{% if cookiecutter.use_bandit == 'y' -%}
+bandit{% endif %}
+{% if cookiecutter.use_black == 'y' -%}
+black{% endif %}
+build
+{% if cookiecutter.command_line_interface|lower == 'click' -%}
+click{% endif %}
+colorama
+{% if cookiecutter.use_flake8 == 'y' -%}
+flake8
+flake8-bugbear
+flake8-comprehensions
+flake8-docstrings{% endif %}
+{% if cookiecutter.use_sphinx== 'y' -%}
+furo{% endif %}
+{% if cookiecutter.use_isort == 'y' -%}
+isort{% endif %}
+{% if cookiecutter.use_mypy == 'y' -%}
+mypy{% endif %}
+{% if cookiecutter.use_sphinx== 'y' -%}
+myst-parser{% endif %}
+{% if cookiecutter.use_flake8 == 'y' -%}
+pep8-naming{% endif %}
+{% if cookiecutter.use_pre_commit == 'y' -%}
+pre-commit{% endif %}
+{% if cookiecutter.use_pytest == 'y' -%}
+pytest{% endif %}
+{% if cookiecutter.use_sphinx== 'y' -%}
+Sphinx{% endif %}
+twine
+watchdog
+
+
+
+

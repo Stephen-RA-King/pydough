@@ -1,0 +1,29 @@
+[build-system]
+requires = [
+    "setuptools>=60",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[tool]
+{% if cookiecutter.use_black == 'y' -%}
+[tool.black]
+line-length = 88
+py39 = true
+{%- endif %}
+
+{% if cookiecutter.use_bandit == 'y' -%}
+[tool.bandit]
+exclude=["tests/*"]
+targets=["src/"]
+{%- endif %}
+
+
+{% if cookiecutter.use_pytest == 'y' -%}
+[tool.pytest.ini_options]
+# https://docs.pytest.org/en/6.2.x/reference.html?highlight=minversion#configuration-options
+minversion = "6.0"
+testpaths = [
+    "tests",
+]
+{%- endif %}

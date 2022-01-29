@@ -1,0 +1,43 @@
+{
+  "_extensions": ["jinja2_time.TimeExtension"],
+  "project_name": "Python Boilerplate",
+  "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
+  "pkg_name": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_short_description": "boilerplate you need to create a Python package.",
+  "author_name": "Stephen R A King",
+  "email": "stephen.ra.king@gmail.com",
+  "github_id": "stephen-ra-king",
+  "create_author_file": "y",
+  "github_username": "stephen-ra-king",
+  "version": "0.1.0",
+  "_year": "{% now 'utc', '%Y' %}",
+  "use_pytest": "y",
+  "use_black": "y",
+  "use_flake8": "y",
+  "use_mypy": "y",
+  "docstrings_style": [
+    "google",
+    "numpy",
+    "pep257"
+  ],
+  "use_isort": "y",
+  "use_bump2version": "y",
+  "use_sphinx": "y",
+  "use_pre_commit": "y",
+  "use_bandit": "y",
+  "use_log_files": "n",
+  "use_email": "n",
+  "command_line_interface": [
+    "Click",
+    "Argparse",
+    "No command-line interface"
+  ],
+  "license": [
+    "MIT",
+    "BSD",
+    "ISC",
+    "Apache-2.0",
+    "GPL-3.0",
+    "Not open source"
+  ]
+}

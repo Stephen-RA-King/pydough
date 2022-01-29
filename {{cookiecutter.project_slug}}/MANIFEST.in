@@ -1,0 +1,14 @@
+# https://packaging.python.org/guides/using-manifest-in/
+
+{% if cookiecutter.create_author_file == 'y' -%}
+include AUTHORS.md
+{% endif -%}
+include HISTORY.md
+include LICENSE
+include README.md
+
+recursive-include tests *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+
+recursive-include docs *.rst conf.py Makefile make.bat *.jpg *.png *.gif
