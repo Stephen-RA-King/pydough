@@ -33,8 +33,8 @@ def execute(*args, supress_exception=False, cwd=None):
             os.chdir(cwd)
         proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = proc.communicate()
-        out = out.decode('utf-8')
-        err = err.decode('utf-8')
+        out = out.decode("utf-8")
+        err = err.decode("utf-8")
         if err and not supress_exception:
             raise Exception(err)
         else:
@@ -43,21 +43,30 @@ def execute(*args, supress_exception=False, cwd=None):
         os.chdir(cur_dir)
 
 
+def update_basic_packages(packages):
+    print("Checking basic packages for updates")
+    for package in packages:
+        execute(sys.executable, "-m", "pip", "install", "--upgrade", "-q", package)
+
+
 def init_git():
+    print("Git: initialization and configuration")
     if not (SLUG_DIRECTORY / '.git').is_dir():
         execute("git", "config", "--global", "init.defaultBranch", "main", cwd=SLUG_DIRECTORY)
         execute("git", "init", cwd=SLUG_DIRECTORY)
         execute("git", "config", "commit.template", ".gitmessage", cwd=SLUG_DIRECTORY)
-        # execute("git", "remote", "add", "origin", "https://github.com/{{ cookiecutter.github_id }}/{{ cookiecutter.pkg_name }}.git", cwd=SLUG_DIRECTORY)
 
 
 def install_pre_commit_hooks():
-    execute(sys.executable, "-m", "pip", "install", "pre-commit==2.17.0")
-    execute(sys.executable, "-m", "pre_commit", "install")
+    print("Installing pre-commit")
+    execute(sys.executable, "-m", "pip", "install", "pre-commit")
+    execute("pre-commit", "install")
+    print("Updating pre-commit config to the latest repos' versions")
+    execute("pre-commit", "autoupdate")
 
 
 def generate_requirements():
-    execute(sys.executable, "-m", "pip", "install", "pip-tools==6.4.0")
+    execute(sys.executable, "-m", "pip", "install", "pip-tools")
     cwd = SLUG_DIRECTORY / "requirements"
     execute("pip-compile", "-q", "base.in", cwd=cwd)
     execute("pip-compile", "-q", "development.in", cwd=cwd)
@@ -66,6 +75,13 @@ def generate_requirements():
 
 
 if __name__ == '__main__':
+    upgrade_basics_list = [
+        "pip",
+        "wheel",
+        "setuptools",
+    ]
+    update_basic_packages(upgrade_basics_list)
+
     if "{{ cookiecutter.use_pytest }}".lower() != "y":
         delete_director([
             SLUG_DIRECTORY / 'pytest.ini',
