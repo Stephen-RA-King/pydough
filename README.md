@@ -27,7 +27,8 @@ The following tool will be installed and is mandatory:
 ### Other Features
 * Automatically installs pre-commit (if selected) and associated git hook
 * Automatically configures git message template
-* Selection of licenses to choose from 
+* Selection of licenses to choose from
+* Optionally include [bump2version][bump2version-url] to maintain version strings in your source code
 * Options to specify Docstring style (Google, Numpy or [PEP257][pep257-url])
 * Optionally include Logging using the dictConfig() configuration
 * Optionally include an eMail package for sending emails
@@ -87,6 +88,7 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 [sphinx-url]: https://www.sphinx-doc.org/en/master/
 [click-url]: https://click.palletsprojects.com/en/8.0.x/
 [pep257-url]: https://www.python.org/dev/peps/pep-0257/
+[bump2version-url]: https://pypi.org/project/bump2version/
 
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
