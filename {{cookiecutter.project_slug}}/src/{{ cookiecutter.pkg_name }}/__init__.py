@@ -1,4 +1,4 @@
-"""Top-level package for {{ cookiecutter.project_name }}."""
+"""Top-level package for {{ cookiecutter.pkg_name }}."""
 
 __title__ = "{{ cookiecutter.project_name }}"
 __author__ = "{{ cookiecutter.author_name }}"
