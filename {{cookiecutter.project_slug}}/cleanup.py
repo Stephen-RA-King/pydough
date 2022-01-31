@@ -43,20 +43,13 @@ if __name__ == "__main__":
     remove_these_modules = [
         "arrow",
         "binaryornot",
-        "certifi",
         "chardet",
-        "charset-normalizer",
         "cookiecutter",
-        "idna",
-        "Jinja2",
         "jinja2-time",
-        "MarkupSafe",
         "poyo",
         "python-dateutil",
         "python-slugify",
-        "requests",
         "six",
         "text-unidecode",
-        "urllib3",
     ]
     remove_modules(remove_these_modules)

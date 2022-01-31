@@ -46,7 +46,10 @@ def execute(*args, supress_exception=False, cwd=None):
 def update_basic_packages(packages):
     print("Checking basic packages for updates")
     for package in packages:
-        execute(sys.executable, "-m", "pip", "install", "--upgrade", "-q", package)
+        if "#" in package:
+            continue
+        else:
+            execute(sys.executable, "-m", "pip", "install", "--upgrade", "-q", package)
 
 
 def init_git():
@@ -76,7 +79,7 @@ def generate_requirements():
 
 if __name__ == '__main__':
     upgrade_basics_list = [
-        "pip",
+        "#pip",
         "wheel",
         "setuptools",
     ]
@@ -109,7 +112,7 @@ if __name__ == '__main__':
             print(str(e))
             print("Failed to install pre-commit hooks. Please run `pre-commit install` manually")
 
-    print("...Generating requirements")
+    print("Generating requirements")
     try:
         generate_requirements()
     except Exception as e:
