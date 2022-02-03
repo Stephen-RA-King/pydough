@@ -43,6 +43,15 @@ def execute(*args, supress_exception=False, cwd=None):
         os.chdir(cur_dir)
 
 
+def configure_pip():
+    """pip cannot be upgraded to the latest version as this breaks pip-tools:
+    see issue #1558 (https://github.com/jazzband/pip-tools/issues/1558).
+    However, pip will now issue an update warning which will break all pip installations.
+    The following disables this warning
+    """
+    execute(sys.executable, "-m", "pip", "config", "set", "global.disable-pip-version-check", "True")
+
+
 def update_basic_packages(packages):
     print("Checking basic packages for updates")
     for package in packages:
@@ -63,12 +72,14 @@ def init_git():
 def install_pre_commit_hooks():
     print("Installing pre-commit")
     execute(sys.executable, "-m", "pip", "install", "pre-commit")
+    print("Installing pre-commit git hook")
     execute("pre-commit", "install")
     print("Updating pre-commit config to the latest repos' versions")
     execute("pre-commit", "autoupdate")
 
 
 def generate_requirements():
+    print("Generating requirements")
     execute(sys.executable, "-m", "pip", "install", "pip-tools")
     cwd = SLUG_DIRECTORY / "requirements"
     execute("pip-compile", "-q", "base.in", cwd=cwd)
@@ -78,6 +89,8 @@ def generate_requirements():
 
 
 if __name__ == '__main__':
+    configure_pip()
+
     upgrade_basics_list = [
         "#pip",
         "wheel",
@@ -112,7 +125,6 @@ if __name__ == '__main__':
             print(str(e))
             print("Failed to install pre-commit hooks. Please run `pre-commit install` manually")
 
-    print("Generating requirements")
     try:
         generate_requirements()
     except Exception as e:

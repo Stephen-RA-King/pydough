@@ -6,9 +6,8 @@
   "project_short_description": "boilerplate you need to create a Python package.",
   "author_name": "Stephen R A King",
   "email": "stephen.ra.king@gmail.com",
-  "github_id": "stephen-ra-king",
-  "create_author_file": "y",
   "github_username": "stephen-ra-king",
+  "create_author_file": "y",
   "version": "0.1.0",
   "_year": "{% now 'utc', '%Y' %}",
   "use_pytest": "y",
@@ -25,11 +24,10 @@
   "use_sphinx": "y",
   "use_pre_commit": "y",
   "use_bandit": "y",
-  "use_log_files": "n",
-  "use_email": "n",
+  "use_logging": "y",
+  "use_email_utility": "y",
   "command_line_interface": [
     "Click",
-    "Argparse",
     "No command-line interface"
   ],
   "license": [
