@@ -103,12 +103,7 @@ if __name__ == '__main__':
             SLUG_DIRECTORY / 'pytest.ini',
         ])
 
-    if "{{ cookiecutter.use_flake8 }}".lower() != "y":
-        delete_director([
-            SLUG_DIRECTORY / '.flake8',
-        ])
-
-    if "{{ cookiecutter.use_log_files }}".lower() != "y":
+    if "{{ cookiecutter.use_logging }}".lower() != "y":
         delete_director([
             SLUG_DIRECTORY / 'logs',
         ])
