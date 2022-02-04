@@ -62,7 +62,7 @@ This template uses layered requirements files (the default being "development").
 Now install the packages using pip
 
 ```sh
-pip install -r requirements.txt
+pip install -r <package-name>/requirements.txt
 ```
 
 
