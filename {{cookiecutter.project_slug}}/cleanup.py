@@ -27,16 +27,7 @@ def remove_modules(module_list):
     current_list = execute(sys.executable, "-m", "pip", "freeze", "-q", "-l")
     for module in module_list:
         if module in current_list:
-            execute(
-                sys.executable,
-                "-m",
-                "pip",
-                "uninstall",
-                "-y",
-                "-q",
-                "--no-input",
-                module,
-            )
+            execute(sys.executable, "-m", "pip", "uninstall", "-y", "-q", module,)
 
 
 if __name__ == "__main__":
@@ -49,7 +40,6 @@ if __name__ == "__main__":
         "poyo",
         "python-dateutil",
         "python-slugify",
-        "six",
         "text-unidecode",
     ]
     remove_modules(remove_these_modules)
