@@ -30,7 +30,7 @@ repos:
     rev: 0.1.0
     hooks:
     -   id: check-pip-compile
-        args: ['requirements/production.in', 'requirements/development.in']
+        args: ["base.in", "requirements/production.in", "requirements/development.in"]
 
 - repo: https://github.com/pycqa/isort
   rev: 5.10.1
@@ -64,7 +64,6 @@ repos:
   hooks:
   - id: prettier
 
-
 - repo: https://github.com/pre-commit/mirrors-mypy
   rev: v0.931
   hooks:
@@ -74,7 +73,7 @@ repos:
     additional_dependencies:
       - types-dataclasses >= 0.1.3
       - lxml
-      {% if cookiecutter.command_line_interface|lower == 'click' -%}
+      {% if cookiecutter.command_line_interface|lower == "click" -%}
       - types-click
       {%- endif %}
 
