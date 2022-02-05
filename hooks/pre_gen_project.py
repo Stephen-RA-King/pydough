@@ -14,7 +14,3 @@ if not re.match(MODULE_REGEX, module_name):
 
     # Exit to cancel project
     sys.exit(1)
-
-
-
-
