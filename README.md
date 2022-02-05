@@ -3,10 +3,6 @@
 _**A general purpose template for the creation of a Python Package**_
 
 
-
-
-
-
 ## Template Features
 
 All the following features are optional:
@@ -22,7 +18,7 @@ All the following features are optional:
 
 The following tool will be installed and is mandatory:
 
-* [**pip-tools**][click-url] -  Pins every single package dependency (even the dependency’s dependencies)
+* [**pip-tools**][pip-tools-url] -  Pins every single package dependency (even the dependency’s dependencies)
 
 ### Other Features
 * Automatically installs pre-commit (if selected) and associated git hook
@@ -40,7 +36,7 @@ The following tool will be installed and is mandatory:
 [![Checked with mypy][mypy-image]][mypy-url]
 [![security: bandit][bandit-image]][bandit-url]
 
-## Pre-requirements
+## Pre Installation Requirements
 
 1. Python 3.7, 3.8, 3.9 or 3.10
 2. A Python Virtual Environment (activated).
@@ -89,6 +85,7 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 [click-url]: https://click.palletsprojects.com/en/8.0.x/
 [pep257-url]: https://www.python.org/dev/peps/pep-0257/
 [bump2version-url]: https://pypi.org/project/bump2version/
+[pip-tools-url]: https://github.com/jazzband/pip-tools
 
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
