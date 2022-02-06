@@ -44,12 +44,8 @@ def execute(*args, supress_exception=False, cwd=None):
         os.chdir(cur_dir)
 
 
-def pre_configure():
-    execute(sys.executable, "-m", "pip", "config", "set", "global.disable-pip-version-check", "True")
-
-
-def post_configure():
-    execute(sys.executable, "-m", "pip", "config", "set", "global.disable-pip-version-check", "False")
+def pip_configure(command):
+    execute(sys.executable, "-m", "pip", "config", "set", "global.disable-pip-version-check", command)
 
 
 def update_basic_packages(packages):
@@ -88,8 +84,8 @@ def generate_requirements():
     execute("pip-compile", "-q", "test.in", cwd=cwd)
 
 
-if __name__ == "__main__":
-    pre_configure()
+def main():
+    pip_configure("True")
 
     upgrade_basics_list = [
         "pip",
@@ -131,4 +127,8 @@ if __name__ == "__main__":
     except Exception as e:
         print(str(e))
 
-    post_configure()
+    pip_configure("False")
+
+
+if __name__ == "__main__":
+    main()
