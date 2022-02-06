@@ -3,7 +3,7 @@
 """
 from click.testing import CliRunner
 
-from src.myapp import cli
+from src.{{ cookiecutter.pkg_name }} import cli
 
 
 def test_author():
