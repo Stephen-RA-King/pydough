@@ -6,8 +6,9 @@ import sys
 from pathlib import Path
 
 SLUG_DIRECTORY = Path.cwd()
-SRC_DIRECTORY = SLUG_DIRECTORY / 'src'
-PKG_DIRECTORY = SLUG_DIRECTORY / 'src' / '{{ cookiecutter.pkg_name }}'
+SRC_DIRECTORY = SLUG_DIRECTORY / "src"
+PKG_DIRECTORY = SRC_DIRECTORY / "{{ cookiecutter.pkg_name }}"
+TEST_DIRECTORY = SLUG_DIRECTORY / "tests"
 
 
 def delete_director(items_to_delete):
@@ -18,12 +19,12 @@ def delete_director(items_to_delete):
             delete_file(item)
 
 
-def delete_file(file):
-    Path.unlink(file, missing_ok=True)
-
-
 def delete_directory(directory):
     shutil.rmtree(directory, ignore_errors=True)
+
+
+def delete_file(file):
+    Path.unlink(file, missing_ok=True)
 
 
 def execute(*args, supress_exception=False, cwd=None):
@@ -43,13 +44,12 @@ def execute(*args, supress_exception=False, cwd=None):
         os.chdir(cur_dir)
 
 
-def configure_pip():
-    """pip cannot be upgraded to the latest version as this breaks pip-tools:
-    see issue #1558 (https://github.com/jazzband/pip-tools/issues/1558).
-    However, pip will now issue an update warning which will break all pip installations.
-    The following disables this warning
-    """
+def pre_configure():
     execute(sys.executable, "-m", "pip", "config", "set", "global.disable-pip-version-check", "True")
+
+
+def post_configure():
+    execute(sys.executable, "-m", "pip", "config", "set", "global.disable-pip-version-check", "False")
 
 
 def update_basic_packages(packages):
@@ -63,18 +63,18 @@ def update_basic_packages(packages):
 
 def init_git():
     print("Git: initialization and configuration")
-    if not (SLUG_DIRECTORY / '.git').is_dir():
+    if not (SLUG_DIRECTORY / ".git").is_dir():
         execute("git", "config", "--global", "init.defaultBranch", "main", cwd=SLUG_DIRECTORY)
         execute("git", "init", cwd=SLUG_DIRECTORY)
         execute("git", "config", "commit.template", ".gitmessage", cwd=SLUG_DIRECTORY)
 
 
 def install_pre_commit_hooks():
-    print("Installing pre-commit")
+    print("pre-commit: Installing")
     execute(sys.executable, "-m", "pip", "install", "pre-commit")
-    print("Installing pre-commit git hook")
+    print("pre-commit: Installing git hook")
     execute("pre-commit", "install")
-    print("Updating pre-commit config to the latest repos' versions")
+    print("pre-commit: Updating repos")
     execute("pre-commit", "autoupdate")
 
 
@@ -88,11 +88,11 @@ def generate_requirements():
     execute("pip-compile", "-q", "test.in", cwd=cwd)
 
 
-if __name__ == '__main__':
-    configure_pip()
+if __name__ == "__main__":
+    pre_configure()
 
     upgrade_basics_list = [
-        "#pip",
+        "pip",
         "wheel",
         "setuptools",
     ]
@@ -100,12 +100,18 @@ if __name__ == '__main__':
 
     if "{{ cookiecutter.use_pytest }}".lower() != "y":
         delete_director([
-            SLUG_DIRECTORY / 'pytest.ini',
+            SLUG_DIRECTORY / "pytest.ini",
+        ])
+
+    if "{{ cookiecutter.command_line_interface }}".lower() != "click":
+        delete_director([
+            PKG_DIRECTORY / "cli.py",
+            TEST_DIRECTORY / "test_cli.py"
         ])
 
     if "{{ cookiecutter.use_logging }}".lower() != "y":
         delete_director([
-            SLUG_DIRECTORY / 'logs',
+            SLUG_DIRECTORY / "logs",
         ])
 
     try:
@@ -113,7 +119,7 @@ if __name__ == '__main__':
     except Exception as e:
         print(e)
 
-    if '{{ cookiecutter.use_pre_commit }}' == 'y':
+    if "{{ cookiecutter.use_pre_commit }}" == "y":
         try:
             install_pre_commit_hooks()
         except Exception as e:
@@ -124,3 +130,5 @@ if __name__ == '__main__':
         generate_requirements()
     except Exception as e:
         print(str(e))
+
+    post_configure()
