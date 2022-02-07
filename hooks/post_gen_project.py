@@ -1,30 +1,25 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import os
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 
-SLUG_DIRECTORY = Path.cwd()
-SRC_DIRECTORY = SLUG_DIRECTORY / "src"
-PKG_DIRECTORY = SRC_DIRECTORY / "{{ cookiecutter.pkg_name }}"
-TEST_DIRECTORY = SLUG_DIRECTORY / "tests"
+SLUG_DIR = Path.cwd()
+SRC_DIR = SLUG_DIR / "src"
+PKG_DIR = SRC_DIR / "{{ cookiecutter.pkg_name }}"
+TEST_DIR = SLUG_DIR / "tests"
+REQ_DIR = SLUG_DIR / "requirements"
 
 
 def delete_director(items_to_delete):
     for item in items_to_delete:
         if item.is_dir():
-            delete_directory(item)
+            shutil.rmtree(item, ignore_errors=True)
         else:
-            delete_file(item)
-
-
-def delete_directory(directory):
-    shutil.rmtree(directory, ignore_errors=True)
-
-
-def delete_file(file):
-    Path.unlink(file, missing_ok=True)
+            Path.unlink(item, missing_ok=True)
 
 
 def execute(*args, supress_exception=False, cwd=None):
@@ -48,9 +43,9 @@ def pip_configure(command):
     execute(sys.executable, "-m", "pip", "config", "set", "global.disable-pip-version-check", command)
 
 
-def update_basic_packages(packages):
-    print("Checking basic packages for updates")
+def upgrade_package(packages):
     for package in packages:
+        print(f"Installing / Upgrading package: {package}")
         if "#" in package:
             continue
         else:
@@ -59,29 +54,26 @@ def update_basic_packages(packages):
 
 def init_git():
     print("Git: initialization and configuration")
-    if not (SLUG_DIRECTORY / ".git").is_dir():
-        execute("git", "config", "--global", "init.defaultBranch", "main", cwd=SLUG_DIRECTORY)
-        execute("git", "init", cwd=SLUG_DIRECTORY)
-        execute("git", "config", "commit.template", ".gitmessage", cwd=SLUG_DIRECTORY)
+    if not (SLUG_DIR / ".git").is_dir():
+        execute("git", "config", "--global", "init.defaultBranch", "main", cwd=SLUG_DIR)
+        execute("git", "init", cwd=SLUG_DIR)
+        execute("git", "config", "commit.template", ".gitmessage", cwd=SLUG_DIR)
 
 
 def install_pre_commit_hooks():
-    print("pre-commit: Installing")
-    execute(sys.executable, "-m", "pip", "install", "pre-commit")
+    # print("pre-commit: Installing")
+    # execute(sys.executable, "-m", "pip", "install", "pre-commit")
     print("pre-commit: Installing git hook")
     execute("pre-commit", "install")
     print("pre-commit: Updating repos")
     execute("pre-commit", "autoupdate")
 
 
-def generate_requirements():
+def generate_requirements(requirements):
     print("Generating requirements")
-    execute(sys.executable, "-m", "pip", "install", "pip-tools")
-    cwd = SLUG_DIRECTORY / "requirements"
-    execute("pip-compile", "-q", "base.in", cwd=cwd)
-    execute("pip-compile", "-q", "development.in", cwd=cwd)
-    execute("pip-compile", "-q", "production.in", cwd=cwd)
-    execute("pip-compile", "-q", "test.in", cwd=cwd)
+    for requirement in requirements:
+        print(f"Processing requirement: {requirement}")
+        execute("pip-compile", "-q", requirement, cwd=REQ_DIR)
 
 
 def main():
@@ -91,23 +83,24 @@ def main():
         "pip",
         "wheel",
         "setuptools",
+        "pip-tools"
     ]
-    update_basic_packages(upgrade_basics_list)
+    upgrade_package(upgrade_basics_list)
 
-    if "{{ cookiecutter.use_pytest }}".lower() != "y":
+    if "{{ cookiecutter.create_author_file }}".lower() != "y":
         delete_director([
-            SLUG_DIRECTORY / "pytest.ini",
+            SLUG_DIR / "AUTHORS.md",
         ])
 
     if "{{ cookiecutter.command_line_interface }}".lower() != "click":
         delete_director([
-            PKG_DIRECTORY / "cli.py",
-            TEST_DIRECTORY / "test_cli.py"
+            PKG_DIR / "cli.py",
+            TEST_DIR / "test_cli.py"
         ])
 
     if "{{ cookiecutter.use_logging }}".lower() != "y":
         delete_director([
-            SLUG_DIRECTORY / "logs",
+            SLUG_DIR / "logs",
         ])
 
     try:
@@ -117,13 +110,20 @@ def main():
 
     if "{{ cookiecutter.use_pre_commit }}" == "y":
         try:
+            upgrade_package(["pre-commit", ])
             install_pre_commit_hooks()
         except Exception as e:
             print(str(e))
             print("Failed to install pre-commit hooks. Please run `pre-commit install` manually")
 
     try:
-        generate_requirements()
+        req_list = [
+            "base.in",
+            "development.in",
+            "production.in",
+            "test.in",
+        ]
+        generate_requirements(req_list)
     except Exception as e:
         print(str(e))
 
