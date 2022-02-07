@@ -1,6 +1,6 @@
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-"""
 from click.testing import CliRunner
 
 from src.{{ cookiecutter.pkg_name }} import cli

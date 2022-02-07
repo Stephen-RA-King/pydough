@@ -1,6 +1,5 @@
-"""Console script for {{cookiecutter.pkg_name}}.
-"""
-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import sys
 import click

@@ -1,9 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import pytest
 import warnings
 import sys
 import os
 import sqlite3
-from src.{{cookiecutter.pkg_name}}
+from src.{{cookiecutter.pkg_name}} import {{cookiecutter.pkg_name}}
 
 # ******************FIXTURES ***************************
 # fixture moved to conftest

@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """Example Module with Google style docstrings.
 """
 import warnings
