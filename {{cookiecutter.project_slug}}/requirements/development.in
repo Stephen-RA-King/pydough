@@ -11,11 +11,17 @@ bump2version{% endif %}
 {% if cookiecutter.command_line_interface|lower == 'click' -%}
 click{% endif %}
 colorama
+coverage
+coverage-conditional-plugin
 {% if cookiecutter.use_flake8 == 'y' -%}
 flake8
 flake8-bugbear
 flake8-comprehensions
-flake8-docstrings{% endif %}
+flake8-docstrings
+flake8-eradicate
+flake8-pytest-style
+flake8-simplify
+flakehell{% endif %}
 {% if cookiecutter.use_sphinx== 'y' -%}
 furo{% endif %}
 {% if cookiecutter.use_isort == 'y' -%}
