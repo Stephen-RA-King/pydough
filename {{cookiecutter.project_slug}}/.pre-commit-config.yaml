@@ -30,7 +30,7 @@ repos:
     rev: 0.1.0
     hooks:
     -   id: check-pip-compile
-        args: ["base.in", "requirements/production.in", "requirements/development.in"]
+        args: ["requirements/base.in", "requirements/production.in", "requirements/development.in"]
 
 - repo: https://github.com/pycqa/isort
   rev: 5.10.1
