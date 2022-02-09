@@ -27,7 +27,15 @@ def remove_modules(module_list):
     current_list = execute(sys.executable, "-m", "pip", "freeze", "-q", "-l")
     for module in module_list:
         if module in current_list:
-            execute(sys.executable, "-m", "pip", "uninstall", "-y", "-q", module,)
+            execute(
+                sys.executable,
+                "-m",
+                "pip",
+                "uninstall",
+                "-y",
+                "-q",
+                module,
+            )
 
 
 if __name__ == "__main__":
