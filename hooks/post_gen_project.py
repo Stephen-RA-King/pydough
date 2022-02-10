@@ -6,6 +6,8 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+import logging
+
 
 SLUG_DIR = Path.cwd()
 SRC_DIR = SLUG_DIR / "src"
@@ -14,11 +16,27 @@ TEST_DIR = SLUG_DIR / "tests"
 REQ_DIR = SLUG_DIR / "requirements"
 
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+c_handler = logging.StreamHandler()
+f_handler = logging.FileHandler('post_gen.log')
+c_handler.setLevel(logging.DEBUG)
+f_handler.setLevel(logging.DEBUG)
+c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+f_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+c_handler.setFormatter(c_format)
+f_handler.setFormatter(f_format)
+logger.addHandler(c_handler)
+logger.addHandler(f_handler)
+
+
 def delete_director(items_to_delete):
     for item in items_to_delete:
         if item.is_dir():
+            logger.info(f"Deleting Directory: {item}")
             shutil.rmtree(item, ignore_errors=True)
         else:
+            logger.info(f"Deleting File: {item}")
             Path.unlink(item, missing_ok=True)
 
 
@@ -40,12 +58,19 @@ def execute(*args, supress_exception=False, cwd=None):
 
 
 def pip_configure(command):
-    execute(sys.executable, "-m", "pip", "config", "set", "global.disable-pip-version-check", command)
+    execute(
+        sys.executable,
+        "-m",
+        "pip",
+        "config",
+        "set",
+        "global.disable-pip-version-check",
+        command,
+    )
 
 
 def upgrade_package(packages):
     for package in packages:
-        print(f"Installing / Upgrading package: {package}")
         if "#" in package:
             continue
         else:
@@ -53,7 +78,6 @@ def upgrade_package(packages):
 
 
 def init_git():
-    print("Git: initialization and configuration")
     if not (SLUG_DIR / ".git").is_dir():
         execute("git", "config", "--global", "init.defaultBranch", "main", cwd=SLUG_DIR)
         execute("git", "init", cwd=SLUG_DIR)
@@ -61,60 +85,65 @@ def init_git():
 
 
 def install_pre_commit_hooks():
-    # print("pre-commit: Installing")
-    # execute(sys.executable, "-m", "pip", "install", "pre-commit")
-    print("pre-commit: Installing git hook")
     execute("pre-commit", "install")
-    print("pre-commit: Updating repos")
     execute("pre-commit", "autoupdate")
 
 
 def generate_requirements(requirements):
-    print("Generating requirements")
     for requirement in requirements:
-        print(f"Processing requirement: {requirement}")
         execute("pip-compile", "-q", requirement, cwd=REQ_DIR)
 
 
 def main():
+    logger = config_logging()
+    logger.info("logger configured")
+
     pip_configure("True")
 
     upgrade_basics_list = [
         "pip",
         "wheel",
         "setuptools",
-        "pip-tools"
+        "pip-tools",
     ]
     upgrade_package(upgrade_basics_list)
 
     if "{{ cookiecutter.create_author_file }}".lower() != "y":
-        delete_director([
-            SLUG_DIR / "AUTHORS.md",
-        ])
+        delete_director(
+            [
+                SLUG_DIR / "AUTHORS.md",
+            ]
+        )
 
     if "{{ cookiecutter.command_line_interface }}".lower() != "click":
-        delete_director([
-            PKG_DIR / "cli.py",
-            TEST_DIR / "test_cli.py"
-        ])
+        delete_director([PKG_DIR / "cli.py", TEST_DIR / "test_cli.py"])
 
     if "{{ cookiecutter.use_logging }}".lower() != "y":
-        delete_director([
-            SLUG_DIR / "logs",
-        ])
+        delete_director(
+            [
+                SLUG_DIR / "logs",
+            ]
+        )
 
     try:
         init_git()
     except Exception as e:
         print(e)
+        print("Failed to Initialize Git")
 
     if "{{ cookiecutter.use_pre_commit }}" == "y":
         try:
-            upgrade_package(["pre-commit", ])
+            upgrade_package(
+                [
+                    "pre-commit",
+                ]
+            )
             install_pre_commit_hooks()
         except Exception as e:
-            print(str(e))
-            print("Failed to install pre-commit hooks. Please run `pre-commit install` manually")
+            print(e)
+            print(
+                "Failed to install pre-commit hooks. Please run `pre-commit install` manually"
+            )
 
     try:
         req_list = [
@@ -125,7 +154,8 @@ def main():
         ]
         generate_requirements(req_list)
     except Exception as e:
-        print(str(e))
+        print(e)
+        print("Failed to Generate Requirements")
 
     pip_configure("False")
 
