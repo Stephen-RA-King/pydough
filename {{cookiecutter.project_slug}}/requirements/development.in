@@ -37,6 +37,8 @@ pep8-naming{% endif %}
 pre-commit{% endif %}
 {% if cookiecutter.use_pytest == 'y' -%}
 pytest{% endif %}
+{% if cookiecutter.use_logging == 'y' -%}
+pyyaml{% endif %}
 {% if cookiecutter.use_sphinx== 'y' -%}
 Sphinx{% endif %}
 twine
