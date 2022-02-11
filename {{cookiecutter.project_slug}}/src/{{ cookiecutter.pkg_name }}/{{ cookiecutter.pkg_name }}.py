@@ -3,14 +3,6 @@
 """Example Module with Google style docstrings.
 """
 import warnings
-import logging
-import logging.config
-import yaml
-
-
-with open('logging_config.yaml') as f:
-    logging.config.dictConfig(yaml.safe_load(f))
-logger = logging.getLogger("customlogger")
 
 
 class ExampleClass:

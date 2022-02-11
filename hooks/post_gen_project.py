@@ -19,10 +19,10 @@ REQ_DIR = SLUG_DIR / "requirements"
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 c_handler = logging.StreamHandler()
-f_handler = logging.FileHandler('post_gen.log')
-c_handler.setLevel(logging.DEBUG)
+f_handler = logging.FileHandler('logs/post_gen.log')
+c_handler.setLevel(logging.INFO)
 f_handler.setLevel(logging.DEBUG)
-c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+c_format = logging.Formatter('%(message)s')
 f_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 c_handler.setFormatter(c_format)
 f_handler.setFormatter(f_format)
@@ -33,27 +33,32 @@ logger.addHandler(f_handler)
 def delete_director(items_to_delete):
     for item in items_to_delete:
         if item.is_dir():
-            logger.info(f"Deleting Directory: {item}")
+            logger.debug(f"Deleting Directory: {item}")
             shutil.rmtree(item, ignore_errors=True)
         else:
-            logger.info(f"Deleting File: {item}")
+            logger.debug(f"Deleting File: {item}")
             Path.unlink(item, missing_ok=True)
 
 
 def execute(*args, supress_exception=False, cwd=None):
+    logger.debug(f"Executing command line: '{args}'")
     cur_dir = os.getcwd()
+    logger.debug(f"Current Directory: {cur_dir}")
     try:
         if cwd:
+            logger.debug(f"Changing Directory to: {cwd}")
             os.chdir(cwd)
         proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = proc.communicate()
         out = out.decode("utf-8")
         err = err.decode("utf-8")
         if err and not supress_exception:
+            logger.exception(err)
             raise Exception(err)
         else:
             return out
     finally:
+        logger.debug(f"Changing Directory to: {cur_dir}")
         os.chdir(cur_dir)
 
 
@@ -71,6 +76,7 @@ def pip_configure(command):
 
 def upgrade_package(packages):
     for package in packages:
+        logger.debug(f"Upgrading package: {package}")
         if "#" in package:
             continue
         else:
@@ -91,13 +97,11 @@ def install_pre_commit_hooks():
 
 def generate_requirements(requirements):
     for requirement in requirements:
+        logger.debug(f"Analysing {requirement}")
         execute("pip-compile", "-q", requirement, cwd=REQ_DIR)
 
 
 def main():
-    logger = config_logging()
-    logger.info("logger configured")
-
     pip_configure("True")
 
     upgrade_basics_list = [
@@ -106,6 +110,7 @@ def main():
         "setuptools",
         "pip-tools",
     ]
+    logger.info("Upgrading basic packages")
     upgrade_package(upgrade_basics_list)
 
     if "{{ cookiecutter.create_author_file }}".lower() != "y":
@@ -121,17 +126,29 @@ def main():
     if "{{ cookiecutter.use_logging }}".lower() != "y":
         delete_director(
             [
-                SLUG_DIR / "logs",
+                PKG_DIR / "logging_config.yaml",
             ]
         )
 
+    if "{{ cookiecutter.use_email_utility }}".lower() != "y":
+        delete_director(
+            [
+                PKG_DIR / "email_config.ini",
+                PKG_DIR / "send_email.py",
+            ]
+        )
+
+
+
+
     try:
+        logger.info("git: Initializing & Configuring")
         init_git()
     except Exception as e:
-        print(e)
-        print("Failed to Initialize Git")
+        logger.exception(e)
 
     if "{{ cookiecutter.use_pre_commit }}" == "y":
+        logger.info("pre-commit: configuring")
         try:
             upgrade_package(
                 [
@@ -140,10 +157,7 @@ def main():
             )
             install_pre_commit_hooks()
         except Exception as e:
-            print(e)
-            print(
-                "Failed to install pre-commit hooks. Please run `pre-commit install` manually"
-            )
+            logger.exception(e)
 
     try:
         req_list = [
@@ -152,10 +166,10 @@ def main():
             "production.in",
             "test.in",
         ]
+        logger.info("Generating Requirements")
         generate_requirements(req_list)
     except Exception as e:
-        print(e)
-        print("Failed to Generate Requirements")
+        logger.exception(e)
 
     pip_configure("False")
 
