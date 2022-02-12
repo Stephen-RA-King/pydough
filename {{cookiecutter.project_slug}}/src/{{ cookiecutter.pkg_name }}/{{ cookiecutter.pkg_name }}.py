@@ -111,7 +111,7 @@ def addit(num1, num2):
 
 
 def div_by_zero():
-    return 1/0
+    return 1 / 0
 
 
 def manual_exception():
@@ -137,7 +137,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
