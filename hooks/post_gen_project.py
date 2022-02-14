@@ -138,9 +138,6 @@ def main():
             ]
         )
 
-
-
-
     try:
         logger.info("git: Initializing & Configuring")
         init_git()
