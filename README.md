@@ -28,7 +28,7 @@ The following tool will be installed and is mandatory:
 * Optionally include [**bump2version**][bump2version-url] to maintain version strings in your source code
 * Options to specify Docstring style (Google, Numpy or [**PEP257**][pep257-url])
 * Optionally include Logging using the dictConfig() configuration
-* Optionally include an eMail package for sending emails
+* Optionally include an eMail package
 * Optionally include badges at specific locations:
 
 [![pre-commit][pre-commit-image]][pre-commit-url]
