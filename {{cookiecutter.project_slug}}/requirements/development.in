@@ -27,6 +27,8 @@ flakeheaven{% endif %}
 furo{% endif %}
 {% if cookiecutter.use_isort == 'y' -%}
 isort{% endif %}
+{% if cookiecutter.use_email_utility == 'y' -%}
+keyring{% endif %}
 {% if cookiecutter.use_mypy == 'y' -%}
 mypy{% endif %}
 {% if cookiecutter.use_sphinx== 'y' -%}
