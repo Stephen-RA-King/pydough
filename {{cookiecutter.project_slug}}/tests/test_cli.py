@@ -12,15 +12,18 @@ def test_author():
     runner = CliRunner()
     result = runner.invoke(cli.author)
     assert result.exit_code == 0
-    assert result.output == 'Author name: {{ cookiecutter.author_name }}\n'
+    assert result.output == "Author name: {{ cookiecutter.author_name }}\n"
 
 
 def test_author_verbose():
     runner = CliRunner()
     result = runner.invoke(cli.author, ["--verbose"])
     assert result.exit_code == 0
-    assert result.output == 'Author name: {{ cookiecutter.author_name }}\n' \
-                            'Author eMail: {{ cookiecutter.email }}\n'
+    assert (
+        result.output == "Author name: {{ cookiecutter.author_name }}\n"
+        "Author eMail: {{ cookiecutter.email }}\n"
+    )
+
 
 def test_author_help():
     runner = CliRunner()
@@ -33,16 +36,18 @@ def test_pkg_info():
     runner = CliRunner()
     result = runner.invoke(cli.pkg_info)
     assert result.exit_code == 0
-    assert result.output == 'Package Version: {{ cookiecutter.version }}\n'
+    assert result.output == "Package Version: {{ cookiecutter.version }}\n"
 
 
 def test_pkg_info_verbose():
     runner = CliRunner()
     result = runner.invoke(cli.pkg_info, ["--verbose"])
     assert result.exit_code == 0
-    assert result.output == "Package Version: {{ cookiecutter.version }}\n" \
-                            "{{ cookiecutter.pkg_name }}\n" \
-                            "{{ cookiecutter.project_short_description }}\n"
+    assert (
+        result.output == "Package Version: {{ cookiecutter.version }}\n"
+        "{{ cookiecutter.pkg_name }}\n"
+        "{{ cookiecutter.project_short_description }}\n"
+    )
 
 
 def test_python_version():

@@ -35,8 +35,12 @@ subject = "Title"
 sender = user_id
 recipient = ""
 body = """Dear ... \n\nThis is a test"""
-cc = ["user1@domain1.com", ]
-bcc = ["user2@domain2.com", ]
+cc = [
+    "user1@domain1.com",
+]
+bcc = [
+    "user2@domain2.com",
+]
 attachments = ["attach1.jpg"]
 
 

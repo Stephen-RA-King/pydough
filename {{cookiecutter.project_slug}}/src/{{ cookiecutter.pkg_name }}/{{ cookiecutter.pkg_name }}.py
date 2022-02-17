@@ -100,7 +100,7 @@ def module_level_function(param1, param2=None, *args, **kwargs):
 def doubleit(num):
     """Given a number, Returns double of the number."""
     if not isinstance(num, (int, float)):
-        raise TypeError('Enter an Integer')
+        raise TypeError("Enter an Integer")
     var = num * 2
     return var
 
@@ -135,5 +135,5 @@ def main():
     """main function. Returns passed."""
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

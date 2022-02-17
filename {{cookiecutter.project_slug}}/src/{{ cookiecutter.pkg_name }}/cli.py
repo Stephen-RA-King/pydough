@@ -32,5 +32,5 @@ def python():
     click.echo("{0.major}.{0.minor}.{0.micro}".format(sys.version_info))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     info()
