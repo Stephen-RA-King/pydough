@@ -1,6 +1,7 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+"""Utility script to add module location to sys.path"""
 
+# Core Library modules
 import pathlib
 import sys
 

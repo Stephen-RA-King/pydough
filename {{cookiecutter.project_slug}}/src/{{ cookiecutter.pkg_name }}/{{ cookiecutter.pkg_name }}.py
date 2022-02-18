@@ -1,7 +1,7 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-"""Example Module with Google style docstrings.
-"""
+#!/usr/bin/env python3
+"""Example Module with Google style docstrings."""
+
+# Core Library modules
 import warnings
 
 

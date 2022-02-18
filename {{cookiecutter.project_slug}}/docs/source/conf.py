@@ -9,7 +9,9 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#
+
+
+# Core Library modules
 import pathlib
 import sys
 
@@ -17,7 +19,6 @@ BASE_DIR = pathlib.Path(__file__).resolve().parents[2]
 SRC = BASE_DIR / "src"
 # sys.path.insert(0, str(SRC))
 sys.path.insert(0, str(BASE_DIR))
-
 
 # -- Project information -----------------------------------------------------
 
@@ -27,7 +28,6 @@ author = "{{ cookiecutter.author_name }}"
 
 # The full version, including alpha/beta/rc tags
 release = "{{ cookiecutter.version }}"
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -41,11 +41,9 @@ extensions = [
     "myst_parser",
 ]
 
-
 # generate autosummary even if no references
 autosummary_generate = True
 autosummary_imported_members = True
-
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -54,7 +52,6 @@ templates_path = ["_templates"]
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
-
 
 # -- Options for HTML output -------------------------------------------------
 

@@ -1,7 +1,9 @@
+#!/usr/bin/env python3
 """module docstring - short summary
 If the description is long, the first line should be a short summary that makes
 sense on its own, separated from the rest by a newline
 """
+
 # Core Library modules
 import mimetypes
 import re

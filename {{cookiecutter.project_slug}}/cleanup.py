@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Uninstalls modules associated with cookiecutter package"""
+"""Uninstalls modules associated with cookiecutter package."""
 
 # Core Library modules
 import os
@@ -8,8 +8,7 @@ import sys
 
 
 def execute(*args, supress_exception=False, cwd=None):
-    """Execute command line apps with arguments"""
-
+    """Execute command line apps with arguments."""
     cur_dir = os.getcwd()
     try:
         if cwd:
@@ -27,8 +26,7 @@ def execute(*args, supress_exception=False, cwd=None):
 
 
 def remove_modules(module_list):
-    """Checks installed modules for modules listed to be removed"""
-
+    """Checks installed modules for modules listed to be removed."""
     current_list = execute(sys.executable, "-m", "pip", "freeze", "-q", "-l")
     for module in module_list:
         if module in current_list:

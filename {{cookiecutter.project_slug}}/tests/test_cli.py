@@ -1,10 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
+# Core Library modules
 import sys
 
+# Third party modules
 from click.testing import CliRunner
 
+# First party modules
 from src.{{ cookiecutter.pkg_name }} import cli
 
 

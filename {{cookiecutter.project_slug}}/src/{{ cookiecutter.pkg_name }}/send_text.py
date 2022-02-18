@@ -1,7 +1,12 @@
-import send_email
-import configparser
-import keyring
+#!/usr/bin/env python3
+"""Utility script demonstrating the use of the send_email.py script"""
 
+# Core Library modules
+import configparser
+
+# Third party modules
+import keyring
+import send_email
 
 # Get SMTP Settings from Config file and Credentials from Keyring
 service = "gmail"

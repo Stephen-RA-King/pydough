@@ -1,11 +1,15 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
-import pytest
-import warnings
-import sys
+# Core Library modules
 import os
 import sqlite3
+import sys
+import warnings
+
+# Third party modules
+import pytest
+
+# First party modules
 from src.{{cookiecutter.pkg_name}} import {{cookiecutter.pkg_name}}
 
 # ******************FIXTURES ***************************
