@@ -1,12 +1,13 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+"""Utility tool to finish installation after initial cookiecutter file copy."""
 
+# Core Library modules
+import logging
 import os
 import shutil
 import subprocess
 import sys
 from pathlib import Path
-import logging
 
 
 SLUG_DIR = Path.cwd()
@@ -31,6 +32,8 @@ logger.addHandler(f_handler)
 
 
 def delete_director(items_to_delete):
+    """Utility function to delete files or directories"""
+
     for item in items_to_delete:
         if item.is_dir():
             logger.debug(f"Deleting Directory: {item}")
