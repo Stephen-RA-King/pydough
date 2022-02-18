@@ -32,10 +32,10 @@
   ],
   "license": [
     "MIT",
-    "BSD",
+    "BSD-3-Clause",
     "ISC",
     "Apache-2.0",
-    "GPL-3.0",
+    "GPL-3.0-only",
     "Not open source"
   ]
 }
