@@ -30,6 +30,7 @@ isort{% endif %}
 {% if cookiecutter.use_email_utility == 'y' -%}
 keyring{% endif %}
 {% if cookiecutter.use_mypy == 'y' -%}
+lxml
 mypy{% endif %}
 {% if cookiecutter.use_sphinx== 'y' -%}
 myst-parser{% endif %}
@@ -43,6 +44,7 @@ pytest{% endif %}
 pyyaml{% endif %}
 {% if cookiecutter.use_sphinx== 'y' -%}
 Sphinx{% endif %}
+tox
 twine
 watchdog
 
