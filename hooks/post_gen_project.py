@@ -11,6 +11,7 @@ from pathlib import Path
 
 
 SLUG_DIR = Path.cwd()
+LOG_DIR = SLUG_DIR / "logs"
 SRC_DIR = SLUG_DIR / "src"
 PKG_DIR = SRC_DIR / "{{ cookiecutter.pkg_name }}"
 TEST_DIR = SLUG_DIR / "tests"
@@ -20,7 +21,7 @@ REQ_DIR = SLUG_DIR / "requirements"
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 c_handler = logging.StreamHandler()
-f_handler = logging.FileHandler('logs/post_gen.log')
+f_handler = logging.FileHandler(LOG_DIR / "post_gen.log")
 c_handler.setLevel(logging.INFO)
 f_handler.setLevel(logging.DEBUG)
 c_format = logging.Formatter('%(message)s')
