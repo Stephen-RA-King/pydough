@@ -15,12 +15,12 @@ def execute(*args, supress_exception=False, cwd=None):
             os.chdir(cwd)
         proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = proc.communicate()
-        out = out.decode("utf-8")
-        err = err.decode("utf-8")
+        decoded_out = out.decode("utf-8")
+        decoded_err = err.decode("utf-8")
         if err and not supress_exception:
-            raise Exception(err)
+            raise Exception(decoded_err)
         else:
-            return out
+            return decoded_out
     finally:
         os.chdir(cur_dir)
 
