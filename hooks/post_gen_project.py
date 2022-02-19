@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Utility tool to finish installation after initial cookiecutter file copy."""
+"""Utility tool to finalize installation after initial cookiecutter file copy."""
 
 # Core Library modules
 import logging
@@ -53,13 +53,13 @@ def execute(*args, supress_exception=False, cwd=None):
             os.chdir(cwd)
         proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = proc.communicate()
-        out = out.decode("utf-8")
-        err = err.decode("utf-8")
+        decoded_out = out.decode("utf-8")
+        decoded_err = err.decode("utf-8")
         if err and not supress_exception:
-            logger.exception(err)
-            raise Exception(err)
+            logger.exception(decoded_err)
+            raise Exception(decoded_err)
         else:
-            return out
+            return decoded_out
     finally:
         logger.debug(f"Changing Directory to: {cur_dir}")
         os.chdir(cur_dir)
@@ -79,7 +79,7 @@ def pip_configure(command):
 
 def upgrade_package(packages):
     for package in packages:
-        logger.debug(f"Upgrading package: {package}")
+        logger.info(f"...... package: {package}")
         if "#" in package:
             continue
         else:
@@ -88,8 +88,8 @@ def upgrade_package(packages):
 
 def init_git():
     if not (SLUG_DIR / ".git").is_dir():
-        execute("git", "config", "--global", "init.defaultBranch", "main", cwd=SLUG_DIR)
         execute("git", "init", cwd=SLUG_DIR)
+        execute("git", "config", "--global", "init.defaultBranch", "main", cwd=SLUG_DIR)
         execute("git", "config", "commit.template", ".gitmessage", cwd=SLUG_DIR)
 
 
@@ -100,7 +100,7 @@ def install_pre_commit_hooks():
 
 def generate_requirements(requirements):
     for requirement in requirements:
-        logger.debug(f"Analysing {requirement}")
+        logger.info(f"...... {requirement[:-3]}.txt")
         execute("pip-compile", "-q", requirement, cwd=REQ_DIR)
 
 
@@ -113,7 +113,7 @@ def main():
         "setuptools",
         "pip-tools",
     ]
-    logger.info("Upgrading basic packages")
+    logger.info("Upgrading and Installing Basic Packages")
     upgrade_package(upgrade_basics_list)
 
     if "{{ cookiecutter.create_author_file }}".lower() != "y":
@@ -158,6 +158,12 @@ def main():
             install_pre_commit_hooks()
         except Exception as e:
             logger.exception(e)
+    else:
+        delete_director(
+            [
+                SLUG_DIR / ".pre-commit-config.yaml",
+            ]
+        )
 
     try:
         req_list = [
