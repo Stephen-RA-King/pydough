@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Tests for CLI scripts"""
 
 # Core Library modules
 import sys
@@ -11,6 +12,7 @@ from src.{{ cookiecutter.pkg_name }} import cli
 
 
 def test_author():
+    """Test function to assert correct author name."""
     runner = CliRunner()
     result = runner.invoke(cli.author)
     assert result.exit_code == 0
@@ -18,6 +20,7 @@ def test_author():
 
 
 def test_author_verbose():
+    """Test function to assert correct verbose author name."""
     runner = CliRunner()
     result = runner.invoke(cli.author, ["--verbose"])
     assert result.exit_code == 0
@@ -28,6 +31,7 @@ def test_author_verbose():
 
 
 def test_author_help():
+    """Test function to assert correct author help text."""
     runner = CliRunner()
     result = runner.invoke(cli.author, ["--help"])
     assert result.exit_code == 0
@@ -35,6 +39,7 @@ def test_author_help():
 
 
 def test_pkg_info():
+    """Test function to assert correct package information."""
     runner = CliRunner()
     result = runner.invoke(cli.pkg_info)
     assert result.exit_code == 0
@@ -42,6 +47,7 @@ def test_pkg_info():
 
 
 def test_pkg_info_verbose():
+    """Test function to assert correct verbose package information."""
     runner = CliRunner()
     result = runner.invoke(cli.pkg_info, ["--verbose"])
     assert result.exit_code == 0
@@ -53,6 +59,7 @@ def test_pkg_info_verbose():
 
 
 def test_python_version():
+    """Test function to assert python version."""
     version = "{0.major}.{0.minor}.{0.micro}".format(sys.version_info)
     runner = CliRunner()
     result = runner.invoke(cli.python)
@@ -61,6 +68,7 @@ def test_python_version():
 
 
 def test_pkg_info_help():
+    """Test function to assert correct package information help text."""
     runner = CliRunner()
     result = runner.invoke(cli.pkg_info, ["--help"])
     assert result.exit_code == 0

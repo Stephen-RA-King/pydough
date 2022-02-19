@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Utility script demonstrating the use of the send_email.py script"""
+"""Utility script demonstrating the use of the send_email.py script."""
 
 # Core Library modules
 import configparser

@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""module docstring - short summary
-If the description is long, the first line should be a short summary that makes
-sense on its own, separated from the rest by a newline
-"""
+"""Facade script for email.message package."""
 
 # Core Library modules
 import mimetypes
@@ -13,6 +10,8 @@ from pathlib import Path
 
 
 class SendEmail:
+    """Class to configure and store message and SMTP details and send email."""
+
     def __init__(
         self,
         user_id=None,
@@ -22,6 +21,7 @@ class SendEmail:
         smtp_encryption="yes",
         smtp_authentication="yes",
     ):
+        """Initialize class with set and default arguments."""
         self._user_id = user_id
         self._user_pass = user_pass
         self._display_password = None
@@ -40,13 +40,13 @@ class SendEmail:
         self._bcc = None
         self._validated_bcc = None
         self._body = None
-        self._msg = None
-        self._msg_test = None
         self._attachments = None
+        self._msg_test = EmailMessage()
         self._msg = EmailMessage()
 
     @staticmethod
     def _validate_email(email):
+        """Utility private method to validate email syntax."""
         _email_pattern = (
             r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:"
             r"[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
@@ -69,6 +69,7 @@ class SendEmail:
             )
 
     def __repr__(self):
+        """Return detailed information about message and SMTP."""
         if self._user_id:
             self._display_id = "************ (Configured)"
         else:
@@ -95,6 +96,7 @@ class SendEmail:
         smtp_encryption="yes",
         smtp_authentication="yes",
     ):
+        """Sets and stores detailed SMTP information."""
         if user_id:
             self._user_id = user_id
         if user_pass:
@@ -109,6 +111,7 @@ class SendEmail:
             self._smtp_authentication = smtp_authentication
 
     def smtp_get(self):
+        """Gets all SMTP Attributes."""
         if self._user_pass:
             self._display_password = "************ (Configured)"
         else:
@@ -128,6 +131,7 @@ class SendEmail:
             """
 
     def smtp_test(self, sender, recipient):
+        """Send a test message using configured SMTP settings."""
         self._msg_test = EmailMessage()
         if self._validate_email(sender):
             self._test_sender = sender
@@ -157,6 +161,7 @@ class SendEmail:
         body=None,
         attachments=None,
     ):
+        """Will send the configured message using the configured SMTP settings."""
         self._validated_cc = []
         self._validated_bcc = []
         if subject:
@@ -197,6 +202,7 @@ class SendEmail:
         self._message_transmit(self._msg)
 
     def message_get(self):
+        """Get the message settings which are currently set."""
         return f"""
             c = Compulsory
             SUBJECT:(c) {self._subject },
@@ -208,10 +214,12 @@ class SendEmail:
         """
 
     def message_clear(self):
+        """Clears the message settings."""
         if self._msg:
             self._msg.clear()
 
     def _message_transmit(self, message):
+        """Connect to the SMTP server and send the message."""
         if not self._smtp_server or not self._smtp_port:
             print("Some SMTP server details are missing")
             print(self.smtp_get())
@@ -229,6 +237,6 @@ class SendEmail:
             try:
                 server.send_message(message)
             except smtplib.SMTPResponseException as e:
-                error_code = e.smtp_code
-                error_message = e.smtp_error
+                error_code = str(e.smtp_code)
+                error_message = str(e.smtp_error)
                 print(f"Error Code: {error_code}:  {error_message}")

@@ -2,6 +2,7 @@
 """Example Module with Google style docstrings."""
 
 # Core Library modules
+import os
 import warnings
 
 
@@ -106,33 +107,45 @@ def doubleit(num):
 
 
 def addit(num1, num2):
+    """Function return used to test approximation of float addition."""
     var = num1 + num2
     return var
 
 
 def div_by_zero():
+    """Function return will be used to test exceptions."""
     return 1 / 0
 
 
 def manual_exception():
+    """Function return to trigger ValueError in tests."""
     return 10
 
 
 def check_message(pet):
+    """Function return to trigger ValueError in tests."""
     if pet != "cat":
         raise ValueError("pet must be cat")
 
 
 def lame_function():
+    """Function return will be used to test for warnings."""
     warnings.warn("Please stop using this", DeprecationWarning)
 
 
 def check_output():
+    """Function return will be used in capture output tests."""
     print("hello world")
 
 
+def getssh():
+    """Monkeypatch this function in test - this Original function is not changed."""
+    return os.path.join(os.path.expanduser("~admin"), "ssh")
+
+
 def main():
-    """main function. Returns passed."""
+    """Main function. Returns passed."""
+    pass
 
 
 if __name__ == "__main__":
