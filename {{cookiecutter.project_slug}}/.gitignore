@@ -130,8 +130,6 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
-# requiremnts text files
-/requirements/*.txt
 
 # miscellaneous files
 TODO.txt
