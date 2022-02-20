@@ -112,6 +112,7 @@ def main():
         "pip",
         "wheel",
         "setuptools",
+        "build",
         "pip-tools",
     ]
     logger.info("Upgrading and Installing Basic Packages")
