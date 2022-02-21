@@ -66,7 +66,7 @@ pip install --editable {{ cookiecutter.project_slug }}
 ## Release History
 
 
-* 0.0.1
+* v {{ cookiecutter.version }}
     * Work in progress
 
 ## Meta
