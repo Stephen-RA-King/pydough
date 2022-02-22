@@ -3,4 +3,8 @@ click
 flake8
 lxml
 mypy
+{% if cookiecutter.use_pytest == 'y' -%}
 pytest
+{%- else -%}
+unittest
+{%- endif %}
