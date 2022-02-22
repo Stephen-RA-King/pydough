@@ -1,19 +1,18 @@
 -r base.txt
 
-
 {% if cookiecutter.use_bandit == 'y' -%}
 bandit{% endif %}
-{% if cookiecutter.use_black == 'y' -%}
+{%- if cookiecutter.use_black == 'y' %}
 black{% endif %}
 build
-{% if cookiecutter.use_bump2version == 'y' -%}
+{%- if cookiecutter.use_bump2version == 'y' %}
 bump2version{% endif %}
-{% if cookiecutter.command_line_interface|lower == 'click' -%}
+{%- if cookiecutter.command_line_interface|lower == 'click' %}
 click{% endif %}
 colorama
 coverage
 coverage-conditional-plugin
-{% if cookiecutter.use_flake8 == 'y' -%}
+{%- if cookiecutter.use_flake8 == 'y' %}
 flake8
 flake8-bandit
 flake8-bugbear
@@ -23,31 +22,27 @@ flake8-eradicate
 flake8-pytest-style
 flake8-simplify
 flakeheaven{% endif %}
-{% if cookiecutter.use_sphinx== 'y' -%}
+{%- if cookiecutter.use_sphinx== 'y' %}
 furo{% endif %}
-{% if cookiecutter.use_isort == 'y' -%}
+{%- if cookiecutter.use_isort == 'y' %}
 isort{% endif %}
-{% if cookiecutter.use_email_utility == 'y' -%}
+{%- if cookiecutter.use_email_utility == 'y' %}
 keyring{% endif %}
-{% if cookiecutter.use_mypy == 'y' -%}
+{%- if cookiecutter.use_mypy == 'y' %}
 lxml
 mypy{% endif %}
-{% if cookiecutter.use_sphinx== 'y' -%}
+{%- if cookiecutter.use_sphinx== 'y' %}
 myst-parser{% endif %}
-{% if cookiecutter.use_flake8 == 'y' -%}
+{%- if cookiecutter.use_flake8 == 'y' %}
 pep8-naming{% endif %}
-{% if cookiecutter.use_pre_commit == 'y' -%}
+{%- if cookiecutter.use_pre_commit == 'y' %}
 pre-commit{% endif %}
-{% if cookiecutter.use_pytest == 'y' -%}
+{%- if cookiecutter.use_pytest == 'y' %}
 pytest{% endif %}
-{% if cookiecutter.use_logging == 'y' -%}
+{%- if cookiecutter.use_logging == 'y' %}
 pyyaml{% endif %}
-{% if cookiecutter.use_sphinx== 'y' -%}
+{%- if cookiecutter.use_sphinx== 'y' %}
 Sphinx{% endif %}
 tox
 twine
 watchdog
-
-
-
-
