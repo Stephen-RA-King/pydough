@@ -3,8 +3,28 @@
 
 # Core Library modules
 import os
+{%- if cookiecutter.use_logging == 'y' %}
+import logging.config
+{%- endif %}
 import warnings
 
+# Third party modules
+{%- if cookiecutter.use_logging == 'y' %}
+import yaml
+{%- endif %}
+
+{% if cookiecutter.use_logging == 'y' -%}
+with open('logging_config.yaml') as f:
+    logging.config.dictConfig(yaml.safe_load(f))
+
+logger = logging.getLogger("customlogger")
+# ==================TEST THE LOGGER ========================
+logger.debug('debug message')
+logger.info('info message')
+logger.warning('warning message')
+logger.error('error message')
+logger.critical('critical message')
+{%- endif %}
 
 class ExampleClass:
     """The summary line for a class docstring should fit on one line.
