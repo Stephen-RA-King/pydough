@@ -84,7 +84,7 @@ repos:
         args:
           [
             --ignore-missing-imports,
-            --disallow_untyped_defs=false
+            --disallow-untyped-defs
           ]
         exclude: |
             (?x)^(
