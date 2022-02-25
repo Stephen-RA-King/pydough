@@ -8,3 +8,6 @@ pytest
 {%- else -%}
 unittest
 {%- endif %}
+{% if cookiecutter.use_logging == 'y' %}
+pyyaml
+{%- endif %}
