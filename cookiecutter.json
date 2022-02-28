@@ -6,7 +6,7 @@
   "project_short_description": "boilerplate you need to create a Python package.",
   "author_name": "Stephen R A King",
   "email": "stephen.ra.king@gmail.com",
-  "github_username": "stephen-ra-king",
+  "github_username": "Stephen-RA-King",
   "create_author_file": "y",
   "version": "0.1.0",
   "_year": "{% now 'utc', '%Y' %}",
