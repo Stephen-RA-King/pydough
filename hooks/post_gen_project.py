@@ -24,8 +24,8 @@ c_handler = logging.StreamHandler()
 f_handler = logging.FileHandler(LOG_DIR / "post_gen.log")
 c_handler.setLevel(logging.INFO)
 f_handler.setLevel(logging.DEBUG)
-c_format = logging.Formatter('%(message)s')
-f_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+c_format = logging.Formatter("%(message)s")
+f_format = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 c_handler.setFormatter(c_format)
 f_handler.setFormatter(f_format)
 logger.addHandler(c_handler)
@@ -92,6 +92,21 @@ def init_git():
         execute("git", "init", cwd=SLUG_DIR)
         execute("git", "config", "--global", "init.defaultBranch", "main", cwd=SLUG_DIR)
         execute("git", "config", "commit.template", ".gitmessage", cwd=SLUG_DIR)
+        if "{{ cookiecutter.github_username }}":
+            github_url = "".join(
+                [
+                    "/".join(
+                        [
+                            "https://github.com",
+                            "{{ cookiecutter.github_username }}",
+                            "{{ cookiecutter.project_name }}",
+                        ]
+                    ),
+                    ".git",
+                ]
+            )
+            logger.info(f"...... remote url: {github_url}")
+            execute("git", "remote", "add", "origin", github_url, cwd=SLUG_DIR)
 
 
 def install_pre_commit_hooks():
