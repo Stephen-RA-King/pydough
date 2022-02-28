@@ -9,5 +9,3 @@ Welcome to template's documentation!
 
 .. include:: ../../README.md
    :parser: myst_parser.sphinx_
-
-
