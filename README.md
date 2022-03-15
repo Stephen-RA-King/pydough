@@ -2,6 +2,7 @@
 
 _**A general purpose template for the creation of a Python Package**_
 
+![](header.png)
 
 ## Template Features
 
@@ -65,7 +66,7 @@ pip install -r <package-name>/requirements.txt
 
 ## Release History
 
-* 0.0.1
+* 0.1.0
     * Work in progress
 
 ## Meta
