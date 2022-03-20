@@ -11,7 +11,7 @@ import send_email
 # Get SMTP Settings from Config file and Credentials from Keyring
 service = "gmail"
 ini = configparser.ConfigParser()
-ini.read("config.ini")
+ini.read("email_config.ini")
 server = ini.get(service, "smtp_server")
 port = int(ini.get(service, "smtp_port"))
 auth = ini.get(service, "smtp_authentication")
