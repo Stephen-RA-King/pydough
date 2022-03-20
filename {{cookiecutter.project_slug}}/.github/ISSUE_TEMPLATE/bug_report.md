@@ -1,22 +1,63 @@
-<!-- Hello! Thanks for submitting a PR. To help make things go a bit more
-     smoothly we would appreciate that you go through this template. -->
+---
+name: Bug report
+about: Create a report to help us improve Black's quality
+title: ""
+labels: "T: bug"
+assignees: ""
+---
 
-### Description
+<!--
+Please make sure that the bug is not already fixed either in newer versions or the
+current development version. To confirm this, you have two options:
 
-<!-- Good things to put here include: reasoning for the change (please link
-     any relevant issues!) -->
+1. Update {{ cookiecutter.project_name }} version if a newer release exists: `pip install -U {{ cookiecutter.project_name }}`
+2. Or run _{{ cookiecutter.project_name }}_ on your machine:
+   - create a new virtualenv (make sure it's the same Python version);
+   - clone this repository;
+   - run `pip install -e .[d]`;
+   - run `pip install -r requirements.txt`
+   - make sure it's sane by running `python -m pytest`; and
+   - run `{{ cookiecutter.project_name }}` like you did last time.
+-->
 
-### Checklist - did you ...
+**Describe the bug**
 
-<!-- If any of the following items are not relevant for your contribution
-     please still tick them, so we know you've gone through the checklist.
+<!-- A clear and concise description of what the bug is. -->
 
-    All user-facing changes should get an entry. Otherwise, signal to me that
-    this should get the magical label to silence the CHANGELOG entry check.
-    Tests are required for bugfixes and new features. Documentation changes
-    are necessary for formatting and most enhancement changes. -->
+**To Reproduce**
 
-- [ ] Add a CHANGELOG entry if necessary?
-- [ ] Add / update tests if necessary?
-- [ ] Add new / update outdated documentation?
+<!--
+Minimal steps to reproduce the behavior with source code and {{ cookiecutter.project_name }}'s configuration.
+-->
+
+For example, take this code:
+
+```python
+...
+```
+
+And run it with these arguments:
+
+```sh
+$ 
+```
+
+The resulting error is:
+
+>  ...
+
+**Expected behavior**
+
+<!-- A clear and concise description of what you expected to happen. -->
+
+**Environment**
+
+<!-- Please complete the following information: -->
+
+- {{ cookiecutter.project_name }}'s version: <!-- e.g. [main] -->
+- OS and Python version: <!-- e.g. [Linux/Python 3.7.4rc1] -->
+
+**Additional context**
+
+<!-- Add any other context about the problem here. -->
 
