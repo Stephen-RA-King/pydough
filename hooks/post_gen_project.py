@@ -140,6 +140,14 @@ def main():
             ]
         )
 
+    if "{{ cookiecutter.use_docker }}".lower() != "y":
+        delete_director(
+            [
+                SLUG_DIR / "dev.Dockerfile",
+                SLUG_DIR / "prod.Dockerfile",
+            ]
+        )
+
     if "{{ cookiecutter.command_line_interface }}".lower() != "click":
         delete_director([PKG_DIR / "cli.py", TEST_DIR / "test_cli.py"])
 
