@@ -11,7 +11,7 @@ All the following features are optional:
 * [**Flake8**][flake8-url] - Tool that glues together pycodestyle, pyflakes & mccabe
 * [**Black**][black-url] - Code formatter
 * [**MyPy**][mypy-url] - Tool for static type checking
-* [**Pre-Commit**][pre-commit-url] - A framework for managing pre-commit hooks
+* [**Pre-Commit**][pre-commit-url] - A framework for managing pre-commit hooks (pre-configured with many hooks)
 * [**isort**][isort-url] - Sort imports automatically
 * [**Bandit**][bandit-url] -  Finds common security issues 
 * [**Sphinx**][sphinx-url] -  Package for creating documentation
@@ -19,11 +19,12 @@ All the following features are optional:
 
 The following tool will be installed and is mandatory:
 
-* [**pip-tools**][pip-tools-url] -  Pins every single package dependency (even the dependency’s dependencies)
+
 
 ### Other Features
 * Automatically installs pre-commit (if selected) and associated git hook
 * Automatically configures git message template
+* [**pip-tools**][pip-tools-url] -  Pins every single package dependency (even the dependency’s dependencies)
 * Selection of licenses to choose from
 * Optionally include [**Flakeheaven**][flakeheaven-url] Flake8 wrapper to replace flakehell
 * Optionally include [**bump2version**][bump2version-url] to maintain version strings in your source code
@@ -41,13 +42,14 @@ The following tool will be installed and is mandatory:
 ## Pre Installation Requirements
 
 1. Python 3.7, 3.8, 3.9 or 3.10
-2. A Python Virtual Environment (activated).
-3. Git
-4. Cookiecutter Python package installed into the local Virtual Environment
+2. pip-tools
+3. A Python Virtual Environment (activated).
+4. Git
+5. Cookiecutter Python package installed into the local Virtual Environment
 
 ## Installation
 
-Assuming you are at the command prompt of the activated virtual environemnt
+Assuming you are at the command prompt of the activated virtual environment
 simply type the following:
 
 ```sh
