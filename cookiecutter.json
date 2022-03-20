@@ -10,6 +10,7 @@
   "create_author_file": "y",
   "version": "0.1.0",
   "_year": "{% now 'utc', '%Y' %}",
+  "use_docker": "n",
   "use_pytest": "y",
   "use_black": "y",
   "use_flake8": "y",
@@ -24,8 +25,8 @@
   "use_sphinx": "y",
   "use_pre_commit": "y",
   "use_bandit": "y",
-  "use_logging": "y",
-  "use_email_utility": "y",
+  "use_logging": "n",
+  "use_email_utility": "n",
   "command_line_interface": [
     "Click",
     "No command-line interface"
