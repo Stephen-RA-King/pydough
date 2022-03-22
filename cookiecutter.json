@@ -15,6 +15,7 @@
   "use_black": "y",
   "use_flake8": "y",
   "use_mypy": "y",
+  "use_commitizen": "y",
   "docstrings_style": [
     "google",
     "numpy",
