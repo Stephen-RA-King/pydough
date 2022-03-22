@@ -112,6 +112,9 @@ def init_git():
 def install_pre_commit_hooks():
     execute("pre-commit", "install")
     execute("pre-commit", "autoupdate")
+    if "{{ cookiecutter.use_commitizen }}".lower() == "y":
+        execute("pre-commit", "install", "--hook-type", "commit-msg")
+
 
 
 def generate_requirements(requirements):
