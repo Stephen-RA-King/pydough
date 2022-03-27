@@ -20,11 +20,13 @@ repos:
       - id: requirements-txt-fixer
       - id: trailing-whitespace
 
+  {% if cookiecutter.use_commitizen|lower == "y" -%}
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v2.21.2
     hooks:
       - id: commitizen
         stages: [commit-msg]
+  {%- endif %}
 
   - repo: https://github.com/MartinThoma/check-pip-compile
     rev: 0.1.1
@@ -75,6 +77,7 @@ repos:
     rev: v2.6.0
     hooks:
       - id: prettier
+        stages: [commit]
 
   {% if cookiecutter.use_mypy|lower == "y" -%}
   - repo: https://github.com/pre-commit/mirrors-mypy
