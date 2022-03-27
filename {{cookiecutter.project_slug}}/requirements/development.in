@@ -12,7 +12,7 @@ click{% endif %}
 colorama
 {%- if cookiecutter.use_commitizen == 'y' %}
 commitizen{% endif %}
-coverage
+coverage[toml]
 coverage-conditional-plugin
 {%- if cookiecutter.use_flake8 == 'y' %}
 flake8
