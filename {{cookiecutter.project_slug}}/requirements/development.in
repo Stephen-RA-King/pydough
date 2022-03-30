@@ -43,6 +43,8 @@ pre-commit{% endif %}
 pytest{% endif %}
 {%- if cookiecutter.use_logging == 'y' %}
 pyyaml{% endif %}
+{%- if cookiecutter.use_safety == 'y' %}
+safety{% endif %}
 {%- if cookiecutter.use_sphinx== 'y' %}
 Sphinx{% endif %}
 tox

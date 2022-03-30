@@ -11,3 +11,6 @@ unittest
 {% if cookiecutter.use_logging == 'y' %}
 pyyaml
 {%- endif %}
+{% if cookiecutter.use_safety == 'y' %}
+safety
+{%- endif %}
