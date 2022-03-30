@@ -26,6 +26,7 @@
   "use_sphinx": "y",
   "use_pre_commit": "y",
   "use_bandit": "y",
+  "use_safety": "y",
   "use_logging": "n",
   "use_email_utility": "n",
   "command_line_interface": [
