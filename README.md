@@ -26,6 +26,7 @@ The following tool will be installed and is mandatory:
 * Automatically configures git message template
 * [**pip-tools**][pip-tools-url] -  Pins every single package dependency (even the dependency’s dependencies)
 * Selection of licenses to choose from
+* Optionally include [**Safety**][safety-url] to check dependencies for known security vulnerabilities
 * Optionally include [**Flakeheaven**][flakeheaven-url] Flake8 wrapper to replace flakehell
 * Optionally include [**bump2version**][bump2version-url] to maintain version strings in your source code
 * Options to specify Docstring style (Google, Numpy or [**PEP257**][pep257-url])
@@ -89,6 +90,7 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 [sphinx-url]: https://www.sphinx-doc.org/en/master/
 [click-url]: https://click.palletsprojects.com/en/8.0.x/
 [commitizen-url]: https://github.com/commitizen-tools/commitizen
+[safety-url]: https://github.com/pyupio/safety
 [pep257-url]: https://www.python.org/dev/peps/pep-0257/
 [bump2version-url]: https://pypi.org/project/bump2version/
 [pip-tools-url]: https://pypi.org/project/pip-tools/
