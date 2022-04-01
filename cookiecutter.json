@@ -5,7 +5,7 @@
   "pkg_name": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "project_short_description": "boilerplate you need to create a Python package.",
   "author_name": "Stephen R A King",
-  "email": "stephen.ra.king@gmail.com",
+  "email": "name@isp.com",
   "github_username": "Stephen-RA-King",
   "create_author_file": "y",
   "version": "0.1.0",
