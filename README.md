@@ -1,6 +1,6 @@
 # Cookiecutter template
 
-_**A general purpose template for the creation of a Python Package**_
+_**A general purpose template for the creation of a Python application or library**_
 
 ![](header.png)
 
@@ -17,14 +17,13 @@ All the following features are optional:
 * [**Sphinx**][sphinx-url] -  Package for creating documentation
 * [**Click**][click-url] -  Package for creating Command line interfaces
 
-The following tool will be installed and is mandatory:
-
+The following tool is mandatory (you will thank me later):
+* [**pip-tools**][pip-tools-url] -  Pins every single package dependency (even the dependency’s dependencies)
 
 
 ### Other Features
 * Automatically installs pre-commit (if selected) and associated git hook
 * Automatically configures git message template
-* [**pip-tools**][pip-tools-url] -  Pins every single package dependency (even the dependency’s dependencies)
 * Selection of licenses to choose from
 * Optionally include [**Safety**][safety-url] to check dependencies for known security vulnerabilities
 * Optionally include [**Flakeheaven**][flakeheaven-url] Flake8 wrapper to replace flakehell
@@ -44,10 +43,10 @@ The following tool will be installed and is mandatory:
 ## Pre Installation Requirements
 
 1. Python 3.7, 3.8, 3.9 or 3.10
-2. pip-tools
-3. A Python Virtual Environment (activated).
-4. Git
-5. Cookiecutter Python package installed into the local Virtual Environment
+2. [**pip-tools**][pip-tools-url]
+3. A Python Virtual Environment (activated). (I like [**virtualenv**][virtualenv-url] with [**virtualenv_wrapper**][virtualenvwrapper-url])
+5. Git
+6. [**Cookiecutter**][cookiecutter-url] Python package installed into the local Virtual Environment
 
 ## Installation
 
@@ -58,9 +57,9 @@ simply type the following:
 cookiecutter https://github.com/stephen-ra-king/cc_template
 ```
 
-cookiecutter will prompt you for a selection of inputs and eventually pip-tools will
+cookiecutter will prompt you for a selection of inputs and eventually [**pip-tools**][pip-tools-url] will
 pin your dependencies from the inputs you have given.
-This template uses layered requirements files (the default being "development").
+This template uses [**layered requirements**][layered-url] (the default being "development").
 Now install the packages using pip
 
 ```sh
@@ -86,6 +85,10 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 
 
 <!-- Markdown link & img dfn's -->
+[virtualenv-url]: https://virtualenv.pypa.io
+[virtualenvwrapper-url]: https://pypi.org/project/virtualenvwrapper/
+[cookiecutter-url]: https://github.com/cookiecutter/cookiecutter
+[layered-url]: https://github.com/jazzband/pip-tools/#workflow-for-layered-requirements
 [flake8-url]: https://flake8.pycqa.org/en/latest/
 [sphinx-url]: https://www.sphinx-doc.org/en/master/
 [click-url]: https://click.palletsprojects.com/en/8.0.x/
