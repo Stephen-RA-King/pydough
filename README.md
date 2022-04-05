@@ -43,10 +43,9 @@ The following tool is mandatory (you will thank me later):
 ## Pre Installation Requirements
 
 1. Python 3.7, 3.8, 3.9 or 3.10
-2. [**pip-tools**][pip-tools-url]
-3. A Python Virtual Environment (activated). (I like [**virtualenv**][virtualenv-url] with [**virtualenv_wrapper**][virtualenvwrapper-url])
-5. Git
-6. [**Cookiecutter**][cookiecutter-url] Python package installed into the local Virtual Environment
+2. Git
+3. Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv_wrapper**][virtualenvwrapper-url])
+4. [**Cookiecutter**][cookiecutter-url] installed into the Virtual Environment
 
 ## Installation
 
@@ -59,8 +58,8 @@ cookiecutter https://github.com/stephen-ra-king/cc_template
 
 cookiecutter will prompt you for a selection of inputs and eventually [**pip-tools**][pip-tools-url] will
 pin your dependencies from the inputs you have given.
-This template uses [**layered requirements**][layered-url] (the default being "development").
-Now install the packages using pip
+This template uses [**layered requirements**][layered-url] (the default being "development")
+so now install the packages using pip as follows:
 
 ```sh
 pip install -r <package-name>/requirements.txt
