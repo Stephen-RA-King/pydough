@@ -116,7 +116,6 @@ def install_pre_commit_hooks():
         execute("pre-commit", "install", "--hook-type", "commit-msg")
 
 
-
 def generate_requirements(requirements):
     for requirement in requirements:
         logger.info(f"...... {requirement[:-3]}.txt")
