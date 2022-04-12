@@ -11,7 +11,6 @@ import click
 @click.group()
 def info():
     """Creates container info to which other commands can be attached."""
-    pass
 
 
 @info.command(help="Display Author Name")
