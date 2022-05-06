@@ -134,3 +134,4 @@ dmypy.json
 # miscellaneous files
 TODO.txt
 *.docx
+*.tmp

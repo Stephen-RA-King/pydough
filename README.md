@@ -2,7 +2,9 @@
 
 _**A general purpose template for the creation of a Python application or library**_
 
-![](header.png)
+
+![](https://github.com/Stephen-RA-King/cc_template/raw/main/header.png)
+
 
 ## Template Features
 
