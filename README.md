@@ -70,7 +70,7 @@ pip install -r <package-name>/requirements.txt
 
 ## Release History
 
-* 0.1.0
+* 1.0.0
     * Work in progress
 
 ## Meta
