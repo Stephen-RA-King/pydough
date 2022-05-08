@@ -18,23 +18,23 @@ from {{cookiecutter.pkg_name}} import {{cookiecutter.pkg_name}}
 
 
 {% if cookiecutter.use_pytest|lower == "y" -%}
-def test_fizzbuzz():
+def test_fizzbuzz() -> None:
     result = {{ cookiecutter.pkg_name }}.fizzbuzz(10)
     assert result == [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz']
 
 
-def test_fibonacci():
+def test_fibonacci() -> None:
     result = {{ cookiecutter.pkg_name }}.fibonacci(10)
     assert result == [1, 1, 2, 3, 5, 8]
 
 {%- else -%}
 class {{cookiecutter.pkg_name}}TestCase(unittest.TestCase):
 
-    def test_fizzbuzz(self):
+    def test_fizzbuzz(self) -> None:
         result = {{cookiecutter.pkg_name}}.fizzbuzz(10)
         self.assertEqual(result, [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz'])
 
-    def test_fibonacci(self):
+    def test_fibonacci(self) -> None:
         result = {{cookiecutter.pkg_name}}.fibonacci(10)
         self.assertEqual(result, [1, 1, 2, 3, 5, 8])
 

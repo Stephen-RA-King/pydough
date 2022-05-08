@@ -7,13 +7,13 @@ import click
 
 
 @click.group()
-def info():
+def info() -> None:
     """Creates container info to which other commands can be attached."""
 
 
 @info.command(help="Display Author Name")
 @click.option("-verbose", "--verbose", is_flag=True, help="set the verbosity")
-def author(verbose):
+def author(verbose: str) -> None:
     """Returns details about the Author."""
     click.echo("Author name: {{ cookiecutter.author_name }}")
     if verbose:

@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.2.0
     hooks:
       - id: check-ast
       - id: check-added-large-files
@@ -50,7 +50,7 @@ repos:
 
   {% if cookiecutter.use_black|lower == "y" -%}
   - repo: https://github.com/psf/black
-    rev: 22.1.0
+    rev: 22.3.0
     hooks:
       - id: black
   {%- endif %}
@@ -69,20 +69,20 @@ repos:
   {%- endif %}
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.31.1
+    rev: v2.32.1
     hooks:
       - id: pyupgrade
         args: [--py39]
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.6.0
+    rev: v2.6.2
     hooks:
       - id: prettier
         stages: [commit]
 
   {% if cookiecutter.use_mypy|lower == "y" -%}
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.931
+    rev: v0.950
     hooks:
       - id: mypy
         args: [--ignore-missing-imports, --disallow-untyped-defs]
@@ -101,7 +101,7 @@ repos:
 
   {% if cookiecutter.use_bandit|lower == "y" -%}
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.3
+    rev: 1.7.4
     hooks:
       - id: bandit
         args:

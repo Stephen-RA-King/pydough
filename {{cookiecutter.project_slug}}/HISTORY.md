@@ -19,4 +19,5 @@
 - What was fixed _―[{{ cookiecutter.github_username }}][github]_
 
 <!-- Markdown link & img dfn's -->
+
 [github]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}

@@ -1,4 +1,4 @@
-# Product Name
+# {{ cookiecutter.project_slug }}
 > Short blurb about what your product does.
 
 
@@ -33,7 +33,8 @@
 
 One to two paragraph statement about your product and what it does.
 
-![](header.png)
+![](files/header.png)
+![](https://github.com/Stephen-RA-King/{{ cookiecutter.project_slug }}/raw/main/files/header.png)
 
 ## Installation
 
@@ -73,7 +74,7 @@ pip install --editable {{ cookiecutter.project_slug }}
 
 {{cookiecutter.author_name}} : {{cookiecutter.email}}
 
-Distributed under the {{cookiecutter.license}} License. See ``LICENSE`` for more information.
+Distributed under the {{cookiecutter.license}} License. See `LICENSE` for more information.
 
 [https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
 

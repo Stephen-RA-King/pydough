@@ -11,18 +11,18 @@ from click.testing import CliRunner
 from {{ cookiecutter.pkg_name }} import {{ cookiecutter.pkg_name }}_cli
 
 
-def test_author():
+def test_author() -> None:
     """Test function to assert correct author name."""
     runner = CliRunner()
-    result = runner.invoke(cli.author)
+    result = runner.invoke({{ cookiecutter.pkg_name }}_cli.author)
     assert result.exit_code == 0
     assert result.output == "Author name: {{ cookiecutter.author_name }}\n"
 
 
-def test_author_verbose():
+def test_author_verbose() -> None:
     """Test function to assert correct verbose author name."""
     runner = CliRunner()
-    result = runner.invoke(cli.author, ["--verbose"])
+    result = runner.invoke({{ cookiecutter.pkg_name }}_cli.author, ["--verbose"])
     assert result.exit_code == 0
     assert (
         result.output == "Author name: {{ cookiecutter.author_name }}\n"
@@ -30,10 +30,10 @@ def test_author_verbose():
     )
 
 
-def test_author_help():
+def test_author_help() -> None:
     """Test function to assert correct author help text."""
     runner = CliRunner()
-    result = runner.invoke(cli.author, ["--help"])
+    result = runner.invoke({{ cookiecutter.pkg_name }}_cli.author, ["--help"])
     assert result.exit_code == 0
     assert "  Display Author Name" in result.output
 

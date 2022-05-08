@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
+# Core Library modules
+from typing import Any
 
 
-def fizzbuzz(number_range):
-    result = []
+def fizzbuzz(number_range: int) -> list:
+    result: list[Any] = []
     for num in range(1, number_range):
         if num % 15 == 0:
             result.append("FizzBuzz")
@@ -15,8 +17,8 @@ def fizzbuzz(number_range):
     return result
 
 
-def fibonacci(number_range):
-    result = []
+def fibonacci(number_range: int) -> list:
+    result: list = []
     a, b = 1, 1
     while True:
         if a >= number_range:

@@ -83,5 +83,3 @@ parallel = true
 show_missing = true
 precision = 2
 skip_empty = true
-
-
