@@ -33,7 +33,6 @@ The following tool is mandatory (you will thank me later):
 * Options to specify Docstring style (Google, Numpy or [**PEP257**][pep257-url])
 * Optionally include [**Commitizen**][commitizen-url] for parsing and enforcing descriptive commits
 * Optionally include Logging using the dictConfig() configuration
-* Optionally include an eMail package
 * Optionally include badges at specific locations:
 
 [![pre-commit][pre-commit-image]][pre-commit-url]
@@ -71,7 +70,7 @@ pip install -r <package-name>/requirements.txt
 ## Release History
 
 * 1.0.2
-    * Work in progress
+    * Stable release
 
 ## Meta
 

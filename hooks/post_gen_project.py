@@ -160,14 +160,6 @@ def main():
             ]
         )
 
-    if "{{ cookiecutter.use_email_utility }}".lower() != "y":
-        delete_director(
-            [
-                PKG_DIR / "email_config.ini",
-                PKG_DIR / "send_email.py",
-            ]
-        )
-
     try:
         logger.info("git: Initializing & Configuring")
         init_git()
