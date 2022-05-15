@@ -24,8 +24,6 @@ flake8-eradicate
 flake8-pytest-style
 flake8-simplify
 flakeheaven{% endif %}
-{%- if cookiecutter.use_sphinx== 'y' %}
-furo{% endif %}
 {%- if cookiecutter.use_isort == 'y' %}
 isort{% endif %}
 {%- if cookiecutter.use_email_utility == 'y' %}
@@ -34,7 +32,7 @@ keyring{% endif %}
 lxml
 mypy{% endif %}
 {%- if cookiecutter.use_sphinx== 'y' %}
-myst-parser{% endif %}
+myst-nb{% endif %}
 {%- if cookiecutter.use_flake8 == 'y' %}
 pep8-naming{% endif %}
 {%- if cookiecutter.use_pre_commit == 'y' %}
@@ -46,7 +44,9 @@ pyyaml{% endif %}
 {%- if cookiecutter.use_safety == 'y' %}
 safety{% endif %}
 {%- if cookiecutter.use_sphinx== 'y' %}
-Sphinx{% endif %}
+sphinx
+sphinx-autoapi
+sphinx-rtd-theme{% endif %}
 tox
 twine
 watchdog
