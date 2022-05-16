@@ -26,8 +26,8 @@ flake8-simplify
 flakeheaven{% endif %}
 {%- if cookiecutter.use_isort == 'y' %}
 isort{% endif %}
-{%- if cookiecutter.use_email_utility == 'y' %}
-keyring{% endif %}
+jupyter
+keyring
 {%- if cookiecutter.use_mypy == 'y' %}
 lxml
 mypy{% endif %}
