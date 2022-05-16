@@ -1,4 +1,4 @@
-# {{ cookiecutter.project_slug }}
+# {{ cookiecutter.pkg_name }}
 > Short blurb about what your product does.
 
 
@@ -41,13 +41,13 @@ One to two paragraph statement about your product and what it does.
 OS X & Linux:
 
 ```sh
-pip3 install {{ cookiecutter.project_slug }}
+pip3 install {{ cookiecutter.pkg_name }}
 ```
 
 Windows:
 
 ```sh
-pip install {{ cookiecutter.project_slug }}
+pip install {{ cookiecutter.pkg_name }}
 ```
 
 ## Usage example
@@ -61,7 +61,7 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
 
 ```sh
-pip install --editable {{ cookiecutter.project_slug }}
+pip install --editable {{ cookiecutter.pkg_name }}
 ```
 
 ## Release History
