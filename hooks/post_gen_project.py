@@ -196,6 +196,8 @@ def main():
     except Exception as e:
         logger.exception(e)
 
+    os.rename(".gitignore_template", ".gitignore")
+
     pip_configure("False")
 
 
