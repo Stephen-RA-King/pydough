@@ -10,9 +10,6 @@ project = "{{ cookiecutter.project_name }}"
 copyright = "{% now 'local', '%Y' %}, {{ cookiecutter.author_name }}"
 author = "{{ cookiecutter.author_name }}"
 
-# The full version, including alpha/beta/rc tags
-release = "{{ cookiecutter.version }}"
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
