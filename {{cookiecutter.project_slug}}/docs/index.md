@@ -7,6 +7,7 @@
 
 
 example.ipynb
+authors.md
 changelog.md
 autoapi/index
 ```
