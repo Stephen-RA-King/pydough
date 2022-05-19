@@ -99,7 +99,7 @@ $ git push -u origin main
 <a href="https://github.com/Stephen-RA-King/Stephen-RA-King" target="_blank">
 <img align="left" alt="Stephen's GitHub" width="28px" src="http://github.com/Stephen-RA-King/Stephen-RA-King/raw/main/files/github.svg" style=”margin: 1px 1px 1px 1px;” />  
 </a>
-</p>  
+</p>
 <br>
 <br>
 
