@@ -53,8 +53,8 @@ The following tool is mandatory (you will thank me later):
 Assuming you are at the command prompt of the activated virtual environment
 simply type the following:
 
-```sh
-cookiecutter https://github.com/stephen-ra-king/cc_template
+```bash
+$ cookiecutter https://github.com/stephen-ra-king/cc_template
 ```
 
 cookiecutter will prompt you for a selection of inputs and eventually [**pip-tools**][pip-tools-url] will
@@ -62,23 +62,50 @@ pin your dependencies from the inputs you have given.
 This template uses [**layered requirements**][layered-url] (the default being "development")
 so now install the packages using pip as follows:
 
+```bash
+$ pip install -r <package-name>/requirements.txt
+```
+
+## Finalizing the Installation
+
+1. Put your pypi and testpypi keys into the .pypirc file
+2. Create a remote repository using GitHub
+3. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/)
+4. Install your package as an "editable" package using pip
 ```sh
-pip install -r <package-name>/requirements.txt
+$ python -m pip install -e . 
+```
+5. Push the local files to GitHub
+
+Note Git is automatically initialized and the following is automatically run by the post install hook
+```sh
+git remote add origin git@github.com:<user>/<repository-name>.git 
+```
+So simply add, commit and push
+```sh
+$ git init
+$ git add .
+$ git commit -m "Initial commit"
+$ git push -u origin main 
 ```
 
 
-## Release History
-
-* 1.0.3
-    * Stable release
-
 ## Meta
+<p>
+<a href="https://linkedin.com/in/stephen-k-3a4644210" target="_blank">
+<img align="left" alt="Stephen's LinkedIN" width="28px" src="http://github.com/Stephen-RA-King/Stephen-RA-King/raw/main/files/linkedin.svg" style=”margin: 1px 1px 1px 1px;” />
+</a>
+
+<a href="https://github.com/Stephen-RA-King/Stephen-RA-King" target="_blank">
+<img align="left" alt="Stephen's GitHub" width="28px" src="http://github.com/Stephen-RA-King/Stephen-RA-King/raw/main/files/github.svg" style=”margin: 1px 1px 1px 1px;” />  
+</a>
+</p>  
+<br>
+<br>
 
 Author: Stephen RA King
 
 Distributed under the License. See ``LICENSE`` for more information.
-
-[https://github.com/https://github.com/stephen-ra-king/cc_template][github]
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 

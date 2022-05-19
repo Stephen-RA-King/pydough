@@ -2,6 +2,8 @@
 > Short blurb about what your product does.
 
 
+
+[![readthedocs][readthedocs-image]][readthedocs-url]
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [![pre-commit][pre-commit-image]][pre-commit-url]
 {%- endif %}
@@ -34,7 +36,7 @@
 One to two paragraph statement about your product and what it does.
 
 ![](files/header.png)
-![](https://github.com/Stephen-RA-King/{{ cookiecutter.project_slug }}/raw/main/files/header.png)
+![](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/raw/main/files/header.png)
 
 ## Installation
 
@@ -64,13 +66,26 @@ Describe how to install all development dependencies and how to run an automated
 pip install --editable {{ cookiecutter.pkg_name }}
 ```
 
-## Release History
 
 
-* v {{ cookiecutter.version }}
-    * Work in progress
+## Documentation
+[**Read the Docs**](https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/?)
+
 
 ## Meta
+{% if cookiecutter.github_username == 'Stephen-RA-King' -%}
+<p>
+<a href="https://linkedin.com/in/stephen-k-3a4644210" target="_blank">
+<img align="left" alt="Stephen's LinkedIN" width="28px" src="http://github.com/Stephen-RA-King/Stephen-RA-King/raw/main/files/linkedin.svg" style=”margin: 1px 1px 1px 1px;” />
+</a>
+
+<a href="https://github.com/Stephen-RA-King/Stephen-RA-King" target="_blank">
+<img align="left" alt="Stephen's GitHub" width="28px" src="http://github.com/Stephen-RA-King/Stephen-RA-King/raw/main/files/github.svg" style=”margin: 1px 1px 1px 1px;” />  
+</a>
+</p>  
+<br>
+<br>  
+{%- endif %}
 
 {{cookiecutter.author_name}} : {{cookiecutter.email}}
 
@@ -78,16 +93,12 @@ Distributed under the {{cookiecutter.license}} License. See `LICENSE` for more i
 
 [https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
 
-## Contributing
-
-1. Fork it (<https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
 
 
 <!-- Markdown link & img dfn's -->
+[readthedocs-image]: https://readthedocs.org/projects/{{ cookiecutter.pkg_name }}/badge/?version=latest
+[readthedocs-url]: https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/?badge=latest
+
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
