@@ -5,7 +5,8 @@ bandit{% endif %}
 {%- if cookiecutter.use_black == 'y' %}
 black{% endif %}
 build
-{%- if cookiecutter.use_bump2version == 'y' %}
+{% if cookiecutter.version_control == 'python_semantic_release' %}
+python-semantic-release{% else %}
 bump2version{% endif %}
 {%- if cookiecutter.command_line_interface|lower == 'click' %}
 click{% endif %}

@@ -35,8 +35,8 @@
 
 One to two paragraph statement about your product and what it does.
 
-![](files/header.png)
-![](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/raw/main/files/header.png)
+![](assets/header.png)
+![](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/raw/main/assets/header.png)
 
 ## Installation
 
@@ -74,18 +74,11 @@ pip install --editable {{ cookiecutter.pkg_name }}
 
 ## Meta
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
-<p>
-<a href="https://linkedin.com/in/stephen-k-3a4644210" target="_blank">
-<img align="left" alt="Stephen's LinkedIN" width="28px" src="http://github.com/Stephen-RA-King/Stephen-RA-King/raw/main/files/linkedin.svg" style=”margin: 1px 1px 1px 1px;” />
-</a>
-
-<a href="https://github.com/Stephen-RA-King/Stephen-RA-King" target="_blank">
-<img align="left" alt="Stephen's GitHub" width="28px" src="http://github.com/Stephen-RA-King/Stephen-RA-King/raw/main/files/github.svg" style=”margin: 1px 1px 1px 1px;” />  
-</a>
-</p>
-<br>
-<br>  
-{%- endif %}
+[![](assets/linkedin.png)](https://linkedin.com/in/stephen-k-3a4644210)
+[![](assets/github.png)](https://github.com/Stephen-RA-King/Stephen-RA-King)
+[![](assets/www.png)](https://www.Stephen-RA-King)
+[![](assets/email.png)](mailto:stephen.ra.king@gmail.com)
+{% endif %}
 
 {{cookiecutter.author_name}} : {{cookiecutter.email}}
 

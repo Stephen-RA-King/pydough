@@ -29,7 +29,7 @@ The following tool is mandatory (you will thank me later):
 * Selection of licenses to choose from
 * Optionally include [**Safety**][safety-url] to check dependencies for known security vulnerabilities
 * Optionally include [**Flakeheaven**][flakeheaven-url] Flake8 wrapper to replace flakehell
-* Optionally include [**bump2version**][bump2version-url] to maintain version strings in your source code
+* Optionally include version control and release with [**python-semantic-release**](https://github.com/relekang/python-semantic-release) or [**bump2version**][bump2version-url] 
 * Options to specify Docstring style (Google, Numpy or [**PEP257**][pep257-url])
 * Optionally include [**Commitizen**][commitizen-url] for parsing and enforcing descriptive commits
 * Optionally include Logging using the dictConfig() configuration
@@ -66,12 +66,25 @@ so now install the packages using pip as follows:
 $ pip install -r <package-name>/requirements.txt
 ```
 
-## Finalizing the Installation
+## Optional Post Installation steps
+### Recommended Post Installation Requirements:
+You will need accounts with the following services:
+- [GitHub](http://github.com)
+- [Read the Docs](https://readthedocs.org/)
+- [TestPyPi](https://test.pypi.org/) - Login and Generate your key
+- [PyPi](https://pypi.org/) - Login and Generate your key
+- [Codecov](https://about.codecov.io/)
+
+
+### Finalization Steps
 
 1. Put your pypi and testpypi keys into the .pypirc file
 2. Create a remote repository using GitHub
-3. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/)
-4. Install your package as an "editable" package using pip
+3. If using GitHub actions - Add your PyPi and TestPyPi keys to the repository secrets with the following variable names:
+- TEST_PYPI_API_TOKEN
+- PYPI_API_TOKEN
+4. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/)
+5. Install your package as an "editable" package using pip
 ```sh
 $ python -m pip install -e . 
 ```
@@ -88,24 +101,20 @@ $ git add .
 $ git commit -m "Initial commit"
 $ git push -u origin main 
 ```
-
+Note: If you chose to use the [**Pre-Commit**][pre-commit-url] package then many hooks (e.g. Flake8, Black, Bandit Prettier etc)
+will now download and configure themselves and eventually be run against each file in the repository.
+This may take some time and some files may get modified. You will need to "git add" these files again.
 
 ## Meta
-<p>
-<a href="https://linkedin.com/in/stephen-k-3a4644210" target="_blank">
-<img align="left" alt="Stephen's LinkedIN" width="40px" src="assets/linkedin.png" style=”margin: 1px 1px 1px 1px;” />
-</a>
+[![](assets/linkedin.png)](https://linkedin.com/in/stephen-k-3a4644210)
+[![](assets/github.png)](https://github.com/Stephen-RA-King/Stephen-RA-King)
+[![](assets/www.png)](https://www.Stephen-RA-King)
+[![](assets/email.png)](mailto:stephen.ra.king@gmail.com) 
 
-<a href="https://github.com/Stephen-RA-King/Stephen-RA-King" target="_blank">
-<img align="left" alt="Stephen's GitHub" width="40px" src="assets/github.png" style=”margin: 1px 1px 1px 1px;” />  
-</a>
-</p>
-<br>
-<br>
 
 Author: Stephen RA King
 
-Distributed under the License. See ``LICENSE`` for more information.
+Distributed under the MIT License. See ``LICENSE`` for more information.
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 

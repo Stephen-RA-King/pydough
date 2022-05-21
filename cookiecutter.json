@@ -16,13 +16,16 @@
   "use_flake8": "y",
   "use_mypy": "y",
   "use_commitizen": "y",
+  "version_control": [
+    "python_semantic_release",
+    "bump2version"
+  ]
   "docstrings_style": [
     "google",
     "numpy",
     "pep257"
   ],
   "use_isort": "y",
-  "use_bump2version": "y",
   "use_sphinx": "y",
   "use_pre_commit": "y",
   "use_bandit": "y",
