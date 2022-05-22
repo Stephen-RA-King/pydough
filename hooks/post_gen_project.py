@@ -145,8 +145,21 @@ def main():
     if "{{ cookiecutter.use_docker }}".lower() != "y":
         delete_director(
             [
-                SLUG_DIR / "dev.Dockerfile",
-                SLUG_DIR / "prod.Dockerfile",
+                SLUG_DIR / "Dockerfile",
+            ]
+        )
+
+    if "{{ cookiecutter.version_control }}".lower() == "python_semantic_release":
+        delete_director(
+            [
+                SLUG_DIR / ".bumpversion.cfg",
+            ]
+        )
+
+    if "{{ cookiecutter.use_bandit }}".lower() != "y":
+        delete_director(
+            [
+                SLUG_DIR / ".bandit.yml",
             ]
         )
 
