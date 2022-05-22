@@ -1,15 +1,14 @@
----
-Credits
----
+# Credits
 
-# Development Lead
 
-- {{ cookiecutter.author_name }} \<{{ cookiecutter.email }}\>
-
-# Maintainer
+## Development Lead
 
 - {{ cookiecutter.author_name }} \<{{ cookiecutter.email }}\>
 
-# Contributors
+## Maintainer
 
-None yet. Why not be the first?
+- {{ cookiecutter.author_name }} \<{{ cookiecutter.email }}\>
+
+## Contributors
+
+
