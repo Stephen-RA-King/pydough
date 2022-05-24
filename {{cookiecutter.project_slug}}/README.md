@@ -2,7 +2,7 @@
 > Short blurb about what your product does.
 
 
-
+[![PyPI version](https://badge.fury.io/py/{{ cookiecutter.pkg_name }}.svg)](https://badge.fury.io/py/{{ cookiecutter.pkg_name }})
 [![readthedocs][readthedocs-image]][readthedocs-url]
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [![pre-commit][pre-commit-image]][pre-commit-url]
@@ -69,15 +69,19 @@ pip install --editable {{ cookiecutter.pkg_name }}
 
 
 ## Documentation
-[**Read the Docs**](https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/?)
+[**Read the Docs**](https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/)
 
 
 ## Meta
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 [![](assets/linkedin.png)](https://linkedin.com/in/stephen-k-3a4644210)
 [![](assets/github.png)](https://github.com/Stephen-RA-King/Stephen-RA-King)
+[![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.pkg_name }}/)
 [![](assets/www.png)](https://www.Stephen-RA-King)
 [![](assets/email.png)](mailto:stephen.ra.king@gmail.com)
+{% else %}
+[![](assets/github.png)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
+[![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.pkg_name }}/)
 {% endif %}
 
 {{cookiecutter.author_name}} : {{cookiecutter.email}}
