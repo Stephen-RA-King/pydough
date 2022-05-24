@@ -96,12 +96,11 @@ git remote add origin git@github.com:<user>/<repository-name>.git
 ```
 So simply add, commit and push
 ```sh
-$ git init
-$ git add .
+$ git add *
 $ git commit -m "Initial commit"
 $ git push -u origin main 
 ```
-Note: If you chose to use the [**Pre-Commit**][pre-commit-url] package then many hooks (e.g. Flake8, Black, Bandit Prettier etc)
+Note: If you chose to use the [**Pre-Commit**][pre-commit-url] package then many hooks (e.g. Flake8, Black, Bandit Prettier etc.)
 will now download and configure themselves and eventually be run against each file in the repository.
 This may take some time and some files may get modified. You will need to "git add" these files again.
 

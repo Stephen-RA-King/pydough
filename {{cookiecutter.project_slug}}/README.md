@@ -36,7 +36,6 @@
 One to two paragraph statement about your product and what it does.
 
 ![](assets/header.png)
-![](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/raw/main/assets/header.png)
 
 ## Installation
 
