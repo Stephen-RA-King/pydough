@@ -40,8 +40,10 @@ pep8-naming{% endif %}
 pre-commit{% endif %}
 {%- if cookiecutter.use_pytest == 'y' %}
 pytest{% endif %}
+pynacl
 {%- if cookiecutter.use_logging == 'y' %}
 pyyaml{% endif %}
+requests
 {%- if cookiecutter.use_safety == 'y' %}
 safety{% endif %}
 {%- if cookiecutter.use_sphinx== 'y' %}
