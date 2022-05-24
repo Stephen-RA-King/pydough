@@ -1,10 +1,14 @@
-import requests
 import keyring
 import json
 from base64 import b64encode
 import requests
 from nacl import encoding, public
+import json
+from base64 import b64encode
 
+import keyring
+import requests
+from nacl import encoding, public
 
 GITHUB_TOKEN = keyring.get_password("github", "token")
 TEST_PYPI_TOKEN = keyring.get_password("testpypi", "token")
@@ -40,10 +44,10 @@ def set_keyring(service: str, id_type: str, hidden: str) -> None:
     keyring.set_password(service, id_type, hidden)
 
 
-def github_create_repo():
+def github_create_repo() -> None:
     body_json = {
-            "name": "{{ cookiecutter.pkg_name }}",
-            "description": "{{ cookiecutter.project_short_description }}"
+        "name": "{{ cookiecutter.pkg_name }}",
+        "description": "{{ cookiecutter.project_short_description }}"
     }
 
     url = 'https://api.github.com/user/repos'
@@ -56,7 +60,7 @@ def github_create_repo():
     print(response.json())
 
 
-def github_create_secret(secret_name, secret_value):
+def github_create_secret(secret_name: str, secret_value: str) -> None:
     url_public_key = "https://api.github.com/repos/{{ cookiecutter.github_username }}" \
                      "/{{ cookiecutter.pkg_name }}/actions/secrets/public-key"
 
@@ -76,9 +80,8 @@ def github_create_secret(secret_name, secret_value):
         url_secret = f"https://api.github.com/repos/{{ cookiecutter.github_username }}" \
                      f"/{{ cookiecutter.pkg_name }}/actions/secrets/{secret_name}"
 
-        data = dict()
-        data["encrypted_value"] = encrypt(key_datas["key"], secret_value)
-        data["key_id"] = key_datas["key_id"]
+        data = {"encrypted_value": encrypt(key_datas["key"], secret_value),
+                "key_id": key_datas["key_id"]}
 
         json_data = json.dumps(data)
 
@@ -101,7 +104,7 @@ def github_create_secret(secret_name, secret_value):
         print(r.status_code, r.reason)
 
 
-def readthedocs_create():
+def readthedocs_create() -> None:
     body_json = {
         "name": "{{ cookiecutter.pkg_name }}",
         "repository": {
@@ -125,7 +128,7 @@ def readthedocs_create():
     print(response.json())
 
 
-def readthedocs_update():
+def readthedocs_update() -> None:
     body_json = {
         "name": "{{ cookiecutter.pkg_name }}",
         "default_branch": "main"
@@ -141,7 +144,7 @@ def readthedocs_update():
     print(response.json())
 
 
-def main():
+def main() -> None:
     github_create_repo()
     github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
     github_create_secret("PYPI_API_TOKEN", TEST_PYPI_TOKEN)
@@ -151,12 +154,3 @@ def main():
 if __name__ == "__main__":
     main()
     # readthedocs_update()
-
-
-
-
-
-
-
-
-
