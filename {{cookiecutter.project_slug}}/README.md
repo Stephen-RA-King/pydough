@@ -19,6 +19,9 @@
 {% if cookiecutter.use_bandit == 'y' -%}
 [![security: bandit][bandit-image]][bandit-url]
 {%- endif %}
+{% if cookiecutter.use_commitizen == 'y' -%}
+[![Commitizen friendly][commitizen-image]][commitizen-url]
+{%- endif %}
 {% if cookiecutter.license == 'MIT' -%}
 [![licence: mit][mit-license-image]][mit-license-url]
 {%- endif %}
@@ -92,6 +95,10 @@ Distributed under the {{cookiecutter.license}} License. See `LICENSE` for more i
 
 
 <!-- Markdown link & img dfn's -->
+{% if cookiecutter.use_commitizen == 'y' -%}
+[commitizen-image]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
+[commitizen-url]: http://commitizen.github.io/cz-cli/
+{%- endif %}
 [readthedocs-image]: https://readthedocs.org/projects/{{ cookiecutter.pkg_name }}/badge/?version=latest
 [readthedocs-url]: https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/?badge=latest
 
