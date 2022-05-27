@@ -9,7 +9,6 @@ build-backend = "setuptools.build_meta"
 [tool.black]
 line-length = 88
 
-
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/6.2.x/reference.html?highlight=minversion#configuration-options
 minversion = "6.0"
@@ -62,14 +61,14 @@ mypy_path = "typeshed/pyi:typeshed/imports"
 
 {% if cookiecutter.version_control == 'python_semantic_release' -%}
 [tool.semantic_release]
-version_variable = "setup.cfg:version"
+version_variable = "src/{{ cookiecutter.pkg_name }}/__init__.py:__version__"
 branch = "main"
 changelog_file = "CHANGELOG.md"
-build_command = "pip install poetry && poetry build"
+build_command = "python -m build"
 dist_path = "dist/"
-upload_to_pypi = false
+upload_to_pypi = true
 upload_to_repository = true
-remove_dist = false
+remove_dist = true
 {%- endif %}
 
 [tool.flakeheaven]
