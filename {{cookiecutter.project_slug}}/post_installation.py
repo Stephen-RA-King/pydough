@@ -1,14 +1,12 @@
-import keyring
-import json
-from base64 import b64encode
-import requests
-from nacl import encoding, public
+# Core Library modules
 import json
 from base64 import b64encode
 
+# Third party modules
 import keyring
-import requests
+import requests  # type: ignore
 from nacl import encoding, public
+
 
 GITHUB_TOKEN = keyring.get_password("github", "token")
 TEST_PYPI_TOKEN = keyring.get_password("testpypi", "token")
@@ -30,7 +28,7 @@ def set_keyring(service: str, id_type: str, hidden: str) -> None:
     Parameters
     ----------
     service: str
-        The service identifier. e.g. GitHub or readthedocs etc
+        The service identifier. e.g. GitHub or readthedocs etc.
     id_type: str
         what is being encrypted. e.g. and "ID" or "Password"
     hidden: str
@@ -57,7 +55,8 @@ def github_create_repo() -> None:
         json=body_json,
         headers=header,
     )
-    print(response.json())
+    # print(response.json())
+    print(response.status_code)
 
 
 def github_create_secret(secret_name: str, secret_value: str) -> None:
@@ -77,7 +76,8 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
 
     if r.status_code == 200:
         key_datas = r.json()
-        url_secret = f"https://api.github.com/repos/{{ cookiecutter.github_username }}" \
+        url_secret = f"https://api.github.com/repos/" \
+                     f"{{ cookiecutter.github_username }}" \
                      f"/{{ cookiecutter.pkg_name }}/actions/secrets/{secret_name}"
 
         data = {"encrypted_value": encrypt(key_datas["key"], secret_value),
@@ -125,7 +125,8 @@ def readthedocs_create() -> None:
         json=body_json,
         headers=header,
     )
-    print(response.json())
+    # print(response.json())
+    print(response.status_code)
 
 
 def readthedocs_update() -> None:
@@ -149,6 +150,13 @@ def main() -> None:
     github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
     github_create_secret("PYPI_API_TOKEN", TEST_PYPI_TOKEN)
     readthedocs_create()
+
+    with open('.pypirc', 'r') as file:
+        file_data = file.read()
+    file_data = file_data.replace('token1', PYPI_TOKEN)
+    file_data = file_data.replace('token2', TEST_PYPI_TOKEN)
+    with open('.pypirc', 'w') as file:
+        file.write(file_data)
 
 
 if __name__ == "__main__":
