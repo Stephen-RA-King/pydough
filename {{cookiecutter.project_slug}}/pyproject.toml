@@ -69,6 +69,8 @@ dist_path = "dist/"
 upload_to_pypi = true
 upload_to_repository = true
 remove_dist = true
+version_source = "tag"
+commit_message = "chore: generate by PSR"
 {%- endif %}
 
 [tool.flakeheaven]
