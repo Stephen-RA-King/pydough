@@ -1,6 +1,11 @@
 # Core Library modules
 import json
 from base64 import b64encode
+import logging
+import subprocess
+import os
+from pathlib import Path
+import sys
 
 # Third party modules
 import keyring
@@ -8,10 +13,51 @@ import requests  # type: ignore
 from nacl import encoding, public
 
 
+PLATFORM = sys.platform
+SLUG_DIR = Path.cwd()
+LOG_DIR = SLUG_DIR / "logs"
 GITHUB_TOKEN = keyring.get_password("github", "token")
 TEST_PYPI_TOKEN = keyring.get_password("testpypi", "token")
 PYPI_TOKEN = keyring.get_password("pypi", "token")
 READTHEDOCS_TOKEN = keyring.get_password("readthedocs", "token")
+DEV_DIR = r"D:\PYTHON PROJECT\PROJECTS\DEV"
+VIRTUALENV_DIR = r"D:\PYTHON PROJECT\PROJECTS\VIRTUALENVS"
+
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+c_handler = logging.StreamHandler()
+f_handler = logging.FileHandler(LOG_DIR / "post_install.log")
+c_handler.setLevel(logging.INFO)
+f_handler.setLevel(logging.DEBUG)
+c_format = logging.Formatter("%(message)s")
+f_format = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+c_handler.setFormatter(c_format)
+f_handler.setFormatter(f_format)
+logger.addHandler(c_handler)
+logger.addHandler(f_handler)
+
+
+def execute(*args, supress_exception=False, cwd=None):
+    logger.debug(f"Executing command line: '{args}'")
+    cur_dir = os.getcwd()
+    logger.debug(f"Current Directory: {cur_dir}")
+    try:
+        if cwd:
+            logger.debug(f"Changing Directory to: {cwd}")
+            os.chdir(cwd)
+        proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = proc.communicate()
+        decoded_out = out.decode("utf-8")
+        decoded_err = err.decode("utf-8")
+        if err and not supress_exception:
+            logger.exception(decoded_err)
+            raise Exception(decoded_err)
+        else:
+            return decoded_out
+    finally:
+        logger.debug(f"Changing Directory to: {cur_dir}")
+        os.chdir(cur_dir)
 
 
 def encrypt(public_key: str, secret_value: str) -> str:
@@ -55,8 +101,10 @@ def github_create_repo() -> None:
         json=body_json,
         headers=header,
     )
-    # print(response.json())
-    print(response.status_code)
+    if response.status_code == 201:
+        logger.info("GitHub repository creation: SUCCESS")
+    else:
+        logger.info("GitHub repository creation: FAILED")
 
 
 def github_create_secret(secret_name: str, secret_value: str) -> None:
@@ -92,16 +140,15 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
         )
 
         if r.status_code == 201 or r.status_code == 204:
-            print(
-                f"✅ Secret {secret_name} successfully added ")
+            logger.info(f"GitHub action secret - {secret_name} creation: SUCCESS")
 
         else:
-            print("❌ Couldn't add the secret to the repository")
-            print(r.status_code, r.reason)
+            logger.info(f"GitHub action secret - {secret_name} creation: FAILED")
+            logger.info(r.status_code, r.reason)
 
     else:
-        print("❌ Couldn't get the repository public key")
-        print(r.status_code, r.reason)
+        logger.info("Couldn't get the repository public key")
+        logger.info(r.status_code, r.reason)
 
 
 def readthedocs_create() -> None:
@@ -125,8 +172,10 @@ def readthedocs_create() -> None:
         json=body_json,
         headers=header,
     )
-    # print(response.json())
-    print(response.status_code)
+    if response.status_code == 201:
+        logger.info("ReadTheDocs project creation: SUCCESS")
+    else:
+        logger.info("ReadTheDocs project creation: FAILED")
 
 
 def readthedocs_update() -> None:
@@ -142,7 +191,10 @@ def readthedocs_update() -> None:
         json=body_json,
         headers=header,
     )
-    print(response.json())
+    if response.status_code == 201:
+        logger.info("ReadTheDocs project update: SUCCESS")
+    else:
+        logger.info("ReadTheDocs project update: FAILED")
 
 
 def main() -> None:
@@ -157,7 +209,18 @@ def main() -> None:
     file_data = file_data.replace('token2', TEST_PYPI_TOKEN)
     with open('.pypirc', 'w') as file:
         file.write(file_data)
+        logger.info(".pypi file successfully configured with keys")
 
+    {% if (cookiecutter.version_control == 'python_semantic_release' and cookiecutter.OS == "windows") %}
+    file_path = r"\{{ cookiecutter.pkg_name }}\Lib\site-packages\semantic_release\repository.py"
+    repository = "".join([VIRTUALENV_DIR, file_path])
+    with open(repository) as file:
+        file_data = file.read()
+    file_data = file_data.replace("~/.pypirc", ".pypirc")
+    with open(repository, "w") as file:
+        file.write(file_data)
+        logger.info("Successfully fixed PSR bug")
+    {% endif %}
 
 if __name__ == "__main__":
     main()
