@@ -66,7 +66,7 @@ so now install the packages using pip as follows:
 $ pip install -r <package-name>/requirements.txt
 ```
 
-## Optional Post Installation steps
+## Optional Post-Installation steps
 ### Recommended Post Installation Requirements:
 You will need accounts with the following services:
 - [GitHub](http://github.com)
@@ -80,7 +80,7 @@ You will need accounts with the following services:
 
 1. Put your pypi and testpypi keys into the .pypirc file
 2. Create a remote repository using GitHub
-3. If using GitHub actions - Add your PyPi and TestPyPi keys to the repository secrets with the following variable names:
+3. If using GitHub actions - Add your PyPi and TestPyPi keys to the repository actions secrets with the following variable names:
 - TEST_PYPI_API_TOKEN
 - PYPI_API_TOKEN
 4. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/)
@@ -97,12 +97,40 @@ git remote add origin git@github.com:<user>/<repository-name>.git
 So simply add, commit and push
 ```sh
 $ git add *
-$ git commit -m "Initial commit"
+$ git commit -m "chore: Initial commit"
 $ git push -u origin main 
 ```
 Note: If you chose to use the [**Pre-Commit**][pre-commit-url] package then many hooks (e.g. Flake8, Black, Bandit Prettier etc.)
 will now download and configure themselves and eventually be run against each file in the repository.
 This may take some time and some files may get modified. You will need to "git add" these files again.
+
+Create build artefacts with the following command:
+```sh
+$ python -m build
+```
+Now upload the build artefacts to the test repository for final testing:
+```sh
+$ python -m twine upload --config-file .pypirc -r testpypi dist/*
+```
+
+When the time comes, release to the main repository:
+```sh
+$ python -m twine upload --config-file .pypirc dist/*
+```
+
+Again when the time comes create a git tag (optionally signed) and push to the remote
+```sh
+$ git tag -s v1.0.0 -m "signed 1.0.0 tag"
+$ git push --tags
+```
+
+### Documentation creation
+Simply move to the "docs" directory and issue the make command.
+```commandline
+$ make html
+```
+You can then open the "...docs/_build/html/index.html" file with a browser
+
 
 
 ## Known Issues
