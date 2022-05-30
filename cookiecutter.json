@@ -10,6 +10,11 @@
   "author_name": "Stephen R A King",
   "email": "name@isp.com",
   "github_username": "Stephen-RA-King",
+  "OS": [
+    "windows",
+    "linux",
+    "mac"
+  ],
   "create_author_file": "y",
   "version": "0.1.0",
   "_year": "{% now 'utc', '%Y' %}",
