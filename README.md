@@ -104,6 +104,25 @@ Note: If you chose to use the [**Pre-Commit**][pre-commit-url] package then many
 will now download and configure themselves and eventually be run against each file in the repository.
 This may take some time and some files may get modified. You will need to "git add" these files again.
 
+
+## Known Issues
+### 1 - Python semantic Release (PSR) v7.28.1 on Windows
+PSR will not find a .pypirc file because the Path command is linux style
+ 
+
+Workaround:
+  
+in file ...\Lib\site-packages\semantic_release\repository.py
+change line 84 from:
+```python
+elif not Path("~/.pypirc").expanduser().exists():
+```
+to
+```python
+elif not Path(".pypirc").expanduser().exists():
+```
+
+
 ## Meta
 [![](assets/linkedin.png)](https://linkedin.com/in/stephen-k-3a4644210)
 [![](assets/github.png)](https://github.com/Stephen-RA-King/Stephen-RA-King)
