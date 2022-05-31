@@ -92,7 +92,7 @@ $ python -m pip install -e .
 
 Note Git is automatically initialized and the following is automatically run by the post install hook
 ```sh
-git remote add origin git@github.com:<user>/<repository-name>.git 
+$ git remote add origin git@github.com:<user>/<repository-name>.git 
 ```
 So simply add, commit and push
 ```sh
@@ -126,7 +126,7 @@ $ git push --tags
 
 ### Documentation creation
 Simply move to the "docs" directory and issue the make command.
-```commandline
+```sh
 $ make html
 ```
 You can then open the "...docs/_build/html/index.html" file with a browser
