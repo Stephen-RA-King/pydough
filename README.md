@@ -1,6 +1,6 @@
 # Cookiecutter Python Development template
 
-_**A general purpose template for the creation of a Python application or library**_
+_**A general purpose development template for the creation of a Python application, library or package**_
 
 
 ![](https://github.com/Stephen-RA-King/cc_template/raw/main/header.png)
@@ -33,7 +33,7 @@ The following tool is mandatory (you will thank me later):
 * Options to specify Docstring style (Google, Numpy or [**PEP257**][pep257-url])
 * Optionally include [**Commitizen**][commitizen-url] for parsing and enforcing descriptive commits
 * Optionally include Logging using the dictConfig() configuration
-* Optionally include badges at specific locations:
+* Automatically include badges based on your selections:
 
 [![pre-commit][pre-commit-image]][pre-commit-url]
 [![Imports: isort][isort-image]][isort-url]
@@ -45,7 +45,7 @@ The following tool is mandatory (you will thank me later):
 
 1. Python 3.7, 3.8, 3.9 or 3.10
 2. Git
-3. Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv_wrapper**][virtualenvwrapper-url])
+3. Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv_wrapper**][virtualenvwrapper-url]. I love "workon".)
 4. [**Cookiecutter**][cookiecutter-url] installed into the Virtual Environment
 
 ## Installation
@@ -80,13 +80,13 @@ You will need accounts with the following services:
 
 1. Put your pypi and testpypi keys into the .pypirc file
 2. Create a remote repository using GitHub
-3. If using GitHub actions - Add your PyPi and TestPyPi keys to the repository actions secrets with the following variable names:
+3. If using GitHub actions - Add your PyPi and TestPyPi tokens to the repository actions secrets with the following variable names:
 - TEST_PYPI_API_TOKEN
 - PYPI_API_TOKEN
 4. If you are using Python Semantic Release, create the following environment variables:
 - GH_TOKEN = _GitHub token_
 - REPOSITORY_PASSWORD = _PyPI token_
-- REPOSITORY_USERNAME = ___token___
+- REPOSITORY_USERNAME = \__token__
 5. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/)
 6. Install your package as an "editable" package using pip
 ```sh
@@ -174,6 +174,9 @@ to
 ```python
 elif not Path(".pypirc").expanduser().exists():
 ```
+
+## Finally
+Now develop! ... Go away now.
 
 
 ## Meta
