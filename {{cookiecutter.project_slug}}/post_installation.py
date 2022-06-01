@@ -6,6 +6,7 @@ import subprocess
 import os
 from pathlib import Path
 import sys
+from typing import Any
 
 # Third party modules
 import keyring
@@ -38,7 +39,7 @@ logger.addHandler(c_handler)
 logger.addHandler(f_handler)
 
 
-def execute(*args, supress_exception=False, cwd=None):
+def execute(*args: str, supress_exception: bool = False, cwd: Any = None) -> Any:
     logger.debug(f"Executing command line: '{args}'")
     cur_dir = os.getcwd()
     logger.debug(f"Current Directory: {cur_dir}")
