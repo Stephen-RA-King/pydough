@@ -1,4 +1,4 @@
-# Cookiecutter template
+# Cookiecutter Python Development template
 
 _**A general purpose template for the creation of a Python application or library**_
 
@@ -69,10 +69,10 @@ $ pip install -r <package-name>/requirements.txt
 ## Optional Post-Installation steps
 ### Recommended Post Installation Requirements:
 You will need accounts with the following services:
-- [GitHub](http://github.com)
+- [GitHub](http://github.com) - Login and Generate your token
 - [Read the Docs](https://readthedocs.org/)
-- [TestPyPi](https://test.pypi.org/) - Login and Generate your key
-- [PyPi](https://pypi.org/) - Login and Generate your key
+- [TestPyPi](https://test.pypi.org/) - Login and Generate your token
+- [PyPi](https://pypi.org/) - Login and Generate your token
 - [Codecov](https://about.codecov.io/)
 
 
@@ -83,8 +83,12 @@ You will need accounts with the following services:
 3. If using GitHub actions - Add your PyPi and TestPyPi keys to the repository actions secrets with the following variable names:
 - TEST_PYPI_API_TOKEN
 - PYPI_API_TOKEN
-4. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/)
-5. Install your package as an "editable" package using pip
+4. If you are using Python Semantic Release, create the following environment variables:
+- GH_TOKEN = _GitHub token_
+- REPOSITORY_PASSWORD = _PyPI token_
+- REPOSITORY_USERNAME = ___token___
+5. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/)
+6. Install your package as an "editable" package using pip
 ```sh
 $ python -m pip install -e . 
 ```
@@ -97,12 +101,18 @@ $ git remote add origin git@github.com:<user>/<repository-name>.git
 So simply add, commit and push
 ```sh
 $ git add *
-$ git commit -m "chore: Initial commit"
+$ git commit -m "chore: initial commit"
 $ git push -u origin main 
 ```
 Note: If you chose to use the [**Pre-Commit**][pre-commit-url] package then many hooks (e.g. Flake8, Black, Bandit Prettier etc.)
 will now download and configure themselves and eventually be run against each file in the repository.
 This may take some time and some files may get modified. You will need to "git add" these files again.
+
+Again when the time comes create a git tag (optionally signed) and push to the remote
+```sh
+$ git tag -s 0.1.0 -m "chore: 0.1.0 tag"
+$ git push --tags
+```
 
 Create build artefacts with the following command:
 ```sh
@@ -118,18 +128,33 @@ When the time comes, release to the main repository:
 $ python -m twine upload --config-file .pypirc dist/*
 ```
 
-Again when the time comes create a git tag (optionally signed) and push to the remote
+### Using Python Semantic Release (PSR)
+If you opted to use PSR then the future uploading to Github & uploading to PyPI, 
+will be done automatically.
+After you have committed changes to git, issue the following command:
 ```sh
-$ git tag -s v1.0.0 -m "signed 1.0.0 tag"
-$ git push --tags
+$ semantic-release publish
 ```
+Publish will do a sequence of things:
+
+- Update changelog file.
+- Run semantic-release version.
+- Push changes to git.
+- Run build_command and upload the distribution file to your repository.
+- Run semantic-release changelog and post to your vcs provider.
+- Attach the files created by build_command to GitHub releases.
 
 ### Documentation creation
-Simply move to the "docs" directory and issue the make command.
+"Read the docs" will automatically generate new documentation when you push to GitHub.
+Howver you can manually generate local documenattion by simply moving to the "docs" directory and issuing the make command.
 ```sh
 $ make html
 ```
-You can then open the "...docs/_build/html/index.html" file with a browser
+You can then open the "...docs/_build/html/index.html" file with a browser.
+It is generally best to clear the _build directory when generating new documentation by using the following command
+```sh
+$ make clean html
+```
 
 
 
