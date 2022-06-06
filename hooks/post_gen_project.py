@@ -89,8 +89,7 @@ def upgrade_package(packages):
 
 def init_git():
     if not (SLUG_DIR / ".git").is_dir():
-        execute("git", "init", cwd=SLUG_DIR)
-        execute("git", "config", "--global", "init.defaultBranch", "main", cwd=SLUG_DIR)
+        execute("git", "init", "--initial-branch={{ cookiecutter.initial_git_branch_name }}", cwd=SLUG_DIR)
         execute("git", "config", "commit.template", ".gitmessage", cwd=SLUG_DIR)
         if "{{ cookiecutter.github_username }}":
             github_url = "".join(

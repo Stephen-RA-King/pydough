@@ -10,6 +10,12 @@
   "author_name": "Stephen R A King",
   "email": "name@isp.com",
   "github_username": "Stephen-RA-King",
+  "initial_git_branch_name": [
+    "main",
+    "master",
+    "trunk",
+    "development"
+  ],
   "OS": [
     "windows",
     "linux",

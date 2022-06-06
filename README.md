@@ -88,9 +88,15 @@ You will need accounts with the following services:
 - REPOSITORY_PASSWORD = _PyPI token_
 - REPOSITORY_USERNAME = \__token__
 5. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/)
-6. Install your package as an "editable" package using pip
+6. Install your package as an "editable" package.
+
+Editable installs were not possible until 2021, but that has been remedied by [**PEP660**][pep660-url].
+This can be performed by either 'pip' or 'setuptools'
 ```sh
 $ python -m pip install -e . 
+```
+```sh
+$ python setup.py develop
 ```
 5. Push the local files to GitHub
 
@@ -204,7 +210,9 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 [click-url]: https://click.palletsprojects.com/en/8.0.x/
 [commitizen-url]: https://github.com/commitizen-tools/commitizen
 [safety-url]: https://github.com/pyupio/safety
-[pep257-url]: https://www.python.org/dev/peps/pep-0257/
+[pep257-url]: https://peps.python.org/pep-0257/
+[pep660-url]: https://peps.python.org/pep-0660/
+
 [bump2version-url]: https://pypi.org/project/bump2version/
 [pip-tools-url]: https://pypi.org/project/pip-tools/
 [flakeheaven-url]: https://pypi.org/project/flakeheaven/

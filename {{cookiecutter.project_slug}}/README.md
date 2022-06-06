@@ -2,7 +2,11 @@
 > Short blurb about what your product does.
 
 
-[![PyPI version](https://badge.fury.io/py/{{ cookiecutter.pkg_name }}.svg)](https://badge.fury.io/py/{{ cookiecutter.pkg_name }})
+[![PyPI](https://img.shields.io/pypi/v/{{cookiecutter.pkg_name}}.svg)][pypi status]
+[![Status](https://img.shields.io/pypi/status/{{cookiecutter.pkg_name}}.svg)][pypi status]
+[![Python Version](https://img.shields.io/pypi/pyversions/{{cookiecutter.pkg_name}})][pypi status]
+[![Codecov](https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/branch/main/graph/badge.svg)][codecov]
+[![License](https://img.shields.io/pypi/l/{{cookiecutter.pkg_name}})][license]
 [![readthedocs][readthedocs-image]][readthedocs-url]
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [![pre-commit][pre-commit-image]][pre-commit-url]
@@ -95,6 +99,9 @@ Distributed under the {{cookiecutter.license}} License. See `LICENSE` for more i
 
 
 <!-- Markdown link & img dfn's -->
+[pypi status]: https://pypi.org/project/{{ cookiecutter.pkg_name }}/
+[codecov]: https://app.codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}
+[license]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/blob/main/LICENSE
 {% if cookiecutter.use_commitizen == 'y' -%}
 [commitizen-image]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
 [commitizen-url]: http://commitizen.github.io/cz-cli/

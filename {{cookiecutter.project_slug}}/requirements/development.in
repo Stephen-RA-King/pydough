@@ -8,8 +8,6 @@ build
 {% if cookiecutter.version_control == 'python_semantic_release' %}
 python-semantic-release{% else %}
 bump2version{% endif %}
-{%- if cookiecutter.command_line_interface|lower == 'click' %}
-click{% endif %}
 colorama
 {%- if cookiecutter.use_commitizen == 'y' %}
 commitizen{% endif %}
@@ -40,7 +38,13 @@ pep8-naming{% endif %}
 {%- if cookiecutter.use_pre_commit == 'y' %}
 pre-commit{% endif %}
 {%- if cookiecutter.use_pytest == 'y' %}
-pytest{% endif %}
+pytest
+pytest-cov
+pytest-sugar
+pytest-tldr
+pytest-xdist
+pytest-randomly
+pytest-clarity{% endif %}
 pynacl
 {%- if cookiecutter.use_logging == 'y' %}
 pyyaml{% endif %}
