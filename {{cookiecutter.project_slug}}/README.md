@@ -5,6 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/{{cookiecutter.pkg_name}}.svg)][pypi status]
 [![Status](https://img.shields.io/pypi/status/{{cookiecutter.pkg_name}}.svg)][pypi status]
 [![Python Version](https://img.shields.io/pypi/pyversions/{{cookiecutter.pkg_name}})][pypi status]
+[![tests](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/actions/workflows/tests.yml/badge.svg)](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/actions/workflows/tests.yml)
 [![Codecov](https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/branch/main/graph/badge.svg)][codecov]
 [![License](https://img.shields.io/pypi/l/{{cookiecutter.pkg_name}})][license]
 [![readthedocs][readthedocs-image]][readthedocs-url]

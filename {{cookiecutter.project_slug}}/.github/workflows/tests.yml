@@ -1,17 +1,24 @@
+# https://docs.github.com/en/actions
+# https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 name: test
 
 on:
   push:
-    branches:
-      - main
+    branches: [ $default-branch ]
   pull_request:
-    branches:
-      - main
+    branches: [ $default-branch ]
 
 jobs:
   test:
     # Step 1. Set up operating system
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.8", "3.9"]
+        exclude:
+          - os: windows-latest
+            python-version: "3.8"
     steps:
       # Step 3. Check-out repository so we can access its contents
       - uses: actions/checkout@v3
@@ -24,7 +31,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip setuptools wheel
           pip install flake8 pytest pytest-cov
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install -r requirements.txt
       # Step 5. Install our pycounts package
       - name: Install package
         run: |
