@@ -1,10 +1,8 @@
 -r production.txt
 
-
 pytest
 pytest-cov
 pytest-sugar
 pytest-tldr
-pytest-xdist
 pytest-randomly
 pytest-clarity

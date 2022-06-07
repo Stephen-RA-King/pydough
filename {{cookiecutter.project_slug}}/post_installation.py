@@ -198,30 +198,38 @@ def readthedocs_update() -> None:
         logger.info("ReadTheDocs project update: FAILED")
 
 
+def file_word_replace(filepath: str, old_word: str, new_word: str) -> None:
+    with open(filepath, 'r') as file:
+        file_data = file.read()
+    file_data = file_data.replace(old_word, new_word)
+    with open(filepath, 'w') as file:
+        file.write(file_data)
+
+
 def main() -> None:
     github_create_repo()
     github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
     github_create_secret("PYPI_API_TOKEN", TEST_PYPI_TOKEN)
     readthedocs_create()
 
-    with open('.pypirc', 'r') as file:
-        file_data = file.read()
-    file_data = file_data.replace('token1', PYPI_TOKEN)
-    file_data = file_data.replace('token2', TEST_PYPI_TOKEN)
-    with open('.pypirc', 'w') as file:
-        file.write(file_data)
-        logger.info(".pypi file successfully configured with keys")
-
+    file_word_replace('.pypirc', 'token1', PYPI_TOKEN)
+    file_word_replace('.pypirc', 'token2', TEST_PYPI_TOKEN)
+    logger.info(".pypi file successfully configured with keys")
     {% if (cookiecutter.version_control == 'python_semantic_release' and cookiecutter.OS == "windows") %}
     file_path = r"\{{ cookiecutter.pkg_name }}\Lib\site-packages\semantic_release\repository.py"
     repository = "".join([VIRTUALENV_DIR, file_path])
-    with open(repository) as file:
-        file_data = file.read()
-    file_data = file_data.replace("~/.pypirc", ".pypirc")
-    with open(repository, "w") as file:
-        file.write(file_data)
-        logger.info("Successfully fixed PSR bug")
+    file_word_replace(repository, "~/.pypirc", ".pypirc")
+    logger.info("Successfully fixed PSR bug")
     {% endif %}
+    tests = r".github\workflows\tests.yml"
+    file_word_replace(tests, "default-branch1", "{{ cookiecutter.initial_git_branch_name }}")
+    file_word_replace(tests, "default-branch2", "{{ cookiecutter.initial_git_branch_name }}")
+    file_word_replace(tests, "package_name", "{{ cookiecutter.pkg_name }}")
+    logger.info("GitHub actions: tests.yml Successfully updated")
+
+    file_word_replace("requirements.txt", "development", "test")
+    logger.info("requirements.txt updated: development to test")
+
 
 if __name__ == "__main__":
     main()

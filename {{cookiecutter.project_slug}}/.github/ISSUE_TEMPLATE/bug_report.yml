@@ -1,0 +1,72 @@
+name: bug report
+description: something went wrong
+body:
+  - type: markdown
+    attributes:
+      value: >
+        _if you are reporting a problem with a particular check, please track
+        down the plugin which implements that check_
+
+  - type: textarea
+    id: install
+    attributes:
+      label: how did you install {{cookiecutter.pkg_name}}?
+      description: 'note: this will be rendered as ```console automatically'
+      placeholder: |
+        $ pip install {{cookiecutter.pkg_name}}  
+        ...
+        Successfully installed {{cookiecutter.pkg_name}}...
+      render: console
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: >
+        **Note**: Some *nix distributions patch {{cookiecutter.pkg_name}} arbitrarily to
+        accommodate incompatible software versions. If you're on one of those
+        distributions, your issue may be closed and you will be asked to open
+        an issue with your distribution package maintainers instead.
+
+  - type: textarea
+    id: bug-report
+    attributes:
+      label: unmodified output of `{{cookiecutter.pkg_name}} --bug-report`
+      description: 'note: this will be rendered as ```json automatically'
+      placeholder: |
+        {
+          "platform": {
+            "...": "...
+          }
+        }
+      render: json
+    validations:
+      required: true
+
+  - type: textarea
+    id: freeform
+    attributes:
+      label: describe the problem
+      description: >
+        please provide **sample code** and **directions for reproducing
+        your problem** including the **commands you ran**, their
+        **unedited output**, and **what you expected to happen**
+      value: |
+        #### what I expected to happen
+
+        ...
+
+        #### sample code
+
+        ```python
+        print('hello world!')
+        ```
+
+        #### commands ran
+
+        ```console
+        $ {{cookiecutter.pkg_name}} 
+        ...
+        ```
+    validations:
+      required: true

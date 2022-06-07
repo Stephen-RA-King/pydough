@@ -2,12 +2,13 @@
 > Short blurb about what your product does.
 
 
-[![PyPI](https://img.shields.io/pypi/v/{{cookiecutter.pkg_name}}.svg)][pypi status]
-[![Status](https://img.shields.io/pypi/status/{{cookiecutter.pkg_name}}.svg)][pypi status]
-[![Python Version](https://img.shields.io/pypi/pyversions/{{cookiecutter.pkg_name}})][pypi status]
-[![tests](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/actions/workflows/tests.yml/badge.svg)](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/actions/workflows/tests.yml)
-[![Codecov](https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/branch/main/graph/badge.svg)][codecov]
-[![License](https://img.shields.io/pypi/l/{{cookiecutter.pkg_name}})][license]
+[![PyPI][pypi-image]][pypi-url]
+[![Downloads][downloads-image]][downloads-url]
+[![Status][status-image]][pypi-url]
+[![Python Version][python-version-image])][pypi-url]
+[![tests][tests-image]][tests-url]
+[![Codecov][codecov-image]][codecov-url]
+[![CodeQL](https://github.com/Stephen-RA-King/{{cookiecutter.github_username}}/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Stephen-RA-King/{{cookiecutter.github_username}}/actions/workflows/codeql-analysis.yml)
 [![readthedocs][readthedocs-image]][readthedocs-url]
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [![pre-commit][pre-commit-image]][pre-commit-url]
@@ -27,18 +28,7 @@
 {% if cookiecutter.use_commitizen == 'y' -%}
 [![Commitizen friendly][commitizen-image]][commitizen-url]
 {%- endif %}
-{% if cookiecutter.license == 'MIT' -%}
-[![licence: mit][mit-license-image]][mit-license-url]
-{%- endif %}
-{% if cookiecutter.license == "BSD" -%}
-[![licence: bsd][bsd-license-image]][bsd-license-url]
-{%- endif %}
-{% if cookiecutter.license == "GPL-3.0" -%}
-[![licence: gplv3][gplv3-license-image]][gplv3-license-url]
-{%- endif %}
-{% if cookiecutter.license == "Apache-2.0" -%}
-[![licence: apachev2][apachev2-license-image]][apachev2-license-url]
-{%- endif %}
+[![License][license-image]][license]
 
 
 One to two paragraph statement about your product and what it does.
@@ -82,7 +72,7 @@ pip install --editable {{ cookiecutter.pkg_name }}
 ## Meta
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 [![](assets/linkedin.png)](https://linkedin.com/in/stephen-k-3a4644210)
-[![](assets/github.png)](https://github.com/Stephen-RA-King/Stephen-RA-King)
+[![](assets/github.png)](https://github.com/Stephen-RA-King)
 [![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.pkg_name }}/)
 [![](assets/www.png)](https://www.Stephen-RA-King)
 [![](assets/email.png)](mailto:stephen.ra.king@gmail.com)
@@ -93,23 +83,33 @@ pip install --editable {{ cookiecutter.pkg_name }}
 
 {{cookiecutter.author_name}} : {{cookiecutter.email}}
 
-Distributed under the {{cookiecutter.license}} License. See `LICENSE` for more information.
+Distributed under the {{cookiecutter.license}} License. See [![License][license-image]][license] for more information.
 
 [https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
 
 
 
 <!-- Markdown link & img dfn's -->
-[pypi status]: https://pypi.org/project/{{ cookiecutter.pkg_name }}/
-[codecov]: https://app.codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}
+[pypi-url]: https://pypi.org/project/{{ cookiecutter.pkg_name }}/
+[pypi-image]: https://img.shields.io/pypi/v/{{cookiecutter.pkg_name}}.svg
+[downloads-image]: https://static.pepy.tech/personalized-badge/{{cookiecutter.pkg_name}}?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads
+[downloads-url]: https://pepy.tech/project/{{cookiecutter.pkg_name}}
+[status-image]: https://img.shields.io/pypi/status/{{cookiecutter.pkg_name}}.svg
+[python-version-image]: https://img.shields.io/pypi/pyversions/{{cookiecutter.pkg_name}}
+[tests-image]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/actions/workflows/tests.yml/badge.svg
+[tests-url]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/actions/workflows/tests.yml
+[codeql-image]: https://github.com/Stephen-RA-King/{{cookiecutter.github_username}}/actions/workflows/codeql-analysis.yml/badge.svg
+[codeql-url]: https://github.com/Stephen-RA-King/{{cookiecutter.github_username}}/actions/workflows/codeql-analysis.yml
+[codecov-image]: https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/branch/main/graph/badge.svg
+[codecov-url]: https://app.codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}
 [license]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/blob/main/LICENSE
+[licence-image]: https://img.shields.io/pypi/l/{{cookiecutter.pkg_name}}
 {% if cookiecutter.use_commitizen == 'y' -%}
 [commitizen-image]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
 [commitizen-url]: http://commitizen.github.io/cz-cli/
 {%- endif %}
 [readthedocs-image]: https://readthedocs.org/projects/{{ cookiecutter.pkg_name }}/badge/?version=latest
 [readthedocs-url]: https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/?badge=latest
-
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
@@ -129,21 +129,5 @@ Distributed under the {{cookiecutter.license}} License. See `LICENSE` for more i
 {% if cookiecutter.use_mypy == 'y' -%}
 [mypy-image]: http://www.mypy-lang.org/static/mypy_badge.svg
 [mypy-url]: http://mypy-lang.org/
-{%- endif %}
-{% if cookiecutter.license == 'MIT' -%}
-[mit-license-image]: https://img.shields.io/badge/license-MIT-blue
-[mit-license-url]: https://choosealicense.com/licenses/mit/
-{%- endif %}
-{% if cookiecutter.license == "BSD" -%}
-[bsd-license-image]: https://img.shields.io/badge/license-BSD-blue
-[bsd-license-url]: https://www.openbsd.org/policy.html
-{%- endif %}
-{% if cookiecutter.license == "GPL-3.0" -%}
-[gplv3-license-image]: https://img.shields.io/badge/license-GPLv3-blue
-[gplv3-license-url]: https://choosealicense.com/licenses/gpl-3.0/
-{%- endif %}
-{% if cookiecutter.license == "Apache-2.0" -%}
-[apachev2-license-image]: https://img.shields.io/badge/license-Apache%202-blue.svg
-[apachev2-license-url]: https://choosealicense.com/licenses/apache-2.0/
 {%- endif %}
 [wiki]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/wiki
