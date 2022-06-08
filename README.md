@@ -31,7 +31,7 @@ The following tool is mandatory (you will thank me later):
 * Optionally include [**Flakeheaven**][flakeheaven-url] Flake8 wrapper to replace flakehell
 * Optionally include version control and release with [**python-semantic-release**](https://github.com/relekang/python-semantic-release) or [**bump2version**][bump2version-url] 
 * Options to specify Docstring style (Google, Numpy or [**PEP257**][pep257-url])
-* Optionally include [**Commitizen**][commitizen-url] for parsing and enforcing descriptive commits
+* Optionally include [**Commitizen**][commitizen-url] for parsing and enforcing descriptive git commits
 * Optionally include Logging using the dictConfig() configuration
 * Automatically include badges based on your selections:
 
@@ -43,8 +43,8 @@ The following tool is mandatory (you will thank me later):
 
 ## Pre Installation Requirements
 
-1. Python 3.7, 3.8, 3.9 or 3.10
-2. Git
+1. Python 3.8, 3.9 or 3.10
+2. git
 3. Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv_wrapper**][virtualenvwrapper-url]. I love "workon".)
 4. [**Cookiecutter**][cookiecutter-url] installed into the Virtual Environment
 
@@ -73,7 +73,7 @@ You will need accounts with the following services:
 - [Read the Docs](https://readthedocs.org/)
 - [TestPyPi](https://test.pypi.org/) - Login and Generate your token
 - [PyPi](https://pypi.org/) - Login and Generate your token
-- [Codecov](https://about.codecov.io/)
+- [Codecov.io](https://about.codecov.io/)
 
 
 ### Finalization Steps
@@ -135,7 +135,7 @@ $ python -m twine upload --config-file .pypirc dist/*
 ```
 
 ### Using Python Semantic Release (PSR)
-If you opted to use PSR then the future uploading to Github & uploading to PyPI, 
+If you opted to use PSR then the future uploading to GitHub & uploading to PyPI, 
 will be done automatically.
 After you have committed changes to git, issue the following command:
 ```sh
@@ -181,8 +181,19 @@ to
 elif not Path(".pypirc").expanduser().exists():
 ```
 
+### 2 - Manually update .github / workflows / tests.yml
+GitHub Actions use a templating format - probably Jinja2 which is what cookiecutter uses.
+For this reason I have had to exclude the workflow files from cookiecutter.
+If cookiecutter came across any variables that it was unaware of it would throw an exception.  
+Therefore the following variables need to be changed to whatever you are using:  
+- default-branch1  
+- default-branch2  
+- package_name
+
+
 ## Finally
 Now develop! ... Go away now.
+
 
 
 ## Meta

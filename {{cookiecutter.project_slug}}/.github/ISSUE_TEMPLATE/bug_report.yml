@@ -20,28 +20,6 @@ body:
     validations:
       required: true
 
-  - type: markdown
-    attributes:
-      value: >
-        **Note**: Some *nix distributions patch {{cookiecutter.pkg_name}} arbitrarily to
-        accommodate incompatible software versions. If you're on one of those
-        distributions, your issue may be closed and you will be asked to open
-        an issue with your distribution package maintainers instead.
-
-  - type: textarea
-    id: bug-report
-    attributes:
-      label: unmodified output of `{{cookiecutter.pkg_name}} --bug-report`
-      description: 'note: this will be rendered as ```json automatically'
-      placeholder: |
-        {
-          "platform": {
-            "...": "...
-          }
-        }
-      render: json
-    validations:
-      required: true
 
   - type: textarea
     id: freeform

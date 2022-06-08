@@ -53,3 +53,7 @@ jobs:
         with:
           file: ./coverage.xml # coverage report
           fail_build_if_error: true # terminate workflow if there's an error
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.COVERALLS_TOKEN }}

@@ -8,7 +8,8 @@
 [![Python Version][python-version-image])][pypi-url]
 [![tests][tests-image]][tests-url]
 [![Codecov][codecov-image]][codecov-url]
-[![CodeQL](https://github.com/Stephen-RA-King/{{cookiecutter.github_username}}/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Stephen-RA-King/{{cookiecutter.github_username}}/actions/workflows/codeql-analysis.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/badge)](https://www.codefactor.io/repository/github/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
+[![CodeQL](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/actions/workflows/codeql-analysis.yml)
 [![readthedocs][readthedocs-image]][readthedocs-url]
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [![pre-commit][pre-commit-image]][pre-commit-url]
@@ -28,7 +29,7 @@
 {% if cookiecutter.use_commitizen == 'y' -%}
 [![Commitizen friendly][commitizen-image]][commitizen-url]
 {%- endif %}
-[![License][license-image]][license]
+[![License](https://img.shields.io/pypi/l/{{ cookiecutter.pkg_name }})][pypi-url]
 
 
 One to two paragraph statement about your product and what it does.
@@ -83,7 +84,7 @@ pip install --editable {{ cookiecutter.pkg_name }}
 
 {{cookiecutter.author_name}} : {{cookiecutter.email}}
 
-Distributed under the {{cookiecutter.license}} License. See [![License][license-image]][license] for more information.
+Distributed under the {{cookiecutter.license}} License. See [![License](https://img.shields.io/pypi/l/{{ cookiecutter.pkg_name }})][pypi-url] for more information.
 
 [https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
 
@@ -98,8 +99,8 @@ Distributed under the {{cookiecutter.license}} License. See [![License][license-
 [python-version-image]: https://img.shields.io/pypi/pyversions/{{cookiecutter.pkg_name}}
 [tests-image]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/actions/workflows/tests.yml/badge.svg
 [tests-url]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/actions/workflows/tests.yml
-[codeql-image]: https://github.com/Stephen-RA-King/{{cookiecutter.github_username}}/actions/workflows/codeql-analysis.yml/badge.svg
-[codeql-url]: https://github.com/Stephen-RA-King/{{cookiecutter.github_username}}/actions/workflows/codeql-analysis.yml
+[codeql-image]: https://github.com/Stephen-RA-King/{{cookiecutter.pkg_name}}/actions/workflows/codeql-analysis.yml/badge.svg
+[codeql-url]: https://github.com/Stephen-RA-King/{{cookiecutter.pkg_name}}/actions/workflows/codeql-analysis.yml
 [codecov-image]: https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/branch/main/graph/badge.svg
 [codecov-url]: https://app.codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}
 [license]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/blob/main/LICENSE
