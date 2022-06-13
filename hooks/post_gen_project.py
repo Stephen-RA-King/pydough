@@ -91,6 +91,8 @@ def init_git():
     if not (SLUG_DIR / ".git").is_dir():
         execute("git", "init", "--initial-branch={{ cookiecutter.initial_git_branch_name }}", cwd=SLUG_DIR)
         execute("git", "config", "commit.template", ".gitmessage", cwd=SLUG_DIR)
+        execute("git", "config", "core.safecrlf", "false", cwd=SLUG_DIR)
+
         if "{{ cookiecutter.github_username }}":
             github_url = "".join(
                 [
@@ -130,7 +132,14 @@ def main():
         "setuptools",
         "build",
         "pip-tools",
+        "pynacl",
+        "keyring",
+        "requests"
     ]
+
+    if "{{ cookiecutter.version_control }}" == "python_semantic_release":
+        upgrade_basics_list.append("python-semantic-release")
+
     logger.info("Upgrading and Installing Basic Packages")
     upgrade_package(upgrade_basics_list)
 
