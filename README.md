@@ -18,6 +18,7 @@ All the following features are optional:
 * [**Bandit**][bandit-url] -  Finds common security issues 
 * [**Sphinx**][sphinx-url] -  Package for creating documentation
 * [**Click**][click-url] -  Package for creating Command line interfaces
+* [**Invoke**][invoke-url] - Common package maintenance tasks are automated with this python library
 
 The following tool is mandatory (you will thank me later):
 * [**pip-tools**][pip-tools-url] -  Pins every single package dependency (even the dependency’s dependencies)
@@ -30,7 +31,7 @@ The following tool is mandatory (you will thank me later):
 * Optionally include [**Safety**][safety-url] to check dependencies for known security vulnerabilities
 * Optionally include [**Flakeheaven**][flakeheaven-url] Flake8 wrapper to replace flakehell
 * Optionally include version control and release with [**python-semantic-release**](https://github.com/relekang/python-semantic-release) or [**bump2version**][bump2version-url] 
-* Options to specify Docstring style (Google, Numpy or [**PEP257**][pep257-url])
+* Options to specify Docstring style (Google, Numpy, Sphinx or [**PEP257**][pep257-url])
 * Optionally include [**Commitizen**][commitizen-url] for parsing and enforcing descriptive git commits
 * Optionally include Logging using the dictConfig() configuration
 * Automatically include badges based on your selections:
@@ -181,7 +182,7 @@ to
 elif not Path(".pypirc").expanduser().exists():
 ```
 
-### 2 - Manually update .github / workflows / tests.yml
+### 2 - Manually update .github workflows: 'tests.yml' & 'codeql-analysis.yml'
 GitHub Actions use a templating format - probably Jinja2 which is what cookiecutter uses.
 For this reason I have had to exclude the workflow files from cookiecutter.
 If cookiecutter came across any variables that it was unaware of it would throw an exception.  
@@ -197,7 +198,7 @@ Now develop! ... Go away now.
 
 
 ## Meta
-[![](assets/linkedin.png)](https://linkedin.com/in/stephen-k-3a4644210)
+[![](assets/linkedin.png)](https://linkedin.com/in/stephen-k-3a4644210){:target="_blank" rel="noopener"}
 [![](assets/github.png)](https://github.com/Stephen-RA-King/Stephen-RA-King)
 [![](assets/www.png)](https://www.Stephen-RA-King)
 [![](assets/email.png)](mailto:stephen.ra.king@gmail.com) 
@@ -212,6 +213,7 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 
 
 <!-- Markdown link & img dfn's -->
+[invoke-url]: https://www.pyinvoke.org/
 [virtualenv-url]: https://virtualenv.pypa.io
 [virtualenvwrapper-url]: https://pypi.org/project/virtualenvwrapper/
 [cookiecutter-url]: https://github.com/cookiecutter/cookiecutter
@@ -223,6 +225,11 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 [safety-url]: https://github.com/pyupio/safety
 [pep257-url]: https://peps.python.org/pep-0257/
 [pep660-url]: https://peps.python.org/pep-0660/
+
+[google-docstring-url]: https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings
+[numpy-docstring-utl]: https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard
+
+
 
 [bump2version-url]: https://pypi.org/project/bump2version/
 [pip-tools-url]: https://pypi.org/project/pip-tools/
