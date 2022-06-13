@@ -4,9 +4,9 @@ name: test
 
 on:
   push:
-    branches: default-branch1
+    branches: [default-branch1]
   pull_request:
-    branches: default-branch2
+    branches: [default-branch2]
 
 jobs:
   test:
@@ -53,7 +53,3 @@ jobs:
         with:
           file: ./coverage.xml # coverage report
           fail_build_if_error: true # terminate workflow if there's an error
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.COVERALLS_TOKEN }}
