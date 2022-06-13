@@ -1,18 +1,17 @@
 # Core Library modules
 import json
-from base64 import b64encode
 import logging
-import subprocess
 import os
-from pathlib import Path
+import subprocess
 import sys
+from base64 import b64encode
+from pathlib import Path
 from typing import Any
 
 # Third party modules
 import keyring
 import requests  # type: ignore
 from nacl import encoding, public
-
 
 PLATFORM = sys.platform
 SLUG_DIR = Path.cwd()
@@ -90,27 +89,27 @@ def set_keyring(service: str, id_type: str, hidden: str) -> None:
 
 
 def github_create_repo() -> None:
-    body_json = {
-        "name": "{{ cookiecutter.pkg_name }}",
-        "description": "{{ cookiecutter.project_short_description }}"
-    }
+    logger.info("Creating GitHub repository")
+    body_json = {"name": "{{ cookiecutter.pkg_name }}", "description": "placeholder"}
 
-    url = 'https://api.github.com/user/repos'
-    header = {'Authorization': f'token {GITHUB_TOKEN}'}
+    url = "https://api.github.com/user/repos"
+    header = {"Authorization": f"token {GITHUB_TOKEN}"}
     response = requests.post(
         url,
         json=body_json,
         headers=header,
     )
     if response.status_code == 201:
-        logger.info("GitHub repository creation: SUCCESS")
+        logger.info(".... OK")
     else:
-        logger.info("GitHub repository creation: FAILED")
+        logger.info(".... FAILED")
 
 
 def github_create_secret(secret_name: str, secret_value: str) -> None:
-    url_public_key = "https://api.github.com/repos/{{ cookiecutter.github_username }}" \
-                     "/{{ cookiecutter.pkg_name }}/actions/secrets/public-key"
+    url_public_key = (
+        "https://api.github.com/repos/Stephen-RA-King"
+        "/{{ cookiecutter.pkg_name }}/actions/secrets/public-key"
+    )
 
     authorization = f"token {GITHUB_TOKEN}"
     headers = {
@@ -118,27 +117,24 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
         "Authorization": authorization,
     }
 
-    r = requests.get(
-        url=url_public_key,
-        headers=headers
-    )
+    r = requests.get(url=url_public_key, headers=headers)
 
     if r.status_code == 200:
         key_datas = r.json()
-        url_secret = f"https://api.github.com/repos/" \
-                     f"{{ cookiecutter.github_username }}" \
-                     f"/{{ cookiecutter.pkg_name }}/actions/secrets/{secret_name}"
+        url_secret = (
+            f"https://api.github.com/repos/"
+            f"Stephen-RA-King"
+            f"/{{ cookiecutter.pkg_name }}/actions/secrets/{secret_name}"
+        )
 
-        data = {"encrypted_value": encrypt(key_datas["key"], secret_value),
-                "key_id": key_datas["key_id"]}
+        data = {
+            "encrypted_value": encrypt(key_datas["key"], secret_value),
+            "key_id": key_datas["key_id"],
+        }
 
         json_data = json.dumps(data)
 
-        r = requests.put(
-            url=url_secret,
-            data=json_data,
-            headers=headers
-        )
+        r = requests.put(url=url_secret, data=json_data, headers=headers)
 
         if r.status_code == 201 or r.status_code == 204:
             logger.info(f"GitHub action secret - {secret_name} creation: SUCCESS")
@@ -153,82 +149,160 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
 
 
 def readthedocs_create() -> None:
+    logger.info("Creating Read the docs project")
     body_json = {
         "name": "{{ cookiecutter.pkg_name }}",
         "repository": {
-            "url": "https://github.com/{{ cookiecutter.github_username }}"
-                   "/{{ cookiecutter.pkg_name }}",
-            "type": "git"
+            "url": "https://github.com/Stephen-RA-King" "/{{ cookiecutter.pkg_name }}",
+            "type": "git",
         },
         "homepage": "http://template.readthedocs.io/",
         "programming_language": "py",
         "default_branch": "main",
-        "language": "en"
+        "language": "en",
     }
 
-    url = 'https://readthedocs.org/api/v3/projects/'
-    header = {'Authorization': f'token {READTHEDOCS_TOKEN}'}
+    url = "https://readthedocs.org/api/v3/projects/"
+    header = {"Authorization": f"token {READTHEDOCS_TOKEN}"}
     response = requests.post(
         url,
         json=body_json,
         headers=header,
     )
     if response.status_code == 201:
-        logger.info("ReadTheDocs project creation: SUCCESS")
+        logger.info(".... OK")
     else:
-        logger.info("ReadTheDocs project creation: FAILED")
+        logger.info(".... FAILED")
 
 
 def readthedocs_update() -> None:
+    # https://docs.readthedocs.io/en/stable/api/v3.html#project-update
+    logger.info("Updating Read the docs project with chosen git branch")
     body_json = {
         "name": "{{ cookiecutter.pkg_name }}",
-        "default_branch": "main"
+        "repository": {
+            "url": "https://github.com/Stephen-RA-King" "/{{ cookiecutter.pkg_name }}",
+            "type": "git",
+        },
+        "homepage": "http://template.readthedocs.io/",
+        "programming_language": "py",
+        "default_branch": "main",
+        "language": "en",
     }
 
-    url = 'https://readthedocs.org/api/v3/projects/'
-    header = {'Authorization': f'token {READTHEDOCS_TOKEN}'}
-    response = requests.post(
+    url = "https://readthedocs.org/api/v3/projects/{{ cookiecutter.pkg_name }}/"
+    header = {"Authorization": f"token {READTHEDOCS_TOKEN}"}
+    response = requests.patch(
         url,
         json=body_json,
         headers=header,
     )
-    if response.status_code == 201:
-        logger.info("ReadTheDocs project update: SUCCESS")
+    if response.status_code == 204:
+        logger.info(".... OK")
     else:
-        logger.info("ReadTheDocs project update: FAILED")
+        logger.info(f".... FAILED - {response.status_code}")
+
+
+def remove_modules() -> None:
+    """Checks installed modules for modules listed to be removed."""
+    remove_these_modules = [
+        "arrow",
+        "binaryornot",
+        "chardet",
+        "cookiecutter",
+        "jinja2-time",
+        "poyo",
+        "python-dateutil",
+        "python-slugify",
+        "text-unidecode",
+    ]
+    for module in remove_these_modules:
+        logger.info(f"........ Attempting to remove module {module}")
+        current_list = execute(sys.executable, "-m", "pip", "freeze", "-q", "-l")
+        if module in current_list:
+            execute(
+                sys.executable,
+                "-m",
+                "pip",
+                "uninstall",
+                "-y",
+                "-q",
+                module,
+            )
+        logger.info("............ OK")
 
 
 def file_word_replace(filepath: str, old_word: str, new_word: str) -> None:
-    with open(filepath, 'r') as file:
+    with open(filepath) as file:
         file_data = file.read()
     file_data = file_data.replace(old_word, new_word)
-    with open(filepath, 'w') as file:
+    with open(filepath, "w") as file:
         file.write(file_data)
 
 
 def main() -> None:
+    logger.info("Removing modules installed with cookiecutter")
+    remove_modules()
+    logger.info(".... All Done")
+
     github_create_repo()
     github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
     github_create_secret("PYPI_API_TOKEN", TEST_PYPI_TOKEN)
     readthedocs_create()
 
-    file_word_replace('.pypirc', 'token1', PYPI_TOKEN)
-    file_word_replace('.pypirc', 'token2', TEST_PYPI_TOKEN)
-    logger.info(".pypi file successfully configured with keys")
-    {% if (cookiecutter.version_control == 'python_semantic_release' and cookiecutter.OS == "windows") %}
+    logger.info("\nUpdating .pypi file with secret tokens")
+    file_word_replace(".pypirc", "token1", PYPI_TOKEN)
+    file_word_replace(".pypirc", "token2", TEST_PYPI_TOKEN)
+    logger.info(".... OK")
+
+    logger.info("\nPatching Python semantic release package windows bug")
     file_path = r"\{{ cookiecutter.pkg_name }}\Lib\site-packages\semantic_release\repository.py"
     repository = "".join([VIRTUALENV_DIR, file_path])
     file_word_replace(repository, "~/.pypirc", ".pypirc")
-    logger.info("Successfully fixed PSR bug")
-    {% endif %}
-    tests = r".github\workflows\tests.yml"
-    file_word_replace(tests, "default-branch1", "{{ cookiecutter.initial_git_branch_name }}")
-    file_word_replace(tests, "default-branch2", "{{ cookiecutter.initial_git_branch_name }}")
-    file_word_replace(tests, "package_name", "{{ cookiecutter.pkg_name }}")
-    logger.info("GitHub actions: tests.yml Successfully updated")
+    logger.info(".... OK")
 
+    logger.info(
+        "\nUpdating GitHub action tests.yml with chosen git branch & package name"
+    )
+    tests = r".github\workflows\tests.yml"
+    file_word_replace(tests, "default-branch1", "main")
+    file_word_replace(tests, "default-branch2", "main")
+    file_word_replace(tests, "package_name", "{{ cookiecutter.pkg_name }}")
+    logger.info(".... OK")
+
+    logger.info("\nUpdating GitHub action codeql-analysis.yml with chosen git branch")
+    codeql = r".github\workflows\codeql-analysis.yml"
+    file_word_replace(codeql, "default-branch1", "main")
+    file_word_replace(codeql, "default-branch2", "main")
+    logger.info("GitHub actions: codeql-analysis.yml Successfully updated")
+    logger.info(".... OK")
+
+    logger.info("\nInstalling requirements")
+    execute(sys.executable, "-m", "pip", "install", "-r", "requirements.txt")
+    logger.info(".... OK")
+
+    logger.info("\nChanging requirements from 'development' to 'test'")
     file_word_replace("requirements.txt", "development", "test")
-    logger.info("requirements.txt updated: development to test")
+    logger.info(".... OK")
+
+    logger.info("\nFinalizing update to base.in requirement")
+    execute("pip-compile", "-q", "base.in", cwd="requirements")
+    logger.info(".... OK")
+
+    logger.info("\nInitial git add, commit & push")
+    execute("git", "add", "assets/*")
+    execute(
+        "git", "commit", "-q", "-m", "chore: initial commit", supress_exception=True
+    )
+    execute("git", "push", "-q", "-u", "origin", "main")
+    logger.info(".... OK")
+
+    readthedocs_update()
+
+    logger.info(
+        "\n\nAll post configuration tasks are complete - "
+        "this file can now be deleted"
+    )
 
 
 if __name__ == "__main__":
