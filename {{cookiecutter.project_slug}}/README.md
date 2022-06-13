@@ -1,11 +1,12 @@
 # {{ cookiecutter.pkg_name }}
-> Short blurb about what your product does.
 
+> Short blurb about what your product does.
 
 [![PyPI][pypi-image]][pypi-url]
 [![Downloads][downloads-image]][downloads-url]
 [![Status][status-image]][pypi-url]
-[![Python Version][python-version-image])][pypi-url]
+[![Python Version][python-version-image]][pypi-url]
+![PyPI - Wheel](https://img.shields.io/pypi/wheel/{{ cookiecutter.pkg_name }})
 [![tests][tests-image]][tests-url]
 [![Codecov][codecov-image]][codecov-url]
 [![CodeFactor](https://www.codefactor.io/repository/github/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/badge)](https://www.codefactor.io/repository/github/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
@@ -28,9 +29,9 @@
 {%- endif %}
 {% if cookiecutter.use_commitizen == 'y' -%}
 [![Commitizen friendly][commitizen-image]][commitizen-url]
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square)](https://conventionalcommits.org)
 {%- endif %}
 [![License](https://img.shields.io/pypi/l/{{ cookiecutter.pkg_name }})][pypi-url]
-
 
 One to two paragraph statement about your product and what it does.
 
@@ -64,11 +65,9 @@ Describe how to install all development dependencies and how to run an automated
 pip install --editable {{ cookiecutter.pkg_name }}
 ```
 
-
-
 ## Documentation
-[**Read the Docs**](https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/)
 
+[**Read the Docs**](https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/)
 
 ## Meta
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
@@ -84,13 +83,12 @@ pip install --editable {{ cookiecutter.pkg_name }}
 
 {{cookiecutter.author_name}} : {{cookiecutter.email}}
 
-Distributed under the {{cookiecutter.license}} License. See [![License](https://img.shields.io/pypi/l/{{ cookiecutter.pkg_name }})][pypi-url] for more information.
+Distributed under the {{cookiecutter.license}} License. See [License](LICENSE) for more information.
 
 [https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
 
-
-
 <!-- Markdown link & img dfn's -->
+
 [pypi-url]: https://pypi.org/project/{{ cookiecutter.pkg_name }}/
 [pypi-image]: https://img.shields.io/pypi/v/{{cookiecutter.pkg_name}}.svg
 [downloads-image]: https://static.pepy.tech/personalized-badge/{{cookiecutter.pkg_name}}?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads
