@@ -150,6 +150,13 @@ def main():
             ]
         )
 
+    if "{{ cookiecutter.github_username }}" != "Stephen-RA-King":
+        delete_director(
+            [
+                SLUG_DIR / "post_installation.py",
+            ]
+        )
+
     if "{{ cookiecutter.use_docker }}".lower() != "y":
         delete_director(
             [
