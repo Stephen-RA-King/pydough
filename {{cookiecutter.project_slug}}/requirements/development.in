@@ -25,6 +25,7 @@ flake8-simplify
 flakeheaven{% endif %}
 {%- if cookiecutter.use_isort == 'y' %}
 isort{% endif %}
+invoke
 jupyter
 keyring
 {%- if cookiecutter.use_mypy == 'y' %}
