@@ -89,7 +89,7 @@ def set_keyring(service: str, id_type: str, hidden: str) -> None:
 
 
 def github_create_repo() -> None:
-    logger.info("Creating GitHub repository")
+    logger.info("\nCreating GitHub repository")
     body_json = {"name": "{{ cookiecutter.pkg_name }}", "description": "placeholder"}
 
     url = "https://api.github.com/user/repos"
@@ -106,6 +106,7 @@ def github_create_repo() -> None:
 
 
 def github_create_secret(secret_name: str, secret_value: str) -> None:
+    logger.info(f"\nGitHub action secret creation - {secret_name}")
     url_public_key = (
         "https://api.github.com/repos/Stephen-RA-King"
         "/{{ cookiecutter.pkg_name }}/actions/secrets/public-key"
@@ -137,10 +138,10 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
         r = requests.put(url=url_secret, data=json_data, headers=headers)
 
         if r.status_code == 201 or r.status_code == 204:
-            logger.info(f"GitHub action secret - {secret_name} creation: SUCCESS")
+            logger.info(".... OK")
 
         else:
-            logger.info(f"GitHub action secret - {secret_name} creation: FAILED")
+            logger.info(".... FAILED")
             logger.info(r.status_code, r.reason)
 
     else:
@@ -149,7 +150,7 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
 
 
 def readthedocs_create() -> None:
-    logger.info("Creating Read the docs project")
+    logger.info("\nCreating ReadTheDocs project")
     body_json = {
         "name": "{{ cookiecutter.pkg_name }}",
         "repository": {
@@ -177,7 +178,7 @@ def readthedocs_create() -> None:
 
 def readthedocs_update() -> None:
     # https://docs.readthedocs.io/en/stable/api/v3.html#project-update
-    logger.info("Updating Read the docs project with chosen git branch")
+    logger.info("\nUpdating Read the docs project with chosen git branch")
     body_json = {
         "name": "{{ cookiecutter.pkg_name }}",
         "repository": {
@@ -186,7 +187,7 @@ def readthedocs_update() -> None:
         },
         "homepage": "http://template.readthedocs.io/",
         "programming_language": "py",
-        "default_branch": "main",
+        "default_branch": "{{ cookiecutter.initial_git_branch_name }}",
         "language": "en",
     }
 
@@ -217,7 +218,7 @@ def remove_modules() -> None:
         "text-unidecode",
     ]
     for module in remove_these_modules:
-        logger.info(f"........ Attempting to remove module {module}")
+        logger.info(f"........ Removing module {module}")
         current_list = execute(sys.executable, "-m", "pip", "freeze", "-q", "-l")
         if module in current_list:
             execute(
@@ -274,7 +275,6 @@ def main() -> None:
     codeql = r".github\workflows\codeql-analysis.yml"
     file_word_replace(codeql, "default-branch1", "main")
     file_word_replace(codeql, "default-branch2", "main")
-    logger.info("GitHub actions: codeql-analysis.yml Successfully updated")
     logger.info(".... OK")
 
     logger.info("\nInstalling requirements")
@@ -299,10 +299,10 @@ def main() -> None:
 
     readthedocs_update()
 
-    logger.info(
-        "\n\nAll post configuration tasks are complete - "
-        "this file can now be deleted"
-    )
+    message = "\n\nAll post configuration tasks are complete - this file can now be deleted"
+    logger.info(f"{'*' * (len(message) - 2)}")
+    logger.info(message)
+    logger.info(f"\n\n{'*' * len(message)}")
 
 
 if __name__ == "__main__":
