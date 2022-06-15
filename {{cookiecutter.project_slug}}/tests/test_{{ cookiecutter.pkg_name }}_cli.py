@@ -2,7 +2,6 @@
 """Tests for CLI scripts"""
 
 # Core Library modules
-import sys
 
 # Third party modules
 from click.testing import CliRunner
