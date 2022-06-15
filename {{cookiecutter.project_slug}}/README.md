@@ -31,6 +31,7 @@
 {% if cookiecutter.use_commitizen == 'y' -%}
 [![Commitizen friendly][commitizen-image]][commitizen-url]
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square)](https://conventionalcommits.org)
+[![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.github_username }}/?ref=repository-badge)
 {%- endif %}
 [![License](https://img.shields.io/pypi/l/{{ cookiecutter.pkg_name }})][pypi-url]
 

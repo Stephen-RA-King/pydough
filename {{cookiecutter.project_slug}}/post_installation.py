@@ -137,7 +137,7 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
 
         r = requests.put(url=url_secret, data=json_data, headers=headers)
 
-        if r.status_code == 201 or r.status_code == 204:
+        if r.status_code in (201, 204):
             logger.info(".... OK")
 
         else:
@@ -299,7 +299,7 @@ def main() -> None:
 
     readthedocs_update()
 
-    message = "\n\nAll post configuration tasks are complete - this file can now be deleted"
+    message = "\n\nSUCCESS! - ALL POST INSTALLATION TASKS ARE COMPLETE - this module can now be deleted"
     logger.info(f"{'*' * (len(message) - 2)}")
     logger.info(message)
     logger.info(f"\n\n{'*' * len(message)}")
@@ -307,4 +307,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-    # readthedocs_update()
