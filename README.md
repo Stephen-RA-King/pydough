@@ -99,7 +99,7 @@ $ python -m pip install -e .
 ```sh
 $ python setup.py develop
 ```
-5. Push the local files to GitHub
+7. Push the local files to GitHub
 
 Note Git is automatically initialized and the following is automatically run by the post install hook
 ```sh
@@ -115,25 +115,35 @@ Note: If you chose to use the [**Pre-Commit**][pre-commit-url] package then many
 will now download and configure themselves and eventually be run against each file in the repository.
 This may take some time and some files may get modified. You will need to "git add" these files again.
 
-Again when the time comes create a git tag (optionally signed) and push to the remote
+8. Again when the time comes create a git tag (optionally signed) and push to the remote
 ```sh
 $ git tag -s 0.1.0 -m "chore: 0.1.0 tag"
 $ git push --tags
 ```
 
-Create build artefacts with the following command:
+9. Create build artefacts with the following command:
 ```sh
 $ python -m build
 ```
-Now upload the build artefacts to the test repository for final testing:
+10. Now upload the build artefacts to the test repository for final testing:
 ```sh
 $ python -m twine upload --config-file .pypirc -r testpypi dist/*
 ```
 
-When the time comes, release to the main repository:
+11. When the time comes, release to the main repository:
 ```sh
 $ python -m twine upload --config-file .pypirc dist/*
 ```
+
+12. If you are using services requires.io, codecov.io, codefactor.io
+and deepsource.io then you will need to login to those services with your GitHub account and import your respositories
+
+## Note
+Some badges can take up to 24 Hrs to update (yes download badge ... I am looking at you). So please be patient.
+
+
+
+
 
 ### Using Python Semantic Release (PSR)
 If you opted to use PSR then the future uploading to GitHub & uploading to PyPI, 
