@@ -6,7 +6,7 @@
 [![Downloads][downloads-image]][downloads-url]
 [![Status][status-image]][pypi-url]
 [![Python Version][python-version-image]][pypi-url]
-![PyPI - Wheel](https://img.shields.io/pypi/wheel/{{ cookiecutter.pkg_name }})
+[![Format](https://img.shields.io/pypi/format/{{ cookiecutter.github_username }}.svg)](https://pypi.org/project/{{ cookiecutter.github_username }}/)
 [![Requirements Status](https://requires.io/github/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/requirements.svg?branch={{ cookiecutter.initial_git_branch_name }})](https://requires.io/github/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/requirements/?branch={{ cookiecutter.initial_git_branch_name }})
 [![tests][tests-image]][tests-url]
 [![Codecov][codecov-image]][codecov-url]

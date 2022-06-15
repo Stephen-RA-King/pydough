@@ -34,7 +34,7 @@ The following tool is mandatory (you will thank me later):
 * Options to specify Docstring style (Google, Numpy, Sphinx or [**PEP257**][pep257-url])
 * Optionally include [**Commitizen**][commitizen-url] for parsing and enforcing descriptive git commits
 * Optionally include Logging using the dictConfig() configuration
-* Automatically include badges based on your selections:
+* Automatically include badges based on your selections e.g.:
 
 [![pre-commit][pre-commit-image]][pre-commit-url]
 [![Imports: isort][isort-image]][isort-url]
@@ -218,9 +218,9 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 [virtualenvwrapper-url]: https://pypi.org/project/virtualenvwrapper/
 [cookiecutter-url]: https://github.com/cookiecutter/cookiecutter
 [layered-url]: https://github.com/jazzband/pip-tools/#workflow-for-layered-requirements
-[flake8-url]: https://flake8.pycqa.org/en/latest/
-[sphinx-url]: https://www.sphinx-doc.org/en/master/
-[click-url]: https://click.palletsprojects.com/en/8.0.x/
+[flake8-url]: https://github.com/PyCQA/flake8
+[sphinx-url]: https://github.com/sphinx-doc/sphinx
+[click-url]: https://github.com/pallets/click/
 [commitizen-url]: https://github.com/commitizen-tools/commitizen
 [safety-url]: https://github.com/pyupio/safety
 [pep257-url]: https://peps.python.org/pep-0257/
@@ -231,15 +231,15 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 
 
 
-[bump2version-url]: https://pypi.org/project/bump2version/
-[pip-tools-url]: https://pypi.org/project/pip-tools/
-[flakeheaven-url]: https://pypi.org/project/flakeheaven/
+[bump2version-url]: https://github.com/c4urself/bump2version
+[pip-tools-url]: https://github.com/jazzband/pip-tools/
+[flakeheaven-url]: https://github.com/flakeheaven/flakeheaven
 
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
 
 [isort-image]: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
-[isort-url]: https://pycqa.github.io/isort/
+[isort-url]: https://github.com/PyCQA/isort
 
 [black-image]: https://img.shields.io/badge/code%20style-black-000000.svg
 [black-url]: https://github.com/psf/black
@@ -248,17 +248,14 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 [bandit-url]: https://github.com/PyCQA/bandit
 
 [mypy-image]: http://www.mypy-lang.org/static/mypy_badge.svg
-[mypy-url]: http://mypy-lang.org/
+[mypy-url]: https://github.com/python/mypy
 
 [mit-license-image]: https://img.shields.io/badge/license-MIT-blue
 [mit-license-url]: https://choosealicense.com/licenses/mit/
-
 [bsd-license-image]: https://img.shields.io/badge/license-BSD-blue
 [bsd-license-url]: https://www.openbsd.org/policy.html
-
 [gplv3-license-image]: https://img.shields.io/badge/license-GPLv3-blue
 [gplv3-license-url]: https://choosealicense.com/licenses/gpl-3.0/
-
 [apachev2-license-image]: https://img.shields.io/badge/license-Apache%202-blue.svg
 [apachev2-license-url]: https://choosealicense.com/licenses/apache-2.0/
 
