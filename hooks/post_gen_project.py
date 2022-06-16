@@ -59,8 +59,6 @@ def execute(*args, supress_exception=False, cwd=None):
         if err and not supress_exception:
             logger.exception(decoded_err)
             raise Exception(decoded_err)
-        else:
-            return decoded_out
     finally:
         logger.debug(f"Changing Directory to: {cur_dir}")
         os.chdir(cur_dir)
