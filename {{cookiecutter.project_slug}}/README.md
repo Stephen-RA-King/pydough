@@ -76,8 +76,9 @@ pip install --editable {{ cookiecutter.pkg_name }}
 [![](assets/linkedin.png)](https://linkedin.com/in/stephen-k-3a4644210)
 [![](assets/github.png)](https://github.com/Stephen-RA-King)
 [![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.pkg_name }}/)
-[![](assets/www.png)](https://www.Stephen-RA-King)
+[![](assets/www.png)](https://www.justpython.tech)
 [![](assets/email.png)](mailto:stephen.ra.king@gmail.com)
+[![](assets/cv.png)](https://www.justpython.tech/cv) 
 {% else %}
 [![](assets/github.png)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
 [![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.pkg_name }}/)

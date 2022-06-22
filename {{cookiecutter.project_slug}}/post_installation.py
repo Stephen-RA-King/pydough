@@ -102,7 +102,7 @@ def github_create_repo() -> None:
     if response.status_code == 201:
         logger.info(".... OK")
     else:
-        logger.info(".... FAILED")
+        logger.info(f".... FAILED: {response.status_code}")
 
 
 def github_create_secret(secret_name: str, secret_value: str) -> None:
@@ -242,9 +242,9 @@ def file_word_replace(filepath: str, old_word: str, new_word: str) -> None:
 
 
 def main() -> None:
-    logger.info("Removing modules installed with cookiecutter")
-    remove_modules()
-    logger.info(".... All Done")
+    # logger.info("Removing modules installed with cookiecutter")
+    # remove_modules()
+    # logger.info(".... All Done")
 
     github_create_repo()
     github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
@@ -299,10 +299,10 @@ def main() -> None:
 
     readthedocs_update()
 
-    message = "\n\nSUCCESS! - ALL POST INSTALLATION TASKS ARE COMPLETE - this module can now be deleted"
-    logger.info(f"{'*' * (len(message) - 2)}")
+    message = "\nSUCCESS! - ALL POST INSTALLATION TASKS ARE COMPLETE - this module can now be deleted"
+    logger.info(f"\n{'*' * (len(message) - 2)}")
     logger.info(message)
-    logger.info(f"\n\n{'*' * len(message)}")
+    logger.info(f"\n{'*' * len(message)}")
 
 
 if __name__ == "__main__":

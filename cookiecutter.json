@@ -39,6 +39,14 @@
     "numpy",
     "pep257"
   ],
+  "config_file": [
+    "all",
+    "yaml",
+    "json",
+    "ini",
+    "toml",
+    "none"
+  ],
   "use_isort": "y",
   "use_sphinx": "y",
   "use_pre_commit": "y",

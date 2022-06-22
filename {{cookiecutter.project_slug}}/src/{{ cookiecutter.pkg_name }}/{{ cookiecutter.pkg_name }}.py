@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 # Core Library modules
-{%- if cookiecutter.use_logging == 'y' %}
-import logging.config
-from importlib import resources{% endif %}
 from typing import Any
 
 # Third party modules
 {%- if cookiecutter.use_logging == 'y' %}
-import yaml  # type: ignore{% endif %}
-
-{%- if cookiecutter.use_logging == 'y' %}
-config = resources.read_text("{{ cookiecutter.pkg_name }}", "logging_config.yaml")
-logging.config.dictConfig(yaml.safe_load(config))
-logger = logging.getLogger("customlogger")
+from {{ cookiecutter.pkg_name }} import logger
 {% endif %}
+
+{%- if cookiecutter.config_file == 'json' or cookiecutter.config_file == 'all' %}
+from {{ cookiecutter.pkg_name }} import json_config{% endif %}
+{%- if cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'all' %}
+from {{ cookiecutter.pkg_name }} import ini_config{% endif %}
+{%- if cookiecutter.config_file == 'toml' or cookiecutter.config_file == 'all' %}
+from {{ cookiecutter.pkg_name }} import toml_config{% endif %}
+{%- if cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
+from {{ cookiecutter.pkg_name }} import yaml_config{% endif %}
 
 def fizzbuzz(number_range: int) -> list:
     """Return integers 1 to N, but print “Fizz” if an integer is divisible by 3,

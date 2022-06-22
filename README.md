@@ -212,6 +212,7 @@ Now develop! ... Go away now.
 [![](assets/github.png)](https://github.com/Stephen-RA-King/Stephen-RA-King)
 [![](assets/www.png)](https://www.justpython.tech)
 [![](assets/email.png)](mailto:stephen.ra.king@gmail.com) 
+[![](assets/cv.png)](https://www.justpython.tech/cv) 
 
 
 Author: Stephen RA King
