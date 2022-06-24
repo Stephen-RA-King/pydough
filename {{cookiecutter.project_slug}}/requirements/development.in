@@ -41,7 +41,6 @@ pre-commit{% endif %}
 {%- if cookiecutter.use_pytest == 'y' %}
 pytest
 pytest-cov
-pytest-sugar
 pytest-tldr
 pytest-xdist
 pytest-randomly

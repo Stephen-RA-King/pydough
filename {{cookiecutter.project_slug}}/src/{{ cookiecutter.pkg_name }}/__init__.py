@@ -13,8 +13,7 @@ import toml  # type: ignore{% endif %}
 {%- if cookiecutter.use_logging == 'y' or cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
 import yaml  # type: ignore{% endif %}
 
-
-{%- if cookiecutter.use_logging == 'y' %}
+{% if cookiecutter.use_logging == 'y' %}
 LOGGING_CONFIG = """
 version: 1
 disable_existing_loggers: False
@@ -51,25 +50,27 @@ logger = logging.getLogger("customlogger")
 {% endif -%}
 
 {%- if cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
-yaml_text = resources.read_text("{{ cookiecutter.pkg_name }}", "config.yaml")
-yaml_config = yaml.safe_load(yaml_text)
+_yaml_text = resources.read_text("{{ cookiecutter.pkg_name }}", "config.yaml")
+yaml_config = yaml.safe_load(_yaml_text)
 {% endif -%}
 
 {%- if cookiecutter.config_file == 'json' or cookiecutter.config_file == 'all' %}
-json_text = resources.read_text("{{ cookiecutter.pkg_name }}", "config.json")
-json_config = json.loads(json_text)
+_json_text = resources.read_text("{{ cookiecutter.pkg_name }}", "config.json")
+json_config = json.loads(_json_text)
 {% endif -%}
 
 {%- if cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'all' %}
-ini_text = resources.read_text("{{ cookiecutter.pkg_name }}", "config.ini")
-ini = configparser.ConfigParser()
-ini_config = ini.read(ini_text)
+_ini_text = resources.read_text("{{ cookiecutter.pkg_name }}", "config.ini")
+_ini = configparser.ConfigParser()
+_ini.optionxform = str  # type: ignore
+_ini.read_string(_ini_text)
+ini_config = {section: dict(_ini.items(section)) for section in _ini.sections()}
 {% endif -%}
 
 {%- if cookiecutter.config_file == 'toml' or cookiecutter.config_file == 'all' %}
-toml_text = resources.read_text("{{ cookiecutter.pkg_name }}", "config.toml")
-toml.loads(toml_text)
-{% endif -%}
+_toml_text = resources.read_text("{{ cookiecutter.pkg_name }}", "config.toml")
+toml_config = toml.loads(_toml_text)
+{% endif %}
 
 __title__ = "{{ cookiecutter.project_name }}"
 __version__ = "{{ cookiecutter.version }}"

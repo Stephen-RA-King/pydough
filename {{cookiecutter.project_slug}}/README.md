@@ -6,12 +6,12 @@
 [![Downloads][downloads-image]][downloads-url]
 [![Status][status-image]][pypi-url]
 [![Python Version][python-version-image]][pypi-url]
-[![Format](https://img.shields.io/pypi/format/{{ cookiecutter.github_username }}.svg)](https://pypi.org/project/{{ cookiecutter.github_username }}/)
-[![Requirements Status](https://requires.io/github/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/requirements.svg?branch={{ cookiecutter.initial_git_branch_name }})](https://requires.io/github/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/requirements/?branch={{ cookiecutter.initial_git_branch_name }})
+[![Format][format-image]][pypi-url]
+[![Requirements][requirements-status-image]][requirements-status-url]
 [![tests][tests-image]][tests-url]
 [![Codecov][codecov-image]][codecov-url]
-[![CodeFactor](https://www.codefactor.io/repository/github/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/badge)](https://www.codefactor.io/repository/github/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
-[![CodeQL](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/actions/workflows/codeql-analysis.yml)
+[![CodeFactor][codefactor-image]][codefactor-url]
+[![CodeQl][codeql-image]][codeql-url]
 [![readthedocs][readthedocs-image]][readthedocs-url]
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [![pre-commit][pre-commit-image]][pre-commit-url]
@@ -30,10 +30,10 @@
 {%- endif %}
 {% if cookiecutter.use_commitizen == 'y' -%}
 [![Commitizen friendly][commitizen-image]][commitizen-url]
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square)](https://conventionalcommits.org)
-[![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.github_username }}/?ref=repository-badge)
 {%- endif %}
-[![License](https://img.shields.io/pypi/l/{{ cookiecutter.pkg_name }})][pypi-url]
+[![Conventional Commits][conventional-commits-image]][conventional-commits-url]
+[![DeepSource][deepsource-image]][deepsource-url]
+[![License][license-image]][pypi-url]
 
 One to two paragraph statement about your product and what it does.
 
@@ -118,7 +118,7 @@ Distributed under the {{cookiecutter.license}} License. See [License](LICENSE) f
 {%- endif %}
 {% if cookiecutter.use_isort == 'y' -%}
 [isort-image]: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
-[isort-url]: https://pycqa.github.io/isort/
+[isort-url]: https://github.com/pycqa/isort/
 {%- endif %}
 {% if cookiecutter.use_black == 'y' -%}
 [black-image]: https://img.shields.io/badge/code%20style-black-000000.svg
@@ -133,3 +133,15 @@ Distributed under the {{cookiecutter.license}} License. See [License](LICENSE) f
 [mypy-url]: http://mypy-lang.org/
 {%- endif %}
 [wiki]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/wiki
+[conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square
+[conventional-commits-url]: https://conventionalcommits.org
+[codefactor-image]: https://www.codefactor.io/repository/github/Stephen-RA-King/{{ cookiecutter.pkg_name }}/badge
+[codefactor-url]: https://www.codefactor.io/repository/github/Stephen-RA-King/{{ cookiecutter.pkg_name }}
+[requirements-status-image]: https://requires.io/github/Stephen-RA-King/{{ cookiecutter.pkg_name }}/requirements.svg?branch=main
+[requirements-status-url]: https://requires.io/github/Stephen-RA-King/{{ cookiecutter.pkg_name }}/requirements/?branch=main
+[codeql-image]: https://github.com/Stephen-RA-King/{{ cookiecutter.pkg_name }}/actions/workflows/codeql-analysis.yml/badge.svg
+[codeql-url]: https://github.com/Stephen-RA-King/{{ cookiecutter.pkg_name }}/actions/workflows/codeql-analysis.yml
+[deepsource-image]: https://static.deepsource.io/deepsource-badge-dark-mini.svg
+[deepsource-url]: https://deepsource.io/gh/Stephen-RA-King/{{ cookiecutter.pkg_name }}/?ref=repository-badge
+[format-image]: https://img.shields.io/pypi/format/{{ cookiecutter.pkg_name }}
+[license-image]: https://img.shields.io/pypi/l/{{ cookiecutter.pkg_name }}

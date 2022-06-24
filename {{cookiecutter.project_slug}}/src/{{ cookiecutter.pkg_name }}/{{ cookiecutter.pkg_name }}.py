@@ -16,6 +16,29 @@ from {{ cookiecutter.pkg_name }} import toml_config{% endif %}
 {%- if cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
 from {{ cookiecutter.pkg_name }} import yaml_config{% endif %}
 
+
+{%- if cookiecutter.config_file == 'json' or  cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'toml' or cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
+def get_config() -> tuple:
+    """Return a configuration parameter from one of the configuration files"""
+    configs = [
+        {%- if cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'all' %}
+        ini_config,{% endif %}
+        {%- if cookiecutter.config_file == 'json' or cookiecutter.config_file == 'all' %}
+        json_config,{% endif %}
+        {%- if cookiecutter.config_file == 'toml' or cookiecutter.config_file == 'all' %}
+        toml_config,{% endif %}
+        {%- if cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
+        yaml_config{% endif %}
+    ]
+    config_result = []
+    config_len = len(configs)
+
+    for config in configs:
+        config_result.append(bool(config["APP"]["DEBUG"]))
+    return config_len, config_result
+{% endif %}
+
+
 def fizzbuzz(number_range: int) -> list:
     """Return integers 1 to N, but print “Fizz” if an integer is divisible by 3,
     “Buzz” if an integer is divisible by 5, and “FizzBuzz” if an integer is

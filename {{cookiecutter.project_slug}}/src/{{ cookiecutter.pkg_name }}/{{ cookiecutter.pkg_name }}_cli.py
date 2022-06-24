@@ -21,5 +21,4 @@ def author(verbose: str) -> None:
 
 
 if __name__ == "__main__":
-    """Creates entry point for the CLI"""
     info()

@@ -7,7 +7,7 @@ To use tests either:
 """
 {% if cookiecutter.use_pytest|lower == "y" -%}
 # Third party modules
-import pytest
+
 {%- else -%}
 # Core Library modules
 import unittest
@@ -18,10 +18,14 @@ from {{cookiecutter.pkg_name}} import {{cookiecutter.pkg_name}}
 
 
 {% if cookiecutter.use_pytest|lower == "y" -%}
+def test_get_config() -> None:
+    num, result = {{cookiecutter.pkg_name}}.get_config()
+    exp_result = [True for i in range(num)]
+    assert result == exp_result
+
 def test_fizzbuzz() -> None:
     result = {{ cookiecutter.pkg_name }}.fizzbuzz(10)
     assert result == [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz']
-
 
 def test_fibonacci() -> None:
     result = {{ cookiecutter.pkg_name }}.fibonacci(10)
@@ -29,6 +33,10 @@ def test_fibonacci() -> None:
 
 {%- else -%}
 class {{cookiecutter.pkg_name}}TestCase(unittest.TestCase):
+    def test_get_config(self) -> None:
+        num, result = {{cookiecutter.pkg_name}}.get_config()
+        exp_result = [True for i in range(num)]
+        self.assertEqual(result == exp_result)
 
     def test_fizzbuzz(self) -> None:
         result = {{cookiecutter.pkg_name}}.fizzbuzz(10)
