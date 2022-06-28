@@ -337,11 +337,13 @@ def main() -> None:
 
     logger.info("\n Final steps:")
     logger.info(f"{'=' * 14}")
-    logger.info("1 - Add the remaining files to git, commit and push")
-    logger.info("2 - tag and push tags")
-    logger.info("3 - Goto 'requires.io' and add the repository")
-    logger.info("4 - Goto 'codefactor.io' and add the repository")
-    logger.info("5 - Goto 'deepsource.io' and add the repository")
+    logger.info(
+        "1 - Add the remaining files to git, commit and push\n "
+        "2 - tag and push tags\n "
+        "3 - Goto 'requires.io' and add the repository\n "
+        "4 - Goto 'codefactor.io' and add the repository\n "
+        "5 - Goto 'deepsource.io' and add the repository\n"
+    )
 
 
 if __name__ == "__main__":
