@@ -41,13 +41,13 @@ pre-commit{% endif %}
 {%- if cookiecutter.use_pytest == 'y' %}
 pytest
 pytest-cov
+pytest-html
 pytest-tldr
 pytest-xdist
 pytest-randomly
 pytest-clarity{% endif %}
 pynacl
-{%- if cookiecutter.use_logging == 'y' %}
-pyyaml{% endif %}
+pyyaml
 requests
 {%- if cookiecutter.use_safety == 'y' %}
 safety{% endif %}

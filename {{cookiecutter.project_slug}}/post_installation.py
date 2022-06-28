@@ -1,6 +1,7 @@
 # Core Library modules
 import json
 import logging
+import logging.config
 import os
 import subprocess
 import sys
@@ -11,6 +12,7 @@ from typing import Any
 # Third party modules
 import keyring
 import requests  # type: ignore
+import yaml
 from nacl import encoding, public
 
 PLATFORM = sys.platform
@@ -24,18 +26,39 @@ DEV_DIR = r"D:\PYTHON PROJECT\PROJECTS\DEV"
 VIRTUALENV_DIR = r"D:\PYTHON PROJECT\PROJECTS\VIRTUALENVS"
 
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-c_handler = logging.StreamHandler()
-f_handler = logging.FileHandler(LOG_DIR / "post_install.log")
-c_handler.setLevel(logging.INFO)
-f_handler.setLevel(logging.DEBUG)
-c_format = logging.Formatter("%(message)s")
-f_format = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-c_handler.setFormatter(c_format)
-f_handler.setFormatter(f_format)
-logger.addHandler(c_handler)
-logger.addHandler(f_handler)
+LOGGING_CONFIG = """
+version: 1
+disable_existing_loggers: False
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    stream: ext://sys.stdout
+    formatter: basic
+  file:
+    class: logging.FileHandler
+    level: DEBUG
+    filename: logs/post_install.log
+    encoding: utf-8
+    formatter: timestamp
+
+formatters:
+  basic:
+    style: "{"
+    format: "{message:s}"
+  timestamp:
+    style: "{"
+    format: "{asctime} - {levelname} - {name} - {message}"
+
+loggers:
+  post:
+    handlers: [console, file]
+    level: DEBUG
+    propagate: False
+"""
+
+logging.config.dictConfig(yaml.safe_load(LOGGING_CONFIG))
+logger = logging.getLogger("post")
 
 
 def execute(*args: str, supress_exception: bool = False, cwd: Any = None) -> Any:
@@ -299,10 +322,25 @@ def main() -> None:
 
     readthedocs_update()
 
-    message = "\nSUCCESS! - ALL POST INSTALLATION TASKS ARE COMPLETE - this module can now be deleted"
+    logger.info("\nInstalling the package as an 'editable' package locally")
+    execute(sys.executable, "-m", "pip", "install", "-e", ".")
+    logger.info(".... OK")
+
+    message = (
+        "\nSUCCESS! - ALL POST INSTALLATION TASKS ARE COMPLETE - "
+        "this module can now be deleted"
+    )
     logger.info(f"\n{'*' * (len(message) - 2)}")
     logger.info(message)
     logger.info(f"\n{'*' * len(message)}")
+
+    logger.info("\n Final steps:")
+    logger.info(f"{'=' * 14}")
+    logger.info("1 - Add the remaining files to git, commit and push")
+    logger.info("2 - tag and push tags")
+    logger.info("3 - Goto 'requires.io' and add the repository")
+    logger.info("4 - Goto 'codefactor.io' and add the repository")
+    logger.info("5 - Goto 'deepsource.io' and add the repository")
 
 
 if __name__ == "__main__":

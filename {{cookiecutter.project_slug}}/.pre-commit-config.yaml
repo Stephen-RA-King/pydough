@@ -74,7 +74,7 @@ repos:
         args: [--py39]
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.6.2
+    rev: v2.7.1
     hooks:
       - id: prettier
         stages: [commit]
@@ -88,7 +88,8 @@ repos:
         exclude: |
           (?x)^(
               docs/source/conf.py|
-              cleanup.py
+              cleanup.py|
+              tasks.py
           )$
         additional_dependencies:
           - types-dataclasses >= 0.1.3
