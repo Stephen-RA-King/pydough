@@ -32,7 +32,7 @@ disable_existing_loggers: False
 handlers:
   console:
     class: logging.StreamHandler
-    level: DEBUG
+    level: INFO
     stream: ext://sys.stdout
     formatter: basic
   file:
@@ -308,8 +308,9 @@ def main() -> None:
     file_word_replace("requirements.txt", "development", "test")
     logger.info(".... OK")
 
+    # exception suppressed due to "warnings.warn("Setuptools is replacing distutils.")"
     logger.info("\nFinalizing update to base.in requirement")
-    execute("pip-compile", "-q", "base.in", cwd="requirements")
+    execute("pip-compile", "-q", "base.in", supress_exception=True, cwd="requirements")
     logger.info(".... OK")
 
     logger.info("\nInitial git add, commit & push")

@@ -34,7 +34,7 @@ disable_existing_loggers: False
 handlers:
   console:
     class: logging.StreamHandler
-    level: WARNING
+    level: INFO
     stream: ext://sys.stdout
     formatter: basic
   file:

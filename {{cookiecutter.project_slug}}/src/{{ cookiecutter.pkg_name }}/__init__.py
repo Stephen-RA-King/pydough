@@ -26,7 +26,7 @@ handlers:
   file:
     class: logging.FileHandler
     level: DEBUG
-    filename: file.log
+    filename: logs/{{ cookiecutter.pkg_name }}.log
     encoding: utf-8
     formatter: timestamp
 

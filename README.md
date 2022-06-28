@@ -75,12 +75,14 @@ You will need accounts with the following services:
 - [TestPyPi](https://test.pypi.org/) - Login and Generate your token
 - [PyPi](https://pypi.org/) - Login and Generate your token
 - [Codecov.io](https://about.codecov.io/)
-
+- [Requires.io](https://requires.io/)
+- [Codefactor.io](https://www.codefactor.io/)
+- [Deepsource.io](https://deepsource.io/)
 
 ### Finalization Steps
 
 1. Put your pypi and testpypi keys into the .pypirc file
-2. Create a remote repository using GitHub
+2. Create a remote repository on GitHub
 3. If using GitHub actions - Add your PyPi and TestPyPi tokens to the repository actions secrets with the following variable names:
 - TEST_PYPI_API_TOKEN
 - PYPI_API_TOKEN
@@ -143,8 +145,6 @@ Some badges can take up to 24 Hrs to update (yes download badge ... I am looking
 
 
 
-
-
 ### Using Python Semantic Release (PSR)
 If you opted to use PSR then the future uploading to GitHub & uploading to PyPI, 
 will be done automatically.
@@ -171,6 +171,38 @@ You can then open the "...docs/_build/html/index.html" file with a browser.
 It is generally best to clear the _build directory when generating new documentation by using the following command
 ```sh
 $ make clean html
+```
+
+### Using Invoke tasks.py
+
+I have written a "***tasks.py***" file that takes care of many of the mundane repository maintenance tasks:
+
+```shell
+invoke --list
+Available tasks:
+
+  bandit         Runs Bandit security scanner against all python files
+  build          Creates a new sdist & wheel build using the PyPA tool
+  clean          Run all clean sub-tasks.
+  clean-build    Clean up build artifacts.
+  clean-docs     Clean the document build
+  clean-logs     Clean the log files
+  clean-mypy     Clean up mypy cache and results.
+  clean-python   Clean up python file artifacts.
+  clean-test     Clean up test artifacts.
+  docs           Build documentation.
+  lint           Run all lint tasks
+  lint-black     Runs black formatter against all python files
+  lint-flake8    Run flake8.
+  lint-isort     Run isort against all python filoes
+  mypy           Run mypy against src python files.
+  psr            Runs semantic-release publish
+  publish        Uploads a build to the PyPI-test and PyPI python repositories
+  pypi           Uploads a build to the PyPI python repository
+  pypi-test      Uploads a build to the PyPI-test python repository
+  safety         Runs safety to check for insecure requirements
+  secure         Runs all security tools
+  tests          Run tests using pytest, generates coverage and reports html.
 ```
 
 
@@ -203,7 +235,7 @@ Therefore the following variables need to be changed to whatever you are using:
 
 
 ## Finally
-Now develop! ... Go away now.
+Have fun! ... Go away now.
 
 
 
