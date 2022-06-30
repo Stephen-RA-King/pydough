@@ -39,14 +39,14 @@ formatters:
     format: "{asctime} - {levelname} - {name} - {message}"
 
 loggers:
-  customlogger:
+  init:
     handlers: [console, file]
     level: DEBUG
     propagate: False
 """
 
 logging.config.dictConfig(yaml.safe_load(LOGGING_CONFIG))
-logger = logging.getLogger("customlogger")
+logger = logging.getLogger("init")
 {% endif -%}
 
 {%- if cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}

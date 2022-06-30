@@ -181,28 +181,29 @@ I have written a "***tasks.py***" file that takes care of many of the mundane re
 invoke --list
 Available tasks:
 
-  bandit         Runs Bandit security scanner against all python files
-  build          Creates a new sdist & wheel build using the PyPA tool
+  bandit         Runs bandit against selected python files.
+  build          Creates a new sdist & wheel build using the PyPA tool.
   clean          Run all clean sub-tasks.
+  clean-bandit   Clean the bandit report files.
   clean-build    Clean up build artifacts.
-  clean-docs     Clean the document build
-  clean-logs     Clean the log files
+  clean-docs     Clean the document build.
+  clean-logs     Clean the log files.
   clean-mypy     Clean up mypy cache and results.
   clean-python   Clean up python file artifacts.
   clean-test     Clean up test artifacts.
   docs           Build documentation.
-  lint           Run all lint tasks
-  lint-black     Runs black formatter against all python files
-  lint-flake8    Run flake8.
-  lint-isort     Run isort against all python filoes
-  mypy           Run mypy against src python files.
-  psr            Runs semantic-release publish
-  publish        Uploads a build to the PyPI-test and PyPI python repositories
-  pypi           Uploads a build to the PyPI python repository
-  pypi-test      Uploads a build to the PyPI-test python repository
-  safety         Runs safety to check for insecure requirements
-  secure         Runs all security tools
-  tests          Run tests using pytest, generates coverage and reports html.
+  lint           Run all lint tasks.
+  lint-black     Runs black formatter against selected python files.
+  lint-flake8    Run flake8 against selected files.
+  lint-isort     Run isort against selected python files.
+  mypy           Run mypy against selected python files.
+  psr            Runs semantic-release publish.
+  publish        Uploads a build to the PyPI-test and PyPI python repositories.
+  pypi           Uploads a build to the PyPI python repository.
+  pypi-test      Uploads a build to the PyPI-test python repository.
+  safety         Runs safety to check for insecure requirements.
+  secure         Runs all security tools.
+  tests          Run tests using pytest.
 ```
 
 
@@ -238,7 +239,6 @@ Therefore the following variables need to be changed to whatever you are using:
 Have fun! ... Go away now.
 
 
-
 ## Meta
 [![](assets/linkedin.png)](https://linkedin.com/in/stephen-k-3a4644210)
 [![](assets/github.png)](https://github.com/Stephen-RA-King/Stephen-RA-King)
@@ -249,58 +249,38 @@ Have fun! ... Go away now.
 
 Author: Stephen RA King
 
-Distributed under the MIT License. See ``LICENSE`` for more information.
+Distributed under the MIT license. See ``license`` for more information.
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
 
-
 <!-- Markdown link & img dfn's -->
-[invoke-url]: https://www.pyinvoke.org/
-[virtualenv-url]: https://virtualenv.pypa.io
-[virtualenvwrapper-url]: https://pypi.org/project/virtualenvwrapper/
-[cookiecutter-url]: https://github.com/cookiecutter/cookiecutter
-[layered-url]: https://github.com/jazzband/pip-tools/#workflow-for-layered-requirements
-[flake8-url]: https://github.com/PyCQA/flake8
-[sphinx-url]: https://github.com/sphinx-doc/sphinx
-[click-url]: https://github.com/pallets/click/
-[commitizen-url]: https://github.com/commitizen-tools/commitizen
-[safety-url]: https://github.com/pyupio/safety
-[pep257-url]: https://peps.python.org/pep-0257/
-[pep660-url]: https://peps.python.org/pep-0660/
-
-[google-docstring-url]: https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings
-[numpy-docstring-utl]: https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard
-
-
-
-[bump2version-url]: https://github.com/c4urself/bump2version
-[pip-tools-url]: https://github.com/jazzband/pip-tools/
-[flakeheaven-url]: https://github.com/flakeheaven/flakeheaven
-
-[pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
-[pre-commit-url]: https://github.com/pre-commit/pre-commit
-
-[isort-image]: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
-[isort-url]: https://github.com/PyCQA/isort
-
-[black-image]: https://img.shields.io/badge/code%20style-black-000000.svg
-[black-url]: https://github.com/psf/black
-
 [bandit-image]: https://img.shields.io/badge/security-bandit-yellow.svg
 [bandit-url]: https://github.com/PyCQA/bandit
-
+[black-image]: https://img.shields.io/badge/code%20style-black-000000.svg
+[black-url]: https://github.com/psf/black
+[bump2version-url]: https://github.com/c4urself/bump2version
+[click-url]: https://github.com/pallets/click/
+[commitizen-url]: https://github.com/commitizen-tools/commitizen
+[cookiecutter-url]: https://github.com/cookiecutter/cookiecutter
+[flake8-url]: https://github.com/PyCQA/flake8
+[flakeheaven-url]: https://github.com/flakeheaven/flakeheaven
+[github]: https://github.com/stephen-ra-king/cc_template
+[google-docstring-url]: https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings
+[invoke-url]: https://www.pyinvoke.org/
+[isort-image]: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
+[isort-url]: https://github.com/PyCQA/isort
+[layered-url]: https://github.com/jazzband/pip-tools/#workflow-for-layered-requirements
 [mypy-image]: http://www.mypy-lang.org/static/mypy_badge.svg
 [mypy-url]: https://github.com/python/mypy
-
-[mit-license-image]: https://img.shields.io/badge/license-MIT-blue
-[mit-license-url]: https://choosealicense.com/licenses/mit/
-[bsd-license-image]: https://img.shields.io/badge/license-BSD-blue
-[bsd-license-url]: https://www.openbsd.org/policy.html
-[gplv3-license-image]: https://img.shields.io/badge/license-GPLv3-blue
-[gplv3-license-url]: https://choosealicense.com/licenses/gpl-3.0/
-[apachev2-license-image]: https://img.shields.io/badge/license-Apache%202-blue.svg
-[apachev2-license-url]: https://choosealicense.com/licenses/apache-2.0/
-
+[numpy-docstring-utl]: https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard
+[pep257-url]: https://peps.python.org/pep-0257/
+[pep660-url]: https://peps.python.org/pep-0660/
+[pip-tools-url]: https://github.com/jazzband/pip-tools/
+[pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
+[pre-commit-url]: https://github.com/pre-commit/pre-commit
+[safety-url]: https://github.com/pyupio/safety
+[sphinx-url]: https://github.com/sphinx-doc/sphinx
+[virtualenv-url]: https://virtualenv.pypa.io
+[virtualenvwrapper-url]: https://pypi.org/project/virtualenvwrapper/
 [wiki]: https://github.com/stephen-ra-king/cc_template/wiki
-[github]: https://github.com/stephen-ra-king/cc_template

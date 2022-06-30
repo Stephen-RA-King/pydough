@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Example script to demonstrate layout and testing."""
 # Core Library modules
 from typing import Any
 
@@ -19,7 +20,7 @@ from {{ cookiecutter.pkg_name }} import yaml_config{% endif %}
 
 {%- if cookiecutter.config_file == 'json' or  cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'toml' or cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
 def get_config() -> tuple:
-    """Return a configuration parameter from one of the configuration files"""
+    """Return a configuration parameter from one of the configuration files."""
     configs = [
         {%- if cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'all' %}
         ini_config,{% endif %}
@@ -40,7 +41,9 @@ def get_config() -> tuple:
 
 
 def fizzbuzz(number_range: int) -> list:
-    """Return integers 1 to N, but print “Fizz” if an integer is divisible by 3,
+    """Demonstrates one solution to the FizzBuzz problem.
+
+    Return integers 1 to N, but print “Fizz” if an integer is divisible by 3,
     “Buzz” if an integer is divisible by 5, and “FizzBuzz” if an integer is
     divisible by both 3 and 5
 
@@ -74,7 +77,7 @@ def fizzbuzz(number_range: int) -> list:
 
 
 def fibonacci(number_range: int) -> list:
-    """series of numbers in which each number is the sum of the two that precede it
+    """series of numbers in which each number is the sum of the two that precede it.
 
     Parameters
     ----------

@@ -24,8 +24,24 @@ def test_get_config() -> None:
     assert result == exp_result
 
 def test_fizzbuzz() -> None:
-    result = {{ cookiecutter.pkg_name }}.fizzbuzz(10)
-    assert result == [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz']
+    result = {{ cookiecutter.pkg_name }}.fizzbuzz(16)
+    assert result == [
+        1,
+        2,
+        "Fizz",
+        4,
+        "Buzz",
+        "Fizz",
+        7,
+        8,
+        "Fizz",
+        "Buzz",
+        11,
+        "Fizz",
+        13,
+        14,
+        "FizzBuzz",
+    ]
 
 def test_fibonacci() -> None:
     result = {{ cookiecutter.pkg_name }}.fibonacci(10)

@@ -33,7 +33,7 @@
 {%- endif %}
 [![Conventional Commits][conventional-commits-image]][conventional-commits-url]
 [![DeepSource][deepsource-image]][deepsource-url]
-[![License][license-image]][pypi-url]
+[![license][license-image]][license]
 
 One to two paragraph statement about your product and what it does.
 
@@ -88,7 +88,7 @@ pip install --editable {{ cookiecutter.pkg_name }}
 
 {{cookiecutter.author_name}} : {{cookiecutter.email}}
 
-Distributed under the {{cookiecutter.license}} License. See [License](LICENSE) for more information.
+Distributed under the {{cookiecutter.license}} license. See [license](license-url) for more information.
 
 [https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
 
@@ -123,8 +123,8 @@ Distributed under the {{cookiecutter.license}} License. See [License](LICENSE) f
 [isort-image]: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
 [isort-url]: https://github.com/pycqa/isort/
 {%- endif %}
-[license]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/blob/main/LICENSE
-[licence-image]: https://img.shields.io/pypi/l/{{cookiecutter.pkg_name}}
+[license-image]: https://img.shields.io/pypi/l/{{cookiecutter.pkg_name}}
+[license-url]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/blob/main/license
 {% if cookiecutter.use_mypy == 'y' -%}
 [mypy-image]: http://www.mypy-lang.org/static/mypy_badge.svg
 [mypy-url]: http://mypy-lang.org/
