@@ -1,8 +1,10 @@
 {
   "_copy_without_render": [
-        ".github/workflows/*"
+    ".github/workflows/*"
     ],
-  "_extensions": ["jinja2_time.TimeExtension"],
+  "_extensions": [
+    "jinja2_time.TimeExtension"
+  ],
   "project_name": "Python Boilerplate",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "pkg_name": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
@@ -36,8 +38,7 @@
   ],
   "docstrings_style": [
     "google",
-    "numpy",
-    "pep257"
+    "numpy"
   ],
   "config_file": [
     "all",
