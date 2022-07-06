@@ -64,6 +64,14 @@ def execute(*args, supress_exception=False, cwd=None):
         os.chdir(cur_dir)
 
 
+def file_word_replace(filepath: str, old_word: str, new_word: str) -> None:
+    with open(filepath) as file:
+        file_data = file.read()
+    file_data = file_data.replace(old_word, new_word)
+    with open(filepath, "w") as file:
+        file.write(file_data)
+
+
 def pip_configure(command):
     execute(
         sys.executable,
@@ -155,6 +163,7 @@ def main():
                 SLUG_DIR / "post_installation.py",
             ]
         )
+
 
     if "{{ cookiecutter.use_docker }}".lower() != "y":
         delete_director(
