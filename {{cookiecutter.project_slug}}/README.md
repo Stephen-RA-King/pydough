@@ -11,6 +11,9 @@
 [![tests][tests-image]][tests-url]
 [![Codecov][codecov-image]][codecov-url]
 [![CodeFactor][codefactor-image]][codefactor-url]
+[![Codeclimate][codeclimate-image]][codeclimate-url]
+[![Lgtm alerts][lgtm-alerts-image]][lgtm-alerts-url]
+[![Lgtm quality][lgtm-quality-image]][lgtm-quality-url]
 [![CodeQl][codeql-image]][codeql-url]
 [![readthedocs][readthedocs-image]][readthedocs-url]
 {% if cookiecutter.use_pre_commit == 'y' -%}
@@ -33,7 +36,7 @@
 {%- endif %}
 [![Conventional Commits][conventional-commits-image]][conventional-commits-url]
 [![DeepSource][deepsource-image]][deepsource-url]
-[![license][license-image]][license]
+[![license][license-image]][license-url]
 
 One to two paragraph statement about your product and what it does.
 
@@ -102,6 +105,8 @@ Distributed under the {{cookiecutter.license}} license. See [license](license-ur
 [black-image]: https://img.shields.io/badge/code%20style-black-000000.svg
 [black-url]: https://github.com/psf/black
 {%- endif %}
+[codeclimate-image]: https://api.codeclimate.com/v1/badges/7fc352185512a1dab75d/maintainability
+[codeclimate-url]: https://codeclimate.com/github/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/maintainability
 [codecov-image]: https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/branch/main/graph/badge.svg
 [codecov-url]: https://app.codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}
 [codefactor-image]: https://www.codefactor.io/repository/github/Stephen-RA-King/{{ cookiecutter.pkg_name }}/badge
@@ -123,6 +128,10 @@ Distributed under the {{cookiecutter.license}} license. See [license](license-ur
 [isort-image]: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
 [isort-url]: https://github.com/pycqa/isort/
 {%- endif %}
+[lgtm-alerts-image]: https://img.shields.io/lgtm/alerts/g/Stephen-RA-King/wymple17.svg?logo=lgtm&logoWidth=18
+[lgtm-alerts-url]: https://lgtm.com/projects/g/Stephen-RA-King/wymple17/alerts/
+[lgtm-quality-image]: https://img.shields.io/lgtm/grade/python/g/Stephen-RA-King/wymple17.svg?logo=lgtm&logoWidth=18
+[lgtm-quality-url]: https://lgtm.com/projects/g/Stephen-RA-King/wymple17/context:python
 [license-image]: https://img.shields.io/pypi/l/{{cookiecutter.pkg_name}}
 [license-url]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/blob/main/license
 {% if cookiecutter.use_mypy == 'y' -%}
