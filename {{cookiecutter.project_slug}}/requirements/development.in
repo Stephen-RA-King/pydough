@@ -20,6 +20,7 @@ flake8-bugbear
 flake8-comprehensions
 flake8-docstrings
 flake8-eradicate
+flake8-html
 flake8-pytest-style
 flake8-simplify
 flakeheaven{% endif %}
