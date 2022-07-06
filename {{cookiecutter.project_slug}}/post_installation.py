@@ -1,6 +1,5 @@
 # Core Library modules
 import json
-import logging
 import logging.config
 import os
 import subprocess
@@ -8,6 +7,7 @@ import sys
 from base64 import b64encode
 from pathlib import Path
 from typing import Any
+import webbrowser
 
 # Third party modules
 import keyring
@@ -265,10 +265,6 @@ def file_word_replace(filepath: str, old_word: str, new_word: str) -> None:
 
 
 def main() -> None:
-    # logger.info("Removing modules installed with cookiecutter")
-    # remove_modules()
-    # logger.info(".... All Done")
-
     github_create_repo()
     github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
     github_create_secret("PYPI_API_TOKEN", TEST_PYPI_TOKEN)
@@ -338,12 +334,19 @@ def main() -> None:
     logger.info("\n Final steps:")
     logger.info(f"{'=' * 14}")
     logger.info(
-        "1 - Add the remaining files to git, commit and push\n "
-        "2 - tag and push tags\n "
-        "3 - Goto 'requires.io' and add the repository\n "
-        "4 - Goto 'codefactor.io' and add the repository\n "
-        "5 - Goto 'deepsource.io' and add the repository\n"
+        "1 - Add the remaining files to git, commit and push\n"
+        "2 - tag and push tags\n"
+        "3 - Goto 'Codecov.io' and add the repository\n"
+        "4 - Goto 'requires.io' and add the repository\n"
+        "5 - Goto 'codefactor.io' and add the repository\n"
+        "6 - Goto 'deepsource.io' and add the repository\n"
+        "7 - Goto 'codeclimate.io' and add the repository\n"
     )
+    webbrowser.open("https://app.codecov.io/login/gh?")
+    webbrowser.open("https://requires.io/auth/github/login/?process=login&scope=repo")
+    webbrowser.open("https://www.codefactor.io")
+    webbrowser.open("https://deepsource.io/login")
+    webbrowser.open("https://codeclimate.com/login/github/join")
 
 
 if __name__ == "__main__":
