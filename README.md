@@ -178,32 +178,27 @@ $ make clean html
 I have written a "***tasks.py***" file that takes care of many of the mundane repository maintenance tasks:
 
 ```shell
-invoke --list
+inv --list
 Available tasks:
 
-  bandit         Runs bandit against selected python files.
-  build          Creates a new sdist & wheel build using the PyPA tool.
-  clean          Run all clean sub-tasks.
-  clean-bandit   Clean the bandit report files.
-  clean-build    Clean up build artifacts.
-  clean-docs     Clean the document build.
-  clean-logs     Clean the log files.
-  clean-mypy     Clean up mypy cache and results.
-  clean-python   Clean up python file artifacts.
-  clean-test     Clean up test artifacts.
-  docs           Build documentation.
-  lint           Run all lint tasks.
-  lint-black     Runs black formatter against selected python files.
-  lint-flake8    Run flake8 against selected files.
-  lint-isort     Run isort against selected python files.
-  mypy           Run mypy against selected python files.
-  psr            Runs semantic-release publish.
-  publish        Uploads a build to the PyPI-test and PyPI python repositories.
-  pypi           Uploads a build to the PyPI python repository.
-  pypi-test      Uploads a build to the PyPI-test python repository.
-  safety         Runs safety to check for insecure requirements.
-  secure         Runs all security tools.
-  tests          Run tests using pytest.
+  bandit                     Runs bandit against selected python files.
+  build                      Creates a new sdist & wheel build using the PyPA tool.
+  clean                      Removes all test, build, log and lint artifacts from the environment.
+  docs                       Build documentation.
+  lint                       Run all lint tasks on 'src' files only.
+  lint-all                   Run all lint tasks on all files.
+  lint-black (bl, black)     Runs black formatter against selected python files.
+  lint-flake8 (fl, flake8)   Run flake8 against selected files.
+  lint-isort (is, isort)     Run isort against selected python files.
+  mypy                       Run mypy against selected python files.
+  psr                        Runs semantic-release publish.
+  publish                    Uploads a build to the PyPI-test and PyPI python repositories.
+  pypi                       Uploads a build to the PyPI python repository.
+  pypi-test                  Uploads a build to the PyPI-test python repository.
+  safety                     Runs safety to check for insecure requirements.
+  secure                     Runs all security tools.
+  tests                      Run tests using pytest.
+  update                     Updates the development environment
 ```
 
 
