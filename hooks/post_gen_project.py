@@ -174,8 +174,13 @@ def main():
         delete_director(
             [
                 SLUG_DIR / "post_installation.py",
+                SLUG_DIR / "_NOTES.docx",
+                SLUG_DIR / "_TODO.txt"
             ]
         )
+    else:
+        os.rename("_NOTES.docx", "NOTES.docx")
+        os.rename("_TODO.txt", "TODO.txt")
 
 
     if "{{ cookiecutter.use_docker }}".lower() != "y":
