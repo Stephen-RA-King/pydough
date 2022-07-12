@@ -150,6 +150,19 @@ def main():
     logger.info("Upgrading and Installing Basic Packages")
     upgrade_package(upgrade_basics_list)
 
+    config_files = [
+        PKG_DIR / "config.ini",
+        PKG_DIR / "config.json",
+        PKG_DIR / "config.toml",
+        PKG_DIR / "config.yaml",
+    ]
+    if "{{ cookiecutter.config_file }}" == "none":
+        delete_director(config_files)
+    elif "{{ cookiecutter.config_file }}" != "all":
+        keep_file = "".join(["config.", "{{ cookiecutter.config_file }}"])
+        config_files.remove(PKG_DIR / keep_file)
+        delete_director(config_files)
+
     if "{{ cookiecutter.create_author_file }}".lower() != "y":
         delete_director(
             [
