@@ -182,7 +182,6 @@ def main():
         os.rename("_NOTES.docx", "NOTES.docx")
         os.rename("_TODO.txt", "TODO.txt")
 
-
     if "{{ cookiecutter.use_docker }}".lower() != "y":
         delete_director(
             [
