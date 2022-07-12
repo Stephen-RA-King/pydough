@@ -8,7 +8,7 @@ import click
 
 @click.group()
 def info() -> None:
-    """Creates container info to which other commands can be attached."""
+    """Create a container to which other commands can be attached."""
 
 
 @info.command(help="Display Author Name")
