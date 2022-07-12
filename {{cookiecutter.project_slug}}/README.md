@@ -18,6 +18,7 @@
 [![readthedocs][readthedocs-image]][readthedocs-url]
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [![pre-commit][pre-commit-image]][pre-commit-url]
+[![pre-commit.ci status][pre-commit.ci-image]][pre-commit.ci-url]
 {%- endif %}
 {% if cookiecutter.use_isort == 'y' -%}
 [![Imports: isort][isort-image]][isort-url]
@@ -141,6 +142,8 @@ Distributed under the {{cookiecutter.license}} license. See [license](license-ur
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
+[pre-commit.ci-image]: https://results.pre-commit.ci/badge/github/Stephen-RA-King/gitwatch/main.svg
+[pre-commit.ci-url]: https://results.pre-commit.ci/latest/github/Stephen-RA-King/gitwatch/main
 {%- endif %}
 [pypi-url]: https://pypi.org/project/{{ cookiecutter.pkg_name }}/
 [pypi-image]: https://img.shields.io/pypi/v/{{cookiecutter.pkg_name}}.svg
