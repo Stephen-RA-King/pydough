@@ -131,7 +131,6 @@ venv.bak/
 dmypy.json
 
 # miscellaneous files
-TODO.txt
-*.docx
 *.tmp
-tasks1.py
+instructions.docx
+TODO.txt
