@@ -157,18 +157,3 @@ Distributed under the {{cookiecutter.license}} license. See [license](license-ur
 [tests-url]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/actions/workflows/tests.yml
 [wiki]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/wiki
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
