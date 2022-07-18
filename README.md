@@ -31,7 +31,7 @@ The following tool is mandatory (you will thank me later):
 * Optionally include [**Safety**][safety-url] to check dependencies for known security vulnerabilities
 * Optionally include [**Flakeheaven**][flakeheaven-url] Flake8 wrapper to replace flakehell
 * Optionally include version control and release with [**python-semantic-release**](https://github.com/relekang/python-semantic-release) or [**bump2version**][bump2version-url] 
-* Options to specify Docstring style (Google, Numpy, Sphinx or [**PEP257**][pep257-url])
+* Options to specify Docstring style (Google or  Numpy see [**PEP257**][pep257-url])
 * Optionally include [**Commitizen**][commitizen-url] for parsing and enforcing descriptive git commits
 * Optionally include Logging using the dictConfig() configuration
 * Automatically include badges based on your selections e.g.:
@@ -201,6 +201,9 @@ Available tasks:
   update                     Updates the development environment
 ```
 
+## Example of Freshly Deployed Template
+[GitHub](https://github.com/Stephen-RA-King/wymple20)  
+[PyPI](https://pypi.org/project/wymple20/)
 
 
 ## Known Issues
