@@ -2,11 +2,13 @@
 """Example script to demonstrate layout and testing."""
 # Core Library modules
 from typing import Any
+{%- if cookiecutter.use_logging == 'y' %}
+import sys{% endif %}
 
 # Third party modules
 {%- if cookiecutter.use_logging == 'y' %}
-from . import logger
-{% endif %}
+from . import logger{% endif %}
+
 
 {%- if cookiecutter.config_file == 'json' or cookiecutter.config_file == 'all' %}
 from . import json_config{% endif %}
@@ -51,6 +53,15 @@ def get_config() -> tuple:
     return config_len, config_result
 {% endif %}
 
+{% if cookiecutter.use_logging == 'y' %}
+def handle_exception(exc_type, exc_value, exc_traceback):
+    if issubclass(exc_type, KeyboardInterrupt):
+        sys.__excepthook__(exc_type, exc_value, exc_traceback)
+        return
+    logger.error("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
+
+sys.excepthook = handle_exception
+{% endif %}
 
 def fizzbuzz(number_range: int) -> list:
     {% if cookiecutter.docstrings_style == 'numpy' %}
