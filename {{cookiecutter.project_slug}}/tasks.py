@@ -24,7 +24,7 @@ DOCS_INDEX = "".join(['"', str(ROOT_DIR / "docs" / "_build" / "index.html"), '"'
 LOG_DIR = ROOT_DIR.joinpath("logs")
 TEST_DIR = ROOT_DIR.joinpath("tests")
 SRC_DIR = ROOT_DIR.joinpath("src")
-PKG_DIR = SRC_DIR.joinpath("wymple17")
+PKG_DIR = SRC_DIR.joinpath("{{ cookiecutter.pkg_name }}")
 PYTHON_FILES_ALL = list(ROOT_DIR.rglob("*.py"))
 PYTHON_FILES_ALL.remove(ROOT_DIR / "tasks.py")
 PYTHON_FILES_ALL_STR = ""
@@ -136,7 +136,7 @@ def _clean_build():
     ]
     # specify pathlib objects to exclude from deletion (can be directories of files)
     excludes = [
-        SRC_DIR / "wymple17.egg-info/",
+        SRC_DIR / "{{ cookiecutter.pkg_name }}.egg-info/",
     ]
     for pattern in patterns:
         _finder(ROOT_DIR, pattern, excludes)
@@ -356,7 +356,7 @@ def tests(c, open_browser=False):
     _clean_test()
     print(TEST_DIR)
     c.run(
-        f'pytest "{str(TEST_DIR)}" --cov=wymple17 --cov-report=html '
+        f'pytest "{str(TEST_DIR)}" --cov={{ cookiecutter.pkg_name }} --cov-report=html '
         f"--html=pytest-report.html"
     )
     if open_browser:
