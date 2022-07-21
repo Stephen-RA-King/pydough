@@ -21,10 +21,12 @@ from {{cookiecutter.pkg_name}} import {{cookiecutter.pkg_name}}
 def test_get_config() -> None:
     num, result = {{cookiecutter.pkg_name}}.get_config()
     exp_result = [True for i in range(num)]
+    print(result)
     assert result == exp_result
 
 def test_fizzbuzz() -> None:
     result = {{ cookiecutter.pkg_name }}.fizzbuzz(16)
+    print(result)
     assert result == [
         1,
         2,
@@ -45,6 +47,7 @@ def test_fizzbuzz() -> None:
 
 def test_fibonacci() -> None:
     result = {{ cookiecutter.pkg_name }}.fibonacci(10)
+    print(result)
     assert result == [1, 1, 2, 3, 5, 8]
 
 {%- else -%}
