@@ -96,6 +96,9 @@ Distributed under the {{cookiecutter.license}} license. See [license](license-ur
 
 [https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
 
+Created with Cookiecutter template: [**cc_template**][cc_template-url] version 1.0.3
+
+
 <!-- Markdown link & img dfn's -->
 
 {% if cookiecutter.use_bandit == 'y' -%}
@@ -106,6 +109,7 @@ Distributed under the {{cookiecutter.license}} license. See [license](license-ur
 [black-image]: https://img.shields.io/badge/code%20style-black-000000.svg
 [black-url]: https://github.com/psf/black
 {%- endif %}
+[cc_template-url]: https://github.com/Stephen-RA-King/cc_template
 [codeclimate-image]: https://api.codeclimate.com/v1/badges/7fc352185512a1dab75d/maintainability
 [codeclimate-url]: https://codeclimate.com/github/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/maintainability
 [codecov-image]: https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/branch/main/graph/badge.svg
