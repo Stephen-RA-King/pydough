@@ -47,3 +47,27 @@ mccabe = ["+*"]
 pep8-naming = ["+*"]
 pycodestyle = ["+*"]
 pylint = ["+F*", "+E*", "-E0611", "-E1101", "-E0401", "-E1102", "-E1123"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "1.1.0"
+update_changelog_on_bump = true
+tag_format = "$version"
+version_files = [
+    "setup.cfg:version",
+    ".bumpversion.cfg:current_version",
+    "README.md:version:",
+    "{{cookiecutter.project_slug}}/README.md:version"
+]
+style = [
+    ["qmark", "fg:#ff9d00 bold"],
+    ["question", "bold"],
+    ["answer", "fg:#ff9d00 bold"],
+    ["pointer", "fg:#ff9d00 bold"],
+    ["highlighted", "fg:#ff9d00 bold"],
+    ["selected", "fg:#cc5454"],
+    ["separator", "fg:#cc5454"],
+    ["instruction", ""],
+    ["text", ""],
+    ["disabled", "fg:#858585 italic"]
+]
