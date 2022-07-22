@@ -356,8 +356,8 @@ def tests(c, open_browser=False):
     _clean_test()
     print(TEST_DIR)
     c.run(
-        f'pytest "{str(TEST_DIR)}" --cov={{ cookiecutter.pkg_name }} --cov-report=html -ra'
-        f"--html=pytest-report.html"
+        f'pytest "{str(TEST_DIR)}" --cov={{ cookiecutter.pkg_name }} --cov-report=html'
+        f' --html=pytest-report.html -ra'
     )
     if open_browser:
         pytest_path = "".join(['"', str(ROOT_DIR / "pytest-report.html"), '"'])
