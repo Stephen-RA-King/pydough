@@ -14,7 +14,7 @@ All the following features are optional:
 * [**Black**][black-url] - Code formatter
 * [**MyPy**][mypy-url] - Tool for static type checking
 * [**Pre-Commit**][pre-commit-url] - A framework for managing pre-commit hooks (pre-configured with many hooks)
-* [**isort**][isort-url] - Sort imports automatically
+* [**isort**][isort-url] - Organizes imports automatically
 * [**Bandit**][bandit-url] -  Finds common security issues 
 * [**Sphinx**][sphinx-url] -  Package for creating documentation
 * [**Click**][click-url] -  Package for creating Command line interfaces
@@ -202,8 +202,8 @@ Available tasks:
 ```
 
 ## Example of Freshly Deployed Template
-[GitHub](https://github.com/Stephen-RA-King/wymple20)  
-[PyPI](https://pypi.org/project/wymple20/)
+[GitHub](https://github.com/Stephen-RA-King/zyme)  
+[PyPI](https://pypi.org/project/zyme/)
 
 
 ## Known Issues
