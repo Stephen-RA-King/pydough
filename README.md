@@ -173,6 +173,14 @@ It is generally best to clear the _build directory when generating new documenta
 $ make clean html
 ```
 
+### Logging
+If you have chosen to use logging, then the ABSOLUTE path to the log file will need
+to be set.  Currently it is set to a RELATIVE file to where the application is run.
+Everybody's file structures are different, so obviously it is not possible for me to 
+know where you want your log file to be.
+
+This can be set in the src / __init__.py file  -> handlers -> file -> filename
+
 ### Using Invoke tasks.py
 
 I have written a "***tasks.py***" file that takes care of many of the mundane repository maintenance tasks:
