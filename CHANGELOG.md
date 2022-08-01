@@ -1,3 +1,13 @@
+## 1.2.1 (2022-08-01)
+
+### Refactor
+
+- **changelog.md**: remove markdown
+
+### Fix
+
+- **__init__.py**: log file path fully relative
+
 ## 1.2.0 (2022-08-01)
 
 ### Feat

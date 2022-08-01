@@ -259,7 +259,7 @@ Distributed under the MIT license. See ``license`` for more information.
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
-version: 1.2.0
+version: 1.2.1
 
 <!-- Markdown link & img dfn's -->
 [bandit-image]: https://img.shields.io/badge/security-bandit-yellow.svg
