@@ -1,3 +1,14 @@
+## 1.2.0 (2022-08-01)
+
+### Feat
+
+- bump version after new feature
+- Add provision for example scripts
+
+### Fix
+
+- **setup.cfg**: error in script entry point
+
 ## 1.1.1 (2022-07-21)
 
 ### Fix
