@@ -37,8 +37,8 @@
     "bump2version"
   ],
   "docstrings_style": [
-    "google",
-    "numpy"
+    "numpy",
+    "google"
   ],
   "config_file": [
     "all",
@@ -54,6 +54,7 @@
   "use_bandit": "y",
   "use_safety": "y",
   "use_logging": "y",
+  "include_example_scripts": "y",
   "command_line_interface": [
     "Click",
     "No command-line interface"

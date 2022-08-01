@@ -170,6 +170,13 @@ def main():
             ]
         )
 
+    if "{{ cookiecutter.include_example_scripts }}".lower() != "y":
+        delete_director(
+            [
+                SLUG_DIR / "examples",
+            ]
+        )
+
     if "{{ cookiecutter.github_username }}" != "Stephen-RA-King":
         delete_director(
             [
