@@ -96,7 +96,7 @@ Distributed under the {{cookiecutter.license}} license. See [license](license-ur
 
 [https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
 
-Created with Cookiecutter template: [**cc_template**][cc_template-url] version 1.1.1
+Created with Cookiecutter template: [**cc_template**][cc_template-url] version 1.2.0
 
 
 <!-- Markdown link & img dfn's -->
