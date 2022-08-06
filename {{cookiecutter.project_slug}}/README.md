@@ -1,4 +1,4 @@
-# {{ cookiecutter.pkg_name }}
+# {{ cookiecutter.project_name }}
 
 > Short blurb about what your product does.
 
@@ -48,13 +48,13 @@ One to two paragraph statement about your product and what it does.
 OS X & Linux:
 
 ```sh
-pip3 install {{ cookiecutter.pkg_name }}
+pip3 install {{ cookiecutter.project_name }}
 ```
 
 Windows:
 
 ```sh
-pip install {{ cookiecutter.pkg_name }}
+pip install {{ cookiecutter.project_name }}
 ```
 
 ## Usage example
@@ -68,33 +68,33 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
 
 ```sh
-pip install --editable {{ cookiecutter.pkg_name }}
+pip install --editable {{ cookiecutter.project_name }}
 ```
 
 ## Documentation
 
-### - [**Read the Docs**](https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/)
+### - [**Read the Docs**](https://{{ cookiecutter.project_name }}.readthedocs.io/en/latest/)
 
-### - [**Wiki**](https://github.com/Stephen-RA-King/{{ cookiecutter.pkg_name }}/wiki)
+### - [**Wiki**](https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/wiki)
 
 ## Meta
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 [![](assets/linkedin.png)](https://linkedin.com/in/stephen-k-3a4644210)
 [![](assets/github.png)](https://github.com/Stephen-RA-King)
-[![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.pkg_name }}/)
+[![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.project_name }}/)
 [![](assets/www.png)](https://www.justpython.tech)
 [![](assets/email.png)](mailto:stephen.ra.king@gmail.com)
 [![](assets/cv.png)](https://www.justpython.tech/cv) 
 {% else %}
-[![](assets/github.png)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
-[![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.pkg_name }}/)
+[![](assets/github.png)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }})
+[![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.project_name }}/)
 {% endif %}
 
 {{cookiecutter.author_name}} : {{cookiecutter.email}}
 
 Distributed under the {{cookiecutter.license}} license. See [license](license-url) for more information.
 
-[https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }})
+[https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }})
 
 Created with Cookiecutter template: [**cc_template**][cc_template-url] version 1.2.1
 
@@ -111,13 +111,13 @@ Created with Cookiecutter template: [**cc_template**][cc_template-url] version 1
 {%- endif %}
 [cc_template-url]: https://github.com/Stephen-RA-King/cc_template
 [codeclimate-image]: https://api.codeclimate.com/v1/badges/7fc352185512a1dab75d/maintainability
-[codeclimate-url]: https://codeclimate.com/github/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/maintainability
-[codecov-image]: https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/branch/main/graph/badge.svg
-[codecov-url]: https://app.codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}
-[codefactor-image]: https://www.codefactor.io/repository/github/Stephen-RA-King/{{ cookiecutter.pkg_name }}/badge
-[codefactor-url]: https://www.codefactor.io/repository/github/Stephen-RA-King/{{ cookiecutter.pkg_name }}
-[codeql-image]: https://github.com/Stephen-RA-King/{{ cookiecutter.pkg_name }}/actions/workflows/codeql-analysis.yml/badge.svg
-[codeql-url]: https://github.com/Stephen-RA-King/{{ cookiecutter.pkg_name }}/actions/workflows/codeql-analysis.yml
+[codeclimate-url]: https://codeclimate.com/github/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/maintainability
+[codecov-image]: https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/branch/main/graph/badge.svg
+[codecov-url]: https://app.codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}
+[codefactor-image]: https://www.codefactor.io/repository/github/Stephen-RA-King/{{ cookiecutter.project_name }}/badge
+[codefactor-url]: https://www.codefactor.io/repository/github/Stephen-RA-King/{{ cookiecutter.project_name }}
+[codeql-image]: https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/actions/workflows/codeql-analysis.yml/badge.svg
+[codeql-url]: https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/actions/workflows/codeql-analysis.yml
 {% if cookiecutter.use_commitizen == 'y' -%}
 [commitizen-image]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
 [commitizen-url]: http://commitizen.github.io/cz-cli/
@@ -125,20 +125,20 @@ Created with Cookiecutter template: [**cc_template**][cc_template-url] version 1
 [conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square
 [conventional-commits-url]: https://conventionalcommits.org
 [deepsource-image]: https://static.deepsource.io/deepsource-badge-light-mini.svg
-[deepsource-url]: https://deepsource.io/gh/Stephen-RA-King/{{ cookiecutter.pkg_name }}/?ref=repository-badge
-[downloads-image]: https://static.pepy.tech/personalized-badge/{{cookiecutter.pkg_name}}?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads
-[downloads-url]: https://pepy.tech/project/{{cookiecutter.pkg_name}}
-[format-image]: https://img.shields.io/pypi/format/{{ cookiecutter.pkg_name }}
+[deepsource-url]: https://deepsource.io/gh/Stephen-RA-King/{{ cookiecutter.project_name }}/?ref=repository-badge
+[downloads-image]: https://static.pepy.tech/personalized-badge/{{cookiecutter.project_name}}?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads
+[downloads-url]: https://pepy.tech/project/{{cookiecutter.project_name}}
+[format-image]: https://img.shields.io/pypi/format/{{ cookiecutter.project_name }}
 {% if cookiecutter.use_isort == 'y' -%}
 [isort-image]: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
 [isort-url]: https://github.com/pycqa/isort/
 {%- endif %}
-[lgtm-alerts-image]: https://img.shields.io/lgtm/alerts/g/Stephen-RA-King/{{ cookiecutter.pkg_name }}.svg?logo=lgtm&logoWidth=18
-[lgtm-alerts-url]: https://lgtm.com/projects/g/Stephen-RA-King/{{ cookiecutter.pkg_name }}/alerts/
-[lgtm-quality-image]: https://img.shields.io/lgtm/grade/python/g/Stephen-RA-King/{{ cookiecutter.pkg_name }}.svg?logo=lgtm&logoWidth=18
-[lgtm-quality-url]: https://lgtm.com/projects/g/Stephen-RA-King/{{ cookiecutter.pkg_name }}/context:python
-[license-image]: https://img.shields.io/pypi/l/{{cookiecutter.pkg_name}}
-[license-url]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/blob/main/license
+[lgtm-alerts-image]: https://img.shields.io/lgtm/alerts/g/Stephen-RA-King/{{ cookiecutter.project_name }}.svg?logo=lgtm&logoWidth=18
+[lgtm-alerts-url]: https://lgtm.com/projects/g/Stephen-RA-King/{{ cookiecutter.project_name }}/alerts/
+[lgtm-quality-image]: https://img.shields.io/lgtm/grade/python/g/Stephen-RA-King/{{ cookiecutter.project_name }}.svg?logo=lgtm&logoWidth=18
+[lgtm-quality-url]: https://lgtm.com/projects/g/Stephen-RA-King/{{ cookiecutter.project_name }}/context:python
+[license-image]: https://img.shields.io/pypi/l/{{cookiecutter.project_name}}
+[license-url]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/blob/main/license
 {% if cookiecutter.use_mypy == 'y' -%}
 [mypy-image]: http://www.mypy-lang.org/static/mypy_badge.svg
 [mypy-url]: http://mypy-lang.org/
@@ -146,18 +146,18 @@ Created with Cookiecutter template: [**cc_template**][cc_template-url] version 1
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
-[pre-commit.ci-image]: https://results.pre-commit.ci/badge/github/Stephen-RA-King/gitwatch/main.svg
-[pre-commit.ci-url]: https://results.pre-commit.ci/latest/github/Stephen-RA-King/gitwatch/main
+[pre-commit.ci-image]: https://results.pre-commit.ci/badge/github/Stephen-RA-King/{{ cookiecutter.project_name }}/main.svg
+[pre-commit.ci-url]: https://results.pre-commit.ci/latest/github/Stephen-RA-King/{{ cookiecutter.project_name }}/main
 {%- endif %}
-[pypi-url]: https://pypi.org/project/{{ cookiecutter.pkg_name }}/
-[pypi-image]: https://img.shields.io/pypi/v/{{cookiecutter.pkg_name}}.svg
-[python-version-image]: https://img.shields.io/pypi/pyversions/{{cookiecutter.pkg_name}}
-[readthedocs-image]: https://readthedocs.org/projects/{{ cookiecutter.pkg_name }}/badge/?version=latest
-[readthedocs-url]: https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/?badge=latest
-[requirements-status-image]: https://requires.io/github/Stephen-RA-King/{{ cookiecutter.pkg_name }}/requirements.svg?branch=main
-[requirements-status-url]: https://requires.io/github/Stephen-RA-King/{{ cookiecutter.pkg_name }}/requirements/?branch=main
-[status-image]: https://img.shields.io/pypi/status/{{cookiecutter.pkg_name}}.svg
-[tests-image]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/actions/workflows/tests.yml/badge.svg
-[tests-url]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.pkg_name}}/actions/workflows/tests.yml
-[wiki]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/wiki
+[pypi-url]: https://pypi.org/project/{{ cookiecutter.project_name }}/
+[pypi-image]: https://img.shields.io/pypi/v/{{cookiecutter.project_name}}.svg
+[python-version-image]: https://img.shields.io/pypi/pyversions/{{cookiecutter.project_name}}
+[readthedocs-image]: https://readthedocs.org/projects/{{ cookiecutter.project_name }}/badge/?version=latest
+[readthedocs-url]: https://{{ cookiecutter.project_name }}.readthedocs.io/en/latest/?badge=latest
+[requirements-status-image]: https://requires.io/github/Stephen-RA-King/{{ cookiecutter.project_name }}/requirements.svg?branch=main
+[requirements-status-url]: https://requires.io/github/Stephen-RA-King/{{ cookiecutter.project_name }}/requirements/?branch=main
+[status-image]: https://img.shields.io/pypi/status/{{cookiecutter.project_name}}.svg
+[tests-image]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/actions/workflows/tests.yml/badge.svg
+[tests-url]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/actions/workflows/tests.yml
+[wiki]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/wiki
 
