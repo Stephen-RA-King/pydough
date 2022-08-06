@@ -18,11 +18,14 @@ from {{cookiecutter.pkg_name}} import {{cookiecutter.pkg_name}}
 
 
 {% if cookiecutter.use_pytest|lower == "y" -%}
+{% if cookiecutter.config_file != "none" -%}
 def test_get_config() -> None:
     num, result = {{cookiecutter.pkg_name}}.get_config()
     exp_result = [True for i in range(num)]
     print(result)
     assert result == exp_result
+{%- endif %}
+
 
 def test_fizzbuzz() -> None:
     result = {{ cookiecutter.pkg_name }}.fizzbuzz(16)
@@ -52,10 +55,12 @@ def test_fibonacci() -> None:
 
 {%- else -%}
 class {{cookiecutter.pkg_name}}TestCase(unittest.TestCase):
+{% if cookiecutter.config_file != "none" -%}
     def test_get_config(self) -> None:
         num, result = {{cookiecutter.pkg_name}}.get_config()
         exp_result = [True for i in range(num)]
         self.assertEqual(result == exp_result)
+{%- endif %}
 
     def test_fizzbuzz(self) -> None:
         result = {{cookiecutter.pkg_name}}.fizzbuzz(10)
