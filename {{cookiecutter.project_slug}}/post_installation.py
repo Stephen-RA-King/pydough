@@ -113,7 +113,7 @@ def set_keyring(service: str, id_type: str, hidden: str) -> None:
 
 def github_create_repo() -> None:
     logger.info("\nCreating GitHub repository")
-    body_json = {"name": "{{ cookiecutter.pkg_name }}", "description": "placeholder"}
+    body_json = {"name": "{{ cookiecutter.project_name }}", "description": "placeholder"}
 
     url = "https://api.github.com/user/repos"
     header = {"Authorization": f"token {GITHUB_TOKEN}"}
@@ -132,7 +132,7 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
     logger.info(f"\nGitHub action secret creation - {secret_name}")
     url_public_key = (
         "https://api.github.com/repos/Stephen-RA-King"
-        "/{{ cookiecutter.pkg_name }}/actions/secrets/public-key"
+        "/{{ cookiecutter.project_name }}/actions/secrets/public-key"
     )
 
     authorization = f"token {GITHUB_TOKEN}"
@@ -148,7 +148,7 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
         url_secret = (
             f"https://api.github.com/repos/"
             f"Stephen-RA-King"
-            f"/{{ cookiecutter.pkg_name }}/actions/secrets/{secret_name}"
+            f"/{{ cookiecutter.project_name }}/actions/secrets/{secret_name}"
         )
 
         data = {
@@ -175,9 +175,9 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
 def readthedocs_create() -> None:
     logger.info("\nCreating ReadTheDocs project")
     body_json = {
-        "name": "{{ cookiecutter.pkg_name }}",
+        "name": "{{ cookiecutter.project_name }}",
         "repository": {
-            "url": "https://github.com/Stephen-RA-King" "/{{ cookiecutter.pkg_name }}",
+            "url": "https://github.com/Stephen-RA-King" "/{{ cookiecutter.project_name }}",
             "type": "git",
         },
         "homepage": "http://template.readthedocs.io/",
@@ -203,9 +203,9 @@ def readthedocs_update() -> None:
     # https://docs.readthedocs.io/en/stable/api/v3.html#project-update
     logger.info("\nUpdating Read the docs project with chosen git branch")
     body_json = {
-        "name": "{{ cookiecutter.pkg_name }}",
+        "name": "{{ cookiecutter.project_name }}",
         "repository": {
-            "url": "https://github.com/Stephen-RA-King" "/{{ cookiecutter.pkg_name }}",
+            "url": "https://github.com/Stephen-RA-King" "/{{ cookiecutter.project_name }}",
             "type": "git",
         },
         "homepage": "http://template.readthedocs.io/",
@@ -214,7 +214,7 @@ def readthedocs_update() -> None:
         "language": "en",
     }
 
-    url = "https://readthedocs.org/api/v3/projects/{{ cookiecutter.pkg_name }}/"
+    url = "https://readthedocs.org/api/v3/projects/{{ cookiecutter.project_name }}/"
     header = {"Authorization": f"token {READTHEDOCS_TOKEN}"}
     response = requests.patch(
         url,
@@ -266,8 +266,10 @@ def file_word_replace(filepath: str, old_word: str, new_word: str) -> None:
 
 def main() -> None:
     github_create_repo()
+
+    github_create_secret("PYPI_API_TOKEN", PYPI_TOKEN)
     github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
-    github_create_secret("PYPI_API_TOKEN", TEST_PYPI_TOKEN)
+
     readthedocs_create()
 
     logger.info("\nUpdating .pypi file with secret tokens")
@@ -276,7 +278,7 @@ def main() -> None:
     logger.info(".... OK")
 
     logger.info("\nPatching Python semantic release package windows bug")
-    file_path = r"\{{ cookiecutter.pkg_name }}\Lib\site-packages\semantic_release\repository.py"
+    file_path = r"\{{ cookiecutter.project_name }}\Lib\site-packages\semantic_release\repository.py"
     repository = "".join([VIRTUALENV_DIR, file_path])
     file_word_replace(repository, "~/.pypirc", ".pypirc")
     logger.info(".... OK")
@@ -287,7 +289,7 @@ def main() -> None:
     tests = r".github\workflows\tests.yml"
     file_word_replace(tests, "default-branch1", "main")
     file_word_replace(tests, "default-branch2", "main")
-    file_word_replace(tests, "package_name", "{{ cookiecutter.pkg_name }}")
+    file_word_replace(tests, "package_name", "{{ cookiecutter.project_name }}")
     logger.info(".... OK")
 
     logger.info("\nUpdating GitHub action codeql-analysis.yml with chosen git branch")
@@ -297,7 +299,7 @@ def main() -> None:
     logger.info(".... OK")
 
     logger.info("\nInstalling requirements")
-    execute(sys.executable, "-m", "pip", "install", "-r", "requirements.txt")
+    execute("pip-sync" "requirements.txt")
     logger.info(".... OK")
 
     logger.info("\nChanging requirements from 'development' to 'test'")
