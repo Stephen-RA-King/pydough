@@ -22,8 +22,7 @@ flake8-docstrings
 flake8-eradicate
 flake8-html
 flake8-pytest-style
-flake8-simplify
-flakeheaven{% endif %}
+flake8-simplify{% endif %}
 {%- if cookiecutter.use_isort == 'y' %}
 isort{% endif %}
 invoke
