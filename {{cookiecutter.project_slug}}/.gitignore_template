@@ -135,4 +135,6 @@ dmypy.json
 # miscellaneous files
 TODO.txt
 *.docx
+*.css
+*.html
 post_installation.py
