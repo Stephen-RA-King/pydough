@@ -92,7 +92,7 @@ pip install --editable {{ cookiecutter.project_name }}
 
 {{cookiecutter.author_name}} : {{cookiecutter.email}}
 
-Distributed under the {{cookiecutter.license}} license. See [license](license-url) for more information.
+Distributed under the {{cookiecutter.license}} license. See [license][license-url] for more information.
 
 [https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }})
 
