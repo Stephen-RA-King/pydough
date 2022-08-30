@@ -299,7 +299,7 @@ def main() -> None:
     logger.info(".... OK")
 
     logger.info("\nInstalling requirements")
-    execute("pip-sync" "requirements.txt")
+    execute("pip-sync", "requirements.txt")
     logger.info(".... OK")
 
     logger.info("\nChanging requirements from 'development' to 'test'")
