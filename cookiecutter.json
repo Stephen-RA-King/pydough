@@ -18,10 +18,14 @@
     "trunk",
     "development"
   ],
-  "OS": [
+  "development_OS": [
+    "windows",
+    "linux"
+  ],
+  "target_OS": [
     "windows",
     "linux",
-    "mac"
+    "all"
   ],
   "create_author_file": "y",
   "version": "0.1.0",
