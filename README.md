@@ -7,33 +7,41 @@ _**A general purpose development template for the creation of a Python applicati
 
 
 ## Template Features
-
-All the following features are optional:
-
-* [**Flake8**][flake8-url] - Tool that glues together pycodestyle, pyflakes & mccabe
-* [**Black**][black-url] - Code formatter
-* [**MyPy**][mypy-url] - Tool for static type checking
-* [**Pre-Commit**][pre-commit-url] - A framework for managing pre-commit hooks (pre-configured with many hooks)
-* [**isort**][isort-url] - Organizes imports automatically
-* [**Bandit**][bandit-url] -  Finds common security issues 
-* [**Sphinx**][sphinx-url] -  Package for creating documentation
-* [**Click**][click-url] -  Package for creating Command line interfaces
-* [**Invoke**][invoke-url] - Common package maintenance tasks are automated with this python library
-
 The following tool is mandatory (you will thank me later):
 * [**pip-tools**][pip-tools-url] -  Pins every single package dependency (even the dependency’s dependencies)
 
 
+
+All the following features are optional:
+
+* [**Flake8**][flake8-url] - linting wrapper that glues together pycodestyle, pyflakes & mccabe
+* [**Black**][black-url] - code formatter
+* [**MyPy**][mypy-url] - for static type checking
+* [**Pre-Commit**][pre-commit-url] - a framework for managing pre-commit hooks (pre-configured with many hooks)
+* [**isort**][isort-url] - organizes imports automatically
+* [**Bandit**][bandit-url] -  finds common security issues 
+* [**Sphinx**][sphinx-url] -  for creating documentation
+* [**Click**][click-url] -  for creating Command line interfaces
+* [**Invoke**][invoke-url] - Common package maintenance tasks are automated with this python library
+
+
+
 ### Other Features
-* Automatically installs pre-commit (if selected) and associated git hook
+
 * Automatically configures git message template
 * Selection of licenses to choose from
-* Optionally include [**Safety**][safety-url] to check dependencies for known security vulnerabilities
-* Optionally include [**Flakeheaven**][flakeheaven-url] Flake8 wrapper to replace flakehell
-* Optionally include version control and release with [**python-semantic-release**](https://github.com/relekang/python-semantic-release) or [**bump2version**][bump2version-url] 
-* Options to specify Docstring style (Google or  Numpy see [**PEP257**][pep257-url])
-* Optionally include [**Commitizen**][commitizen-url] for parsing and enforcing descriptive git commits
-* Optionally include Logging using the dictConfig() configuration
+* Optionally include the following:
+  - [**Python-Semantic-Release**](https://github.com/relekang/python-semantic-release) or [**Bmp2version**][bump2version-url] - version control and release
+  - [**Commitizen**][commitizen-url] - for parsing and enforcing descriptive git commits
+  - [**Cruft**][cruft-url] - project boilerplate is maintained in sync with parent cookiecutter template. 
+  - [**Safety**][safety-url] - check dependencies for known security vulnerabilities
+  - [**Flakeheaven**][flakeheaven-url] - Flake8 wrapper to replace flakehell
+
+* Included are GitHub actions for codeql-analysis, CICD/tests and dependabot.
+* Option to specify Docstring style ([**Google**][docstring-google] or [**Numpy**][docstring-numpy] - see [**PEP257**][pep257-url] and [**Sphinx**][docstring-sphinx] )
+* Optionally include a configuration file (toml, ini, json or yaml)
+* Optionally include resource files (sqlite3, pickle, png)
+* Option to include Logging using the new dictConfig() configuration
 * Automatically include badges based on your selections e.g.:
 
 [![pre-commit][pre-commit-image]][pre-commit-url]
@@ -44,8 +52,8 @@ The following tool is mandatory (you will thank me later):
 
 ## Pre Installation Requirements
 
-1. Python 3.8, 3.9 or 3.10
-2. git
+1. Python 3.8, 3.9, 3.10 or 3.11
+2. git - installed globally
 3. Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv_wrapper**][virtualenvwrapper-url]. I love "workon".)
 4. [**Cookiecutter**][cookiecutter-url] installed into the Virtual Environment
 
@@ -270,6 +278,10 @@ version: 1.2.1
 [click-url]: https://github.com/pallets/click/
 [commitizen-url]: https://github.com/commitizen-tools/commitizen
 [cookiecutter-url]: https://github.com/cookiecutter/cookiecutter
+[cruft-url]: https://github.com/cruft/cruft/
+[docstring-google]: https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings
+[docstring-numpy]: https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard
+[docstring-sphinx]: https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
 [flake8-url]: https://github.com/PyCQA/flake8
 [flakeheaven-url]: https://github.com/flakeheaven/flakeheaven
 [github]: https://github.com/stephen-ra-king/cc_template
