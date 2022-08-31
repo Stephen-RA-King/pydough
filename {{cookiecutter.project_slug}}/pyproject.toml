@@ -9,6 +9,18 @@ build-backend = "setuptools.build_meta"
 [tool.black]
 line-length = 88
 
+{% if cookiecutter.use_cruft == 'y' -%}
+[tool.cruft]
+skip = [
+    "tests/",
+    "src/",
+    "*/header.png",
+    ".pypirc",
+    "CHANGELOG.md",
+    "setup.cfg"
+]
+{%- endif %}
+
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/6.2.x/reference.html?highlight=minversion#configuration-options
 minversion = "6.0"
