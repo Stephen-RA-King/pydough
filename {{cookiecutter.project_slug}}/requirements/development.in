@@ -13,6 +13,8 @@ colorama
 commitizen{% endif %}
 coverage[toml]
 coverage-conditional-plugin
+{%- if cookiecutter.use_cruft == 'y' %}
+cruft{% endif %}
 {%- if cookiecutter.use_flake8 == 'y' %}
 flake8
 flake8-bandit
