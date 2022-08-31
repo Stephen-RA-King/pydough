@@ -23,9 +23,9 @@
     "linux"
   ],
   "target_OS": [
+    "all",
     "windows",
-    "linux",
-    "all"
+    "linux"
   ],
   "create_author_file": "y",
   "version": "0.1.0",
@@ -55,6 +55,7 @@
   "use_isort": "y",
   "use_sphinx": "y",
   "use_pre_commit": "y",
+  "use_cruft": "y",
   "use_bandit": "y",
   "use_safety": "y",
   "use_logging": "y",
