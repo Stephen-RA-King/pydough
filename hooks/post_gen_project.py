@@ -14,6 +14,7 @@ SLUG_DIR = Path.cwd()
 SRC_DIR = SLUG_DIR / "src"
 LOG_DIR = SLUG_DIR / "logs"
 PKG_DIR = SRC_DIR / "{{ cookiecutter.pkg_name }}"
+RESOURCE_DIR = PKG_DIR / "resources"
 TEST_DIR = SLUG_DIR / "tests"
 REQ_DIR = SLUG_DIR / "requirements"
 
@@ -151,17 +152,29 @@ def main():
     upgrade_package(upgrade_basics_list)
 
     config_files = [
-        PKG_DIR / "config.ini",
-        PKG_DIR / "config.json",
-        PKG_DIR / "config.toml",
-        PKG_DIR / "config.yaml",
+        RESOURCE_DIR / "config.ini",
+        RESOURCE_DIR / "config.json",
+        RESOURCE_DIR / "config.toml",
+        RESOURCE_DIR / "config.yaml",
     ]
     if "{{ cookiecutter.config_file }}" == "none":
         delete_director(config_files)
     elif "{{ cookiecutter.config_file }}" != "all":
         keep_file = "".join(["config.", "{{ cookiecutter.config_file }}"])
-        config_files.remove(PKG_DIR / keep_file)
+        config_files.remove(RESOURCE_DIR / keep_file)
         delete_director(config_files)
+
+    resource_files = [
+        RESOURCE_DIR / "resource.db",
+        RESOURCE_DIR / "resource.pickle",
+        RESOURCE_DIR / "resource.png",
+    ]
+    if "{{ cookiecutter.config_file }}" == "none":
+        delete_director(resource_files)
+    elif "{{ cookiecutter.resource_file }}" != "all":
+        keep_file = "".join(["resource.", "{{ cookiecutter.resource_file }}"])
+        resource_files.remove(RESOURCE_DIR / keep_file)
+        delete_director(resource_files)
 
     if "{{ cookiecutter.create_author_file }}".lower() != "y":
         delete_director(

@@ -1,4 +1,5 @@
 # Core Library modules
+import argparse
 import json
 import logging.config
 import os
@@ -59,6 +60,11 @@ loggers:
 
 logging.config.dictConfig(yaml.safe_load(LOGGING_CONFIG))
 logger = logging.getLogger("post")
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-r", "--refresh", help="refresh the post installation procedure",
+                    action="store_true")
+options = parser.parse_args()
 
 
 def execute(*args: str, supress_exception: bool = False, cwd: Any = None) -> Any:
@@ -265,12 +271,14 @@ def file_word_replace(filepath: str, old_word: str, new_word: str) -> None:
 
 
 def main() -> None:
-    github_create_repo()
+    if not options.refresh:
+        github_create_repo()
 
-    github_create_secret("PYPI_API_TOKEN", PYPI_TOKEN)
-    github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
+        github_create_secret("PYPI_API_TOKEN", PYPI_TOKEN)
+        github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
 
-    readthedocs_create()
+    if not options.refresh:
+        readthedocs_create()
 
     logger.info("\nUpdating .pypi file with secret tokens")
     file_word_replace(".pypirc", "token1", PYPI_TOKEN)
@@ -287,15 +295,15 @@ def main() -> None:
         "\nUpdating GitHub action tests.yml with chosen git branch & package name"
     )
     tests = r".github\workflows\tests.yml"
-    file_word_replace(tests, "default-branch1", "main")
-    file_word_replace(tests, "default-branch2", "main")
+    file_word_replace(tests, "default-branch1", "{{ cookiecutter.initial_git_branch_name }}")
+    file_word_replace(tests, "default-branch2", "{{ cookiecutter.initial_git_branch_name }}")
     file_word_replace(tests, "package_name", "{{ cookiecutter.project_name }}")
     logger.info(".... OK")
 
     logger.info("\nUpdating GitHub action codeql-analysis.yml with chosen git branch")
     codeql = r".github\workflows\codeql-analysis.yml"
-    file_word_replace(codeql, "default-branch1", "main")
-    file_word_replace(codeql, "default-branch2", "main")
+    file_word_replace(codeql, "default-branch1", "{{ cookiecutter.initial_git_branch_name }}")
+    file_word_replace(codeql, "default-branch2", "{{ cookiecutter.initial_git_branch_name }}")
     logger.info(".... OK")
 
     logger.info("\nInstalling requirements")
@@ -306,20 +314,17 @@ def main() -> None:
     file_word_replace("requirements.txt", "development", "test")
     logger.info(".... OK")
 
-    # exception suppressed due to "warnings.warn("Setuptools is replacing distutils.")"
-    logger.info("\nFinalizing update to base.in requirement")
-    execute("pip-compile", "-q", "base.in", supress_exception=True, cwd="requirements")
-    logger.info(".... OK")
+    if not options.refresh:
+        logger.info("\nInitial git add, commit & push")
+        execute("git", "add", "assets/*")
+        execute(
+            "git", "commit", "-q", "-m", "chore: initial commit", supress_exception=True
+        )
+        execute("git", "push", "-q", "-u", "origin", "main")
+        logger.info(".... OK")
 
-    logger.info("\nInitial git add, commit & push")
-    execute("git", "add", "assets/*")
-    execute(
-        "git", "commit", "-q", "-m", "chore: initial commit", supress_exception=True
-    )
-    execute("git", "push", "-q", "-u", "origin", "main")
-    logger.info(".... OK")
-
-    readthedocs_update()
+    if not options.refresh:
+        readthedocs_update()
 
     logger.info("\nInstalling the package as an 'editable' package locally")
     execute(sys.executable, "-m", "pip", "install", "-e", ".")
