@@ -52,6 +52,13 @@
     "toml",
     "none"
   ],
+  "resource_file": [
+    "all",
+    "pickle",
+    "png",
+    "db",
+    "none"
+  ],
   "use_isort": "y",
   "use_sphinx": "y",
   "use_pre_commit": "y",
