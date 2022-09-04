@@ -36,8 +36,7 @@ All the following features are optional:
   - [**Cruft**][cruft-url] - project boilerplate is maintained in sync with parent cookiecutter template. 
   - [**Safety**][safety-url] - check dependencies for known security vulnerabilities
   - [**Flakeheaven**][flakeheaven-url] - Flake8 wrapper to replace flakehell
-
-* Included are GitHub actions for codeql-analysis, CICD/tests and dependabot.
+* Included are GitHub actions for codeql-analysis, CICD/tests and dependabot
 * Option to specify Docstring style ([**Google**][docstring-google] or [**Numpy**][docstring-numpy] - see [**PEP257**][pep257-url] and [**Sphinx**][docstring-sphinx] )
 * Optionally include a configuration file (toml, ini, json or yaml)
 * Optionally include resource files (sqlite3, pickle, png)
