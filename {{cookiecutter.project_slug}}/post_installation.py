@@ -297,7 +297,7 @@ def main() -> None:
     tests = r".github\workflows\tests.yml"
     file_word_replace(tests, "default-branch1", "{{ cookiecutter.initial_git_branch_name }}")
     file_word_replace(tests, "default-branch2", "{{ cookiecutter.initial_git_branch_name }}")
-    file_word_replace(tests, "package_name", "{{ cookiecutter.project_name }}")
+    file_word_replace(tests, "package_name", "{{ cookiecutter.pkg_name }}")
     logger.info(".... OK")
 
     logger.info("\nUpdating GitHub action codeql-analysis.yml with chosen git branch")
