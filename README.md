@@ -1,6 +1,6 @@
 # Cookiecutter Python Development template
 
-_**A general purpose development template for the creation of a Python application, library or package**_
+_**A general purpose development template for the creation of a Python module, package or library.**_
 
 
 ![](https://github.com/Stephen-RA-King/cc_template/raw/main/header.png)
@@ -8,39 +8,39 @@ _**A general purpose development template for the creation of a Python applicati
 
 ## Template Features
 The following tool is mandatory (you will thank me later):
-* [**pip-tools**][pip-tools-url] -  Pins every single package dependency (even the dependency’s dependencies)
+* [**pip-tools**][pip-tools-url] -  Pins every single package dependency (even the dependency’s dependencies).
 
 
 
 All the following features are optional:
 
-* [**Flake8**][flake8-url] - linting wrapper that glues together pycodestyle, pyflakes & mccabe
-* [**Black**][black-url] - code formatter
-* [**MyPy**][mypy-url] - for static type checking
-* [**Pre-Commit**][pre-commit-url] - a framework for managing pre-commit hooks (pre-configured with many hooks)
-* [**isort**][isort-url] - organizes imports automatically
-* [**Bandit**][bandit-url] -  finds common security issues 
-* [**Sphinx**][sphinx-url] -  for creating documentation
-* [**Click**][click-url] -  for creating Command line interfaces
-* [**Invoke**][invoke-url] - Common package maintenance tasks are automated with this python library
+* [**Flake8**][flake8-url] - linting wrapper that glues together pycodestyle, pyflakes & mccabe.
+* [**Black**][black-url] - code formatter.
+* [**MyPy**][mypy-url] - for static type checking.
+* [**Pre-Commit**][pre-commit-url] - a framework for managing pre-commit hooks (pre-configured with many hooks).
+* [**isort**][isort-url] - organizes imports automatically.
+* [**Bandit**][bandit-url] -  finds common security issues .
+* [**Sphinx**][sphinx-url] -  for creating documentation.
+* [**Click**][click-url] -  for creating Command line interfaces.
+* [**Invoke**][invoke-url] - Common package maintenance tasks are automated with this python library.
 
 
 
 ### Other Features
 
-* Automatically configures git message template
-* Selection of licenses to choose from
+* Automatically configures git message template.
+* Selection of licenses to choose from.
 * Optionally include the following:
-  - [**Python-Semantic-Release**](https://github.com/relekang/python-semantic-release) or [**Bmp2version**][bump2version-url] - version control and release
-  - [**Commitizen**][commitizen-url] - for parsing and enforcing descriptive git commits
+  - [**Python-Semantic-Release**](https://github.com/relekang/python-semantic-release) or [**Bmp2version**][bump2version-url] - version control and release.
+  - [**Commitizen**][commitizen-url] - for parsing and enforcing descriptive git commits.
   - [**Cruft**][cruft-url] - project boilerplate is maintained in sync with parent cookiecutter template. 
-  - [**Safety**][safety-url] - check dependencies for known security vulnerabilities
-  - [**Flakeheaven**][flakeheaven-url] - Flake8 wrapper to replace flakehell
-* Included are GitHub actions for codeql-analysis, CICD/tests and dependabot
-* Option to specify Docstring style ([**Google**][docstring-google] or [**Numpy**][docstring-numpy] - see [**PEP257**][pep257-url] and [**Sphinx**][docstring-sphinx] )
-* Optionally include a configuration file (toml, ini, json or yaml)
-* Optionally include resource files (sqlite3, pickle, png)
-* Option to include Logging using the new dictConfig() configuration
+  - [**Safety**][safety-url] - check dependencies for known security vulnerabilities.
+  - [**Flakeheaven**][flakeheaven-url] - Flake8 wrapper to replace flakehell.
+* Included are GitHub actions for codeql-analysis, CICD/tests and dependabot.
+* Option to specify Docstring style ([**Google**][docstring-google] or [**Numpy**][docstring-numpy] - see [**PEP257**][pep257-url] and [**Sphinx**][docstring-sphinx]).
+* Optionally include a configuration file (toml, ini, json or yaml).
+* Optionally include resource files (sqlite3, pickle, png).
+* Option to include Logging using the new dictConfig() configuration.
 * Automatically include badges based on your selections e.g.:
 
 [![pre-commit][pre-commit-image]][pre-commit-url]
@@ -51,10 +51,10 @@ All the following features are optional:
 
 ## Pre Installation Requirements
 
-1. Python 3.8, 3.9, 3.10 or 3.11
-2. git - installed globally
-3. Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv_wrapper**][virtualenvwrapper-url]. I love "workon".)
-4. [**Cookiecutter**][cookiecutter-url] installed into the Virtual Environment
+1. Python 3.9 or 3.10.
+2. git - installed globally.
+3. Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv_wrapper**][virtualenvwrapper-url]. I love "workon").
+4. [**Cookiecutter**][cookiecutter-url] installed into the Virtual Environment.
 
 ## Installation
 
@@ -77,19 +77,19 @@ $ pip install -r <package-name>/requirements.txt
 ## Optional Post-Installation steps
 ### Recommended Post Installation Requirements:
 You will need accounts with the following services:
-- [GitHub](http://github.com) - Login and Generate your token
-- [Read the Docs](https://readthedocs.org/)
-- [TestPyPi](https://test.pypi.org/) - Login and Generate your token
-- [PyPi](https://pypi.org/) - Login and Generate your token
-- [Codecov.io](https://about.codecov.io/)
-- [Requires.io](https://requires.io/)
-- [Codefactor.io](https://www.codefactor.io/)
-- [Deepsource.io](https://deepsource.io/)
+- [GitHub](http://github.com) - Login and Generate your token.
+- [Read the Docs](https://readthedocs.org/).
+- [TestPyPi](https://test.pypi.org/) - Login and Generate your token.
+- [PyPi](https://pypi.org/) - Login and Generate your token.
+- [Codecov.io](https://about.codecov.io/).
+- [Requires.io](https://requires.io/).
+- [Codefactor.io](https://www.codefactor.io/).
+- [Deepsource.io](https://deepsource.io/).
 
 ### Finalization Steps
 
-1. Put your pypi and testpypi keys into the .pypirc file
-2. Create a remote repository on GitHub
+1. Put your pypi and testpypi keys into the .pypirc file.
+2. Create a remote repository on GitHub.
 3. If using GitHub actions - Add your PyPi and TestPyPi tokens to the repository actions secrets with the following variable names:
 - TEST_PYPI_API_TOKEN
 - PYPI_API_TOKEN
@@ -97,7 +97,7 @@ You will need accounts with the following services:
 - GH_TOKEN = _GitHub token_
 - REPOSITORY_PASSWORD = _PyPI token_
 - REPOSITORY_USERNAME = \__token__
-5. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/)
+5. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/).
 6. Install your package as an "editable" package.
 
 Editable installs were not possible until 2021, but that has been remedied by [**PEP660**][pep660-url].
