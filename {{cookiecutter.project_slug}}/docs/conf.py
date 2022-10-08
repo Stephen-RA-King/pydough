@@ -7,6 +7,7 @@
 # -- Project information -----------------------------------------------------
 
 project = "{{ cookiecutter.project_name }}"
+version = "{{ cookiecutter.version }}"
 copyright = "{% now 'local', '%Y' %}, {{ cookiecutter.author_name }}"
 author = "{{ cookiecutter.author_name }}"
 
