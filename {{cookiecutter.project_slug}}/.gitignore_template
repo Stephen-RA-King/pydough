@@ -50,6 +50,8 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
+*.css
+*.html
 .hypothesis/
 .pytest_cache/
 
@@ -135,6 +137,4 @@ dmypy.json
 # miscellaneous files
 TODO.txt
 *.docx
-*.css
-*.html
 post_installation.py
