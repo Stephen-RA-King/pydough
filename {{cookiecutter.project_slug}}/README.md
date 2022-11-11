@@ -84,7 +84,7 @@ pip install --editable {{ cookiecutter.project_name }}
 [![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.project_name }}/)
 [![](assets/www.png)](https://www.justpython.tech)
 [![](assets/email.png)](mailto:stephen.ra.king@gmail.com)
-[![](assets/cv.png)](https://www.justpython.tech/cv) 
+[![](assets/cv.png)](https://justpython.tech/wp-content/uploads/CV.pdf)
 {% else %}
 [![](assets/github.png)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }})
 [![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.project_name }}/)
