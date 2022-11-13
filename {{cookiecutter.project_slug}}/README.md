@@ -79,12 +79,11 @@ pip install --editable {{ cookiecutter.project_name }}
 
 ## Meta
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
-[![](assets/linkedin.png)](https://linkedin.com/in/stephen-k-3a4644210)
+[![](assets/linkedin.png)](https://www.linkedin.com/in/sr-king)
 [![](assets/github.png)](https://github.com/Stephen-RA-King)
-[![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.project_name }}/)
+[![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.project_name }})
 [![](assets/www.png)](https://www.justpython.tech)
 [![](assets/email.png)](mailto:stephen.ra.king@gmail.com)
-[![](assets/cv.png)](https://justpython.tech/wp-content/uploads/CV.pdf)
 {% else %}
 [![](assets/github.png)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }})
 [![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.project_name }}/)
