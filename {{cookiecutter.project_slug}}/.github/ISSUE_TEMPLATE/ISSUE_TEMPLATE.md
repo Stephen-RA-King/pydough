@@ -5,31 +5,31 @@ BEFORE POSTING YOUR ISSUE:
 - Be specific: Add as much detail as possible.
 -->
 
-## Issue Overview
+### Issue Overview
 <!-- A brief overview of the issue --->
 
-## Describe your environment
+### Describe your environment
 <!-- Provide details about your environment: what editor, browser, and other software you are using and any other specifics to your setup -->
 
-## Steps to Reproduce
+### Steps to Reproduce
 <!-- Provide an unambiguous set of steps to reproduce this bug. Include code to reproduce, if relevant. Include a live link if available. -->
 1.
 2.
 3.
 4.
 
-## Expected Behavior
+### Expected Behavior
 <!-- What behavior did you expect? -->
 
-## Current Behavior
+### Current Behavior
 <!-- What happened instead of the expected behavior? Describe the difference. -->
 
-## Possible Solution
+### Possible Solution
 <!-- Optional: Do you have a fix or a suggestion on how to fix the issue? -->
 
-## Screenshots / Video
+### Screenshots / Video
 <!-- Optional: Add any screenshots or video of the issue if available. -->
 
-## Related Issues
+### Related Issues
 <!-- List related issues -->
 
