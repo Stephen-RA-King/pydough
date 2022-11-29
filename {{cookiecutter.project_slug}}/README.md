@@ -7,7 +7,6 @@
 [![Status][status-image]][pypi-url]
 [![Python Version][python-version-image]][pypi-url]
 [![Format][format-image]][pypi-url]
-[![Requirements][requirements-status-image]][requirements-status-url]
 [![tests][tests-image]][tests-url]
 [![Codecov][codecov-image]][codecov-url]
 [![CodeFactor][codefactor-image]][codefactor-url]
@@ -153,8 +152,6 @@ Created with Cookiecutter template: [**cc_template**][cc_template-url] version 1
 [python-version-image]: https://img.shields.io/pypi/pyversions/{{cookiecutter.project_name}}
 [readthedocs-image]: https://readthedocs.org/projects/{{ cookiecutter.project_name }}/badge/?version=latest
 [readthedocs-url]: https://{{ cookiecutter.project_name }}.readthedocs.io/en/latest/?badge=latest
-[requirements-status-image]: https://requires.io/github/Stephen-RA-King/{{ cookiecutter.project_name }}/requirements.svg?branch=main
-[requirements-status-url]: https://requires.io/github/Stephen-RA-King/{{ cookiecutter.project_name }}/requirements/?branch=main
 [status-image]: https://img.shields.io/pypi/status/{{cookiecutter.project_name}}.svg
 [tests-image]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/actions/workflows/tests.yml/badge.svg
 [tests-url]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/actions/workflows/tests.yml
