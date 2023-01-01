@@ -248,9 +248,6 @@ Therefore the following variables need to be changed to whatever you are using:
 - package_name
 
 
-## Finally
-Have fun! ... Go away now.
-
 
 ## Meta
 [![](assets/linkedin.png)](https://www.linkedin.com/in/sr-king)
