@@ -253,7 +253,7 @@ Therefore the following variables need to be changed to whatever you are using:
 [![](assets/linkedin.png)](https://www.linkedin.com/in/sr-king)
 [![](assets/github.png)](https://github.com/Stephen-RA-King)
 [![](assets/www.png)](https://www.justpython.tech)
-[![](assets/email.png)](mailto:stephen.ra.king@gmail.com) 
+[![](assets/email.png)](mailto:sking.github@gmail.com) 
 
 
 Author: Stephen RA King
