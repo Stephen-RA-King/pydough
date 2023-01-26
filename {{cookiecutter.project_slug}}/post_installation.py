@@ -344,13 +344,11 @@ def main() -> None:
         "1 - Add the remaining files to git, commit and push\n"
         "2 - tag and push tags\n"
         "3 - Goto 'Codecov.io' and add the repository\n"
-        "4 - Goto 'requires.io' and add the repository\n"
-        "5 - Goto 'codefactor.io' and add the repository\n"
-        "6 - Goto 'deepsource.io' and add the repository\n"
-        "7 - Goto 'codeclimate.io' and add the repository\n"
+        "4 - Goto 'codefactor.io' and add the repository\n"
+        "5 - Goto 'deepsource.io' and add the repository\n"
+        "6 - Goto 'codeclimate.io' and add the repository\n"
     )
     webbrowser.open("https://app.codecov.io/login/gh?")
-    webbrowser.open("https://requires.io/auth/github/login/?process=login&scope=repo")
     webbrowser.open("https://www.codefactor.io")
     webbrowser.open("https://deepsource.io/login")
     webbrowser.open("https://codeclimate.com/login/github/join")

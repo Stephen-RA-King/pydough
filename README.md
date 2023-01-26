@@ -82,7 +82,6 @@ You will need accounts with the following services:
 - [TestPyPi](https://test.pypi.org/) - Login and Generate your token.
 - [PyPi](https://pypi.org/) - Login and Generate your token.
 - [Codecov.io](https://about.codecov.io/).
-- [Requires.io](https://requires.io/).
 - [Codefactor.io](https://www.codefactor.io/).
 - [Deepsource.io](https://deepsource.io/).
 
@@ -144,7 +143,7 @@ $ python -m twine upload --config-file .pypirc -r testpypi dist/*
 $ python -m twine upload --config-file .pypirc dist/*
 ```
 
-12. If you are using services requires.io, codecov.io, codefactor.io
+12. If you are using services codecov.io, codefactor.io
 and deepsource.io then you will need to login to those services with your GitHub account and import your respositories
 
 ## Note

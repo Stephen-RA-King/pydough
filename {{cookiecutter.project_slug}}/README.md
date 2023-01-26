@@ -11,8 +11,6 @@
 [![Codecov][codecov-image]][codecov-url]
 [![CodeFactor][codefactor-image]][codefactor-url]
 [![Codeclimate][codeclimate-image]][codeclimate-url]
-[![Lgtm alerts][lgtm-alerts-image]][lgtm-alerts-url]
-[![Lgtm quality][lgtm-quality-image]][lgtm-quality-url]
 [![CodeQl][codeql-image]][codeql-url]
 [![readthedocs][readthedocs-image]][readthedocs-url]
 {% if cookiecutter.use_pre_commit == 'y' -%}
