@@ -51,10 +51,10 @@ All the following features are optional:
 
 ## Pre Installation Requirements
 
-1. Python 3.9 or 3.10.
-2. git - installed globally.
+1. Python >= 3.9.
+2. git.
 3. Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv_wrapper**][virtualenvwrapper-url]. I love "workon").
-4. [**Cookiecutter**][cookiecutter-url] installed into the Virtual Environment.
+4. [**Cookiecutter**][cookiecutter-url] installed into the Virtual Environment (or 'globally' using [**pipx**][pipx-url]).
 
 ## Installation
 
@@ -290,6 +290,7 @@ version: 1.2.1
 [pep257-url]: https://peps.python.org/pep-0257/
 [pep660-url]: https://peps.python.org/pep-0660/
 [pip-tools-url]: https://github.com/jazzband/pip-tools/
+[pipx-url]: https://github.com/pypa/pipx
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
 [safety-url]: https://github.com/pyupio/safety
