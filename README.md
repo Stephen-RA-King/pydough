@@ -75,6 +75,14 @@ $ pip install -r <package-name>/requirements.txt
 ```
 
 ## Optional Post-Installation steps
+
+
+> :question: The majority of the following steps are automated by a post_installation.py file that I have written.
+> However this file is removed by the post_gen_project.py hook if the name you have used is not 
+> "Stephen-RA-King".  I have configured it this way as I use the [**Keyring**][keyring-url] library to store my 
+> API keys.  This way I have automated the entire environment creation.  If you feel this is something that
+> you would like to do, then feel free to configure this file to your needs.
+
 ### Recommended Post Installation Requirements:
 You will need accounts with the following services:
 - [GitHub](http://github.com) - Login and Generate your token.
@@ -283,6 +291,7 @@ version: 1.2.1
 [invoke-url]: https://www.pyinvoke.org/
 [isort-image]: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
 [isort-url]: https://github.com/PyCQA/isort
+[keyring-url]: https://github.com/jaraco/keyring
 [layered-url]: https://github.com/jazzband/pip-tools/#workflow-for-layered-requirements
 [mypy-image]: http://www.mypy-lang.org/static/mypy_badge.svg
 [mypy-url]: https://github.com/python/mypy
