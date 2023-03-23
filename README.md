@@ -14,15 +14,15 @@ The following tool is mandatory (you will thank me later):
 
 All the following features are optional:
 
-* [**Flake8**][flake8-url] - linting wrapper that glues together pycodestyle, pyflakes & mccabe.
-* [**Black**][black-url] - code formatter.
-* [**MyPy**][mypy-url] - for static type checking.
-* [**Pre-Commit**][pre-commit-url] - a framework for managing pre-commit hooks (pre-configured with many hooks).
+* [**flake8**][flake8-url] - linting wrapper that glues together pycodestyle, pyflakes & mccabe.
+* [**black**][black-url] - code formatter.
+* [**mypy**][mypy-url] - for static type checking.
+* [**pre-commit**][pre-commit-url] - a framework for managing pre-commit hooks (pre-configured with many hooks).
 * [**isort**][isort-url] - organizes imports automatically.
-* [**Bandit**][bandit-url] -  finds common security issues .
-* [**Sphinx**][sphinx-url] -  for creating documentation.
-* [**Click**][click-url] -  for creating Command line interfaces.
-* [**Invoke**][invoke-url] - Common package maintenance tasks are automated with this python library.
+* [**bandit**][bandit-url] -  finds common security issues .
+* [**sphinx**][sphinx-url] -  for creating documentation.
+* [**click**][click-url] -  for creating Command line interfaces.
+* [**invoke**][invoke-url] - Common package maintenance tasks are automated with this python library.
 
 
 
@@ -31,13 +31,13 @@ All the following features are optional:
 * Automatically configures git message template.
 * Selection of licenses to choose from.
 * Optionally include the following:
-  - [**Python-Semantic-Release**](https://github.com/relekang/python-semantic-release) or [**Bmp2version**][bump2version-url] - version control and release.
-  - [**Commitizen**][commitizen-url] - for parsing and enforcing descriptive git commits.
-  - [**Cruft**][cruft-url] - project boilerplate is maintained in sync with parent cookiecutter template. 
-  - [**Safety**][safety-url] - check dependencies for known security vulnerabilities.
-  - [**Flakeheaven**][flakeheaven-url] - Flake8 wrapper to replace flakehell.
+  - [**python-semantic-release**](https://github.com/relekang/python-semantic-release) or [**bump2version**][bump2version-url] - version control and release.
+  - [**commitizen**][commitizen-url] - for parsing and enforcing descriptive git commits.
+  - [**cruft**][cruft-url] - project boilerplate is maintained in sync with parent cookiecutter template. 
+  - [**safety**][safety-url] - check dependencies for known security vulnerabilities.
+  - [**flakeheaven**][flakeheaven-url] - Flake8 wrapper to replace flakehell.
 * Included are GitHub actions for codeql-analysis, CICD/tests and dependabot.
-* Option to specify Docstring style ([**Google**][docstring-google] or [**Numpy**][docstring-numpy] - see [**PEP257**][pep257-url] and [**Sphinx**][docstring-sphinx]).
+* Option to specify Docstring style ([**Google**][docstring-google] or [**numpy**][docstring-numpy] - see [**pep 257**][pep257-url] and [**sphinx**][docstring-sphinx]).
 * Optionally include a configuration file (toml, ini, json or yaml).
 * Optionally include resource files (sqlite3, pickle, png).
 * Option to include Logging using the new dictConfig() configuration.
@@ -54,7 +54,7 @@ All the following features are optional:
 1. Python >= 3.9.
 2. git.
 3. Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv_wrapper**][virtualenvwrapper-url]. I love "workon").
-4. [**Cookiecutter**][cookiecutter-url] installed into the Virtual Environment (or 'globally' using [**pipx**][pipx-url]).
+4. [**cookiecutter**][cookiecutter-url] installed into the Virtual Environment (or 'globally' using [**pipx**][pipx-url]).
 
 ## Installation
 
@@ -79,7 +79,7 @@ $ pip install -r <package-name>/requirements.txt
 
 > :question: The majority of the following steps are automated by a post_installation.py file that I have written.
 > However this file is removed by the post_gen_project.py hook if the name you have used is not 
-> "Stephen-RA-King".  I have configured it this way as I use the [**Keyring**][keyring-url] library to store my 
+> "Stephen-RA-King".  I have configured it this way as I use the [**keyring**][keyring-url] library to store my 
 > API keys.  This way I have automated the entire environment creation.  If you feel this is something that
 > you would like to do, then feel free to configure this file to your needs.
 
