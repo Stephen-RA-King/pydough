@@ -39,7 +39,7 @@ All the following features are optional:
 * Included are GitHub actions for codeql-analysis, CICD/tests and dependabot.
 * Option to specify Docstring style ([**Google**][docstring-google] or [**numpy**][docstring-numpy] - see [**pep 257**][pep257-url] and [**sphinx**][docstring-sphinx]).
 * Optionally include a configuration file (toml, ini, json or yaml).
-* Optionally include resource files (sqlite3, pickle, png).
+* Optionally include resource files (e.g. sqlite3, pickle, png).
 * Option to include Logging using the new dictConfig() configuration.
 * Automatically include badges based on your selections e.g.:
 
@@ -53,8 +53,9 @@ All the following features are optional:
 
 1. Python >= 3.9.
 2. git.
-3. Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv_wrapper**][virtualenvwrapper-url]. I love "workon").
+3. Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv-wrapper**][virtualenvwrapper-url]. I love "workon").
 4. [**cookiecutter**][cookiecutter-url] installed into the Virtual Environment (or 'globally' using [**pipx**][pipx-url]).
+
 
 ## Installation
 
@@ -107,7 +108,7 @@ You will need accounts with the following services:
 5. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/).
 6. Install your package as an "editable" package.
 
-Editable installs were not possible until 2021, but that has been remedied by [**PEP660**][pep660-url].
+Editable installs were not possible until 2021, but that has been remedied by [**pep 660**][pep660-url].
 This can be performed by either 'pip' or 'setuptools'
 ```sh
 $ python -m pip install -e . 
@@ -127,7 +128,7 @@ $ git add *
 $ git commit -m "chore: initial commit"
 $ git push -u origin main 
 ```
-Note: If you chose to use the [**Pre-Commit**][pre-commit-url] package then many hooks (e.g. Flake8, Black, Bandit Prettier etc.)
+Note: If you chose to use the [**pre-commit**][pre-commit-url] package then many hooks (e.g. Flake8, Black, Bandit Prettier etc.)
 will now download and configure themselves and eventually be run against each file in the repository.
 This may take some time and some files may get modified. You will need to "git add" these files again.
 
@@ -154,12 +155,12 @@ $ python -m twine upload --config-file .pypirc dist/*
 12. If you are using services codecov.io, codefactor.io
 and deepsource.io then you will need to login to those services with your GitHub account and import your respositories
 
-## Note
+### Note
 Some badges can take up to 24 Hrs to update (yes download badge ... I am looking at you). So please be patient.
 
+## Using the template
 
-
-### Using Python Semantic Release (PSR)
+### Python Semantic Release
 If you opted to use PSR then the future uploading to GitHub & uploading to PyPI, 
 will be done automatically.
 After you have committed changes to git, issue the following command:
@@ -175,7 +176,7 @@ Publish will do a sequence of things:
 - Run semantic-release changelog and post to your vcs provider.
 - Attach the files created by build_command to GitHub releases.
 
-### Documentation creation
+### Documentation
 "Read the docs" will automatically generate new documentation when you push to GitHub.
 Howver you can manually generate local documenattion by simply moving to the "docs" directory and issuing the make command.
 ```sh
@@ -195,7 +196,7 @@ know where you want your log file to be.
 
 This can be set in the src / __init__.py file  -> handlers -> file -> filename
 
-### Using Invoke tasks.py
+### Invoke
 
 I have written a "***tasks.py***" file that takes care of many of the mundane repository maintenance tasks:
 
@@ -254,6 +255,10 @@ Therefore the following variables need to be changed to whatever you are using:
 - default-branch2  
 - package_name
 
+
+## Possible future enhancements
+- Use Ruff to replace Flake8 (plus dozens of plugins), isort, pydocstyle, eradicate,
+pyupgrade, and autoflake, all while executing tens or hundreds of times faster.
 
 
 ## Meta
