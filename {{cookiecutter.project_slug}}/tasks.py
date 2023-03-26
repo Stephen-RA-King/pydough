@@ -79,7 +79,7 @@ LOGGING_CONFIG = Template(LOGGING_CONFIG_TEMPLATE).render(
 logging.config.dictConfig(yaml.safe_load(LOGGING_CONFIG))
 logger = logging.getLogger("main")
 
-logger.debug(f"Total python files: %s", len(PYTHON_FILES_ALL))
+logger.debug("Total python files: %s", len(PYTHON_FILES_ALL))
 for file in PYTHON_FILES_ALL:
     logger.debug("%s", file)
 logger.debug("src python files: %s", len(PYTHON_FILES_SRC))
