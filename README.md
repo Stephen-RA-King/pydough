@@ -51,10 +51,10 @@ All the following features are optional:
 
 ## Pre Installation Requirements
 
-1. Python >= 3.9.
-2. git.
-3. Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv-wrapper**][virtualenvwrapper-url]. I love "workon").
-4. [**cookiecutter**][cookiecutter-url] installed into the Virtual Environment (or 'globally' using [**pipx**][pipx-url]).
+- [X] Python >= 3.9.
+- [X] git.
+- [X] Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv-wrapper**][virtualenvwrapper-url]. I love "workon").
+- [X] [**cookiecutter**][cookiecutter-url] installed into the Virtual Environment (or 'globally' using [**pipx**][pipx-url]).
 
 
 ## Installation
