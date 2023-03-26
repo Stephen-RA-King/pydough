@@ -99,7 +99,7 @@ You will need accounts with the following services:
 1. Put your pypi and testpypi keys into the .pypirc file.
 2. Create a remote repository on GitHub.
 3. If using GitHub actions - Add your PyPi and TestPyPi tokens to the repository actions secrets with the following variable names:
-- TEST_PYPI_API_TOKEN
+- - TEST_PYPI_API_TOKEN
 - PYPI_API_TOKEN
 4. If you are using Python Semantic Release, create the following environment variables:
 - GH_TOKEN = _GitHub token_
