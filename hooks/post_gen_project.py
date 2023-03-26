@@ -33,7 +33,7 @@ logger.addHandler(c_handler)
 logger.addHandler(f_handler)
 
 
-def delete_director(items_to_delete):
+def delete_director(items_to_delete: list) -> None:
     """Utility function to delete files or directories"""
 
     for item in items_to_delete:
@@ -169,7 +169,7 @@ def main():
         RESOURCE_DIR / "resource.pickle",
         RESOURCE_DIR / "resource.png",
     ]
-    if "{{ cookiecutter.config_file }}" == "none":
+    if "{{ cookiecutter.resource_file }}" == "none":
         delete_director(resource_files)
     elif "{{ cookiecutter.resource_file }}" != "all":
         keep_file = "".join(["resource.", "{{ cookiecutter.resource_file }}"])
