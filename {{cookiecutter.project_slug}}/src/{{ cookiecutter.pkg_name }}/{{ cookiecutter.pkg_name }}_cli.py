@@ -21,4 +21,4 @@ def author(verbose: str) -> None:
 
 
 if __name__ == "__main__":
-    info()
+    raise SystemExit(info())

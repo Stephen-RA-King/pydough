@@ -166,3 +166,16 @@ def fibonacci(number_range: int) -> list:
             return result
         result.append(a)
         a, b = b, (a + b)
+
+
+def main():
+    print(fizzbuzz(20))
+    print(fibonacci(20))
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
+
+
+
+
