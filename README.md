@@ -10,8 +10,6 @@ _**A general purpose development template for the creation of a Python module, p
 The following tool is mandatory (you will thank me later):
 * [**pip-tools**][pip-tools-url] -  Pins every single package dependency (even the dependency’s dependencies).
 
-
-
 All the following features are optional:
 
 * [**flake8**][flake8-url] - linting wrapper that glues together pycodestyle, pyflakes & mccabe.
@@ -23,7 +21,6 @@ All the following features are optional:
 * [**sphinx**][sphinx-url] -  for creating documentation.
 * [**click**][click-url] -  for creating Command line interfaces.
 * [**invoke**][invoke-url] - Common package maintenance tasks are automated with this python library.
-
 
 
 ### Other Features
@@ -78,18 +75,21 @@ $ pip install -r <package-name>/requirements.txt
 ## Optional Post-Installation steps
 
 
-> :question: The majority of the following steps are automated by a post_installation.py file that I have written.
-> However this file is removed by the post_gen_project.py hook if the name you have used is not 
+> :question: The majority of the following steps are automated by a **post_installation.py** file that I have written.
+> However this file is removed by the **post_gen_project.py** hook if the name you have used is not 
 > "Stephen-RA-King".  I have configured it this way as I use the [**keyring**][keyring-url] library to store my 
 > API keys.  This way I have automated the entire environment creation.  If you feel this is something that
 > you would like to do, then feel free to configure this file to your needs.
 
 ### Recommended Post Installation Requirements:
-You will need accounts with the following services:
-- [GitHub](http://github.com) - Login and Generate your token.
-- [Read the Docs](https://readthedocs.org/).
-- [TestPyPi](https://test.pypi.org/) - Login and Generate your token.
-- [PyPi](https://pypi.org/) - Login and Generate your token.
+You will need accounts and API keys with the following services: 
+- [GitHub](http://github.com)
+- [Read the Docs](https://readthedocs.org/)
+- [TestPyPi](https://test.pypi.org/)
+- [PyPi](https://pypi.org/)
+
+The following services can be linked to your github account (settings > integrations > applications)
+
 - [Codecov.io](https://about.codecov.io/).
 - [Codefactor.io](https://www.codefactor.io/).
 - [Deepsource.io](https://deepsource.io/).
@@ -99,7 +99,7 @@ You will need accounts with the following services:
 1. Put your pypi and testpypi keys into the .pypirc file.
 2. Create a remote repository on GitHub.
 3. If using GitHub actions - Add your PyPi and TestPyPi tokens to the repository actions secrets with the following variable names:
-- - TEST_PYPI_API_TOKEN
+- TEST_PYPI_API_TOKEN
 - PYPI_API_TOKEN
 4. If you are using Python Semantic Release, create the following environment variables:
 - GH_TOKEN = _GitHub token_
