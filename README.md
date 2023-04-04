@@ -65,12 +65,23 @@ $ cookiecutter https://github.com/stephen-ra-king/cc_template
 
 cookiecutter will prompt you for a selection of inputs and eventually [**pip-tools**][pip-tools-url] will
 pin your dependencies from the inputs you have given.
+
+When the installation script has finished it would be prudent to check the following log for any errors:
+
+**logs / post_gen.log**
+
 This template uses [**layered requirements**][layered-url] (the default being "development")
-so now install the packages using pip as follows:
+so now install the packages using pip-tools as follows:
+
+```bash
+$ pip-sync <package-name>/requirements.txt
+```
+The following is ***no longer required*** as pip-tools is installed by default.
 
 ```bash
 $ pip install -r <package-name>/requirements.txt
 ```
+
 
 ## Optional Post-Installation steps
 
@@ -158,7 +169,7 @@ and deepsource.io then you will need to login to those services with your GitHub
 ### Note
 Some badges can take up to 24 Hrs to update (yes download badge ... I am looking at you). So please be patient.
 
-## Using the template
+## Using the template Features
 
 ### Python Semantic Release
 If you opted to use PSR then the future uploading to GitHub & uploading to PyPI, 
