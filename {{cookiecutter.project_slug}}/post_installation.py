@@ -119,7 +119,10 @@ def set_keyring(service: str, id_type: str, hidden: str) -> None:
 
 def github_create_repo() -> None:
     logger.info("\nCreating GitHub repository")
-    body_json = {"name": "{{ cookiecutter.project_name }}", "description": "placeholder"}
+    body_json = {
+        "name": "{{ cookiecutter.project_name }}",
+        "description": "{{ cookiecutter.project_short_description }}"
+    }
 
     url = "https://api.github.com/user/repos"
     header = {"Authorization": f"token {GITHUB_TOKEN}"}
@@ -168,7 +171,6 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
 
         if r.status_code in (201, 204):
             logger.info(".... OK")
-
         else:
             logger.info(".... FAILED")
             logger.info(r.status_code, r.reason)
@@ -308,10 +310,6 @@ def main() -> None:
 
     logger.info("\nInstalling requirements")
     execute("pip-sync", "requirements.txt")
-    logger.info(".... OK")
-
-    logger.info("\nChanging requirements from 'development' to 'test'")
-    file_word_replace("requirements.txt", "development", "test")
     logger.info(".... OK")
 
     if not options.refresh:
