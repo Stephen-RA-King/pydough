@@ -168,7 +168,7 @@ def fibonacci(number_range: int) -> list:
         a, b = b, (a + b)
 
 
-def main():
+def main():    # type: ignore
     print(fizzbuzz(20))
     print(fibonacci(20))
 
