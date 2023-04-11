@@ -9,14 +9,14 @@
 [![Format][format-image]][pypi-url]
 [![tests][tests-image]][tests-url]
 [![Codecov][codecov-image]][codecov-url]
-[![CodeFactor][codefactor-image]][codefactor-url]
-[![Codeclimate][codeclimate-image]][codeclimate-url]
-[![CodeQl][codeql-image]][codeql-url]
-[![readthedocs][readthedocs-image]][readthedocs-url]
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [![pre-commit][pre-commit-image]][pre-commit-url]
 [![pre-commit.ci status][pre-commit.ci-image]][pre-commit.ci-url]
 {%- endif %}
+[![CodeFactor][codefactor-image]][codefactor-url]
+[![Codeclimate][codeclimate-image]][codeclimate-url]
+[![CodeQl][codeql-image]][codeql-url]
+[![readthedocs][readthedocs-image]][readthedocs-url]
 {% if cookiecutter.use_isort == 'y' -%}
 [![Imports: isort][isort-image]][isort-url]
 {%- endif %}
@@ -70,9 +70,15 @@ pip install --editable {{ cookiecutter.project_name }}
 
 ## Documentation
 
-### - [**Read the Docs**](https://{{ cookiecutter.project_name }}.readthedocs.io/en/latest/)
+[**Read the Docs**](https://{{ cookiecutter.project_name }}.readthedocs.io/en/latest/)
 
-### - [**Wiki**](https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/wiki)
+- [**Example Usage**](https://{{ cookiecutter.project_name }}.readthedocs.io/en/latest/example.html)
+- [**Credits**](https://{{ cookiecutter.project_name }}.readthedocs.io/en/latest/example.html)
+- [**Changelog**](https://{{ cookiecutter.project_name }}.readthedocs.io/en/latest/changelog.html)
+- [**API Reference**](https://{{ cookiecutter.project_name }}.readthedocs.io/en/latest/autoapi/index.html)
+
+
+- [**Wiki**](https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/wiki)
 
 ## Meta
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
