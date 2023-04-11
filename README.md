@@ -100,22 +100,22 @@ You will need accounts and API keys with the following services:
 - [PyPi](https://pypi.org/)
 
 The following services can be linked to your github account (settings > integrations > applications)
-
-- [Codecov.io](https://about.codecov.io/).
-- [Codefactor.io](https://www.codefactor.io/).
-- [Deepsource.io](https://deepsource.io/).
+   - [Codecov.io](https://about.codecov.io/)
+   - [Codefactor.io](https://www.codefactor.io/)
+   - [Deepsource.io](https://deepsource.io/)
+   - [Pre-commit.ci](https://pre-commit.ci/)
 
 ### Finalization Steps
 
 1. Put your pypi and testpypi keys into the .pypirc file.
 2. Create a remote repository on GitHub.
 3. If using GitHub actions - Add your PyPi and TestPyPi tokens to the repository actions secrets with the following variable names:
-- TEST_PYPI_API_TOKEN
-- PYPI_API_TOKEN
+   - TEST_PYPI_API_TOKEN
+   - PYPI_API_TOKEN
 4. If you are using Python Semantic Release, create the following environment variables:
-- GH_TOKEN = _GitHub token_
-- REPOSITORY_PASSWORD = _PyPI token_
-- REPOSITORY_USERNAME = \__token__
+   - GH_TOKEN = _GitHub token_
+   - REPOSITORY_PASSWORD = _PyPI token_
+   - REPOSITORY_USERNAME = \__token__
 5. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/).
 6. Install your package as an "editable" package.
 
