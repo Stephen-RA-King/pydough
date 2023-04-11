@@ -1,3 +1,28 @@
+## 1.2.2 (2023-04-11)
+
+### Refactor
+
+- **tasks.py**: remove commented code
+- **{{-cookiecutter.pkg_name-}}.py**: escape main() from mypy check
+- **post_installation.py**: replace hard coded description text
+- **development.in**: remove eradicate as not flake8v6 compatible
+- add raise(SystemError(main)) idiom
+- **tasks**: remove unused f string
+- update pre-commit versions
+- correct logger message string
+- migrate deprecated importlib.resources functions
+
+### Fix
+
+- **post_gen_project**: wrong variable name used for resource files
+- fix: lazy logging format use %s no f strings
+- exclude config test if no config files selected
+- jinja template - replace pgk with project
+
+### Feat
+
+- add support for pickle serialization
+
 ## 1.2.1 (2022-08-01)
 
 ### Refactor
