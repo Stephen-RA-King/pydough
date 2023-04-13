@@ -7,6 +7,9 @@ _**A general purpose development template for the creation of a Python module, p
 
 
 ## Template Features
+
+---
+
 The following tool is mandatory (you will thank me later):
 * [**pip-tools**][pip-tools-url] -  Pins every single package dependency (even the dependency’s dependencies).
 
@@ -48,6 +51,8 @@ All the following features are optional:
 
 ## Pre Installation Requirements
 
+---
+
 - [X] Python >= 3.9.
 - [X] git.
 - [X] Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv-wrapper**][virtualenvwrapper-url]. I love "workon").
@@ -55,6 +60,8 @@ All the following features are optional:
 
 
 ## Installation
+
+---
 
 Assuming you are at the command prompt of the activated virtual environment
 simply type the following:
@@ -85,6 +92,7 @@ $ pip install -r <package-name>/requirements.txt
 
 ## Optional Post-Installation steps
 
+---
 
 > :question: The majority of the following steps are automated by a **post_installation.py** file that I have written.
 > However this file is removed by the **post_gen_project.py** hook if the name you have used is not 
@@ -171,6 +179,8 @@ Some badges can take up to 24 Hrs to update (yes download badge ... I am looking
 
 ## Using the template Features
 
+---
+
 ### Python Semantic Release
 If you opted to use PSR then the future uploading to GitHub & uploading to PyPI, 
 will be done automatically.
@@ -236,11 +246,17 @@ Available tasks:
 ```
 
 ## Example of Freshly Deployed Template
+
+---
+
 [GitHub](https://github.com/Stephen-RA-King/zyme)  
 [PyPI](https://pypi.org/project/zyme/)
 
 
 ## Known Issues
+
+---
+
 ### 1 - Python semantic Release (PSR) v7.28.1 on Windows
 PSR will not find a .pypirc file because the Path command is linux style
  
@@ -268,11 +284,17 @@ Therefore the following variables need to be changed to whatever you are using:
 
 
 ## Possible future enhancements
+
+---
+
 - Use Ruff to replace Flake8 (plus dozens of plugins), isort, pydocstyle, eradicate,
 pyupgrade, and autoflake, all while executing tens or hundreds of times faster.
 
 
 ## Meta
+
+---
+
 [![](assets/linkedin.png)](https://www.linkedin.com/in/sr-king)
 [![](assets/github.png)](https://github.com/Stephen-RA-King)
 [![](assets/www.png)](https://www.justpython.tech)
