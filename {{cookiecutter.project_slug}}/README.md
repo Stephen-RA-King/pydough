@@ -42,6 +42,8 @@ One to two paragraph statement about your product and what it does.
 
 ## Installation
 
+---
+
 OS X & Linux:
 
 ```sh
@@ -56,11 +58,15 @@ pip install {{ cookiecutter.project_name }}
 
 ## Usage example
 
+---
+
 A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
 ## Development setup
+
+---
 
 Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
 
@@ -69,6 +75,8 @@ pip install --editable {{ cookiecutter.project_name }}
 ```
 
 ## Documentation
+
+---
 
 [**Read the Docs**](https://{{ cookiecutter.project_name }}.readthedocs.io/en/latest/)
 
@@ -81,6 +89,9 @@ pip install --editable {{ cookiecutter.project_name }}
 - [**Wiki**](https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/wiki)
 
 ## Meta
+
+---
+
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 [![](assets/linkedin.png)](https://www.linkedin.com/in/sr-king)
 [![](assets/github.png)](https://github.com/Stephen-RA-King)
@@ -94,9 +105,7 @@ pip install --editable {{ cookiecutter.project_name }}
 
 {{cookiecutter.author_name}} : {{cookiecutter.email}}
 
-Distributed under the {{cookiecutter.license}} license. See [license][license-url] for more information.
-
-[https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }})
+Distributed under the {{cookiecutter.license}} license. See [![][license-image]][license-url] for more information.
 
 Created with Cookiecutter template: [**cc_template**][cc_template-url] version 1.2.2
 
