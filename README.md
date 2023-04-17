@@ -3,7 +3,7 @@
 _**A general purpose development template for the creation of a Python module, package or library.**_
 
 
-![](https://github.com/Stephen-RA-King/cc_template/raw/main/header.png)
+![](https://github.com/Stephen-RA-King/pydough/raw/main/header.png)
 
 
 ## Template Features
@@ -67,7 +67,7 @@ Assuming you are at the command prompt of the activated virtual environment
 simply type the following:
 
 ```bash
-$ cookiecutter https://github.com/stephen-ra-king/cc_template
+$ cookiecutter https://github.com/stephen-ra-king/pydough
 ```
 
 cookiecutter will prompt you for a selection of inputs and eventually [**pip-tools**][pip-tools-url] will
@@ -324,7 +324,7 @@ version: 1.2.2
 [docstring-sphinx]: https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
 [flake8-url]: https://github.com/PyCQA/flake8
 [flakeheaven-url]: https://github.com/flakeheaven/flakeheaven
-[github]: https://github.com/stephen-ra-king/cc_template
+[github]: https://github.com/stephen-ra-king/pydough
 [google-docstring-url]: https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings
 [invoke-url]: https://www.pyinvoke.org/
 [isort-image]: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
@@ -344,4 +344,4 @@ version: 1.2.2
 [sphinx-url]: https://github.com/sphinx-doc/sphinx
 [virtualenv-url]: https://virtualenv.pypa.io
 [virtualenvwrapper-url]: https://pypi.org/project/virtualenvwrapper/
-[wiki]: https://github.com/stephen-ra-king/cc_template/wiki
+[wiki]: https://github.com/stephen-ra-king/pydough/wiki

@@ -107,7 +107,7 @@ pip install --editable {{ cookiecutter.project_name }}
 
 Distributed under the {{cookiecutter.license}} license. See [![][license-image]][license-url] for more information.
 
-Created with Cookiecutter template: [**cc_template**][cc_template-url] version 1.2.2
+Created with Cookiecutter template: [**pydough**][pydough-url] version 1.2.2
 
 
 <!-- Markdown link & img dfn's -->
@@ -120,7 +120,7 @@ Created with Cookiecutter template: [**cc_template**][cc_template-url] version 1
 [black-image]: https://img.shields.io/badge/code%20style-black-000000.svg
 [black-url]: https://github.com/psf/black
 {%- endif %}
-[cc_template-url]: https://github.com/Stephen-RA-King/cc_template
+[pydough-url]: https://github.com/Stephen-RA-King/pydough
 [codeclimate-image]: https://api.codeclimate.com/v1/badges/7fc352185512a1dab75d/maintainability
 [codeclimate-url]: https://codeclimate.com/github/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/maintainability
 [codecov-image]: https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/branch/main/graph/badge.svg
