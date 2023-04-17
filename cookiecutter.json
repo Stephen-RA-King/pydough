@@ -64,7 +64,7 @@
   "use_pre_commit": "y",
   "use_cruft": "y",
   "use_bandit": "y",
-  "use_safety": "y",
+  "use_safety": "n",
   "use_logging": "y",
   "include_example_scripts": "y",
   "command_line_interface": [
