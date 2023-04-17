@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Example script to demonstrate layout and testing."""
 # Core Library modules
+{%- if cookiecutter.resource_file == 'pickle' or cookiecutter.resource_file == 'all' %}
+pickle{% endif %}
 {%- if cookiecutter.use_logging == 'y' %}
 import sys{% endif %}
 {%- if cookiecutter.resource_file != 'none' %}

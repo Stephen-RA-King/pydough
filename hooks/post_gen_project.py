@@ -59,7 +59,7 @@ def execute(*args, supress_exception=False, cwd=None):
         decoded_err = err.decode("utf-8")
         if err and not supress_exception:
             logger.exception(decoded_err)
-            raise Exception(decoded_err)
+            # raise Exception(decoded_err)
     finally:
         logger.debug(f"Changing Directory to: {cur_dir}")
         os.chdir(cur_dir)
@@ -128,7 +128,7 @@ def install_pre_commit_hooks():
 def generate_requirements(requirements):
     for requirement in requirements:
         logger.info(f"...... {requirement[:-3]}.txt")
-        execute("pip-compile", "-q", requirement, supress_exception=True, cwd=REQ_DIR)
+        execute("pip-compile", "-q", requirement, supress_exception=False, cwd=REQ_DIR)
 
 
 def main():
