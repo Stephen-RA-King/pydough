@@ -302,12 +302,6 @@ def main() -> None:
     file_word_replace(tests, "package_name", "{{ cookiecutter.pkg_name }}")
     logger.info(".... OK")
 
-    logger.info("\nUpdating GitHub action codeql-analysis.yml with chosen git branch")
-    codeql = r".github\workflows\codeql-analysis.yml"
-    file_word_replace(codeql, "default-branch1", "{{ cookiecutter.initial_git_branch_name }}")
-    file_word_replace(codeql, "default-branch2", "{{ cookiecutter.initial_git_branch_name }}")
-    logger.info(".... OK")
-
     logger.info("\nInstalling requirements")
     execute("pip-sync", "requirements.txt")
     logger.info(".... OK")
