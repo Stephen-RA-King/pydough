@@ -3,7 +3,7 @@
 _**A general purpose development template for the creation of a Python module, package or library.**_
 
 
-![](https://github.com/Stephen-RA-King/pydough/raw/main/header.png)
+![](https://github.com/Stephen-RA-King/pydough/raw/main/dough.png)
 
 
 ## Template Features
