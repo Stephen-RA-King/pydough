@@ -3,8 +3,7 @@
 _**A general purpose development template for the creation of a Python module, package or library.**_
 
 
-![](https://github.com/Stephen-RA-King/pydough/raw/main/dough.png)
-
+![](assets/dough.png)
 
 ## Template Features
 
@@ -303,7 +302,7 @@ pyupgrade, and autoflake, all while executing tens or hundreds of times faster.
 
 Author: Stephen RA King
 
-Distributed under the MIT license. See ``license`` for more information.
+Distributed under the MIT license. See [license][license-url] for more information.
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
@@ -331,6 +330,7 @@ version: 1.2.2
 [isort-url]: https://github.com/PyCQA/isort
 [keyring-url]: https://github.com/jaraco/keyring
 [layered-url]: https://github.com/jazzband/pip-tools/#workflow-for-layered-requirements
+[license-url]: https://github.com/Stephen-RA-King/pydough/blob/main/LICENSE
 [mypy-image]: http://www.mypy-lang.org/static/mypy_badge.svg
 [mypy-url]: https://github.com/python/mypy
 [numpy-docstring-utl]: https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard
