@@ -1,11 +1,12 @@
-# Cookiecutter Python Development template
+# Pydough
 
-_**A general purpose development template for the creation of a Python module, package or library.**_
+_**A general purpose development template for the creation of Python modules.**_  
+_**Utilizing many of my favourite development tools and deployable with the cookicutter module.**_ 
 
 
 ![](assets/dough.png)
 
-## Template Features
+## Features
 
 ---
 
