@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Top-level package for {{ cookiecutter.pkg_name }}."""
 # Core Library modules
 {%- if cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'all' %}
