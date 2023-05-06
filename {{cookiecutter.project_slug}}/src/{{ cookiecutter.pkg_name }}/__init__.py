@@ -7,6 +7,8 @@ import configparser{% endif %}
 import json{% endif %}
 {%- if cookiecutter.use_logging == 'y' %}
 import logging.config{% endif %}
+{%- if cookiecutter.resource_file == 'pickle' or cookiecutter.resource_file == 'all' %}
+import pickle{% endif %}
 {%- if cookiecutter.config_file != 'none' or cookiecutter.resource_file != 'none' %}
 from importlib.resources import files, as_file{% endif %}
 
@@ -62,22 +64,22 @@ logger = logging.getLogger("init")
 {% endif -%}
 
 {%- if cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
-source = files("{{ cookiecutter.pkg_name }}.resources").joinpath('config.yaml')
-with as_file(source) as _yaml_path:
+source_yaml = files("{{ cookiecutter.pkg_name }}.resources").joinpath('config.yaml')
+with as_file(source_yaml) as _yaml_path:
     _yaml_text = _yaml_path.read_text()
     yaml_config = yaml.safe_load(_yaml_text)
 {% endif -%}
 
 {%- if cookiecutter.config_file == 'json' or cookiecutter.config_file == 'all' %}
-source = files("{{ cookiecutter.pkg_name }}.resources").joinpath('config.json')
-with as_file(source) as _json_path:
+source_json = files("{{ cookiecutter.pkg_name }}.resources").joinpath('config.json')
+with as_file(source_json) as _json_path:
     _json_text = _json_path.read_text()
     json_config = json.loads(_json_text)
 {% endif -%}
 
 {%- if cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'all' %}
-source = files("{{ cookiecutter.pkg_name }}.resources").joinpath('config.ini')
-with as_file(source) as _ini_path:
+source_ini = files("{{ cookiecutter.pkg_name }}.resources").joinpath('config.ini')
+with as_file(source_ini) as _ini_path:
     _ini_text = _ini_path.read_text()
     _ini = configparser.ConfigParser()
     _ini.optionxform = str  # type: ignore
@@ -86,9 +88,15 @@ with as_file(source) as _ini_path:
 {% endif -%}
 
 {%- if cookiecutter.config_file == 'toml' or cookiecutter.config_file == 'all' %}
-source = files("{{ cookiecutter.pkg_name }}.resources").joinpath('config.toml')
-with as_file(source) as _toml_path:
+source_toml = files("{{ cookiecutter.pkg_name }}.resources").joinpath('config.toml')
+with as_file(source_toml) as _toml_path:
     _toml_text = _toml_path.read_text()
     toml_config = toml.loads(_toml_text)
 {% endif %}
 
+{%- if cookiecutter.resource_file == 'pickle' or cookiecutter.resource_file == 'all' %}
+source_pickle = files("{{ cookiecutter.pkg_name }}.resources").joinpath("resource.pickle")
+with as_file(source_pickle) as _pickle_file:
+    _pickle_bytes = _pickle_file.read_bytes()
+    project_content = pickle.loads(_pickle_bytes)
+{% endif %}
