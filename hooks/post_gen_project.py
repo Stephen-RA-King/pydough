@@ -128,7 +128,14 @@ def install_pre_commit_hooks():
 def generate_requirements(requirements):
     for requirement in requirements:
         logger.info(f"...... {requirement[:-3]}.txt")
-        execute("pip-compile", "-q", requirement, supress_exception=False, cwd=REQ_DIR)
+        execute(
+            "pip-compile",
+            "-q",
+            "--resolver=backtracking",
+            requirement,
+            supress_exception=False,
+            cwd=REQ_DIR
+        )
 
 
 def main():
@@ -174,6 +181,10 @@ def main():
     elif "{{ cookiecutter.resource_file }}" != "all":
         keep_file = "".join(["resource.", "{{ cookiecutter.resource_file }}"])
         resource_files.remove(RESOURCE_DIR / keep_file)
+        delete_director([RESOURCE_DIR])
+
+    if "{{ cookiecutter.config_file }}" == "none" and\
+            "{{ cookiecutter.resource_file }}" == "none":
         delete_director(resource_files)
 
     if "{{ cookiecutter.create_author_file }}".lower() != "y":
@@ -272,6 +283,7 @@ def main():
     os.rename(".gitignore_template", ".gitignore")
 
     pip_configure("False")
+    logger.info("Successfully install Pydough!")
 
 
 if __name__ == "__main__":
