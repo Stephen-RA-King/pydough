@@ -149,7 +149,7 @@ Created with Cookiecutter template: [**pydough**][pydough-url] version 1.2.2
 [lgtm-quality-image]: https://img.shields.io/lgtm/grade/python/g/Stephen-RA-King/{{ cookiecutter.project_name }}.svg?logo=lgtm&logoWidth=18
 [lgtm-quality-url]: https://lgtm.com/projects/g/Stephen-RA-King/{{ cookiecutter.project_name }}/context:python
 [license-image]: https://img.shields.io/pypi/l/{{cookiecutter.project_name}}
-[license-url]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/blob/main/license
+[license-url]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/blob/main/LICENSE
 {% if cookiecutter.use_mypy == 'y' -%}
 [mypy-image]: http://www.mypy-lang.org/static/mypy_badge.svg
 [mypy-url]: http://mypy-lang.org/
