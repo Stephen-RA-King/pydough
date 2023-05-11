@@ -1,10 +1,10 @@
-# Pydough
+
 
 _**A general purpose development template for the creation of Python modules.**_  
 _**Utilizing many of my favourite development tools and deployable with the cookicutter module.**_ 
 
 
-![](assets/dough.png)
+![](assets/pydough.png)
 
 ## Features
 
