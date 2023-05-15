@@ -38,7 +38,7 @@
 
 One to two paragraph statement about your product and what it does.
 
-![](assets/header.png)
+![](assets/header_dough.png)
 
 ## Installation
 
