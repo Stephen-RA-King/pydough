@@ -1,3 +1,19 @@
+## 1.3.0 (2023-05-23)
+
+### Feat
+
+- rename the project
+
+### Fix
+
+- add pickle read
+- correct shebang for version 3 env
+
+### Refactor
+
+- update numerous jinja2 tags
+- add tools and report dirs
+
 ## 1.2.2 (2023-04-11)
 
 ### Refactor

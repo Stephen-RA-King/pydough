@@ -107,7 +107,7 @@ pip install --editable {{ cookiecutter.project_name }}
 
 Distributed under the {{cookiecutter.license}} license. See [![][license-image]][license-url] for more information.
 
-Created with Cookiecutter template: [**pydough**][pydough-url] version 1.2.2
+Created with Cookiecutter template: [**pydough**][pydough-url] version 1.3.0
 
 
 <!-- Markdown link & img dfn's -->
