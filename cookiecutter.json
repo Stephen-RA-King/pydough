@@ -18,14 +18,22 @@
     "trunk",
     "development"
   ],
+  "supported_python_version": [
+    ">=3.7",
+    ">=3.8",
+    ">=3.9",
+    ">=3.10",
+    ">=3.11"
+  ],
   "development_OS": [
-    "windows",
-    "linux"
+    "linux",
+    "windows"
   ],
   "target_OS": [
     "all",
-    "windows",
-    "linux"
+    "linux",
+    "macos",
+    "windows"
   ],
   "create_author_file": "y",
   "version": "0.1.0",
@@ -45,19 +53,19 @@
     "google"
   ],
   "config_file": [
-    "all",
+    "none",
     "yaml",
     "json",
     "ini",
     "toml",
-    "none"
+    "all"
   ],
   "resource_file": [
-    "all",
+    "none",
     "pickle",
     "png",
     "db",
-    "none"
+    "all"
   ],
   "use_isort": "y",
   "use_sphinx": "y",
@@ -76,7 +84,6 @@
     "BSD-3-Clause",
     "ISC",
     "Apache-2.0",
-    "GPL-3.0-only",
-    "Not open source"
+    "GPL-3.0-only"
   ]
 }

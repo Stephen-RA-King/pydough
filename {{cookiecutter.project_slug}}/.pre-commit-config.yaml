@@ -20,7 +20,7 @@ repos:
 
   {% if cookiecutter.use_commitizen|lower == "y" -%}
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v2.42.1
+    rev: 3.2.2
     hooks:
       - id: commitizen
         stages: [commit-msg]
@@ -57,7 +57,7 @@ repos:
 
   {% if cookiecutter.use_black|lower == "y" -%}
   - repo: https://github.com/psf/black
-    rev: 23.1.0
+    rev: 23.3.0
     hooks:
       - id: black
   {%- endif %}
@@ -73,10 +73,18 @@ repos:
 #          - flake8-eradicate
           - flake8-simplify
         args: ["--ignore=E800,F842,F841,W503"]
+        exclude: |
+          (?x)^(
+              docs/source/conf.py|
+              tests/[\w]*.py|
+              tools/[\w]*.py|
+              reports/[\w]*|
+              tasks.py
+          )$
   {%- endif %}
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.3.1
+    rev: v3.4.0
     hooks:
       - id: pyupgrade
         args: [--py39]
@@ -89,11 +97,27 @@ repos:
 
   {% if cookiecutter.use_mypy|lower == "y" -%}
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.961
+    rev: v1.3.0
     hooks:
       - id: mypy
-        args: [--ignore-missing-imports, --disallow-untyped-defs]
-        exclude: ^tests/|^tasks.py|^cleanup.py|^conf.py
+        alias: mypy
+        args:
+          [
+            --ignore-missing-imports,
+            --disallow-untyped-defs,
+            --no-warn-unused-ignores,
+            --install-types,
+            --html-report,
+            "reports/mypy",
+          ]
+        exclude: |
+          (?x)^(
+              docs/source/conf.py|
+              tests/[\w]*.py|
+              tools/[\w]*.py|
+              reports/[\w]*|
+              tasks.py
+          )$
         additional_dependencies:
           - types-dataclasses >= 0.1.3
           - lxml
@@ -104,10 +128,22 @@ repos:
 
   {% if cookiecutter.use_bandit|lower == "y" -%}
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.4
+    rev: 1.7.5
     hooks:
       - id: bandit
         args:
           - -s
           - B101,B404,B603,B607
+        exclude: |
+          (?x)^(
+              docs/source/conf.py|
+              tests/[\w]*.py|
+              tools/[\w]*.py|
+              reports/[\w]*|
+              tasks.py
+          )$
   {%- endif %}
+
+  - repo: meta
+    hooks:
+      - id: check-useless-excludes

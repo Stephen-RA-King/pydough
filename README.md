@@ -29,7 +29,7 @@ All the following features are optional:
 ### Other Features
 
 * Automatically configures git message template.
-* Selection of licenses to choose from.
+* Selection of licenses to choose from (or vist [**choosealicense.com**](https://choosealicense.com/) for more choices).
 * Optionally include the following:
   - [**python-semantic-release**](https://github.com/relekang/python-semantic-release) or [**bump2version**][bump2version-url] - version control and release.
   - [**commitizen**][commitizen-url] - for parsing and enforcing descriptive git commits.
