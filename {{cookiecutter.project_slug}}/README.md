@@ -6,17 +6,16 @@
 [![Downloads][downloads-image]][downloads-url]
 [![Status][status-image]][pypi-url]
 [![Python Version][python-version-image]][pypi-url]
-[![Format][format-image]][pypi-url]
 [![tests][tests-image]][tests-url]
 [![Codecov][codecov-image]][codecov-url]
+[![CodeQl][codeql-image]][codeql-url]
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [![pre-commit][pre-commit-image]][pre-commit-url]
 [![pre-commit.ci status][pre-commit.ci-image]][pre-commit.ci-url]
 {%- endif %}
+[![readthedocs][readthedocs-image]][readthedocs-url]
 [![CodeFactor][codefactor-image]][codefactor-url]
 [![Codeclimate][codeclimate-image]][codeclimate-url]
-[![CodeQl][codeql-image]][codeql-url]
-[![readthedocs][readthedocs-image]][readthedocs-url]
 {% if cookiecutter.use_isort == 'y' -%}
 [![Imports: isort][isort-image]][isort-url]
 {%- endif %}
