@@ -61,8 +61,13 @@ warn_unused_configs = true
 disallow_untyped_calls = false
 disallow_incomplete_defs = true
 follow_imports = "skip"
-html_report = "mypy-report"
+html_report = "reports/mypy"
+cache_dir = 'cache/.mypy_cache'
 mypy_path = "typeshed/pyi:typeshed/imports"
+exclude = [
+    '^tests/[\w]*.py$',
+    '^tools/[\w]*.py$',
+    '^tasks.py$'
 {%- endif %}
 
 {% if cookiecutter.version_control == 'python_semantic_release' -%}
