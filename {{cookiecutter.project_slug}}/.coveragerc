@@ -1,6 +1,10 @@
 [report]
 fail_under = 70
 
+omit =
+    docs/*
+    tests/*
+
 exclude_lines =
     pragma: no cover
 
@@ -24,4 +28,6 @@ exclude_lines =
 branch = True
 data_file = cache/.coverage
 omit =
-    test_*.py
+    docs/*
+    tests/*
+
