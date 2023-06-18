@@ -1,4 +1,4 @@
-Thank you for considering improving {{ cookiecutter.pkg_name }}, any contribution is much welcome!
+Thank you for considering improving {{ cookiecutter.pkg_name }}, any contribution is most welcome!
 
 # Requesting a new feature
 
@@ -11,11 +11,11 @@ and describe the problem you have found.
 
 An ideal bug report includes:
 
--   The Python version you are using
+-   The Python version you are using.
 -   The {{ cookiecutter.pkg_name }} version you are using (you can find it with `{{ cookiecutter.pkg_name }} --version`)
--   Your operating system name and version (Linux, MacOS, Windows)
--   Your development environment and local setup (IDE, Terminal, project context, any relevant information that could be useful)
--   Some [minimal reproducible example](https://stackoverflow.com/help/mcve)
+-   Your operating system name and version.
+-   Your development environment and local setup (IDE, Terminal, project context, any relevant information that could be useful).
+-   Some [minimal reproducible example](https://stackoverflow.com/help/mcve).
 
 # Implementing changes
 
@@ -68,4 +68,4 @@ using one of the supported versions of Python: ![](https://img.shields.io/pypi/p
 
 13. If previous step failed due to the pre-commit hooks, fix reported errors and try again.
 
-14. Finally, [open a pull request](https://github.com/Stephen-RA-King/{{ cookiecutter.pkg_name }}/compare) before getting it merged!
+14. Finally, [open a pull request]({{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/compare) before getting it merged!

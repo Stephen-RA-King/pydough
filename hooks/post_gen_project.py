@@ -8,7 +8,10 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+import warnings
 
+
+warnings.filterwarnings("ignore", message="Setuptools is replacing distutils.")
 
 SLUG_DIR = Path.cwd()
 SRC_DIR = SLUG_DIR / "src"
@@ -283,7 +286,7 @@ def main():
     os.rename(".gitignore_template", ".gitignore")
 
     pip_configure("False")
-    logger.info("Successfully install Pydough!")
+    logger.info("Successfully installed Pydough!")
 
 
 if __name__ == "__main__":

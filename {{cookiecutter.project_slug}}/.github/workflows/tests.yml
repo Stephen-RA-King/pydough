@@ -17,17 +17,17 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        { %- if cookiecutter.supported_python_version == ">=3.7" % }
+        {%- if cookiecutter.supported_python_version == ">=3.7" %}
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]{% endif %}
-        { %- if cookiecutter.supported_python_version == ">=3.8" % }
+        {%- if cookiecutter.supported_python_version == ">=3.8" %}
         python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]{% endif %}
-        { %- if cookiecutter.supported_python_version == ">=3.9" % }
+        {%- if cookiecutter.supported_python_version == ">=3.9" %}
         python-version: ["3.9", "3.10", "3.11", "3.12"]{% endif %}
-        { %- if cookiecutter.supported_python_version == ">=3.10" % }
+        {%- if cookiecutter.supported_python_version == ">=3.10" %}
         python-version: ["3.10", "3.11", "3.12"]{% endif %}
-        { %- if cookiecutter.supported_python_version == ">=3.11" % }
+        {%- if cookiecutter.supported_python_version == ">=3.11" %}
         python-version: ["3.11", "3.12"]{% endif %}
-        { %- if cookiecutter.supported_python_version == ">=3.12" % }
+        {%- if cookiecutter.supported_python_version == ">=3.12" %}
         python-version: ["3.12"]{% endif %}
     steps:
       # Step 2. Check-out repository so we can access its contents
