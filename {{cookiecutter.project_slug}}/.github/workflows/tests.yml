@@ -7,6 +7,8 @@ on:
     branches: [default-branch1]
   pull_request:
     branches: [default-branch2]
+  workflow_dispatch:
+    branches: [main]
 
 jobs:
   test:
@@ -15,10 +17,18 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python-version: ["3.8", "3.9"]
-        exclude:
-          - os: windows-latest
-            python-version: "3.8"
+        { %- if cookiecutter.supported_python_version == ">=3.7" % }
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]{% endif %}
+        { %- if cookiecutter.supported_python_version == ">=3.8" % }
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]{% endif %}
+        { %- if cookiecutter.supported_python_version == ">=3.9" % }
+        python-version: ["3.9", "3.10", "3.11", "3.12"]{% endif %}
+        { %- if cookiecutter.supported_python_version == ">=3.10" % }
+        python-version: ["3.10", "3.11", "3.12"]{% endif %}
+        { %- if cookiecutter.supported_python_version == ">=3.11" % }
+        python-version: ["3.11", "3.12"]{% endif %}
+        { %- if cookiecutter.supported_python_version == ">=3.12" % }
+        python-version: ["3.12"]{% endif %}
     steps:
       # Step 2. Check-out repository so we can access its contents
       - uses: actions/checkout@v3
@@ -32,7 +42,7 @@ jobs:
           python -m pip install --upgrade pip setuptools wheel
           pip install flake8 pytest pytest-cov
           pip install -r requirements/test.txt
-      # Step 5. Install our pycounts package
+      # Step 5. Install the package
       - name: Install package
         run: |
           pip install -e .
@@ -47,9 +57,9 @@ jobs:
       # Step 7. Run the tests
       - name: Test with pytest
         run: |
-          pytest tests/ --cov=package_name --cov-report xml:coverage.xml
+          pytest tests/ --cov={{ cookiecutter.pkg_name }} --cov-report xml:coverage.xml
       # Step 8. Use Codecov to track coverage
       - uses: codecov/codecov-action@v3
         with:
-          file: ./coverage.xml # coverage report
-          fail_build_if_error: true # terminate workflow if there's an error
+          file: ./coverage.xml
+          fail_build_if_error: true
