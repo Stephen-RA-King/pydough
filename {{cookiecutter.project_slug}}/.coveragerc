@@ -1,9 +1,14 @@
 [report]
 fail_under = 70
+show_missing = true
+precision = 2
+skip_empty = true
 
 omit =
     docs/*
     tests/*
+    tools/*
+    tasks.py
 
 exclude_lines =
     pragma: no cover
@@ -26,8 +31,11 @@ exclude_lines =
 
 [run]
 branch = True
+parallel = true
 data_file = cache/.coverage
 omit =
     docs/*
     tests/*
+    tools/*
+    tasks.py
 

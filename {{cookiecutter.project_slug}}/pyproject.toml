@@ -67,7 +67,9 @@ mypy_path = "typeshed/pyi:typeshed/imports"
 exclude = [
     '^tests/[\w]*.py$',
     '^tools/[\w]*.py$',
+    '^docs/[\w]*.py$',
     '^tasks.py$'
+]
 {%- endif %}
 
 {% if cookiecutter.version_control == 'python_semantic_release' -%}
@@ -101,12 +103,3 @@ mccabe = ["+*"]
 pep8-naming = ["+*"]
 pycodestyle = ["+*"]
 pylint = ["+F*", "+E*", "-E0611", "-E1101", "-E0401", "-E1102", "-E1123"]
-
-[tool.coverage.run]
-branch = true
-parallel = true
-
-[tool.coverage.report]
-show_missing = true
-precision = 2
-skip_empty = true
