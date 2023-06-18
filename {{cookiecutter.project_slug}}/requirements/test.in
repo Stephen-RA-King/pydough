@@ -1,8 +1,17 @@
 -r production.txt
 
 black
-click
+{%- if cookiecutter.use_flake8 == 'y' %}
 flake8
+flake8-bandit
+flake8-bugbear
+flake8-comprehensions
+flake8-docstrings
+# flake8-eradicate
+flake8-html
+flake8-pytest-style
+flake8-simplify{% endif %}
+invoke
 lxml
 mypy
 pytest
@@ -18,5 +27,6 @@ types-PyYAML
 types-beautifulsoup4
 types-click
 types-html5lib
+types-python-dateutil
 types-requests
 types-urllib3

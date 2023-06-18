@@ -42,12 +42,14 @@ pep8-naming{% endif %}
 pre-commit{% endif %}
 {%- if cookiecutter.use_pytest == 'y' %}
 pytest
+pytest-clarity
 pytest-cov
 pytest-html
 pytest-tldr
 pytest-xdist
+pytest-repeat
 pytest-randomly
-pytest-clarity{% endif %}
+pytest-timeout{% endif %}
 pynacl
 pyyaml
 requests
