@@ -13,7 +13,9 @@ on:
 jobs:
   test:
     # Step 1. Set up operating system
+    {% raw %}
     runs-on: ${{ matrix.os }}
+    {% endraw %}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]

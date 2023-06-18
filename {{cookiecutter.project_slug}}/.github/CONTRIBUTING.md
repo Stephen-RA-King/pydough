@@ -2,11 +2,11 @@ Thank you for considering improving {{ cookiecutter.pkg_name }}, any contributio
 
 # Requesting a new feature
 
-If you would like to suggest a new feature, you can create a [feature request](https://github.com/Stephen-RA-King/{{ cookiecutter.pkg_name }}/issues/new?&template=feature_request.md).
+If you would like to suggest a new feature, you can create a [feature request](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/issues/new?&template=feature_request.md).
 
 # Reporting a bug
 
-If you encountered an unexpected behavior, please [open a new issue](https://github.com/Stephen-RA-King/{{ cookiecutter.pkg_name }}/issues/new)
+If you encountered an unexpected behavior, please [open a new issue](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/issues/new)
 and describe the problem you have found.
 
 An ideal bug report includes:
@@ -19,12 +19,12 @@ An ideal bug report includes:
 
 # Implementing changes
 
-If you want to enhance {{ cookiecutter.pkg_name }} by implementing a changes, please [open a new issue](https://github.com/Stephen-RA-King/{{ cookiecutter.pkg_name }}/issues/new) first.
+If you want to enhance {{ cookiecutter.pkg_name }} by implementing a changes, please [open a new issue](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/issues/new) first.
 
 
 Then, implement the following workflow:
 
-1.  Fork the [{{ cookiecutter.pkg_name }}](https://github.com/Stephen-RA-King/{{ cookiecutter.pkg_name }}) project from GitHub.
+1.  Fork the [{{ cookiecutter.pkg_name }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}) project from GitHub.
 
 2. Create a virtual environment with your favourite tool (virtualenv with virtualenv wrapper, venv etc)
 using one of the supported versions of Python: ![](https://img.shields.io/pypi/pyversions/{{ cookiecutter.pkg_name }}).
@@ -33,7 +33,7 @@ using one of the supported versions of Python: ![](https://img.shields.io/pypi/p
 
 4. Clone the repository locally:
 
-        $ git clone git@github.com:your_name_here/{{ cookiecutter.pkg_name }}.git
+        $ git clone git@github.com:{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}.git
         $ cd {{ cookiecutter.pkg_name }}
 
 5. Install {{ cookiecutter.pkg_name }} in development mode:
@@ -44,9 +44,9 @@ using one of the supported versions of Python: ![](https://img.shields.io/pypi/p
 
         $ pre-commit install --install-hooks
 
-7. Create a new branch from `main`:
+7. Create a new branch from `{{ cookiecutter.initial_git_branch_name }}`:
 
-        $ git checkout main
+        $ git checkout {{ cookiecutter.initial_git_branch_name }}
         $ git branch fix_bug
         $ git checkout fix_bug
 

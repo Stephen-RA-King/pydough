@@ -6,8 +6,8 @@ As an open source product, only  the latest major version will be patched for se
 
 ## Reporting a Vulnerability
 
-To report a security issue, please email [sking.github@gmail.com](mailto:sking.github@gmail.com) with a description of the issue, the steps you took to create the issue, affected versions, and if known, mitigations for the issue.
+To report a security issue, please email [{{ cookiecutter.email }}](mailto:sking.github@gmail.com) with a description of the issue, the steps you took to create the issue, affected versions, and if known, mitigations for the issue.
 
-You can also use [huntr.dev](https://huntr.dev) to disclose security issues via [this form](https://huntr.dev/bounties/disclose/?target=https://github.com/Stephen-RA-King/{{ cookiecutter.pkg_name }}).
+You can also use [huntr.dev](https://huntr.dev) to disclose security issues via [this form](https://huntr.dev/bounties/disclose/?target=https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}).
 
 Once the vulnerability has been confirmed, it will be fixed as soon as possible if feasible.
