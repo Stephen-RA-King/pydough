@@ -12,6 +12,7 @@
   "author_name": "Stephen R A King",
   "email": "sking.github@gmail.com",
   "github_username": "Stephen-RA-King",
+  "docker_hub_username": "sraking",
   "initial_git_branch_name": [
     "main",
     "master",
