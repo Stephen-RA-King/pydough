@@ -9,6 +9,9 @@
 [![tests][tests-image]][tests-url]
 [![Codecov][codecov-image]][codecov-url]
 [![CodeQl][codeql-image]][codeql-url]
+{% if cookiecutter.use_docker == 'y' -%}
+[![Docker][docker-image]][docker-url]
+{%- endif %}
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [![pre-commit][pre-commit-image]][pre-commit-url]
 [![pre-commit.ci status][pre-commit.ci-image]][pre-commit.ci-url]
@@ -137,6 +140,10 @@ Created with Cookiecutter template: [**pydough**][pydough-url] version 1.3.0
 [conventional-commits-url]: https://conventionalcommits.org
 [deepsource-image]: https://static.deepsource.io/deepsource-badge-light-mini.svg
 [deepsource-url]: https://deepsource.io/gh/Stephen-RA-King/{{ cookiecutter.project_name }}/?ref=repository-badge
+{% if cookiecutter.use_docker == 'y' -%}
+[docker-image]: https://github.com/Stephen-RA-King/pynamer/actions/workflows/docker-image.yml/badge.svg
+[docker-url]: https://github.com/Stephen-RA-King/pynamer/actions/workflows/docker-image.yml
+{%- endif %}
 [downloads-image]: https://static.pepy.tech/personalized-badge/{{cookiecutter.project_name}}?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads
 [downloads-url]: https://pepy.tech/project/{{cookiecutter.project_name}}
 [format-image]: https://img.shields.io/pypi/format/{{ cookiecutter.project_name }}
