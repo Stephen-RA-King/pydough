@@ -253,36 +253,6 @@ Available tasks:
 [PyPI](https://pypi.org/project/zyme/)
 
 
-## Known Issues
-
----
-
-### 1 - Python semantic Release (PSR) v7.28.1 on Windows
-PSR will not find a .pypirc file because the Path command is linux style
- 
-
-Workaround:
-  
-in file ...\Lib\site-packages\semantic_release\repository.py
-change line 84 from:
-```python
-elif not Path("~/.pypirc").expanduser().exists():
-```
-to
-```python
-elif not Path(".pypirc").expanduser().exists():
-```
-
-### 2 - Manually update .github workflows: 'tests.yml' & 'codeql-analysis.yml'
-GitHub Actions use a templating format - probably Jinja2 which is what cookiecutter uses.
-For this reason I have had to exclude the workflow files from cookiecutter.
-If cookiecutter came across any variables that it was unaware of it would throw an exception.  
-Therefore the following variables need to be changed to whatever you are using:  
-- default-branch1  
-- default-branch2  
-- package_name
-
-
 ## Possible future enhancements
 
 ---
