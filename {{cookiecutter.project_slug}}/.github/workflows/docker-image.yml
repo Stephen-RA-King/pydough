@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "{{ cookiecutter.initial_git_branch_name }}" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "{{ cookiecutter.initial_git_branch_name }}" ]
 
 jobs:
 
