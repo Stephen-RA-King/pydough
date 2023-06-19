@@ -4,18 +4,17 @@ name: test
 
 on:
   push:
-    branches: [default-branch1]
+    branches: [ "{{ cookiecutter.initial_git_branch_name }}" ]
   pull_request:
-    branches: [default-branch2]
+    branches: [ "{{ cookiecutter.initial_git_branch_name }}" ]
   workflow_dispatch:
     branches: [main]
 
 jobs:
   test:
     # Step 1. Set up operating system
-    {% raw %}
-    runs-on: ${{ matrix.os }}
-    {% endraw %}
+    {%- raw %}
+    runs-on: ${{ matrix.os }}{% endraw %}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
