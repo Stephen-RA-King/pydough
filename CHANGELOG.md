@@ -1,3 +1,10 @@
+## 1.3.1 (2023-06-20)
+
+### Refactor
+
+- change docker run shell to run exec
+- jinja template several hardcoded strings
+
 ## 1.3.0 (2023-05-23)
 
 ### Feat
@@ -16,8 +23,20 @@
 
 ## 1.2.2 (2023-04-11)
 
+### Feat
+
+- add support for pickle serialization
+
+### Fix
+
+- **post_gen_project**: wrong variable name used for resource files
+- fix: lazy logging format use %s no f strings
+- exclude config test if no config files selected
+- jinja template - replace pgk with project
+
 ### Refactor
 
+- bump version
 - **tasks.py**: remove commented code
 - **{{-cookiecutter.pkg_name-}}.py**: escape main() from mypy check
 - **post_installation.py**: replace hard coded description text
@@ -28,26 +47,15 @@
 - correct logger message string
 - migrate deprecated importlib.resources functions
 
-### Fix
-
-- **post_gen_project**: wrong variable name used for resource files
-- fix: lazy logging format use %s no f strings
-- exclude config test if no config files selected
-- jinja template - replace pgk with project
-
-### Feat
-
-- add support for pickle serialization
-
 ## 1.2.1 (2022-08-01)
-
-### Refactor
-
-- **changelog.md**: remove markdown
 
 ### Fix
 
 - **__init__.py**: log file path fully relative
+
+### Refactor
+
+- **changelog.md**: remove markdown
 
 ## 1.2.0 (2022-08-01)
 
