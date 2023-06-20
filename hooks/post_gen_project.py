@@ -220,6 +220,7 @@ def main():
         delete_director(
             [
                 SLUG_DIR / "Dockerfile",
+                SLUG_DIR / ".github" / "workflows" / "docker-image.yml"
             ]
         )
 
