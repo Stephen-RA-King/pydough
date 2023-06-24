@@ -37,6 +37,7 @@
 [![Conventional Commits][conventional-commits-image]][conventional-commits-url]
 [![DeepSource][deepsource-image]][deepsource-url]
 [![license][license-image]][license-url]
+[![Pydough][pydough-image]][pydough-url]
 
 One to two paragraph statement about your product and what it does.
 
@@ -123,7 +124,6 @@ Created with Cookiecutter template: [**pydough**][pydough-url] version 1.3.1
 [black-image]: https://img.shields.io/badge/code%20style-black-000000.svg
 [black-url]: https://github.com/psf/black
 {%- endif %}
-[pydough-url]: https://github.com/Stephen-RA-King/pydough
 [codeclimate-image]: https://api.codeclimate.com/v1/badges/7fc352185512a1dab75d/maintainability
 [codeclimate-url]: https://codeclimate.com/github/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/maintainability
 [codecov-image]: https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/branch/main/graph/badge.svg
@@ -167,6 +167,8 @@ Created with Cookiecutter template: [**pydough**][pydough-url] version 1.3.1
 [pre-commit.ci-image]: https://results.pre-commit.ci/badge/github/Stephen-RA-King/{{ cookiecutter.project_name }}/main.svg
 [pre-commit.ci-url]: https://results.pre-commit.ci/latest/github/Stephen-RA-King/{{ cookiecutter.project_name }}/main
 {%- endif %}
+[pydough-image]: https://img.shields.io/badge/pydough-2023-orange
+[pydough-url]: https://github.com/Stephen-RA-King/pydough
 [pypi-url]: https://pypi.org/project/{{ cookiecutter.project_name }}/
 [pypi-image]: https://img.shields.io/pypi/v/{{cookiecutter.project_name}}.svg
 [python-version-image]: https://img.shields.io/pypi/pyversions/{{cookiecutter.project_name}}
