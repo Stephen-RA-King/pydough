@@ -12,7 +12,7 @@ import webbrowser
 
 # Third party modules
 import keyring
-import requests  # type: ignore
+import requests
 import yaml
 from nacl import encoding, public
 
@@ -62,8 +62,12 @@ logging.config.dictConfig(yaml.safe_load(LOGGING_CONFIG))
 logger = logging.getLogger("post")
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-r", "--refresh", help="refresh the post installation procedure",
-                    action="store_true")
+parser.add_argument(
+    "-r",
+    "--rerun",
+    help="refresh the post installation procedure",
+    action="store_true"
+)
 options = parser.parse_args()
 
 
@@ -273,13 +277,12 @@ def file_word_replace(filepath: str, old_word: str, new_word: str) -> None:
 
 
 def main() -> None:
-    if not options.refresh:
+    if not options.rerun:
         github_create_repo()
-
         github_create_secret("PYPI_API_TOKEN", PYPI_TOKEN)
         github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
 
-    if not options.refresh:
+    if not options.rerun:
         readthedocs_create()
 
     logger.info("\nUpdating .pypi file with secret tokens")
@@ -293,29 +296,20 @@ def main() -> None:
     file_word_replace(repository, "~/.pypirc", ".pypirc")
     logger.info(".... OK")
 
-    logger.info(
-        "\nUpdating GitHub action tests.yml with chosen git branch & package name"
-    )
-    tests = r".github\workflows\tests.yml"
-    file_word_replace(tests, "default-branch1", "{{ cookiecutter.initial_git_branch_name }}")
-    file_word_replace(tests, "default-branch2", "{{ cookiecutter.initial_git_branch_name }}")
-    file_word_replace(tests, "package_name", "{{ cookiecutter.pkg_name }}")
-    logger.info(".... OK")
-
     logger.info("\nInstalling requirements")
     execute("pip-sync", "requirements.txt")
     logger.info(".... OK")
 
-    if not options.refresh:
+    if not options.rerun:
         logger.info("\nInitial git add, commit & push")
         execute("git", "add", "assets/*")
         execute(
             "git", "commit", "-q", "-m", "chore: initial commit", supress_exception=True
         )
-        execute("git", "push", "-q", "-u", "origin", "main")
+        execute("git", "push", "-q", "-u", "origin", "{{ cookiecutter.initial_git_branch_name }}")
         logger.info(".... OK")
 
-    if not options.refresh:
+    if not options.rerun:
         readthedocs_update()
 
     logger.info("\nInstalling the package as an 'editable' package locally")
@@ -347,4 +341,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
