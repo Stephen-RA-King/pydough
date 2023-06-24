@@ -9,9 +9,9 @@ import sys
 
 
 install_list = [
-    "rich",
     "colorama",
-    "tqdm"
+    "tqdm",
+    "halo"
 ]
 
 
@@ -31,9 +31,9 @@ def execute(*args, supress_exception=False, cwd=None):
 
 
 def upgrade_package(packages):
-    print("Installing 3rd party packages")
+    print("Installing pre-generation modules")
     for package in packages:
-        # print(f"...... package: {package}")
+        print(f"...... package: {package}")
         if "#" in package:
             continue
         else:
