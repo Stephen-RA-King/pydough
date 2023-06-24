@@ -32,31 +32,11 @@ repos:
 
   {% if cookiecutter.use_commitizen|lower == "y" -%}
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: 3.2.2
+    rev: 3.4.0
     hooks:
       - id: commitizen
         stages: [commit-msg]
   {%- endif %}
-
-  - repo: https://github.com/jazzband/pip-tools
-    rev: 6.8.0
-    hooks:
-      - id: pip-compile
-        name: pip-compile base.in
-        files: ^requirements/base\.(in|txt)$
-        args: ["-U", "requirements/base.in"]
-      - id: pip-compile
-        name: pip-compile development.in
-        files: ^requirements/development\.(in|txt)$
-        args: ["-U", "requirements/development.in"]
-      - id: pip-compile
-        name: pip-compile production.in
-        files: ^requirements/production\.(in|txt)$
-        args: ["-U", "requirements/production.in"]
-      - id: pip-compile
-        name: pip-compile test.in
-        files: ^requirements/test\.(in|txt)$
-        args: ["-U", "requirements/test.in"]
 
 
   {% if cookiecutter.use_isort|lower == "y" -%}
@@ -88,20 +68,20 @@ repos:
   {%- endif %}
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.4.0
+    rev: v3.7.0
     hooks:
       - id: pyupgrade
         args: [--py39]
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.7.1
+    rev: v3.0.0-alpha.9-for-vscode
     hooks:
       - id: prettier
         stages: [commit]
 
   {% if cookiecutter.use_mypy|lower == "y" -%}
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.3.0
+    rev: v1.4.0
     hooks:
       - id: mypy
         alias: mypy
