@@ -224,6 +224,13 @@ def main():
             ]
         )
 
+    if "{{ cookiecutter.use_openssf }}".lower() != "y":
+        delete_director(
+            [
+                SLUG_DIR / ".github" / "workflows" / "scorecard.yml"
+            ]
+        )
+
     if "{{ cookiecutter.version_control }}".lower() == "python_semantic_release":
         delete_director(
             [
