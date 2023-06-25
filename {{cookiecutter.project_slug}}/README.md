@@ -38,6 +38,9 @@
 [![DeepSource][deepsource-image]][deepsource-url]
 [![license][license-image]][license-url]
 [![Pydough][pydough-image]][pydough-url]
+{% if cookiecutter.use_openssf == 'y' -%}
+[![OpenSSFScorecard][openssf-image]][openssf-url]
+{%- endif %}
 
 One to two paragraph statement about your product and what it does.
 
@@ -160,6 +163,10 @@ Created with Cookiecutter template: [**pydough**][pydough-url] version 1.3.1
 {% if cookiecutter.use_mypy == 'y' -%}
 [mypy-image]: http://www.mypy-lang.org/static/mypy_badge.svg
 [mypy-url]: http://mypy-lang.org/
+{%- endif %}
+{% if cookiecutter.use_openssf == 'y' -%}
+[openssf-image]: https://api.securityscorecards.dev/projects/github.com/Stephen-RA-King/pynamer/badge
+[openssf-url]: https://api.securityscorecards.dev/projects/github.com/Stephen-RA-King/pynamer
 {%- endif %}
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
