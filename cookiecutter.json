@@ -51,11 +51,15 @@
   "use_cruft": "y",
   "use_bandit": "y",
   "use_safety": "n",
+  "use_openssf": "y",
   "use_logging": "y",
   "include_example_scripts": "y",
   "command_line_interface": [
-    "Click",
-    "No command-line interface"
+    "none",
+    "argparse",
+    "click",
+    "typer",
+    "docopt"
   ],
   "version_control": [
     "python_semantic_release",
