@@ -1,5 +1,7 @@
 skips:
   - B101 # Ignore defensive `assert`s (especially useful for mypy)
+  - B301 # Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data
+  - B403 # Consider possible security implications associated with pickle module.
   - B404 # Ignore warnings about importing subprocess
   - B603 # Ignore warnings about calling subprocess.Popen without shell=True
   - B607 # Ignore warnings about calling subprocess.Popen without a full path to executable
