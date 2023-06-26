@@ -1,3 +1,10 @@
+## 1.3.2 (2023-06-26)
+
+### Fix
+
+- es
+- escape parts of worflow templates
+
 ## 1.3.1 (2023-06-20)
 
 ### Refactor

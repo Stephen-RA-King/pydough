@@ -117,7 +117,7 @@ Author: {{cookiecutter.author_name}} ([{{cookiecutter.email}}](mailto:{{cookiecu
 
 Distributed under the {{cookiecutter.license}} license. See [![][license-image]][license-url] for more information.
 
-Created with Cookiecutter template: [![pydough][pydough-image]][pydough-url] version 1.3.1
+Created with Cookiecutter template: [![pydough][pydough-image]][pydough-url] version 1.3.2
 
 Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](https://zenodo.org/badge/latestdoi/xxxxxxxxx)
 
