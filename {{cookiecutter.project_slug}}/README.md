@@ -100,17 +100,17 @@ pip install --editable {{ cookiecutter.project_name }}
 
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 [![](assets/linkedin.png)](https://www.linkedin.com/in/sr-king)
-[![](assets/github.png)](https://github.com/Stephen-RA-King)
+{%- endif %}
+[![](assets/github.png)](https://github.com/{{ cookiecutter.github_username }})
 [![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.project_name }})
 {% if cookiecutter.use_docker == 'y' -%}
 [![Docker](assets/docker.png)](https://hub.docker.com/r/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_name }})
 {%- endif %}
+{% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 [![](assets/www.png)](https://www.justpython.tech)
-[![](assets/email.png)](mailto:sking.github@gmail.com)
-{% else %}
+{%- endif %}
+[![](assets/email.png)](mailto:{{ cookiecutter.email }})
 [![](assets/github.png)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }})
-[![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.project_name }}/)
-{% endif %}
 
 
 Author: {{cookiecutter.author_name}} ([{{cookiecutter.email}}](mailto:{{cookiecutter.email}}))
@@ -149,8 +149,8 @@ Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](http
 [deepsource-image]: https://static.deepsource.io/deepsource-badge-light-mini.svg
 [deepsource-url]: https://deepsource.io/gh/Stephen-RA-King/{{ cookiecutter.project_name }}/?ref=repository-badge
 {% if cookiecutter.use_docker == 'y' -%}
-[docker-image]: https://github.com/Stephen-RA-King/pynamer/actions/workflows/docker-image.yml/badge.svg
-[docker-url]: https://github.com/Stephen-RA-King/pynamer/actions/workflows/docker-image.yml
+[docker-image]: https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/actions/workflows/docker-image.yml/badge.svg
+[docker-url]: https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/actions/workflows/docker-image.yml
 {%- endif %}
 [downloads-image]: https://static.pepy.tech/personalized-badge/{{cookiecutter.project_name}}?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads
 [downloads-url]: https://pepy.tech/project/{{cookiecutter.project_name}}
@@ -170,8 +170,8 @@ Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](http
 [mypy-url]: http://mypy-lang.org/
 {%- endif %}
 {% if cookiecutter.use_openssf == 'y' -%}
-[openssf-image]: https://api.securityscorecards.dev/projects/github.com/Stephen-RA-King/pynamer/badge
-[openssf-url]: https://api.securityscorecards.dev/projects/github.com/Stephen-RA-King/pynamer
+[openssf-image]: https://api.securityscorecards.dev/projects/github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/badge
+[openssf-url]: https://api.securityscorecards.dev/projects/github.com/Stephen-RA-King/{{ cookiecutter.project_name }}
 {%- endif %}
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
