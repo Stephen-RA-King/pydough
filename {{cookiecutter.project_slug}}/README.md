@@ -102,7 +102,9 @@ pip install --editable {{ cookiecutter.project_name }}
 [![](assets/linkedin.png)](https://www.linkedin.com/in/sr-king)
 [![](assets/github.png)](https://github.com/Stephen-RA-King)
 [![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.project_name }})
+{% if cookiecutter.use_docker == 'y' -%}
 [![Docker](assets/docker.png)](https://hub.docker.com/r/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_name }})
+{%- endif %}
 [![](assets/www.png)](https://www.justpython.tech)
 [![](assets/email.png)](mailto:sking.github@gmail.com)
 {% else %}
@@ -110,11 +112,14 @@ pip install --editable {{ cookiecutter.project_name }}
 [![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.project_name }}/)
 {% endif %}
 
-{{cookiecutter.author_name}} : {{cookiecutter.email}}
+
+Author: {{cookiecutter.author_name}} ([{{cookiecutter.email}}](mailto:{{cookiecutter.email}}))
 
 Distributed under the {{cookiecutter.license}} license. See [![][license-image]][license-url] for more information.
 
-Created with Cookiecutter template: [**pydough**][pydough-url] version 1.3.1
+Created with Cookiecutter template: [![pydough][pydough-image]][pydough-url] version 1.3.1
+
+Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](https://zenodo.org/badge/latestdoi/xxxxxxxxx)
 
 
 <!-- Markdown link & img dfn's -->
