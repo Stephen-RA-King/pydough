@@ -98,5 +98,5 @@ with as_file(source_toml) as _toml_path:
 source_pickle = files("{{ cookiecutter.pkg_name }}.resources").joinpath("resource.pickle")
 with as_file(source_pickle) as _pickle_file:
     _pickle_bytes = _pickle_file.read_bytes()
-    project_content = pickle.loads(_pickle_bytes)
+    pickle_content = pickle.loads(_pickle_bytes)
 {% endif %}

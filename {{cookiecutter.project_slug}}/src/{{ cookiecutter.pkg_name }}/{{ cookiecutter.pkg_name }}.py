@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """Example script to demonstrate layout and testing."""
 # Core Library modules
-{%- if cookiecutter.resource_file == 'pickle' or cookiecutter.resource_file == 'all' %}
-pickle{% endif %}
 {%- if cookiecutter.use_logging == 'y' %}
 import sys{% endif %}
 {%- if cookiecutter.resource_file != 'none' %}
@@ -24,6 +22,8 @@ from . import logger{% endif %}
 from . import toml_config{% endif %}
 {%- if cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
 from . import yaml_config{% endif %}
+{%- if cookiecutter.resource_file == 'pickle' or cookiecutter.resource_file == 'all' %}
+from . import pickle_content{% endif %}
 
 
 {% if cookiecutter.config_file == 'json' or  cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'toml' or cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
@@ -58,16 +58,6 @@ def get_config() -> tuple:
         config_result.append(bool(config["APP"]["DEBUG"]))
     return config_len, config_result
 {% endif %}
-
-
-{%- if cookiecutter.resource_file == 'pickle' or cookiecutter.resource_file == 'all' %}
-def get_pickle():
-    source = files("{{ cookiecutter.pkg_name }}.resources").joinpath('resource.pickle')
-    with as_file(source) as _pickle_path:
-        _pickle_text = _pickle_path.read_bytes()
-        data = pickle.load(_pickle_text)
-        return data
-{% endif -%}
 
 
 {% if cookiecutter.use_logging == 'y' %}
@@ -171,6 +161,7 @@ def fibonacci(number_range: int) -> list:
 
 
 def main():    # type: ignore
+    print(pickle_content)
     print(fizzbuzz(20))
     print(fibonacci(20))
 
