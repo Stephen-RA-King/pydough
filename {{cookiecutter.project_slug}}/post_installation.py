@@ -134,6 +134,7 @@ def github_create_repo() -> None:
         url,
         json=body_json,
         headers=header,
+        timeout=5
     )
     if response.status_code == 201:
         logger.info(".... OK")
@@ -154,7 +155,7 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
         "Authorization": authorization,
     }
 
-    r = requests.get(url=url_public_key, headers=headers)
+    r = requests.get(url=url_public_key, headers=headers, timeout=5)
 
     if r.status_code == 200:
         key_datas = r.json()
@@ -171,7 +172,7 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
 
         json_data = json.dumps(data)
 
-        r = requests.put(url=url_secret, data=json_data, headers=headers)
+        r = requests.put(url=url_secret, data=json_data, headers=headers, timeout=5)
 
         if r.status_code in (201, 204):
             logger.info(".... OK")
@@ -204,6 +205,7 @@ def readthedocs_create() -> None:
         url,
         json=body_json,
         headers=header,
+        timeout=5
     )
     if response.status_code == 201:
         logger.info(".... OK")
@@ -232,6 +234,7 @@ def readthedocs_update() -> None:
         url,
         json=body_json,
         headers=header,
+        timeout=5
     )
     if response.status_code == 204:
         logger.info(".... OK")
