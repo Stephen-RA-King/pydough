@@ -107,7 +107,7 @@ pip install --editable {{ cookiecutter.project_name }}
 [![Docker](assets/docker.png)](https://hub.docker.com/r/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_name }})
 {%- endif %}
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
-[![](assets/www.png)](https://www.justpython.tech)
+[![](assets/www.png)](https://stephen-ra-king.github.io/justpython/)
 {%- endif %}
 [![](assets/email.png)](mailto:{{ cookiecutter.email }})
 [![](assets/github.png)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }})

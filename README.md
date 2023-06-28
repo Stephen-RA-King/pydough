@@ -267,7 +267,7 @@ pyupgrade, and autoflake, all while executing tens or hundreds of times faster.
 
 [![](assets/linkedin.png)](https://www.linkedin.com/in/sr-king)
 [![](assets/github.png)](https://github.com/Stephen-RA-King)
-[![](assets/www.png)](https://www.justpython.tech)
+[![](assets/www.png)](https://stephen-ra-king.github.io/justpython/)
 [![](assets/email.png)](mailto:sking.github@gmail.com) 
 
 
