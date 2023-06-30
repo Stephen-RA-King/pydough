@@ -3,8 +3,6 @@
 # Core Library modules
 {%- if cookiecutter.use_logging == 'y' %}
 import sys{% endif %}
-{%- if cookiecutter.resource_file != 'none' %}
-from importlib.resources import files, as_file{% endif %}
 from typing import Any
 
 # Third party modules
@@ -161,7 +159,6 @@ def fibonacci(number_range: int) -> list:
 
 
 def main():    # type: ignore
-    print(pickle_content)
     print(fizzbuzz(20))
     print(fibonacci(20))
 
