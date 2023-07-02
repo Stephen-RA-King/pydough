@@ -146,8 +146,8 @@ Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](http
 {%- endif %}
 [conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square
 [conventional-commits-url]: https://conventionalcommits.org
-[deepsource-image]: https://static.deepsource.io/deepsource-badge-light-mini.svg
-[deepsource-url]: https://deepsource.io/gh/Stephen-RA-King/{{ cookiecutter.project_name }}/?ref=repository-badge
+[deepsource-image]: https://app.deepsource.com/gh/Stephen-RA-King/{{ cookiecutter.project_name }}.svg/?label=active+issues&show_trend=true
+[deepsource-url]: https://app.deepsource.com/gh/Stephen-RA-King/{{ cookiecutter.project_name }}/?ref=repository-badge
 {% if cookiecutter.use_docker == 'y' -%}
 [docker-image]: https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/actions/workflows/docker-image.yml/badge.svg
 [docker-url]: https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/actions/workflows/docker-image.yml
