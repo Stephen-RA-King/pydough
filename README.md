@@ -277,6 +277,8 @@ Distributed under the MIT license. See [license][license-url] for more informati
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
+Digital Object Identifier: [![DOI](https://zenodo.org/badge/453434377.svg)](https://zenodo.org/badge/latestdoi/453434377)
+
 version: 1.3.3
 
 <!-- Markdown link & img dfn's -->
