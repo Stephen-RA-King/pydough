@@ -109,7 +109,7 @@ pip install --editable {{ cookiecutter.project_name }}
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 [![](assets/www.png)](https://stephen-ra-king.github.io/justpython/)
 {%- endif %}
-[![](assets/email.png)](mailto:{{ cookiecutter.email }})
+[![](assets/email2.png)](mailto:{{ cookiecutter.email }})
 [![](assets/github.png)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }})
 
 

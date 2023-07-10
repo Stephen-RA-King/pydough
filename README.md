@@ -268,18 +268,17 @@ pyupgrade, and autoflake, all while executing tens or hundreds of times faster.
 [![](assets/linkedin.png)](https://www.linkedin.com/in/sr-king)
 [![](assets/github.png)](https://github.com/Stephen-RA-King)
 [![](assets/www.png)](https://stephen-ra-king.github.io/justpython/)
-[![](assets/email.png)](mailto:sking.github@gmail.com) 
+[![](assets/email2.png)](mailto:sking.github@gmail.com) 
 
 
-Author: Stephen RA King
+Author: Stephen King ([sking.github@gmail.com](mailto:sking.github@gmail.com))
 
-Distributed under the MIT license. See [license][license-url] for more information.
+Distributed under the MIT license. See [![][license-image]][license-url] for more information.
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
+Cookiecutter template: [![pydough][pydough-image]][pydough-url] version 1.3.3
 
 Digital Object Identifier: [![DOI](https://zenodo.org/badge/453434377.svg)](https://zenodo.org/badge/latestdoi/453434377)
 
-version: 1.3.3
 
 <!-- Markdown link & img dfn's -->
 [bandit-image]: https://img.shields.io/badge/security-bandit-yellow.svg
@@ -303,6 +302,7 @@ version: 1.3.3
 [isort-url]: https://github.com/PyCQA/isort
 [keyring-url]: https://github.com/jaraco/keyring
 [layered-url]: https://github.com/jazzband/pip-tools/#workflow-for-layered-requirements
+[license-image]: https://img.shields.io/pypi/l/pynamer
 [license-url]: https://github.com/Stephen-RA-King/pydough/blob/main/LICENSE
 [mypy-image]: http://www.mypy-lang.org/static/mypy_badge.svg
 [mypy-url]: https://github.com/python/mypy
@@ -313,6 +313,8 @@ version: 1.3.3
 [pipx-url]: https://github.com/pypa/pipx
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
+[pydough-image]: https://img.shields.io/badge/pydough-2023-orange
+[pydough-url]: https://github.com/Stephen-RA-King/pydough
 [safety-url]: https://github.com/pyupio/safety
 [sphinx-url]: https://github.com/sphinx-doc/sphinx
 [virtualenv-url]: https://virtualenv.pypa.io
