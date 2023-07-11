@@ -118,9 +118,9 @@ Author: {{cookiecutter.author_name}} ([{{cookiecutter.email}}](mailto:{{cookiecu
 Distributed under the {{cookiecutter.license}} license. See [![][license-image]][license-url] for more information.
 
 Created with Cookiecutter template: [![pydough][pydough-image]][pydough-url] version 1.3.3
-
+{% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](https://zenodo.org/badge/latestdoi/xxxxxxxxx)
-
+{%- endif %}
 
 <!-- Markdown link & img dfn's -->
 
