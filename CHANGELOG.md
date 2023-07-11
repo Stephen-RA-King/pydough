@@ -1,3 +1,13 @@
+## 1.3.4 (2023-07-11)
+
+### Fix
+
+- remove references to citation file if not me
+
+### Refactor
+
+- remove unused code
+
 ## 1.3.3 (2023-06-26)
 
 ### Fix
