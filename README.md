@@ -285,7 +285,7 @@ Author: Stephen King ([sking.github@gmail.com](mailto:sking.github@gmail.com))
 
 Distributed under the MIT license. See [![][license-image]][license-url] for more information.
 
-Cookiecutter template: [![pydough][pydough-image]][pydough-url] version 1.3.3
+Cookiecutter template: [![pydough][pydough-image]][pydough-url] version: 1.3.4
 
 Digital Object Identifier: [![DOI](https://zenodo.org/badge/453434377.svg)](https://zenodo.org/badge/latestdoi/453434377)
 
