@@ -49,14 +49,23 @@ All the following features are optional:
 [![Checked with mypy][mypy-image]][mypy-url]
 [![security: bandit][bandit-image]][bandit-url]
 
-## Pre Installation Requirements
+## Pre-Installation Requirements
 
 ---
 
-- [X] Python >= 3.9.
-- [X] git.
-- [X] Virtual Environment. (I like [**virtualenv**][virtualenv-url] with [**virtualenv-wrapper**][virtualenvwrapper-url]. I love "workon").
-- [X] [**cookiecutter**][cookiecutter-url] installed into the Virtual Environment (or 'globally' using [**pipx**][pipx-url]).
+- [X] Python >= 3.7.
+- [X] [**Git**](https://git-scm.com/) must be installed
+- [X] A Virtual Environment. (I prefer [**virtualenv**][virtualenv-url] with [**virtualenv-wrapper**][virtualenvwrapper-url]).
+- [X] [**Cookiecutter**][cookiecutter-url] installed into the Virtual Environment (or 'globally' using [**pipx**][pipx-url]).
+```bash
+$ pip install cookiecutter
+```
+- [X] [**jinja2-time**](https://pypi.org/project/jinja2-time/) installed into the Virtual Environment.
+```bash
+$ pip install jinja2-time
+```
+
+
 
 
 ## Installation
@@ -132,6 +141,7 @@ This can be performed by either 'pip' or 'setuptools'
 ```sh
 $ python -m pip install -e . 
 ```
+or
 ```sh
 $ python setup.py develop
 ```
