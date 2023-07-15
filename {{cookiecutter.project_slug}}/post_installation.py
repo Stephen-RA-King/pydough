@@ -284,8 +284,6 @@ def main() -> None:
         github_create_repo()
         github_create_secret("PYPI_API_TOKEN", PYPI_TOKEN)
         github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
-
-    if not options.rerun:
         readthedocs_create()
 
     logger.info("\nUpdating .pypi file with secret tokens")
