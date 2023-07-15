@@ -249,12 +249,6 @@ def main():
     if "{{ cookiecutter.command_line_interface }}".lower() != "click":
         delete_director([PKG_DIR / "cli.py", TEST_DIR / "test_cli.py"])
 
-    if "{{ cookiecutter.use_logging }}".lower() != "y":
-        delete_director(
-            [
-                PKG_DIR / "logging_config.yaml",
-            ]
-        )
 
     try:
         logger.info("git: Initializing & Configuring")
