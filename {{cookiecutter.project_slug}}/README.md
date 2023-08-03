@@ -46,7 +46,13 @@ One to two paragraph statement about your product and what it does.
 
 ![](assets/header_dough1.png)
 
-## Installation
+
+## 🚀 Quickstart
+
+Explain succinctly how to use the repository
+
+
+## 💾 Installation
 
 ---
 
@@ -62,7 +68,7 @@ Windows:
 pip install {{ cookiecutter.project_name }}
 ```
 
-## Usage example
+## 📝 Usage
 
 ---
 
@@ -70,7 +76,7 @@ A few motivating and useful examples of how your product can be used. Spice this
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
-## Development setup
+## 🔧 Development setup
 
 ---
 
@@ -80,7 +86,7 @@ Describe how to install all development dependencies and how to run an automated
 pip install --editable {{ cookiecutter.project_name }}
 ```
 
-## Documentation
+## 📚 Documentation
 
 ---
 
@@ -94,7 +100,25 @@ pip install --editable {{ cookiecutter.project_name }}
 
 [**Wiki**](https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/wiki)
 
-## Meta
+
+
+## ❓ FAQ
+
+Give example of frequently asked questions
+
+
+## 📰 What's new in version x.x
+
+- bulleted list of new features
+
+
+##  📜  License
+
+Distributed under the {{cookiecutter.license}} license. See [![][license-image]][license-url] for more information.
+
+
+
+## ℹ️  Meta
 
 ---
 
@@ -114,8 +138,6 @@ pip install --editable {{ cookiecutter.project_name }}
 
 
 Author: {{cookiecutter.author_name}} ([{{cookiecutter.email}}](mailto:{{cookiecutter.email}}))
-
-Distributed under the {{cookiecutter.license}} license. See [![][license-image]][license-url] for more information.
 
 Created with Cookiecutter template: [![pydough][pydough-image]][pydough-url] version 1.3.4
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}

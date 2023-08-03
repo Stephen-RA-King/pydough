@@ -4,10 +4,12 @@
 # about how to manage indents, new lines, etc
 # It aids in having consistency amongst developers
 
+# top-most EditorConfig file
 root = true
 
+# Unix-style newlines with a newline ending every file
 [*]
-indent_style = space
+indent_style = tab
 indent_size = 4
 insert_final_newline = true
 trim_trailing_whitespace = true
@@ -16,11 +18,14 @@ charset = utf-8
 
 [*.py]
 max_line_length = 88
+indent_style = space
+indent_size = 4
 
 [*.json]
 indent_size = 2
 
 [*.{yml,yaml}]
+indent_style = space
 indent_size = 2
 
 # Makefiles always use tabs for indentation

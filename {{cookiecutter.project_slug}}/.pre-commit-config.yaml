@@ -32,7 +32,7 @@ repos:
 
   {% if cookiecutter.use_commitizen|lower == "y" -%}
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: 3.4.0
+    rev: 3.6.0
     hooks:
       - id: commitizen
         stages: [commit-msg]
@@ -49,14 +49,14 @@ repos:
 
   {% if cookiecutter.use_black|lower == "y" -%}
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 23.7.0
     hooks:
       - id: black
   {%- endif %}
 
   {% if cookiecutter.use_flake8|lower == "y" -%}
   - repo: https://github.com/pycqa/flake8
-    rev: 6.0.0
+    rev: 6.1.0
     hooks:
       - id: flake8
         additional_dependencies:
@@ -68,20 +68,20 @@ repos:
   {%- endif %}
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.7.0
+    rev: v3.10.1
     hooks:
       - id: pyupgrade
         args: [--py39]
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0-alpha.9-for-vscode
+    rev: v3.0.1
     hooks:
       - id: prettier
         stages: [commit]
 
   {% if cookiecutter.use_mypy|lower == "y" -%}
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.4.0
+    rev: v1.4.1
     hooks:
       - id: mypy
         alias: mypy
