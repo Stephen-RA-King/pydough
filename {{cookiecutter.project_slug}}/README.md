@@ -47,10 +47,35 @@ One to two paragraph statement about your product and what it does.
 ![](assets/header_dough1.png)
 
 
-## 🚀 Quickstart
+# Contents
 
-Explain succinctly how to use the repository
+-   [Demo](#-demo)
+-   [Project rationale](#-project-rationale)
+-   [Installation](#-installation)
+-   [Quick start](#-installation)
+-   [Usage](#usage)
+-   [Development setup](#-development-setup)
+-   [Configuration](#-configuration)
+-   [Documentation](#-documentation)
+    -   [Read the Docs](https://pynamer.readthedocs.io/en/latest/)
+    -   [API](https://pynamer.readthedocs.io/en/latest/autoapi/pynamer/pynamer/index.html)
+    -   [Wiki](https://github.com/Stephen-RA-King/pynamer/wiki)
+-   [FAQs](#-faqs)
+-   [What's new in version x.x](#-whats-new-in-version-xx)
+-   [Planned future enhancements](#-planned-future-enhancements)
+-   [Package statistics](#-package-statistics)
+-   [License](#-license)
+-   [Meta information](#ℹ-meta)
 
+
+## 📺 Demo
+
+Put a demo animated gif here.
+
+
+## 💡 Project rationale
+
+Why I built this project
 
 ## 💾 Installation
 
@@ -67,6 +92,13 @@ Windows:
 ```sh
 pip install {{ cookiecutter.project_name }}
 ```
+
+
+## 🚀 Quickstart
+
+Explain succinctly how to use the repository
+
+
 
 ## 📝 Usage
 
@@ -86,6 +118,12 @@ Describe how to install all development dependencies and how to run an automated
 pip install --editable {{ cookiecutter.project_name }}
 ```
 
+## ⚙️ Configuration
+
+Place configuration information here
+
+
+
 ## 📚 Documentation
 
 ---
@@ -101,8 +139,7 @@ pip install --editable {{ cookiecutter.project_name }}
 [**Wiki**](https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/wiki)
 
 
-
-## ❓ FAQ
+## ❓ FAQs
 
 Give example of frequently asked questions
 
@@ -111,14 +148,26 @@ Give example of frequently asked questions
 
 - bulleted list of new features
 
+## 📆 Planned future enhancements
 
-##  📜  License
+- Feature 1
+- Feature 2
+
+
+## 📊 Package statistics
+
+#### [**libraries.io**](https://libraries.io/pypi/{{ cookiecutter.github_username }})
+#### [**PyPI Stats**](https://pypistats.org/packages/{{ cookiecutter.github_username }})
+#### [**Pepy**](https://www.pepy.tech/projects/{{ cookiecutter.github_username }})
+
+
+## 📜 License
 
 Distributed under the {{cookiecutter.license}} license. See [![][license-image]][license-url] for more information.
 
 
 
-## ℹ️  Meta
+## <ℹ️> Meta
 
 ---
 
