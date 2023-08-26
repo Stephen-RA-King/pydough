@@ -51,9 +51,11 @@ One to two paragraph statement about your product and what it does.
 
 -   [Demo](#-demo)
 -   [Project rationale](#-project-rationale)
--   [Installation](#-installation)
--   [Quick start](#-installation)
--   [Usage](#usage)
+-   [Quick start](#-quickstart)
+    -   [Prerequisites](#-prerequisites)
+    -   [Installation](#-installation)
+    -   [Basic Usage](#-basic-usage)
+-   [Usage](#-usage)
 -   [Development setup](#-development-setup)
 -   [Configuration](#-configuration)
 -   [Documentation](#-documentation)
@@ -68,18 +70,32 @@ One to two paragraph statement about your product and what it does.
 -   [Meta information](#ℹ-meta)
 
 
-## 📺 Demo
+# 📺 Demo
+
+---
 
 Put a demo animated gif here.
 
 
-## 💡 Project rationale
+# 💡 Project rationale
+
+---
 
 Why I built this project
 
-## 💾 Installation
+# 🚀 Quickstart
 
 ---
+
+Explain succinctly how to use the repository
+
+## 📋 Prerequisites
+
+- A billeted list of requirements
+
+
+## 💾 Installation
+
 
 OS X & Linux:
 
@@ -93,14 +109,12 @@ Windows:
 pip install {{ cookiecutter.project_name }}
 ```
 
+## 📝 Basic Usage
 
-## 🚀 Quickstart
-
-Explain succinctly how to use the repository
-
+A simple example demonstrating that the package is working
 
 
-## 📝 Usage
+# 📝 Usage
 
 ---
 
@@ -108,7 +122,7 @@ A few motivating and useful examples of how your product can be used. Spice this
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
-## 🔧 Development setup
+# 🔧 Development setup
 
 ---
 
@@ -118,13 +132,15 @@ Describe how to install all development dependencies and how to run an automated
 pip install --editable {{ cookiecutter.project_name }}
 ```
 
-## ⚙️ Configuration
+# ⚙️ Configuration
+
+---
 
 Place configuration information here
 
 
 
-## 📚 Documentation
+# 📚 Documentation
 
 ---
 
@@ -141,33 +157,43 @@ Place configuration information here
 
 ## ❓ FAQs
 
+---
+
 Give example of frequently asked questions
 
 
-## 📰 What's new in version x.x
+# 📰 What's new in version x.x
+
+---
 
 - bulleted list of new features
 
-## 📆 Planned future enhancements
+# 📆 Planned future enhancements
+
+---
 
 - Feature 1
 - Feature 2
 
 
-## 📊 Package statistics
+# 📊 Package statistics
 
-#### [**libraries.io**](https://libraries.io/pypi/{{ cookiecutter.github_username }})
-#### [**PyPI Stats**](https://pypistats.org/packages/{{ cookiecutter.github_username }})
-#### [**Pepy**](https://www.pepy.tech/projects/{{ cookiecutter.github_username }})
+---
+
+- [**libraries.io**](https://libraries.io/pypi/{{ cookiecutter.github_username }})
+- [**PyPI Stats**](https://pypistats.org/packages/{{ cookiecutter.github_username }})
+- [**Pepy**](https://www.pepy.tech/projects/{{ cookiecutter.github_username }})
 
 
-## 📜 License
+# 📜 License
+
+---
 
 Distributed under the {{cookiecutter.license}} license. See [![][license-image]][license-url] for more information.
 
 
 
-## <ℹ️> Meta
+# <ℹ️> Meta
 
 ---
 

@@ -1,12 +1,12 @@
 
 
-_**A general purpose development template for the creation of Python modules.**_  
+_**A general purpose development environment template for the generation of Python modules & packages.**_  
 _**Utilizing many of my favourite development tools and deployable with the cookicutter module.**_ 
 
 
 ![](assets/pydough.png)
 
-## Features
+# 🌟 Features
 
 ---
 
@@ -23,10 +23,10 @@ All the following features are optional:
 * [**bandit**][bandit-url] -  finds common security issues .
 * [**sphinx**][sphinx-url] -  for creating documentation.
 * [**click**][click-url] -  for creating Command line interfaces.
-* [**invoke**][invoke-url] - Common package maintenance tasks are automated with this python library.
+* [**invoke**][invoke-url] - Common package maintenance tasks are automated using a module I have written with this python library.
 
 
-### Other Features
+## Other Features
 
 * Automatically configures git message template.
 * Selection of licenses to choose from (or vist [**choosealicense.com**](https://choosealicense.com/) for more choices).
@@ -40,7 +40,7 @@ All the following features are optional:
 * Option to specify Docstring style ([**Google**][docstring-google] or [**numpy**][docstring-numpy] - see [**pep 257**][pep257-url] and [**sphinx**][docstring-sphinx]).
 * Optionally include a configuration file (toml, ini, json or yaml).
 * Optionally include resource files (e.g. sqlite3, pickle, png).
-* Option to include Logging using the new dictConfig() configuration.
+* Option to include Logging using the dictConfig() configuration.
 * Automatically include badges based on your selections e.g.:
 
 [![pre-commit][pre-commit-image]][pre-commit-url]
@@ -49,18 +49,18 @@ All the following features are optional:
 [![Checked with mypy][mypy-image]][mypy-url]
 [![security: bandit][bandit-image]][bandit-url]
 
-## Pre-Installation Requirements
+# 📋 Pre-Installation Requirements
 
 ---
 
-- [X] Python >= 3.7.
+- [X] Python >= 3.8.
 - [X] [**Git**](https://git-scm.com/) must be installed
-- [X] A Virtual Environment. (I prefer [**virtualenv**][virtualenv-url] with [**virtualenv-wrapper**][virtualenvwrapper-url]).
-- [X] [**Cookiecutter**][cookiecutter-url] installed into the Virtual Environment (or 'globally' using [**pipx**][pipx-url]).
+- [X] An activated virtual environment. (I prefer [**virtualenv**][virtualenv-url] with [**virtualenv-wrapper**][virtualenvwrapper-url]).
+- [X] [**Cookiecutter**][cookiecutter-url] package installed into the virtual environment (or use [**pipx**][pipx-url]).
 ```bash
 $ pip install cookiecutter
 ```
-- [X] [**jinja2-time**](https://pypi.org/project/jinja2-time/) installed into the Virtual Environment.
+- [X] [**jinja2-time**](https://pypi.org/project/jinja2-time/) installed into the virtual environment.
 ```bash
 $ pip install jinja2-time
 ```
@@ -68,7 +68,7 @@ $ pip install jinja2-time
 
 
 
-## Installation
+# 💾 Installation
 
 ---
 
@@ -99,7 +99,7 @@ $ pip install -r <package-name>/requirements.txt
 ```
 
 
-## Optional Post-Installation steps
+# ⚙️ Optional Post-Installation steps
 
 ---
 
@@ -187,7 +187,7 @@ and deepsource.io then you will need to login to those services with your GitHub
 ### Note
 Some badges can take up to 24 Hrs to update (yes download badge ... I am looking at you). So please be patient.
 
-## Using the template Features
+# 📝 Using the template Features
 
 ---
 
@@ -255,15 +255,8 @@ Available tasks:
   update                     Updates the development environment
 ```
 
-## Example of Freshly Deployed Template
 
----
-
-[GitHub](https://github.com/Stephen-RA-King/zyme)  
-[PyPI](https://pypi.org/project/zyme/)
-
-
-## Possible future enhancements
+# 📆 Possible future enhancements
 
 ---
 
@@ -271,7 +264,13 @@ Available tasks:
 pyupgrade, and autoflake, all while executing tens or hundreds of times faster.
 
 
-## Meta
+# 📜 License
+
+Distributed under the MIT license. See [![][license-image]][license-url] for more information.
+
+
+
+# <ℹ️> Meta
 
 ---
 
@@ -283,7 +282,6 @@ pyupgrade, and autoflake, all while executing tens or hundreds of times faster.
 
 Author: Stephen King ([sking.github@gmail.com](mailto:sking.github@gmail.com))
 
-Distributed under the MIT license. See [![][license-image]][license-url] for more information.
 
 Cookiecutter template: [![pydough][pydough-image]][pydough-url] version: 1.3.4
 
