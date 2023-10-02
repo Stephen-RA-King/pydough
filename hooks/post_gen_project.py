@@ -209,7 +209,7 @@ def main():
             [
                 SLUG_DIR / "post_installation.py",
                 SLUG_DIR / "_NOTES.docx",
-                SLUG_DIR / "_TODO.txt"
+                SLUG_DIR / "_TODO.txt",
                 SLUG_DIR / "CITATION.cff"
             ]
         )
