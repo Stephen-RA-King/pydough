@@ -11,6 +11,7 @@
   "author_name": "Stephen R A King",
   "email": "sking.github@gmail.com",
   "github_username": "Stephen-RA-King",
+  "use_docker": "y",
   "docker_hub_username": "sraking",
   "initial_git_branch_name": [
     "main",
@@ -38,7 +39,6 @@
   "create_author_file": "y",
   "version": "0.1.0",
   "_year": "{% now 'utc', '%Y' %}",
-  "use_docker": "y",
   "use_pytest": "y",
   "use_black": "y",
   "use_flake8": "y",
