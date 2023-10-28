@@ -35,6 +35,7 @@
 [![Commitizen friendly][commitizen-image]][commitizen-url]
 {%- endif %}
 [![Conventional Commits][conventional-commits-image]][conventional-commits-url]
+[![Versioning][versioning-image]][versioning-url]
 [![DeepSource][deepsource-image]][deepsource-url]
 [![license][license-image]][license-url]
 [![Pydough][pydough-image]][pydough-url]
@@ -83,6 +84,12 @@ Put a demo animated gif here.
 
 Why I built this project
 
+
+## 👓 TLDR
+
+A very succinct paragraph summary regarding the package purpose and operation.
+
+
 # 🚀 Quickstart
 
 ---
@@ -91,7 +98,7 @@ Explain succinctly how to use the repository
 
 ## 📋 Prerequisites
 
-- A billeted list of requirements
+- A bulleted list of requirements
 
 
 ## 💾 Installation
@@ -139,6 +146,13 @@ pip install --editable {{ cookiecutter.project_name }}
 Place configuration information here
 
 
+# 🔒 Security Considerations
+
+---
+
+Write any security concerns that you may have here.
+e.g. exposure of API keys, passwords, old modules etc.
+
 
 # 📚 Documentation
 
@@ -152,14 +166,81 @@ Place configuration information here
 - [**API Reference**](https://{{ cookiecutter.project_name }}.readthedocs.io/en/latest/autoapi/index.html)
 
 
-[**Wiki**](https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/wiki)
+[**Wiki**](https://github.com/{{ cookiecutter.github_username  }}/{{ cookiecutter.project_name }}/wiki)
+
+# 🧬 Design Considerations
+
+---
+
+A few paragraphs on the design considerations if required.
+
+{% if cookiecutter.use_docker == 'y' -%}
+# 🐳 Using Docker
+
+---
+
+## Building the Image from Dockerfile
+
+Start your docker runtime then:
+
+Build the image using ***docker build*** command. e.g.
+
+
+```shell
+$ docker build -t {{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_name }}:{{ cookiecutter.version }} -t {{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_name }}:latest .
+```
+
+Once built, run the image using the ***docker run*** command.  This will create the container. e.g.
+
+```shell
+$ docker run -it {{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_name }}:{{ cookiecutter.version }} /bin/bash
+```
+
+Optional: The image can now be pushed to the repository using the ***docker push*** command. e.g.
+
+```shell
+$ docker push {{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_name }}:{{ cookiecutter.version }}
+```
+
+## Using the ready built image on dockerhub
+
+Pull the latest image from the repository using the ***docker pull*** command. e.g.
+
+```bash
+~ $ docker pull {{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_name }}
+```
+
+Now run the image using the ***docker run*** command.  This will create the container. e.g.
+
+```bash
+~ $ docker run -it {{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_name }} /bin/bash
+```
+
+Use the command line as normal in the container.
+
+```bash
+root@4d315992ca28:/app# {{ cookiecutter.project_name }} -h
+```
+{%- endif %}
+
+# ⚠️ Limitations
+
+---
+
+Describe any limitation the application may have (if any).
+
+# ⁉️ Some Quirks
+
+---
+
+The reason I wrote this application in the first place.
 
 
 ## ❓ FAQs
 
 ---
 
-Give example of frequently asked questions
+Give examples of frequently asked questions
 
 
 # 📰 What's new in version x.x
@@ -215,9 +296,11 @@ Distributed under the {{cookiecutter.license}} license. See [![][license-image]]
 Author: {{cookiecutter.author_name}} ([{{cookiecutter.email}}](mailto:{{cookiecutter.email}}))
 
 Created with Cookiecutter template: [![pydough][pydough-image]][pydough-url] version 1.3.4
+
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](https://zenodo.org/badge/latestdoi/xxxxxxxxx)
 {%- endif %}
+
 
 <!-- Markdown link & img dfn's -->
 
@@ -276,7 +359,7 @@ Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](http
 [pre-commit.ci-image]: https://results.pre-commit.ci/badge/github/Stephen-RA-King/{{ cookiecutter.project_name }}/main.svg
 [pre-commit.ci-url]: https://results.pre-commit.ci/latest/github/Stephen-RA-King/{{ cookiecutter.project_name }}/main
 {%- endif %}
-[pydough-image]: https://img.shields.io/badge/pydough-2023-orange
+[pydough-image]: https://img.shields.io/badge/pydough-2023-orange?logo=cookiecutter
 [pydough-url]: https://github.com/Stephen-RA-King/pydough
 [pypi-url]: https://pypi.org/project/{{ cookiecutter.project_name }}/
 [pypi-image]: https://img.shields.io/pypi/v/{{cookiecutter.project_name}}.svg
@@ -286,5 +369,7 @@ Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](http
 [status-image]: https://img.shields.io/pypi/status/{{cookiecutter.project_name}}.svg
 [tests-image]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/actions/workflows/tests.yml/badge.svg
 [tests-url]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/actions/workflows/tests.yml
+[versioning-image]: https://img.shields.io/badge/versioning-semver_2-blue
+[versioning-url]: https://semver.org/
 [wiki]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/wiki
 
