@@ -236,7 +236,7 @@ def readthedocs_update() -> None:
         headers=header,
         timeout=5
     )
-    if response.status_code == 204:
+    if response.status_code in [200, 201, 202, 204]:
         logger.info(".... OK")
     else:
         logger.info(f".... FAILED - {response.status_code}")
@@ -289,12 +289,6 @@ def main() -> None:
     logger.info("\nUpdating .pypi file with secret tokens")
     file_word_replace(".pypirc", "token1", PYPI_TOKEN)
     file_word_replace(".pypirc", "token2", TEST_PYPI_TOKEN)
-    logger.info(".... OK")
-
-    logger.info("\nPatching Python semantic release package windows bug")
-    file_path = r"\{{ cookiecutter.project_name }}\Lib\site-packages\semantic_release\repository.py"
-    repository = "".join([VIRTUALENV_DIR, file_path])
-    file_word_replace(repository, "~/.pypirc", ".pypirc")
     logger.info(".... OK")
 
     logger.info("\nInstalling requirements")
