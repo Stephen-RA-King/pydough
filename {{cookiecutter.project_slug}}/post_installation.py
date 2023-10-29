@@ -177,7 +177,7 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
         if r.status_code in (201, 204):
             logger.info(".... OK")
         else:
-            logger.info(".... FAILED")
+            logger.info(f".... FAILED: {r.status_code}")
             logger.info(r.status_code, r.reason)
 
     else:
@@ -186,17 +186,24 @@ def github_create_secret(secret_name: str, secret_value: str) -> None:
 
 
 def readthedocs_create() -> None:
+    # https://docs.readthedocs.io/en/stable/api/v3.html#project-create
     logger.info("\nCreating ReadTheDocs project")
     body_json = {
         "name": "{{ cookiecutter.project_name }}",
         "repository": {
-            "url": "https://github.com/Stephen-RA-King" "/{{ cookiecutter.project_name }}",
+            "url": "https://github.com/stephen-ra-king/{{ cookiecutter.project_name }}",
             "type": "git",
         },
-        "homepage": "http://template.readthedocs.io/",
+        "homepage": "http://{{ cookiecutter.project_name }}.readthedocs.io/",
         "programming_language": "py",
-        "default_branch": "main",
+        "default_branch": "{{ cookiecutter.initial_git_branch_name }}",
         "language": "en",
+        "privacy_level": "public",
+        "external_builds_privacy_level": "public",
+        "tags": [
+            "tag1",
+            "tag2"
+        ]
     }
 
     url = "https://readthedocs.org/api/v3/projects/"
@@ -205,12 +212,14 @@ def readthedocs_create() -> None:
         url,
         json=body_json,
         headers=header,
-        timeout=5
+        timeout=10
     )
     if response.status_code == 201:
         logger.info(".... OK")
+    elif response.status_code == 400:
+        logger.info(".... Already created")
     else:
-        logger.info(".... FAILED")
+        logger.info(f".... FAILED: {response.status_code}")
 
 
 def readthedocs_update() -> None:
