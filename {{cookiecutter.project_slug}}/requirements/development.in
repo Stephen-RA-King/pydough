@@ -21,10 +21,13 @@ flake8-bandit
 flake8-bugbear
 flake8-comprehensions
 flake8-docstrings
-# flake8-eradicate
+flake8-eradicate
 flake8-html
+flake8-pyproject
 flake8-pytest-style
-flake8-simplify{% endif %}
+flake8-simplify
+pep8-naming
+{%- endif %}
 {%- if cookiecutter.use_isort == 'y' %}
 isort{% endif %}
 invoke

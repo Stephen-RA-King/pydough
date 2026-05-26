@@ -61,13 +61,16 @@ repos:
     hooks:
       - id: flake8
         additional_dependencies:
+          - flake8-bandit
           - flake8-bugbear
           - flake8-comprehensions
-          - flake8-eradicate
           - flake8-docstrings
-          - pep8-naming
+          - flake8-eradicate
+          - flake8-html
           - Flake8-pyproject
+          - flake8-pytest-style
           - flake8-simplify
+          - pep8-naming
         args: ["--ignore=E800,F842,F841,W503"]
   {%- endif %}
 

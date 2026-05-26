@@ -18,39 +18,34 @@ import toml  # type: ignore{% endif %}
 {%- if cookiecutter.use_logging == 'y' or cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
 import yaml  # type: ignore{% endif %}
 
-__title__ = "{{ cookiecutter.project_name }}"
-__version__ = "{{ cookiecutter.version }}"
-__author__ = "{{ cookiecutter.author_name }}"
-__description__ = "{{ cookiecutter.project_short_description }}"
-__email__ = "{{ cookiecutter.email }}"
-__license__ = "{{ cookiecutter.license }}"
-__copyright__ = "Copyright {% now 'local', '%Y' %} {{ cookiecutter.author_name }}"
+__version__ = version("pynamer")
 
-
-{% if cookiecutter.use_logging == 'y' %}
+{% if cookiecutter.use_logging == 'y' -%}
 LOGGING_CONFIG = """
 version: 1
 disable_existing_loggers: False
 handlers:
   console:
     class: logging.StreamHandler
-    level: INFO
+    level: DEBUG
     stream: ext://sys.stdout
     formatter: basic
   file:
-    class: logging.FileHandler
+    class: logging.handlers.RotatingFileHandler
     level: DEBUG
-    filename: {{ cookiecutter.pkg_name }}.log
-    encoding: utf-8
+    filename: logs/log.txt
+    maxBytes: 1048576    # 1MB
+    backupCount: 3       # keeps log.txt, log.txt.1, log.txt.2, log.txt.3
     formatter: timestamp
+    encoding: utf-8
 
 formatters:
   basic:
     style: "{"
-    format: "{levelname:s}:{name:s}:{message:s}"
+    format: "{message:s}"
   timestamp:
     style: "{"
-    format: "{asctime} - {levelname} - {name} - {message}"
+    format: "{asctime} - {levelname} - {filename}:{lineno} - {message}"
 
 loggers:
   init:
@@ -61,7 +56,7 @@ loggers:
 
 logging.config.dictConfig(yaml.safe_load(LOGGING_CONFIG))
 logger = logging.getLogger("init")
-{% endif -%}
+{%- endif %}
 
 {%- if cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
 source_yaml = files("{{ cookiecutter.pkg_name }}.resources").joinpath('config.yaml')

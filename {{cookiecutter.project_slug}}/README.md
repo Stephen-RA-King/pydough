@@ -295,7 +295,7 @@ Distributed under the {{cookiecutter.license}} license. See [![][license-image]]
 
 Author: {{cookiecutter.author_name}} ([{{cookiecutter.email}}](mailto:{{cookiecutter.email}}))
 
-Created with Cookiecutter template: [![pydough][pydough-image]][pydough-url] version 1.3.4
+Created with Cookiecutter template: [![pydough][pydough-image]][pydough-url]
 
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](https://zenodo.org/badge/latestdoi/xxxxxxxxx)
@@ -339,10 +339,6 @@ Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](http
 [isort-image]: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
 [isort-url]: https://github.com/pycqa/isort/
 {%- endif %}
-[lgtm-alerts-image]: https://img.shields.io/lgtm/alerts/g/Stephen-RA-King/{{ cookiecutter.project_name }}.svg?logo=lgtm&logoWidth=18
-[lgtm-alerts-url]: https://lgtm.com/projects/g/Stephen-RA-King/{{ cookiecutter.project_name }}/alerts/
-[lgtm-quality-image]: https://img.shields.io/lgtm/grade/python/g/Stephen-RA-King/{{ cookiecutter.project_name }}.svg?logo=lgtm&logoWidth=18
-[lgtm-quality-url]: https://lgtm.com/projects/g/Stephen-RA-King/{{ cookiecutter.project_name }}/context:python
 [license-image]: https://img.shields.io/pypi/l/{{cookiecutter.project_name}}
 [license-url]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/blob/main/LICENSE
 {% if cookiecutter.use_mypy == 'y' -%}
@@ -359,7 +355,7 @@ Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](http
 [pre-commit.ci-image]: https://results.pre-commit.ci/badge/github/Stephen-RA-King/{{ cookiecutter.project_name }}/main.svg
 [pre-commit.ci-url]: https://results.pre-commit.ci/latest/github/Stephen-RA-King/{{ cookiecutter.project_name }}/main
 {%- endif %}
-[pydough-image]: https://img.shields.io/badge/pydough-2023-orange?logo=cookiecutter
+[pydough-image]: https://img.shields.io/badge/Cookiecutter-pydough-orange?logo=cookiecutter
 [pydough-url]: https://github.com/Stephen-RA-King/pydough
 [pypi-url]: https://pypi.org/project/{{ cookiecutter.project_name }}/
 [pypi-image]: https://img.shields.io/pypi/v/{{cookiecutter.project_name}}.svg

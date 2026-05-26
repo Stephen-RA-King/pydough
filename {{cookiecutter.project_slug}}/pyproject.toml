@@ -5,9 +5,146 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
-[tool]
+[project]
+name = {{ cookiecutter.pkg_name }}
+version = attr: {{ cookiecutter.pkg_name }}.__version__
+description = "{{ cookiecutter.project_short_description.replace(\"'\", \"\\'\") }}"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = "{{ cookiecutter.supported_python_version }}"
+license = {{ cookiecutter.license }}
+license_files = ["LICENCSE"]
+authors = [
+    { name = "{{ cookiecutter.author_name.replace('\"', '\\\"') }}", email = "{{ cookiecutter.email }}" },
+]
+maintainers = [
+    { name = "{{ cookiecutter.author_name.replace('\"', '\\\"') }}", email = "{{ cookiecutter.email }}" },
+]
+keywords = ["utility"]
+
+# https://pypi.org/pypi?%3Aaction=list_classifiers
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    {%- if cookiecutter.license|lower == "mit" %}
+    "License :: OSI Approved :: MIT License",
+    {%- endif %}
+    {%- if cookiecutter.license|lower == "bsd-3-clause" %}
+    "License :: OSI Approved :: BSD License",
+    {%- endif %}
+    {%- if cookiecutter.license|lower == "isc" %}
+    "License :: OSI Approved :: ISC License (ISCL)",
+    {%- endif %}
+    {%- if cookiecutter.license|lower == "apache-2.0" %}
+    "License :: OSI Approved :: Apache Software License",
+    {%- endif %}
+    {%- if cookiecutter.license|lower == "gpl-3.0-only" %}
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    {%- endif %}
+    {%- if cookiecutter.target_OS == "all" %}
+    "Operating System :: OS Independent",
+    {%- endif %}
+    {%- if cookiecutter.target_OS == "windows" %}
+    "Operating System :: Microsoft :: Windows",
+    {%- endif %}
+    {%- if cookiecutter.target_OS == "linux" %}
+    "Operating System :: POSIX :: Linux",
+    {%- endif %}
+    {%- if cookiecutter.target_OS == "macos" %}
+    "Operating System :: MacOS",
+    {%- endif %}
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+	# for EOL versions see: https://devguide.python.org/versions/
+    {%- if cookiecutter.supported_python_version in [">=3.10"] %}
+    "Programming Language :: Python :: 3.10",
+    {%- endif %}
+    {%- if cookiecutter.supported_python_version in [">=3.10", ">=3.11"] %}
+    "Programming Language :: Python :: 3.11",
+    {%- endif %}
+    {%- if cookiecutter.supported_python_version in [">=3.10", ">=3.11", ">=3.12"] %}
+    "Programming Language :: Python :: 3.12",
+    {%- endif %}
+    {%- if cookiecutter.supported_python_version in [">=3.10", ">=3.11", ">=3.12", ">=3.13" ] %}
+    "Programming Language :: Python :: 3.13",
+    {%- endif %}
+    {%- if cookiecutter.supported_python_version in [">=3.10", ">=3.11", ">=3.12", ">=3.13", ">=3.14" ] %}
+    "Programming Language :: Python :: 3.14",
+    {%- endif %}
+]
+
+dependencies = [
+    {%- if cookiecutter.command_line_interface|lower == "click" %}
+    "click",
+    {%- endif %}
+    {%- if cookiecutter.command_line_interface|lower == "docopt" %}
+    "docopt",
+    {%- endif %}
+    {%- if cookiecutter.use_logging == "y" or cookiecutter.config_file == "yaml" or cookiecutter.config_file == "all" %}
+    "pyyaml",
+    {%- endif %}
+    {%- if cookiecutter.config_file == "toml" or cookiecutter.config_file == "all" %}
+    "toml",
+    {%- endif %}
+    {%- if cookiecutter.command_line_interface|lower == "typer" %}
+    "typer[all]",
+    {%- endif %}
+    {%- if cookiecutter.resource_file == "png" or cookiecutter.resource_file == "all" %}
+    "Pillow",
+    {%- endif %}
+]
+
+[project.urls]
+Homepage      = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}"
+Download      = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/archive/refs/heads/{{ cookiecutter.initial_git_branch_name }}.zip"
+Documentation = "https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/"
+CI            = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/actions"
+"Release Notes" = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/releases"
+"Source Code" = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/"
+"Bug Tracker" = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/issues"
+
+[project.scripts]
+{{ cookiecutter.pkg_name }} = "{{ cookiecutter.pkg_name }}.{{ cookiecutter.pkg_name }}:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = { attr = "{{ cookiecutter.pkg_name }}.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"{{ cookiecutter.pkg_name }}" = [
+    {%- if cookiecutter.config_file == "json" or cookiecutter.config_file == "all" %}
+    "resources/config.json",
+    {%- endif %}
+    {%- if cookiecutter.config_file == "ini" or cookiecutter.config_file == "all" %}
+    "resources/config.ini",
+    {%- endif %}
+    {%- if cookiecutter.config_file == "toml" or cookiecutter.config_file == "all" %}
+    "resources/config.toml",
+    {%- endif %}
+    {%- if cookiecutter.config_file == "yaml" or cookiecutter.config_file == "all" %}
+    "resources/config.yaml",
+    {%- endif %}
+    {%- if cookiecutter.resource_file == "pickle" or cookiecutter.resource_file == "all" %}
+    "resources/resource.pickle",
+    {%- endif %}
+    {%- if cookiecutter.resource_file == "png" or cookiecutter.resource_file == "all" %}
+    "resources/resource.png",
+    {%- endif %}
+    {%- if cookiecutter.resource_file == "sqlite" or cookiecutter.resource_file == "all" %}
+    "resources/resource.db",
+    {%- endif %}
+]
+
+{% if cookiecutter.use_black == 'y' -%}
 [tool.black]
 line-length = 88
+{%- endif %}
 
 {% if cookiecutter.use_cruft == 'y' -%}
 [tool.cruft]
@@ -17,89 +154,106 @@ skip = [
     "*/header.png",
     ".pypirc",
     "CHANGELOG.md",
-    "setup.cfg"
 ]
 {%- endif %}
 
-
 {% if cookiecutter.use_isort == 'y' -%}
 [tool.isort]
-import_heading_stdlib = "Core Library modules"
-import_heading_thirdparty = "Third party modules"
-import_heading_firstparty = "First party modules"
+profile = "black"
+line_length          = 88
+import_heading_stdlib      = "Core Library modules"
+import_heading_thirdparty  = "Third party modules"
+import_heading_firstparty  = "First party modules"
 import_heading_localfolder = "Local modules"
-include_trailing_comma = true
-indent = '    '
 known_third_party = [
     "click",
     "pytest",
     "setuptools",
     "pip-tools",
-    "pre-commit"
+    "pre-commit",
 ]
-known_first_party = [
-    "pathmagic"
-]
-line_length = 80
-multi_line_output = 3
-force_grid_wrap = 0
-use_parentheses = true
+known_first_party    = ["pathmagic"]
 ensure_newline_before_comments = true
-balanced_wrapping = true
-combine_as_imports = true
+combine_as_imports   = true
 {%- endif %}
+
 
 {% if cookiecutter.use_mypy == 'y' -%}
 [tool.mypy]
-ignore_missing_imports = true
-check_untyped_defs = true
-disallow_untyped_defs = false
-warn_unused_ignores = true
-strict_optional = true
-warn_redundant_casts = true
-warn_unused_configs = true
-disallow_untyped_calls = false
+ignore_missing_imports   = true
+check_untyped_defs       = true
+disallow_untyped_defs    = false
+warn_unused_ignores      = true
+strict_optional          = true
+warn_redundant_casts     = true
+warn_unused_configs      = true
+disallow_untyped_calls   = false
 disallow_incomplete_defs = true
-follow_imports = "skip"
-html_report = "reports/mypy"
-cache_dir = 'cache/.mypy_cache'
-mypy_path = "typeshed/pyi:typeshed/imports"
+follow_imports           = "normal"
+cache_dir                = "cache/.mypy_cache"
+mypy_path                = "typeshed/pyi:typeshed/imports"
 exclude = [
     '^tests/[\w]*.py$',
     '^tools/[\w]*.py$',
     '^docs/[\w]*.py$',
-    '^tasks.py$'
+    '^tasks.py$',
 ]
+[tool.mypy.reports]
+html = "reports/mypy"
 {%- endif %}
 
 {% if cookiecutter.version_control == 'python_semantic_release' -%}
 [tool.semantic_release]
-version_variable = [
-    "src/{{ cookiecutter.pkg_name }}/__init__.py:__version__",
+version_toml = [
+    "pyproject.toml:project.version",
+]
+version_variables = [
     "docs/conf.py:version",
 ]
-branch = "main"
-changelog_file = "CHANGELOG.md"
-build_command = "python -m build"
-dist_path = "dist/"
-upload_to_pypi = true
-upload_to_repository = true
-remove_dist = true
-version_source = "tag"
-commit_message = "chore: generate by PSR"
+build_command     = "python -m build"
+commit_message    = "chore: generate release with PSR"
+
+[tool.semantic_release.changelog]
+template_dir = ".psr_templates"
+file = "CHANGELOG.md"
+
+[tool.semantic_release.remote.token]
+env = "GH_TOKEN"
 {%- endif %}
 
-[tool.flakeheaven]
-# base = "https://raw.githubusercontent.com/flakeheaven/flakeheaven/main/pyproject.toml"
-exclude = ["example.py"]
-format = "grouped"
-max_line_length = 80
-show_source = true
+{% if cookiecutter.use_flake8 == 'y' -%}
+[tool.flake8]
+# https://flake8.pycqa.org/en/latest/user/options.html
+# flake8 -                F401-F901
+# flake8-comprehensions - C400-C416
+# flake8-bugbear -        B001-B018, B901-B950
+# flake8-docstrings -     D100-D418 (flake8 plugin for pydocstyle)
+# pycodestyle -           E101-E902, W191-W606
+# pep8-naming -           N801-N818
+docstring-convention = "{{ cookiecutter.docstrings_style }}"
+max-complexity       = 18
+max-line-length      = 88
+select               = ["B", "B9", "C", "D", "E", "F", "N", "W"]
+exclude = ["tests/*", ".tox/*", ".nox/*", "docs/*", ".git/*", ".github/*",]
+ignore = [
+    # pycodestyle - whitespace before ',', ';', or ':' - compatible with black
+    "E203",
+    # pycodestyle - line break before binary operator
+    "W503",
+]
+per-file-ignores = [
+    # flake8 - module imported but not used
+    "__init__.py:F401",
+    "pathmagic.py:F401",
+    "test_{{ cookiecutter.pkg_name }}.py:F401",
+]
+{%- endif %}
 
-[tool.flakeheaven.plugins]
-pyflakes = ["+*", "-F401"]
-"flake8-*" = ["+*"]
-mccabe = ["+*"]
-pep8-naming = ["+*"]
-pycodestyle = ["+*"]
-pylint = ["+F*", "+E*", "-E0611", "-E1101", "-E0401", "-E1102", "-E1123"]
+[tool.coverage.run]
+branch = true
+parallel = true
+
+[tool.coverage.report]
+show_missing = true
+precision = 2
+skip_empty = true

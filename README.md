@@ -1,8 +1,8 @@
 
 
 _**A general purpose development environment template for the generation of Python modules & packages.**_  
-_**Utilizing many of my favourite development tools and deployable with the cookicutter module.**_ 
-
+_**Utilizing many of my favourite development tools and deployable with the cookiecutter module.**_ 
+![Python Version][python-version-image]
 
 ![](assets/pydough.png)
 
@@ -35,10 +35,9 @@ All the following features are optional:
   - [**commitizen**][commitizen-url] - for parsing and enforcing descriptive git commits.
   - [**cruft**][cruft-url] - project boilerplate is maintained in sync with parent cookiecutter template. 
   - [**safety**][safety-url] - check dependencies for known security vulnerabilities.
-  - [**flakeheaven**][flakeheaven-url] - Flake8 wrapper to replace flakehell.
 * Included are GitHub actions for codeql-analysis, CICD/tests and dependabot.
 * Option to specify Docstring style ([**Google**][docstring-google] or [**numpy**][docstring-numpy] - see [**pep 257**][pep257-url] and [**sphinx**][docstring-sphinx]).
-* Optionally include a configuration file (toml, ini, json or yaml).
+* Optionally include a configuration file (TOML, INI, JSON or YAML).
 * Optionally include resource files (e.g. sqlite3, pickle, png).
 * Option to include Logging using the dictConfig() configuration.
 * Automatically include badges based on your selections e.g.:
@@ -53,7 +52,7 @@ All the following features are optional:
 
 ---
 
-- [X] Python >= 3.8.
+- [X] Python >= 3.10.
 - [X] [**Git**](https://git-scm.com/) must be installed
 - [X] An activated virtual environment. (I prefer [**virtualenv**][virtualenv-url] with [**virtualenv-wrapper**][virtualenvwrapper-url]).
 - [X] [**Cookiecutter**][cookiecutter-url] package installed into the virtual environment (or use [**pipx**][pipx-url]).
@@ -116,7 +115,7 @@ You will need accounts and API keys with the following services:
 - [TestPyPi](https://test.pypi.org/)
 - [PyPi](https://pypi.org/)
 
-The following services can be linked to your github account (settings > integrations > applications)
+The following services can be linked to your GitHub account (settings > integrations > applications)
    - [Codecov.io](https://about.codecov.io/)
    - [Codefactor.io](https://www.codefactor.io/)
    - [Deepsource.io](https://deepsource.io/)
@@ -136,7 +135,7 @@ The following services can be linked to your github account (settings > integrat
 5. Import the GitHub repository into [**Read the Docs**](https://readthedocs.org/).
 6. Install your package as an "editable" package.
 
-Editable installs were not possible until 2021, but that has been remedied by [**pep 660**][pep660-url].
+"Editable installs" were not possible until 2021, but that has been remedied by [**pep 660**][pep660-url].
 This can be performed by either 'pip' or 'setuptools'
 ```sh
 $ python -m pip install -e . 
@@ -182,7 +181,7 @@ $ python -m twine upload --config-file .pypirc dist/*
 ```
 
 12. If you are using services codecov.io, codefactor.io
-and deepsource.io then you will need to login to those services with your GitHub account and import your respositories
+and deepsource.io then you will need to log in to those services with your GitHub account and import your respositories
 
 ### Note
 Some badges can take up to 24 Hrs to update (yes download badge ... I am looking at you). So please be patient.
@@ -221,11 +220,11 @@ $ make clean html
 
 ### Logging
 If you have chosen to use logging, then the ABSOLUTE path to the log file will need
-to be set.  Currently it is set to a RELATIVE file to where the application is run.
+to be set.  Currently, it is set to a RELATIVE file to where the application is run.
 Everybody's file structures are different, so obviously it is not possible for me to 
 know where you want your log file to be.
 
-This can be set in the src / __init__.py file  -> handlers -> file -> filename
+This can be set in the src / __init__.py file  → handlers → file → filename
 
 ### Invoke
 
@@ -323,6 +322,7 @@ Digital Object Identifier: [![DOI](https://zenodo.org/badge/453434377.svg)](http
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
 [pydough-image]: https://img.shields.io/badge/pydough-2023-orange
 [pydough-url]: https://github.com/Stephen-RA-King/pydough
+[python-version-image]: https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue?logo=pypi&logoColor=lightblue
 [safety-url]: https://github.com/pyupio/safety
 [sphinx-url]: https://github.com/sphinx-doc/sphinx
 [virtualenv-url]: https://virtualenv.pypa.io
