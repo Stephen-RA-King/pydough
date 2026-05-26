@@ -266,7 +266,7 @@ Distributed under the MIT license. See [![][license-image]][license-url] for mor
 
 
 
-# <:information_source:> Meta
+# < :information_source: > Meta
 
 ---
 
