@@ -6,7 +6,7 @@ _**Utilizing many of my favourite development tools and deployable with the cook
 
 ![](assets/pydough.png)
 
-# 🌟 Features
+# :sparkles: Features
 
 ---
 
@@ -48,7 +48,7 @@ All the following features are optional:
 [![Checked with mypy][mypy-image]][mypy-url]
 [![security: bandit][bandit-image]][bandit-url]
 
-# 📋 Pre-Installation Requirements
+# :spiral_notepad: Pre-Installation Requirements
 
 ---
 
@@ -67,7 +67,7 @@ $ pip install jinja2-time
 
 
 
-# 💾 Installation
+# :floppy_disk: Installation
 
 ---
 
@@ -98,7 +98,7 @@ $ pip install -r <package-name>/requirements.txt
 ```
 
 
-# ⚙️ Optional Post-Installation steps
+# :gear: Optional Post-Installation steps
 
 ---
 
@@ -183,7 +183,7 @@ and deepsource.io then you will need to log in to those services with your GitHu
 ### Note
 Some badges can take up to 24 Hrs to update (yes download badge ... I am looking at you). So please be patient.
 
-# 📝 Using the template Features
+# :keyboard: Using the template Features
 
 ---
 
@@ -252,7 +252,7 @@ Available tasks:
 ```
 
 
-# 📆 Possible future enhancements
+# :calendar: Possible future enhancements
 
 ---
 
@@ -260,13 +260,13 @@ Available tasks:
 pyupgrade, and autoflake, all while executing tens or hundreds of times faster.
 
 
-# 📜 License
+# :scroll: License
 
 Distributed under the MIT license. See [![][license-image]][license-url] for more information.
 
 
 
-# <ℹ️> Meta
+# <:information_source:> Meta
 
 ---
 
@@ -317,7 +317,7 @@ Digital Object Identifier: [![DOI](https://zenodo.org/badge/453434377.svg)](http
 [pipx-url]: https://github.com/pypa/pipx
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
-[pydough-image]: https://img.shields.io/badge/pydough-2023-orange
+[pydough-image]: https://img.shields.io/badge/Cookiecutter-pydough-orange?logo=cookiecutter
 [pydough-url]: https://github.com/Stephen-RA-King/pydough
 [python-version-image]: https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue?logo=pypi&logoColor=lightblue
 [safety-url]: https://github.com/pyupio/safety
