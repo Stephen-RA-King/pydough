@@ -1,18 +1,17 @@
 [build-system]
 requires = [
-    "setuptools",
+    "setuptools>=78",
     "wheel"
 ]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "{{ cookiecutter.pkg_name }}"
-version = attr: {{ cookiecutter.pkg_name }}.__version__
+version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.project_short_description }}"
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = "{{ cookiecutter.supported_python_version }}"
 license = "{{ cookiecutter.license }}"
-license_files = ["LICENSE"]
 authors = [
     { name = "{{ cookiecutter.author_name.replace('\"', '\\\"') }}", email = "{{ cookiecutter.email }}" },
 ]
@@ -26,22 +25,7 @@ classifiers = [
     "Development Status :: 1 - Planning",
     "Environment :: Console",
     "Intended Audience :: Developers",
-    {%- if cookiecutter.license|lower == "mit" %}
-    "License :: OSI Approved :: MIT License",
-    {%- endif %}
-    {%- if cookiecutter.license|lower == "bsd-3-clause" %}
-    "License :: OSI Approved :: BSD License",
-    {%- endif %}
-    {%- if cookiecutter.license|lower == "isc" %}
-    "License :: OSI Approved :: ISC License (ISCL)",
-    {%- endif %}
-    {%- if cookiecutter.license|lower == "apache-2.0" %}
-    "License :: OSI Approved :: Apache Software License",
-    {%- endif %}
-    {%- if cookiecutter.license|lower == "gpl-3.0-only" %}
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-    {%- endif %}
-    {%- if cookiecutter.target_OS == "all" %}
+	{%- if cookiecutter.target_OS == "all" %}
     "Operating System :: OS Independent",
     {%- endif %}
     {%- if cookiecutter.target_OS == "windows" %}
@@ -110,8 +94,11 @@ CI            = "https://github.com/{{ cookiecutter.github_username }}/{{ cookie
 [tool.setuptools]
 include-package-data = true
 
+
+{% if cookiecutter.version_control == 'bump2version' -%}
 [tool.setuptools.dynamic]
 version = { attr = "{{ cookiecutter.pkg_name }}.__version__" }
+{%- endif %}
 
 [tool.setuptools.packages.find]
 where = ["src"]

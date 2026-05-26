@@ -11,6 +11,7 @@ import logging.config{% endif %}
 import pickle{% endif %}
 {%- if cookiecutter.config_file != 'none' or cookiecutter.resource_file != 'none' %}
 from importlib.resources import files, as_file{% endif %}
+from importlib.metadata import version
 
 # Third party modules
 {%- if cookiecutter.config_file == 'toml' or cookiecutter.config_file == 'all' %}
@@ -18,7 +19,7 @@ import toml  # type: ignore{% endif %}
 {%- if cookiecutter.use_logging == 'y' or cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
 import yaml  # type: ignore{% endif %}
 
-__version__ = version("pynamer")
+__version__ = version("{{ cookiecutter.pkg_name }}")
 
 {% if cookiecutter.use_logging == 'y' -%}
 LOGGING_CONFIG = """

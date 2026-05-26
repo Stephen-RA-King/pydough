@@ -140,10 +140,7 @@ This can be performed by either 'pip' or 'setuptools'
 ```sh
 $ python -m pip install -e . 
 ```
-or
-```sh
-$ python setup.py develop
-```
+
 7. Push the local files to GitHub
 
 Note Git is automatically initialized and the following is automatically run by the post install hook

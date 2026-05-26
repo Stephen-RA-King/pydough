@@ -135,6 +135,7 @@ def generate_requirements(requirements):
             "pip-compile",
             "-q",
             "--resolver=backtracking",
+            "--no-strip-extras",
             requirement,
             supress_exception=False,
             cwd=REQ_DIR
