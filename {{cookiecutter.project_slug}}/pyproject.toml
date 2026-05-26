@@ -6,13 +6,13 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = {{ cookiecutter.pkg_name }}
+name = "{{ cookiecutter.pkg_name }}"
 version = attr: {{ cookiecutter.pkg_name }}.__version__
-description = "{{ cookiecutter.project_short_description.replace(\"'\", \"\\'\") }}"
+description = "{{ cookiecutter.project_short_description }}"
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = "{{ cookiecutter.supported_python_version }}"
-license = {{ cookiecutter.license }}
-license_files = ["LICENCSE"]
+license = "{{ cookiecutter.license }}"
+license_files = ["LICENSE"]
 authors = [
     { name = "{{ cookiecutter.author_name.replace('\"', '\\\"') }}", email = "{{ cookiecutter.email }}" },
 ]
