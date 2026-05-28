@@ -319,7 +319,7 @@ Digital Object Identifier: [![DOI](https://zenodo.org/badge/453434377.svg)](http
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
 [pydough-image]: https://img.shields.io/badge/Cookiecutter-pydough-orange?logo=cookiecutter
 [pydough-url]: https://github.com/Stephen-RA-King/pydough
-[python-version-image]: https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue?logo=pypi&logoColor=lightblue
+[python-version-image]: https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue?logo=pypi&logoColor=lightblue
 [safety-url]: https://github.com/pyupio/safety
 [sphinx-url]: https://github.com/sphinx-doc/sphinx
 [virtualenv-url]: https://virtualenv.pypa.io
