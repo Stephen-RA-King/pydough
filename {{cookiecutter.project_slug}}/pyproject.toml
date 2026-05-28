@@ -239,8 +239,52 @@ per-file-ignores = [
 [tool.coverage.run]
 branch = true
 parallel = true
+omit = [
+    "docs/*",
+    "tests/*",
+    "tools/*",
+    "tasks.py",
+]
 
 [tool.coverage.report]
+fail_under    = 70
 show_missing = true
 precision = 2
 skip_empty = true
+omit = [
+    "docs/*",
+    "tests/*",
+    "tools/*",
+    "tasks.py",
+]
+exclude_lines = [
+    "pragma: no cover",
+
+    # Generally only debug code uses this
+    "def __repr__",
+
+    # If a debug setting is set, skip testing
+    "if self\\.debug:",
+    "if settings.DEBUG",
+
+    # Don't worry about safety checks and expected errors
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Do not complain about code that will never run
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "@abc.abstractmethod",
+]
+
+{% if cookiecutter.use_bandit == 'y' -%}
+[tool.bandit]
+skips = [
+    "B101",  # Ignore defensive `assert`s (especially useful for mypy)
+    "B301",  # Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data
+    "B403",  # Consider possible security implications associated with pickle module
+    "B404",  # Ignore warnings about importing subprocess
+    "B603",  # Ignore warnings about calling subprocess.Popen without shell=True
+    "B607",  # Ignore warnings about calling subprocess.Popen without a full path to executable
+]
+{%- endif %}
