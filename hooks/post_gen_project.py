@@ -240,13 +240,6 @@ def main():
             ]
         )
 
-    if "{{ cookiecutter.use_bandit }}".lower() != "y":
-        delete_director(
-            [
-                SLUG_DIR / ".bandit.yml",
-            ]
-        )
-
     if "{{ cookiecutter.command_line_interface }}".lower() != "click":
         delete_director([PKG_DIR / "cli.py", TEST_DIR / "test_cli.py"])
 
