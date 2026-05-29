@@ -49,22 +49,17 @@ def delete_director(items_to_delete: list) -> None:
 
 
 def execute(*args, supress_exception=False, cwd=None):
-    logger.debug(f"Executing command line: '{args}'")
     cur_dir = os.getcwd()
-    logger.debug(f"Current Directory: {cur_dir}")
     try:
         if cwd:
-            logger.debug(f"Changing Directory to: {cwd}")
             os.chdir(cwd)
         proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = proc.communicate()
         decoded_out = out.decode("utf-8")
         decoded_err = err.decode("utf-8")
-        if err and not supress_exception:
-            logger.exception(decoded_err)
-            # raise Exception(decoded_err)
+        if proc.returncode != 0 and not supress_exception:
+            raise Exception(decoded_err)
     finally:
-        logger.debug(f"Changing Directory to: {cur_dir}")
         os.chdir(cur_dir)
 
 

@@ -24,7 +24,7 @@ def execute(*args, supress_exception=False, cwd=None):
         out, err = proc.communicate()
         decoded_out = out.decode("utf-8")
         decoded_err = err.decode("utf-8")
-        if err and not supress_exception:
+        if proc.returncode != 0 and not supress_exception:
             raise Exception(decoded_err)
     finally:
         os.chdir(cur_dir)
