@@ -1,14 +1,159 @@
-[alias]
-    prev = checkout HEAD^
-    next = !git checkout `git rev-list HEAD..$(git branch --contains | tail -1) | tail -1`
-    ci = commit
-    co = checkout
-    st = status
-    ll = log --oneline
-    ls = ls-tree --full-tree -r --name-only HEAD
-    con = config --list --show-origin
+# =============================================================================
+# Git Global Configuration
+# Location: ~/.gitconfig
+# =============================================================================
+
+[user]
+    name        = {{ cookiecutter.author_name.replace('\"', '\\\"') }}
+    email       = {{ cookiecutter.email }}
+    # signingkey = YOUR_GPG_KEY_ID   # Uncomment if using GPG commit signing
+
 [core]
-	autocrlf = true
-	editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
+	{% if cookiecutter.target_OS == "linux" -%}
+    editor      = vim                # Editor for commit messages (use 'code --wait' for VS Code)
+	{%- endif %}
+	{%- if cookiecutter.target_OS == "windows" %}
+	editor      = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
+	{%- endif %}	
+	{% if cookiecutter.target_OS == "linux" -%}
+    autocrlf    = input              # Convert CRLF to LF on commit
+	{%- endif %}
+	{%- if cookiecutter.target_OS == "windows" %}
+	autocrlf    = true               # Convert CRLF to LF on commit
+	{%- endif %}	
+    whitespace  = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    excludesfile = ~/.gitignore_global
+
+[init]
+    defaultBranch = main
+
 [commit]
-	template = C:\\Program Files\\Git\\.gitmessage
+    template = ~/.gitmessage         # Path to commit message template
+    # gpgsign = true                 # Uncomment to sign all commits with GPG
+
+[pull]
+    rebase = false                   # Merge on pull (use 'true' to rebase instead)
+
+[push]
+    default = current                # Push to the upstream branch with the same name
+    autoSetupRemote = true           # Automatically set up tracking for new branches
+
+[fetch]
+    prune = true                     # Remove remote-tracking branches that no longer exist
+
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3            # Show base version in conflict markers
+
+[diff]
+    tool = vimdiff
+    colorMoved = default             # Highlight moved lines differently in diffs
+
+[rebase]
+    autosquash = true                # Auto-apply fixup! and squash! commits
+    autostash = true                 # Stash/unstash automatically around rebase
+
+[status]
+    showUntrackedFiles = all         # Show all untracked files, not just directories
+
+[log]
+    abbrevCommit = true              # Show shortened commit hashes in log
+    date = short                     # Use YYYY-MM-DD format for dates
+
+[color]
+    ui = auto
+
+[color "branch"]
+    current  = yellow bold
+    local    = green
+    remote   = red
+
+[color "diff"]
+    meta     = yellow bold
+    frag     = magenta bold
+    old      = red bold
+    new      = green bold
+
+[color "status"]
+    added     = green
+    changed   = yellow
+    untracked = red
+
+[credential]    
+    {% if cookiecutter.target_OS == "linux" -%}
+    helper = store                   # Cache credentials
+	{%- endif %}
+	{%- if cookiecutter.target_OS == "windows" %}
+    helper = manager                 # Cache credentials
+	{%- endif %}
+
+# =============================================================================
+# Aliases
+# =============================================================================
+
+[alias]
+
+    # --- Shortcuts ---
+    st   = status -sb                            # Short status with branch info
+    co   = checkout
+    sw   = switch
+    br   = branch
+    cp   = cherry-pick
+    rb   = rebase
+
+    # --- Committing ---
+    ci   = commit
+    ca   = commit --amend
+    can  = commit --amend --no-edit              # Amend without editing message
+    cm   = commit -m
+
+    # --- Staging ---
+    a    = add
+    aa   = add --all
+    ap   = add --patch                           # Interactively stage hunks
+
+    # --- Diff ---
+    d    = diff
+    ds   = diff --staged                         # Diff of what is staged
+    dw   = diff --word-diff                      # Word-level diff
+
+    # --- Log / History ---
+    lg   = log --oneline --graph --decorate --all
+    logg = log --graph --decorate --abbrev-commit --all \
+           --format='%C(yellow)%h%C(reset) %C(green)(%ad)%C(reset) %s %C(blue)<%an>%C(reset)%C(auto)%d' \
+           --date=short
+    last = log -1 HEAD --stat                    # Show the last commit with file stats
+    ls   = log --oneline -20                     # Last 20 commits, one line each
+    who  = log --pretty=format:'%C(yellow)%h%C(reset) %C(blue)%ad%C(reset) %C(green)%an%C(reset) %s' \
+           --date=short                          # Compact log with author info
+    hist = log --follow -p --                    # Full history of a file: git hist <file>
+
+    # --- Branching ---
+    bra  = branch -a                             # List all branches (local + remote)
+    bd   = branch -d                             # Delete a merged branch
+    bD   = branch -D                             # Force-delete a branch
+    gone = "!git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d"
+                                                 # Delete local branches whose remote is gone
+
+    # --- Remote ---
+    f    = fetch --all --prune                   # Fetch all remotes and prune stale refs
+    pl   = pull
+    ps   = push
+    pf   = push --force-with-lease              # Safer force push
+
+    # --- Stash ---
+    ss   = stash save
+    sl   = stash list
+    sp   = stash pop
+    sd   = stash drop
+
+    # --- Reset / Undo ---
+    unstage = reset HEAD --                      # Unstage a file: git unstage <file>
+    undo    = reset --soft HEAD~1                # Undo last commit, keep changes staged
+    discard = checkout --                        # Discard unstaged changes: git discard <file>
+
+    # --- Utility ---
+    root    = rev-parse --show-toplevel          # Show repo root directory
+    aliases = config --get-regexp alias          # List all aliases
+    contributors = shortlog -sn --no-merges      # List contributors by commit count
+    tags    = tag -l --sort=-version:refname     # List tags sorted by version

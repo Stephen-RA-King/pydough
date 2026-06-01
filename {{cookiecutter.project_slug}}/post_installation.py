@@ -138,6 +138,8 @@ def github_create_repo() -> None:
     )
     if response.status_code == 201:
         logger.info(".... OK")
+    elif response.status_code == 422:
+        logger.info(".... GitHub repository already exists")
     else:
         logger.info(f".... FAILED: {response.status_code}")
 
@@ -224,7 +226,7 @@ def readthedocs_create() -> None:
 
 def readthedocs_update() -> None:
     # https://docs.readthedocs.io/en/stable/api/v3.html#project-update
-    logger.info("\nUpdating Read the docs project with chosen git branch")
+    logger.info("\nUpdating ReadTheDocs project with chosen git branch")
     body_json = {
         "name": "{{ cookiecutter.project_name }}",
         "repository": {
@@ -310,7 +312,7 @@ def main() -> None:
         execute(
             "git", "commit", "-q", "-m", "chore: initial commit", supress_exception=True
         )
-        execute("git", "push", "-q", "-u", "origin", "{{ cookiecutter.initial_git_branch_name }}")
+        execute("git", "push", "-q", "-u","--force", "origin", "{{ cookiecutter.initial_git_branch_name }}")
         logger.info(".... OK")
 
     if not options.rerun:
