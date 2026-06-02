@@ -1,20 +1,26 @@
 -r base.txt
 
 {% if cookiecutter.use_bandit == 'y' -%}
-bandit{% endif %}
+bandit
+{%- endif %}
 {%- if cookiecutter.use_black == 'y' %}
-black{% endif %}
+black
+{%- endif %}
 build
-{% if cookiecutter.version_control == 'python_semantic_release' %}
-python-semantic-release{% else %}
-bump2version{% endif %}
+{%- if cookiecutter.version_control == 'python_semantic_release' %}
+python-semantic-release
+{%- else %}
+bump2version
+{%- endif %}
 colorama
 {%- if cookiecutter.use_commitizen == 'y' %}
-commitizen{% endif %}
+commitizen
+{%- endif %}
 coverage[toml]
 coverage-conditional-plugin
 {%- if cookiecutter.use_cruft == 'y' %}
-cruft{% endif %}
+cruft
+{%- endif %}
 {%- if cookiecutter.use_flake8 == 'y' %}
 flake8
 flake8-bandit
@@ -29,20 +35,24 @@ flake8-simplify
 pep8-naming
 {%- endif %}
 {%- if cookiecutter.use_isort == 'y' %}
-isort{% endif %}
+isort
+{%- endif %}
 invoke
 jupyter
 keyring
 {%- if cookiecutter.use_mypy == 'y' %}
 lxml
 types-requests
-mypy{% endif %}
+mypy
+{%- endif %}
 {%- if cookiecutter.use_sphinx== 'y' %}
 myst-nb{% endif %}
 {%- if cookiecutter.use_flake8 == 'y' %}
-pep8-naming{% endif %}
+pep8-naming
+{%- endif %}
 {%- if cookiecutter.use_pre_commit == 'y' %}
-pre-commit{% endif %}
+pre-commit
+{%- endif %}
 {%- if cookiecutter.use_pytest == 'y' %}
 pytest
 pytest-clarity
@@ -52,16 +62,19 @@ pytest-tldr
 pytest-xdist
 pytest-repeat
 pytest-randomly
-pytest-timeout{% endif %}
+pytest-timeout
+{%- endif %}
 pynacl
 pyyaml
 requests
 {%- if cookiecutter.use_safety == 'y' %}
-safety{% endif %}
+safety
+{%- endif %}
 {%- if cookiecutter.use_sphinx== 'y' %}
 sphinx
 sphinx-autoapi
-sphinx-rtd-theme{% endif %}
+sphinx-rtd-theme
+{%- endif %}
 tox
 twine
 watchdog
