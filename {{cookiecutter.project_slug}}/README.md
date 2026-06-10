@@ -71,19 +71,19 @@ One to two paragraph statement about your product and what it does.
 -   [Meta information](#ℹ-meta)
 
 
-## :eyeglasses: TLDR
+## 👓 TLDR
 
 A very succinct paragraph summary regarding the package purpose and operation.
 
 
-# :film_projector: Demo
+# 📽️ Demo
 
 ---
 
 Put a demo animated gif here.
 
 
-# :bulb: Project rationale
+# 💡 Project rationale
 
 ---
 
@@ -92,18 +92,18 @@ Why I built this project
 
 
 
-# :rocket: Quickstart
+# 🚀 Quickstart
 
 ---
 
 Explain succinctly how to use the repository
 
-## :spiral_notepad: Prerequisites
+## 🗒️ Prerequisites
 
 - A bulleted list of requirements
 
 
-## :floppy_disk: Installation
+## 💾 Installation
 
 
 OS X & Linux:
@@ -118,12 +118,12 @@ Windows:
 pip install {{ cookiecutter.project_name }}
 ```
 
-## :computer: Basic Usage
+## 💻 Basic Usage
 
 A simple example demonstrating that the package is working
 
 
-# :computer: Usage
+# 💻 Usage
 
 ---
 
@@ -131,7 +131,7 @@ A few motivating and useful examples of how your product can be used. Spice this
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
-# :wrench: Development setup
+# 🔧 Development setup
 
 ---
 
@@ -141,14 +141,14 @@ Describe how to install all development dependencies and how to run an automated
 pip install --editable {{ cookiecutter.project_name }}
 ```
 
-# :gear: Configuration
+# ⚙️ Configuration
 
 ---
 
 Place configuration information here
 
 
-# :lock: Security Considerations
+# 🔒 Security Considerations
 
 ---
 
@@ -156,7 +156,7 @@ Write any security concerns that you may have here.
 e.g. exposure of API keys, passwords, old modules etc.
 
 
-# :books: Documentation
+# 📚 Documentation
 
 ---
 
@@ -170,14 +170,14 @@ e.g. exposure of API keys, passwords, old modules etc.
 
 [**Wiki**](https://github.com/{{ cookiecutter.github_username  }}/{{ cookiecutter.project_name }}/wiki)
 
-# :dna: Design Considerations
+# 🧬 Design Considerations
 
 ---
 
 A few paragraphs on the design considerations if required.
 
 {% if cookiecutter.use_docker == 'y' -%}
-# :whale: Using Docker
+# 🐳 Using Docker
 
 ---
 
@@ -225,33 +225,33 @@ root@4d315992ca28:/app# {{ cookiecutter.project_name }} -h
 ```
 {%- endif %}
 
-# :warning: Limitations
+# ⚠️ Limitations
 
 ---
 
 Describe any limitation the application may have (if any).
 
-# :interrobang: Some Quirks
+# ⁉️ Some Quirks
 
 ---
 
 The reason I wrote this application in the first place.
 
 
-## :question: FAQs
+## ❓ FAQs
 
 ---
 
 Give examples of frequently asked questions
 
 
-# :newspaper: What's new in version x.x
+# 📰 What's new in version x.x
 
 ---
 
 - bulleted list of new features
 
-# :calendar: Planned future enhancements
+# 📆 Planned future enhancements
 
 ---
 
@@ -259,7 +259,7 @@ Give examples of frequently asked questions
 - Feature 2
 
 
-# :bar_chart: Package statistics
+# 📊 Package statistics
 
 ---
 
@@ -268,7 +268,7 @@ Give examples of frequently asked questions
 - [**Pepy**](https://www.pepy.tech/projects/{{ cookiecutter.github_username }})
 
 
-# :scroll: License
+# 📜 License
 
 ---
 
@@ -276,7 +276,7 @@ Distributed under the {{cookiecutter.license}} license. See [![][license-image]]
 
 
 
-# < :information_source: > Meta
+# < ℹ️ > Meta
 
 ---
 

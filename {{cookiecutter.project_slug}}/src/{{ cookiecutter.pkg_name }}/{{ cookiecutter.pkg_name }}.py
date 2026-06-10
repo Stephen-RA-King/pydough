@@ -2,52 +2,67 @@
 """Example script to demonstrate layout and testing."""
 # Core Library modules
 {%- if cookiecutter.use_logging == 'y' %}
-import sys{% endif %}
+import sys
+{%- endif %}
 from typing import Any
 
 # Third party modules
 {%- if cookiecutter.resource_file == 'png' or cookiecutter.resource_file == 'all' %}
-from PIL import Image{% endif %}
+from PIL import Image
+{%- endif %}
 
 # Local modules
 {%- if cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'all' %}
-from . import ini_config{% endif %}
+from . import ini_config
+{%- endif %}
 {%- if cookiecutter.config_file == 'json' or cookiecutter.config_file == 'all' %}
-from . import json_config{% endif %}
+from . import json_config
+{%- endif %}
 {%- if cookiecutter.use_logging == 'y' %}
-from . import logger{% endif %}
+from . import logger
+{%- endif %}
 {%- if cookiecutter.config_file == 'toml' or cookiecutter.config_file == 'all' %}
-from . import toml_config{% endif %}
+from . import toml_config
+{%- endif %}
 {%- if cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
-from . import yaml_config{% endif %}
+from . import yaml_config
+{%- endif %}
 {%- if cookiecutter.resource_file == 'pickle' or cookiecutter.resource_file == 'all' %}
-from . import pickle_content{% endif %}
+from . import pickle_content
+{%- endif %}
+
+{%- if cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'json' or cookiecutter.config_file == 'toml' or cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
 
 
-{% if cookiecutter.config_file == 'json' or  cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'toml' or cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
 def get_config() -> tuple:
-    {% if cookiecutter.docstrings_style == 'numpy' %}
+{%- if cookiecutter.docstrings_style == 'numpy' %}
     """Return a configuration parameter from one of the configuration files.
 
     Returns
     -------
     tuple
-        length of the tuple along with the debug setting from each config file.
-    """{% else %}
+        Length of the tuple along with the debug setting from each config file.
+    """
+{%- else %}
     """Return a configuration parameter from one of the configuration files.
 
     Returns:
-        tuple: length of the tuple along with the debug setting from each config file.
-    """{% endif %}
+        tuple: Length of the tuple along with the debug setting from each config file.
+    """
+{%- endif %}
     configs = [
         {%- if cookiecutter.config_file == 'ini' or cookiecutter.config_file == 'all' %}
-        ini_config,{% endif %}
+        ini_config,
+        {%- endif %}
         {%- if cookiecutter.config_file == 'json' or cookiecutter.config_file == 'all' %}
-        json_config,{% endif %}
+        json_config,
+        {%- endif %}
         {%- if cookiecutter.config_file == 'toml' or cookiecutter.config_file == 'all' %}
-        toml_config,{% endif %}
+        toml_config,
+        {%- endif %}
         {%- if cookiecutter.config_file == 'yaml' or cookiecutter.config_file == 'all' %}
-        yaml_config{% endif %}
+        yaml_config,
+        {%- endif %}
     ]
     config_result = []
     config_len = len(configs)
@@ -55,52 +70,106 @@ def get_config() -> tuple:
     for config in configs:
         config_result.append(bool(config["APP"]["DEBUG"]))
     return config_len, config_result
-{% endif %}
+{%- endif %}
+
+{%- if cookiecutter.use_logging == 'y' %}
 
 
-{% if cookiecutter.use_logging == 'y' %}
 def handle_exception(exc_type, exc_value, exc_traceback):  # type: ignore
+{%- if cookiecutter.docstrings_style == 'numpy' %}
+    """Handle uncaught exceptions by routing them through the logger.
+
+    Replaces the default sys.excepthook to ensure all uncaught exceptions are
+    recorded via the logging framework. KeyboardInterrupt is treated as a special
+    case and delegated to the default handler to preserve normal Ctrl+C behaviour.
+
+    Parameters
+    ----------
+    exc_type : type
+        The exception class (subclass of BaseException).
+    exc_value : BaseException
+        The exception instance.
+    exc_traceback : traceback
+        The traceback object associated with the exception.
+
+    Returns
+    -------
+    None
+
+    Examples
+    --------
+    >>> import sys
+    >>> sys.excepthook = handle_exception
+    """
+{%- else %}
+    """Handle uncaught exceptions by routing them through the logger.
+
+    Replaces the default sys.excepthook to ensure all uncaught exceptions are
+    recorded via the logging framework. KeyboardInterrupt is treated as a special
+    case and delegated to the default handler to preserve normal Ctrl+C behaviour.
+
+    Args:
+        exc_type: The exception class (subclass of BaseException).
+        exc_value: The exception instance.
+        exc_traceback: The traceback object associated with the exception.
+
+    Returns:
+        None
+
+    Examples:
+        >>> import sys
+        >>> sys.excepthook = handle_exception
+    """
+{%- endif %}
     if issubclass(exc_type, KeyboardInterrupt):
         sys.__excepthook__(exc_type, exc_value, exc_traceback)
         return
     logger.error("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
 
+
 sys.excepthook = handle_exception
-{% endif %}
+{%- endif %}
+
 
 def fizzbuzz(number_range: int) -> list:
-    {% if cookiecutter.docstrings_style == 'numpy' %}
+{%- if cookiecutter.docstrings_style == 'numpy' %}
     """Demonstrate one solution to the FizzBuzz problem.
 
-    Return integers 1 to N, but print “Fizz” if an integer is divisible by 3,
-    “Buzz” if an integer is divisible by 5, and “FizzBuzz” if an integer is
-    divisible by both 3 and 5
+    Return integers 1 to N, but print "Fizz" if an integer is divisible by 3,
+    "Buzz" if an integer is divisible by 5, and "FizzBuzz" if an integer is
+    divisible by both 3 and 5.
 
     Parameters
     ----------
     number_range : int
-        The maximum number that will be used
+        The maximum number that will be used.
 
     Returns
     -------
     list
-        The result will be returned as a list
+        The result will be returned as a list.
 
     Examples
     --------
     >>> fizzbuzz(20)
-    """{% else %}
+    """
+{%- else %}
     """Demonstrate one solution to the FizzBuzz problem.
 
+    Return integers 1 to N, but print "Fizz" if an integer is divisible by 3,
+    "Buzz" if an integer is divisible by 5, and "FizzBuzz" if an integer is
+    divisible by both 3 and 5.
+
     Args:
-        number_range (int): The maximum number that will be used
+        number_range (int): The maximum number that will be used.
 
     Returns:
-        list: The result will be returned as a list
+        list: The result will be returned as a list.
 
     Examples:
         >>> fizzbuzz(20)
-    """{% endif %}
+    """
+{%- endif %}
     result: list[Any] = []
     for num in range(1, number_range):
         if num % 15 == 0:
@@ -112,60 +181,63 @@ def fizzbuzz(number_range: int) -> list:
         else:
             result.append(num)
     {%- if cookiecutter.use_logging == 'y' %}
-    logger.debug(f'fizzbuzz result: {result}'){% endif %}
+    logger.debug(f"fizzbuzz result: {result}")
+    {%- endif %}
     return result
 
 
 def fibonacci(number_range: int) -> list:
-    {% if cookiecutter.docstrings_style == 'numpy' %}
-    """series of numbers in which each number is the sum of the two that precede it.
+{%- if cookiecutter.docstrings_style == 'numpy' %}
+    """Series of numbers where each number is the sum of the two that precede it.
 
     Parameters
     ----------
     number_range : int
-        The maximum number that will be used
+        The maximum number that will be used.
 
     Returns
     -------
     list
-        The result will be returned as a list
+        The result will be returned as a list.
 
     Examples
     --------
     >>> fibonacci(20)
     """
-    {% else %}
-    """series of numbers in which each number is the sum of the two that precede it.
+{%- else %}
+    """Series of numbers where each number is the sum of the two that precede it.
 
     Args:
-        number_range (int): The maximum number that will be used
+        number_range (int): The maximum number that will be used.
 
     Returns:
-        list: The result will be returned as a list
+        list: The result will be returned as a list.
 
     Examples:
         >>> fibonacci(20)
     """
-    {% endif %}
+{%- endif %}
     result: list = []
     a, b = 1, 1
     while True:
         if a >= number_range:
             {%- if cookiecutter.use_logging == 'y' %}
-            logger.debug(f'fibonacci result: {result}'){% endif %}
+            logger.debug(f"fibonacci result: {result}")
+            {%- endif %}
             return result
         result.append(a)
         a, b = b, (a + b)
 
 
-def main():    # type: ignore
+def main() -> None:
+{%- if cookiecutter.docstrings_style == 'numpy' %}
+    """Run demonstration examples of fizzbuzz and fibonacci."""
+{%- else %}
+    """Run demonstration examples of fizzbuzz and fibonacci."""
+{%- endif %}
     print(fizzbuzz(20))
     print(fibonacci(20))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     raise SystemExit(main())
-
-
-
-
