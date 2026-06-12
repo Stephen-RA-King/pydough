@@ -32,9 +32,9 @@ jobs:
         python-version: ["3.12"]{% endif %}
     steps:
       # Step 2. Check-out repository so we can access its contents
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       # Step 3. Set up Python 3.9
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v6
         with:
           python-version: 3.9
       # step 4. Install the dependencies from requirements.txt file
@@ -60,7 +60,7 @@ jobs:
         run: |
           pytest tests/ --cov={{ cookiecutter.pkg_name }} --cov-report xml:coverage.xml
       # Step 8. Use Codecov to track coverage
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v7
         with:
           file: ./coverage.xml
           fail_build_if_error: true
