@@ -11,7 +11,8 @@ import sys
 install_list = [
     "colorama",
     "tqdm",
-    "halo"
+    "halo",
+    "pyfiglet",
 ]
 
 
@@ -53,7 +54,3 @@ if not re.match(MODULE_REGEX, module_name):
         'Please do not use a - and use _ instead' % module_name)
 
     sys.exit(1)
-
-
-
-

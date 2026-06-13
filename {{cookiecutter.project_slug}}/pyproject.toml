@@ -41,21 +41,12 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
 	# for EOL versions see: https://devguide.python.org/versions/
-    {%- if cookiecutter.supported_python_version in [">=3.10"] %}
-    "Programming Language :: Python :: 3.10",
-    {%- endif %}
-    {%- if cookiecutter.supported_python_version in [">=3.10", ">=3.11"] %}
-    "Programming Language :: Python :: 3.11",
-    {%- endif %}
-    {%- if cookiecutter.supported_python_version in [">=3.10", ">=3.11", ">=3.12"] %}
-    "Programming Language :: Python :: 3.12",
-    {%- endif %}
-    {%- if cookiecutter.supported_python_version in [">=3.10", ">=3.11", ">=3.12", ">=3.13" ] %}
-    "Programming Language :: Python :: 3.13",
-    {%- endif %}
-    {%- if cookiecutter.supported_python_version in [">=3.10", ">=3.11", ">=3.12", ">=3.13", ">=3.14" ] %}
-    "Programming Language :: Python :: 3.14",
-    {%- endif %}
+	{%- set min_version = cookiecutter.supported_python_version | replace(">=3.", "") | int %}
+	{%- for minor in range(10, 15) %}
+	{%- if minor >= min_version %}
+	"Programming Language :: Python :: 3.{{ minor }}",
+	{%- endif %}
+	{%- endfor %}
 ]
 
 dependencies = [

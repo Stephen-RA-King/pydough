@@ -8,35 +8,29 @@ on:
   pull_request:
     branches: [ "{{ cookiecutter.initial_git_branch_name }}" ]
   workflow_dispatch:
-    branches: [main]
 
 jobs:
   test:
     # Step 1. Set up operating system
-    {%- raw %}
-    runs-on: ${{ matrix.os }}{% endraw %}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        {%- if cookiecutter.supported_python_version == ">=3.7" %}
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]{% endif %}
-        {%- if cookiecutter.supported_python_version == ">=3.8" %}
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]{% endif %}
-        {%- if cookiecutter.supported_python_version == ">=3.9" %}
-        python-version: ["3.9", "3.10", "3.11", "3.12"]{% endif %}
-        {%- if cookiecutter.supported_python_version == ">=3.10" %}
-        python-version: ["3.10", "3.11", "3.12"]{% endif %}
-        {%- if cookiecutter.supported_python_version == ">=3.11" %}
-        python-version: ["3.11", "3.12"]{% endif %}
-        {%- if cookiecutter.supported_python_version == ">=3.12" %}
-        python-version: ["3.12"]{% endif %}
+        {%- set min_minor = cookiecutter.supported_python_version | replace(">=3.", "") | int %}
+        {%- set ns = namespace(versions=[]) %}
+        {%- for minor in [10, 11, 12, 13, 14] %}
+        {%- if minor >= min_minor %}
+        {%- set ns.versions = ns.versions + ["3." ~ minor] %}
+        {%- endif %}
+        {%- endfor %}
+        python-version: {{ ns.versions | tojson }}
     steps:
       # Step 2. Check-out repository so we can access its contents
       - uses: actions/checkout@v6
-      # Step 3. Set up Python 3.9
+      # Step 3. Set up Python
       - uses: actions/setup-python@v6
         with:
-          python-version: 3.9
+          python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
       # step 4. Install the dependencies from requirements.txt file
       - name: Install dependencies
         run: |

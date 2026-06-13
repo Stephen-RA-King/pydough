@@ -9,6 +9,7 @@ import subprocess
 import sys
 from pathlib import Path
 import warnings
+import pyfiglet
 
 
 warnings.filterwarnings("ignore", message="Setuptools is replacing distutils.")
@@ -148,7 +149,7 @@ def main():
         "pip-tools",
         "pynacl",
         "keyring",
-        "requests"
+        "requests",
     ]
 
     if "{{ cookiecutter.version_control }}" == "python_semantic_release":
@@ -279,6 +280,12 @@ def main():
 
     pip_configure("False")
     logger.info("Successfully installed Pydough!")
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+    words=("Welcome", "      to", "Pydough")
+    for word in words:
+        f = pyfiglet.figlet_format(word, font="slant")
+        print(f)
 
 
 if __name__ == "__main__":
