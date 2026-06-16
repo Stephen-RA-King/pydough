@@ -25,36 +25,40 @@ jobs:
         {%- endfor %}
         python-version: {{ ns.versions | tojson }}
     steps:
-      # Step 2. Check-out repository so we can access its contents
+      # Step 2. Check-out repository
       - uses: actions/checkout@v6
+
       # Step 3. Set up Python
       - uses: actions/setup-python@v6
         with:
           python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
-      # step 4. Install the dependencies from requirements.txt file
+
+      # step 4. Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip setuptools wheel
           pip install flake8 pytest pytest-cov
           pip install -r requirements/test.txt
-      # Step 5. Install the package
+
+      # Step 5. Install package
       - name: Install package
         run: |
           pip install -e .
+
       # Step 6. Lint the files with flake8
       - name: Lint with flake8
         run: |
-          # stop the build if there are Python syntax errors or undefined names
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
         continue-on-error: true
+
       # Step 7. Run the tests
       - name: Test with pytest
         run: |
-          pytest tests/ --cov={{ cookiecutter.pkg_name }} --cov-report xml:coverage.xml
-      # Step 8. Use Codecov to track coverage
+          pytest tests/ --cov={{ cookiecutter.pkg_name }} --cov-report=xml
+
+      # Step 8. Upload coverage to Codecov
       - uses: codecov/codecov-action@v7
         with:
           file: ./coverage.xml
-          fail_build_if_error: true
+          fail_ci_if_error: true

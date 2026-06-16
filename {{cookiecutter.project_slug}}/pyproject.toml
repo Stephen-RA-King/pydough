@@ -85,7 +85,6 @@ CI            = "https://github.com/{{ cookiecutter.github_username }}/{{ cookie
 [tool.setuptools]
 include-package-data = true
 
-
 {% if cookiecutter.version_control == 'bump2version' -%}
 [tool.setuptools.dynamic]
 version = { attr = "{{ cookiecutter.pkg_name }}.__version__" }
@@ -154,7 +153,6 @@ known_first_party    = ["pathmagic"]
 ensure_newline_before_comments = true
 combine_as_imports   = true
 {%- endif %}
-
 
 {% if cookiecutter.use_mypy == 'y' -%}
 [tool.mypy]
