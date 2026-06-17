@@ -168,14 +168,13 @@ disallow_incomplete_defs = true
 follow_imports           = "normal"
 cache_dir                = "cache/.mypy_cache"
 mypy_path                = "typeshed/pyi:typeshed/imports"
+html_report              = "reports/mypy"
 exclude = [
     '^tests/[\w]*.py$',
     '^tools/[\w]*.py$',
     '^docs/[\w]*.py$',
     '^tasks.py$',
 ]
-[tool.mypy.reports]
-html = "reports/mypy"
 {%- endif %}
 
 {% if cookiecutter.version_control == 'python_semantic_release' -%}
