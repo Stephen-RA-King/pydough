@@ -279,7 +279,7 @@ Distributed under the MIT license. See [![][license-image]][license-url] for mor
 Author: Stephen King ([sking.github@gmail.com](mailto:sking.github@gmail.com))
 
 
-Cookiecutter template: [![pydough][pydough-image]][pydough-url] version: 1.3.4
+Cookiecutter template: [![pydough][pydough-image]][pydough-url] version: 1.3.5
 
 Digital Object Identifier: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8118262.svg)](https://doi.org/10.5281/zenodo.8118262)
 

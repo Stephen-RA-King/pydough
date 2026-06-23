@@ -1,3 +1,20 @@
+## 1.3.5 (2026-06-23)
+
+### Fix
+
+- jinja2 template workflow
+- hook upgrade exception message
+- remove setup files
+- pyproject errors
+- jinja exception
+- update versions
+- missing comma in list
+
+### Refactor
+
+- minor update
+- remove unused statement
+
 ## 1.3.4 (2023-07-11)
 
 ### Fix
