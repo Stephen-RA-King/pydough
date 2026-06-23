@@ -29,7 +29,6 @@ tag_format = "$version"
 version_files = [
     ".bumpversion.cfg:current_version",
     "README.md:version:",
-    "{{cookiecutter.project_slug}}/README.md:version"
 ]
 style = [
     ["qmark", "fg:#ff9d00 bold"],
