@@ -281,7 +281,7 @@ Author: Stephen King ([sking.github@gmail.com](mailto:sking.github@gmail.com))
 
 Cookiecutter template: [![pydough][pydough-image]][pydough-url] version: 1.3.4
 
-Digital Object Identifier: [![DOI](https://zenodo.org/badge/453434377.svg)](https://zenodo.org/badge/latestdoi/453434377)
+Digital Object Identifier: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8118262.svg)](https://doi.org/10.5281/zenodo.8118262)
 
 
 <!-- Markdown link & img dfn's -->
