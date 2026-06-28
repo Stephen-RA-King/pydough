@@ -7,13 +7,11 @@ bandit
 black
 {%- endif %}
 build
-{%- if cookiecutter.version_control == 'python_semantic_release' %}
+{%- if cookiecutter.version_control in ["python_semantic_release", "both"] %}
 python-semantic-release
-{%- else %}
-bump2version
 {%- endif %}
 colorama
-{%- if cookiecutter.use_commitizen == 'y' %}
+{%- if cookiecutter.version_control in ["commitizen", "both"] %}
 commitizen
 {%- endif %}
 coverage[toml]
@@ -32,7 +30,6 @@ flake8-html
 flake8-pyproject
 flake8-pytest-style
 flake8-simplify
-pep8-naming
 {%- endif %}
 {%- if cookiecutter.use_isort == 'y' %}
 isort
@@ -45,8 +42,9 @@ lxml
 types-requests
 mypy
 {%- endif %}
-{%- if cookiecutter.use_sphinx== 'y' %}
-myst-nb{% endif %}
+{%- if cookiecutter.use_sphinx == 'y' %}
+myst-nb
+{%- endif %}
 {%- if cookiecutter.use_flake8 == 'y' %}
 pep8-naming
 {%- endif %}
@@ -70,7 +68,7 @@ requests
 {%- if cookiecutter.use_safety == 'y' %}
 safety
 {%- endif %}
-{%- if cookiecutter.use_sphinx== 'y' %}
+{%- if cookiecutter.use_sphinx == 'y' %}
 sphinx
 sphinx-autoapi
 sphinx-rtd-theme
