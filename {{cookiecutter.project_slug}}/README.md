@@ -322,7 +322,7 @@ Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](http
 [codefactor-url]: https://www.codefactor.io/repository/github/Stephen-RA-King/{{ cookiecutter.project_name }}
 [codeql-image]: https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/actions/workflows/github-code-scanning/codeql/badge.svg
 [codeql-url]: https://github.com/Stephen-RA-King/{{ cookiecutter.project_name }}/actions/workflows/github-code-scanning/codeql
-{% if cookiecutter.use_commitizen == 'y' -%}
+{% if cookiecutter.version_control in ["commitizen", "both"] -%}
 [commitizen-image]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
 [commitizen-url]: http://commitizen.github.io/cz-cli/
 {%- endif %}
