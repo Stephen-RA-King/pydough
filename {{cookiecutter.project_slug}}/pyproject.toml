@@ -25,7 +25,7 @@ classifiers = [
     "Development Status :: 1 - Planning",
     "Environment :: Console",
     "Intended Audience :: Developers",
-	{%- if cookiecutter.target_OS == "all" %}
+    {%- if cookiecutter.target_OS == "all" %}
     "Operating System :: OS Independent",
     {%- endif %}
     {%- if cookiecutter.target_OS == "windows" %}
@@ -40,13 +40,15 @@ classifiers = [
     "Natural Language :: English",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-	# for EOL versions see: https://devguide.python.org/versions/
-	{%- set min_version = cookiecutter.supported_python_version | replace(">=3.", "") | int %}
-	{%- for minor in range(10, 15) %}
-	{%- if minor >= min_version %}
-	"Programming Language :: Python :: 3.{{ minor }}",
-	{%- endif %}
-	{%- endfor %}
+    # for EOL versions see: https://devguide.python.org/versions/
+    {%- set min_version = cookiecutter.supported_python_version.split('.')[-1] | int %}
+    {#- NOTE: keep the range() upper bound below in sync with the highest version
+       offered by cookiecutter.json's supported_python_version choices #}
+    {%- for minor in range(10, 15) %}
+    {%- if minor >= min_version %}
+    "Programming Language :: Python :: 3.{{ minor }}",
+    {%- endif %}
+    {%- endfor %}
 ]
 
 dependencies = [
@@ -112,13 +114,13 @@ where = ["src"]
     "resources/resource.db",
     {%- endif %}
 ]
+{%- if cookiecutter.use_black == 'y' %}
 
-{% if cookiecutter.use_black == 'y' -%}
 [tool.black]
 line-length = 88
 {%- endif %}
+{%- if cookiecutter.use_cruft == 'y' %}
 
-{% if cookiecutter.use_cruft == 'y' -%}
 [tool.cruft]
 skip = [
     "tests/",
@@ -128,8 +130,8 @@ skip = [
     "CHANGELOG.md",
 ]
 {%- endif %}
+{%- if cookiecutter.use_isort == 'y' %}
 
-{% if cookiecutter.use_isort == 'y' -%}
 [tool.isort]
 profile = "black"
 line_length          = 88
@@ -148,8 +150,8 @@ known_first_party    = ["pathmagic"]
 ensure_newline_before_comments = true
 combine_as_imports   = true
 {%- endif %}
+{%- if cookiecutter.use_mypy == 'y' %}
 
-{% if cookiecutter.use_mypy == 'y' -%}
 [tool.mypy]
 ignore_missing_imports   = true
 check_untyped_defs       = true
@@ -171,8 +173,8 @@ exclude = [
     '^tasks.py$',
 ]
 {%- endif %}
+{%- if cookiecutter.version_control in ["python_semantic_release", "both"] %}
 
-{% if cookiecutter.version_control in ["python_semantic_release", "both"] %}
 [tool.semantic_release]
 version_toml = [
     "pyproject.toml:project.version",
@@ -189,9 +191,9 @@ file = "CHANGELOG.md"
 
 [tool.semantic_release.remote.token]
 env = "GH_TOKEN"
-{% endif %}
+{%- endif %}
+{%- if cookiecutter.version_control in ["commitizen", "both"] %}
 
-{% if cookiecutter.version_control in ["commitizen", "both"] %}
 [tool.commitizen]
 name = "cz_conventional_commits"
 version = "{{ cookiecutter.version }}"
@@ -199,9 +201,9 @@ version_files = [
     "pyproject.toml:version"
 ]
 tag_format = "v$version"
-{% endif %}
+{%- endif %}
+{%- if cookiecutter.use_flake8 == 'y' %}
 
-{% if cookiecutter.use_flake8 == 'y' -%}
 [tool.flake8]
 # https://flake8.pycqa.org/en/latest/user/options.html
 # flake8 -                F401-F901
@@ -229,18 +231,17 @@ per-file-ignores = [
 ]
 {%- endif %}
 
-
 [tool.pytest.ini_options]
 minversion = "9.0.3"
 addopts = [
-	"-ra",
+    "-ra",
     "--strict-markers",
     "--strict-config",
     "--cov=src",
     "--cov-report", "html:reports/coverage",
     "--html=reports/pytest.html",
     "--capture=tee-sys",
-	"--durations=10",
+    "--durations=10",
 ]
 testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
@@ -254,8 +255,8 @@ markers = [
     "slow: avoid these if in a hurry",
 ]
 filterwarnings = [
-	"error",
-	"ignore::DeprecationWarning",
+    "error",
+    "ignore::DeprecationWarning",
 ]
 cache_dir = "cache/.pytest_cache"
 xfail_strict = true
@@ -303,8 +304,8 @@ exclude_lines = [
     "if __name__ == .__main__.:",
     "@abc.abstractmethod",
 ]
+{%- if cookiecutter.use_bandit == 'y' %}
 
-{% if cookiecutter.use_bandit == 'y' -%}
 [tool.bandit]
 skips = [
     "B101",  # Ignore defensive `assert`s (especially useful for mypy)
