@@ -7,7 +7,7 @@
 # Body: Explain *what* and *why* (not *how*). Include task ID (Jira issue).
 # Wrap at 72 chars. ################################## which is here: #
 
-{% if  (cookiecutter.version_control == 'python_semantic_release' or use_commitizen == 'y')  %}
+{% if cookiecutter.version_control in ["commitizen", "python_semantic_release", "both"] %}
 # Commitizen and Python Semantic Release require the following:
 # ------------------------------------------------------------
 # Each commit message consists of a header, a body and a footer.
