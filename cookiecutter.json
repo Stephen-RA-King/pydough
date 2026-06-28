@@ -43,7 +43,7 @@
   "use_black": "y",
   "use_flake8": "y",
   "use_mypy": "y",
-  "use_commitizen": "y",
+  "use_tox": "y",
   "use_isort": "y",
   "use_sphinx": "y",
   "use_pre_commit": "y",
@@ -62,11 +62,13 @@
   ],
   "version_control": [
     "python_semantic_release",
-    "bump2version"
+    "commitizen",
+    "both",
+    "none"
   ],
   "docstrings_style": [
-    "numpy",
-    "google"
+    "google",
+    "numpy"
   ],
   "config_file": [
     "none",

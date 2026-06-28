@@ -85,11 +85,6 @@ CI            = "https://github.com/{{ cookiecutter.github_username }}/{{ cookie
 [tool.setuptools]
 include-package-data = true
 
-{% if cookiecutter.version_control == 'bump2version' -%}
-[tool.setuptools.dynamic]
-version = { attr = "{{ cookiecutter.pkg_name }}.__version__" }
-{%- endif %}
-
 [tool.setuptools.packages.find]
 where = ["src"]
 
@@ -177,7 +172,7 @@ exclude = [
 ]
 {%- endif %}
 
-{% if cookiecutter.version_control == 'python_semantic_release' -%}
+{% if cookiecutter.version_control in ["python_semantic_release", "both"] %}
 [tool.semantic_release]
 version_toml = [
     "pyproject.toml:project.version",
@@ -194,7 +189,17 @@ file = "CHANGELOG.md"
 
 [tool.semantic_release.remote.token]
 env = "GH_TOKEN"
-{%- endif %}
+{% endif %}
+
+{% if cookiecutter.version_control in ["commitizen", "both"] %}
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "{{ cookiecutter.version }}"
+version_files = [
+    "pyproject.toml:version"
+]
+tag_format = "v$version"
+{% endif %}
 
 {% if cookiecutter.use_flake8 == 'y' -%}
 [tool.flake8]
@@ -223,6 +228,40 @@ per-file-ignores = [
     "test_{{ cookiecutter.pkg_name }}.py:F401",
 ]
 {%- endif %}
+
+
+[tool.pytest.ini_options]
+minversion = "9.0.3"
+addopts = [
+	"-ra",
+    "--strict-markers",
+    "--strict-config",
+    "--cov=src",
+    "--cov-report", "html:reports/coverage",
+    "--html=reports/pytest.html",
+    "--capture=tee-sys",
+	"--durations=10",
+]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+pythonpath = ["src"]
+norecursedirs = [".git", ".*", "*.egg*", "docs", "dist", "build"]
+markers = [
+    "smoke: quick tests of major parts",
+    "bugs: tests that reproduce issues",
+    "slow: avoid these if in a hurry",
+]
+filterwarnings = [
+	"error",
+	"ignore::DeprecationWarning",
+]
+cache_dir = "cache/.pytest_cache"
+xfail_strict = true
+log_cli = true
+log_cli_level = "INFO"
+console_output_style = "progress"
 
 [tool.coverage.run]
 branch = true
@@ -274,5 +313,50 @@ skips = [
     "B404",  # Ignore warnings about importing subprocess
     "B603",  # Ignore warnings about calling subprocess.Popen without shell=True
     "B607",  # Ignore warnings about calling subprocess.Popen without a full path to executable
+]
+{%- endif %}
+
+{% if cookiecutter.use_tox == 'y' -%}
+[tool.tox]
+requires = ["tox>=4.21"]
+work_dir = "cache/.tox"
+env_list = [
+    {%- if cookiecutter.supported_python_version == ">=3.10" %}
+    "py310", "py311", "py312", "py313", "py314",
+    {%- elif cookiecutter.supported_python_version == ">=3.11" %}
+    "py311", "py312", "py313", "py314",
+    {%- elif cookiecutter.supported_python_version == ">=3.12" %}
+    "py312", "py313", "py314",
+    {%- elif cookiecutter.supported_python_version == ">=3.13" %}
+    "py313", "py314",
+    {%- elif cookiecutter.supported_python_version == ">=3.14" %}
+    "py314",
+    {%- endif %}
+    "linter",
+]
+
+[tool.tox.env_run_base]
+deps = ["-r requirements/test.txt"]
+commands = [
+    ["pip", "install", "-e", "."],
+    {%- if cookiecutter.use_pytest == 'y' %}
+    ["pytest", "."],
+    {%- else %}
+    ["unittest", "."],
+    {%- endif %}
+]
+
+[tool.tox.env.linter]
+deps = ["-r requirements/test.txt"]
+commands = [
+    {%- if cookiecutter.use_flake8 == 'y' %}
+    ["flake8", "src/{{ cookiecutter.pkg_name }}/."],
+    {%- endif %}
+    {%- if cookiecutter.use_black == 'y' %}
+    ["black", "--check", "src/{{ cookiecutter.pkg_name }}/."],
+    {%- endif %}
+    {%- if cookiecutter.use_mypy == 'y' %}
+    ["mypy", "src/{{ cookiecutter.pkg_name }}/."],
+    {%- endif %}
 ]
 {%- endif %}
