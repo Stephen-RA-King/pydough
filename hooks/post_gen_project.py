@@ -119,9 +119,9 @@ def init_git():
 def install_pre_commit_hooks():
     execute("pre-commit", "install")
     execute("pre-commit", "autoupdate")
-    if "{{ cookiecutter.use_commitizen }}".lower() == "y":
-        execute("pre-commit", "install", "--hook-type", "commit-msg")
-
+    {% if cookiecutter.version_control in ["commitizen", "both"] %}
+    execute("pre-commit", "install", "--hook-type", "commit-msg")
+    {% endif %}
 
 # exception suppressed due to "warnings.warn("Setuptools is replacing distutils.")"
 def generate_requirements(requirements):

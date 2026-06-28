@@ -31,7 +31,7 @@
 {% if cookiecutter.use_bandit == 'y' -%}
 [![security: bandit][bandit-image]][bandit-url]
 {%- endif %}
-{% if cookiecutter.use_commitizen == 'y' -%}
+{% if cookiecutter.version_control in ["commitizen", "both"] -%}
 [![Commitizen friendly][commitizen-image]][commitizen-url]
 {%- endif %}
 [![Conventional Commits][conventional-commits-image]][conventional-commits-url]
