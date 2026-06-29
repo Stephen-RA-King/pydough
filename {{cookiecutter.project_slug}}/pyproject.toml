@@ -342,8 +342,6 @@ commands = [
     ["pip", "install", "-e", "."],
     {%- if cookiecutter.use_pytest == 'y' %}
     ["pytest", "."],
-    {%- else %}
-    ["unittest", "."],
     {%- endif %}
 ]
 
