@@ -242,6 +242,7 @@ addopts = [
     "--html=reports/pytest.html",
     "--capture=tee-sys",
     "--durations=10",
+	"--cov-fail-under=70",
 ]
 testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
@@ -253,6 +254,8 @@ markers = [
     "smoke: quick tests of major parts",
     "bugs: tests that reproduce issues",
     "slow: avoid these if in a hurry",
+	"integration: marks integration tests",
+    "windows_only: marks tests that require Windows-only imports",
 ]
 filterwarnings = [
     "error",
@@ -266,6 +269,7 @@ console_output_style = "progress"
 
 [tool.coverage.run]
 branch = true
+source = ["src"]
 parallel = true
 omit = [
     "docs/*",

@@ -57,8 +57,7 @@
     "none",
     "argparse",
     "click",
-    "typer",
-    "docopt"
+    "typer"
   ],
   "version_control": [
     "python_semantic_release",

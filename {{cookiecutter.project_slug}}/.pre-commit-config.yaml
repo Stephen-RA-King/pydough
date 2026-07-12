@@ -33,7 +33,7 @@ repos:
 
   {% if cookiecutter.version_control in ["commitizen", "both"] -%}
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.16.2
+    rev: v4.16.4
     hooks:
       - id: commitizen
         stages: [commit-msg]
@@ -50,7 +50,7 @@ repos:
 
   {% if cookiecutter.use_black|lower == "y" -%}
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 26.3.1
+    rev: 26.5.1
     hooks:
       - id: black
   {%- endif %}
@@ -82,7 +82,7 @@ repos:
 
   {% if cookiecutter.use_mypy|lower == "y" -%}
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
+    rev: v2.1.0
     hooks:
       - id: mypy
         alias: mypy
