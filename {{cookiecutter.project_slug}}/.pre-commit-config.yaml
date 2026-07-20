@@ -2,21 +2,20 @@ exclude: |
   (?x)^(
       docs/conf.py|
       docs/example.ipynb|
+      examples/[\w]*.py|
+      post_installation.py
+      reports/[\w]*|
+      tasks.py|
       tests/[\w]*.py|
       tools/[\w]*.py|
-      reports/[\w]*|
-      examples/[\w]*.py|
-      tasks.py|
-      post_installation.py
   )$
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
-      - id: check-ast
       - id: check-added-large-files
         args: [--maxkb=500]
-      - id: fix-byte-order-marker
+      - id: check-ast
       - id: check-case-conflict
       - id: check-json
       - id: check-merge-conflict
@@ -27,22 +26,24 @@ repos:
       - id: debug-statements
       - id: detect-private-key
       - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+        args: [--fix=lf]
       - id: pretty-format-json
       - id: requirements-txt-fixer
       - id: trailing-whitespace
 
   {% if cookiecutter.version_control in ["commitizen", "both"] -%}
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.16.4
+    rev: v4.16.5
     hooks:
       - id: commitizen
         stages: [commit-msg]
   {%- endif %}
 
-
   {% if cookiecutter.use_isort|lower == "y" -%}
   - repo: https://github.com/pycqa/isort
-    rev: 9.0.0a3
+    rev: 9.0.0b1
     hooks:
       - id: isort
         args: ["--filter-files"]
@@ -82,7 +83,7 @@ repos:
 
   {% if cookiecutter.use_mypy|lower == "y" -%}
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v2.1.0
+    rev: v2.3.0
     hooks:
       - id: mypy
         alias: mypy
@@ -121,6 +122,14 @@ repos:
           - -s
           - B101,B301,B403,B404,B603,B607
   {%- endif %}
+
+  - repo: https://github.com/abravalheri/validate-pyproject
+    rev: v0.25
+    hooks:
+      - id: validate-pyproject
+        additional_dependencies:
+          - validate-pyproject[all]
+          - validate-pyproject-schema-store[all]
 
   - repo: meta
     hooks:
