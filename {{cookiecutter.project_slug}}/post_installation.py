@@ -15,6 +15,8 @@ import keyring
 import requests
 import yaml
 from nacl import encoding, public
+from rich.console import Console
+from rich.progress import Progress, SpinnerColumn, TextColumn, TimeElapsedColumn
 
 PLATFORM = sys.platform
 SLUG_DIR = Path(__file__).resolve().parent
@@ -27,6 +29,8 @@ PYPI_TOKEN = keyring.get_password("pypi", "token")
 READTHEDOCS_TOKEN = keyring.get_password("readthedocs", "token")
 DEV_DIR = r"D:\PYTHON PROJECT\PROJECTS\DEV"
 VIRTUALENV_DIR = r"D:\PYTHON PROJECT\PROJECTS\VIRTUALENVS"
+
+console = Console()
 
 
 LOGGING_CONFIG = """
@@ -73,7 +77,13 @@ parser.add_argument(
 options = parser.parse_args()
 
 
-def execute(*args: str, supress_exception: bool = False, cwd: Any = None) -> Any:
+def execute(
+    *args: str,
+    supress_exception: bool = False,
+    cwd: Any = None,
+    show_progress: bool = False,
+    progress_label: str = None,
+) -> Any:
     logger.debug(f"Executing command line: '{args}'")
     cur_dir = os.getcwd()
     logger.debug(f"Current Directory: {cur_dir}")
@@ -81,6 +91,12 @@ def execute(*args: str, supress_exception: bool = False, cwd: Any = None) -> Any
         if cwd:
             logger.debug(f"Changing Directory to: {cwd}")
             os.chdir(cwd)
+
+        if show_progress:
+            return _execute_with_progress(
+                args, supress_exception=supress_exception, label=progress_label
+            )
+
         proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = proc.communicate()
         decoded_out = out.decode("utf-8")
@@ -93,6 +109,49 @@ def execute(*args: str, supress_exception: bool = False, cwd: Any = None) -> Any
     finally:
         logger.debug(f"Changing Directory to: {cur_dir}")
         os.chdir(cur_dir)
+
+
+def _execute_with_progress(
+    args: tuple, supress_exception: bool = False, label: str = None
+) -> str:
+    """Run a subprocess while showing a live rich spinner.
+
+    pip-sync doesn't report a determinate total, so this shows an
+    indeterminate spinner + elapsed time, with the description updated
+    to the most recent line of output as it streams in - real feedback
+    that the process is alive and roughly what it's doing, without
+    faking a percentage.
+    """
+    label = label or " ".join(args)
+    output_lines = []
+
+    with Progress(
+        SpinnerColumn(),
+        TextColumn("[progress.description]{task.description}"),
+        TimeElapsedColumn(),
+        console=console,
+        transient=True,
+    ) as progress:
+        task = progress.add_task(label, total=None)
+        proc = subprocess.Popen(
+            args,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            bufsize=1,
+        )
+        for line in proc.stdout:
+            line = line.rstrip()
+            if line:
+                output_lines.append(line)
+                progress.update(task, description=f"{label}: {line[:80]}")
+        proc.wait()
+
+    decoded_out = "\n".join(output_lines)
+    if proc.returncode != 0 and not supress_exception:
+        logger.exception(decoded_out)
+        raise Exception(decoded_out)
+    return decoded_out
 
 
 def encrypt(public_key: str, secret_value: str) -> str:
@@ -305,7 +364,13 @@ def main() -> None:
     logger.info(".... OK")
 
     logger.info("\nInstalling requirements")
-    execute("pip-sync", "development.txt", cwd=REQ_DIR)
+    execute(
+        "pip-sync",
+        "development.txt",
+        cwd=REQ_DIR,
+        show_progress=True,
+        progress_label="Installing requirements",
+    )
     logger.info(".... OK")
 
     if not options.rerun:
