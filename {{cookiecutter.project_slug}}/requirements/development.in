@@ -1,10 +1,7 @@
--r base.txt
-
-{% if cookiecutter.use_bandit == 'y' -%}
+-r base.in
+-r test.in
+{%- if cookiecutter.use_bandit == 'y' %}
 bandit
-{%- endif %}
-{%- if cookiecutter.use_black == 'y' %}
-black
 {%- endif %}
 build
 {%- if cookiecutter.version_control in ["python_semantic_release", "both"] %}
@@ -14,56 +11,26 @@ colorama
 {%- if cookiecutter.version_control in ["commitizen", "both"] %}
 commitizen
 {%- endif %}
-coverage[toml]
-coverage-conditional-plugin
 {%- if cookiecutter.use_cruft == 'y' %}
 cruft
-{%- endif %}
-{%- if cookiecutter.use_flake8 == 'y' %}
-flake8
-flake8-bandit
-flake8-bugbear
-flake8-comprehensions
-flake8-docstrings
-flake8-eradicate
-flake8-html
-flake8-pyproject
-flake8-pytest-style
-flake8-simplify
 {%- endif %}
 {%- if cookiecutter.use_isort == 'y' %}
 isort
 {%- endif %}
-invoke
 jupyter
 keyring
-{%- if cookiecutter.use_mypy == 'y' %}
-lxml
-types-requests
-mypy
-{%- endif %}
 {%- if cookiecutter.use_sphinx == 'y' %}
 myst-nb
-{%- endif %}
-{%- if cookiecutter.use_flake8 == 'y' %}
-pep8-naming
 {%- endif %}
 {%- if cookiecutter.use_pre_commit == 'y' %}
 pre-commit
 {%- endif %}
 {%- if cookiecutter.use_pytest == 'y' %}
-pytest
 pytest-clarity
-pytest-cov
-pytest-html
 pytest-tldr
 pytest-xdist
-pytest-repeat
-pytest-randomly
-pytest-timeout
 {%- endif %}
 pynacl
-pyyaml
 requests
 {%- if cookiecutter.use_safety == 'y' %}
 safety

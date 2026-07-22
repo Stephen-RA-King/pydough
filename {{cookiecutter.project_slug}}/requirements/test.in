@@ -1,6 +1,7 @@
--r production.txt
-
+-r base.in
+{%- if cookiecutter.use_black == 'y' %}
 black
+{%- endif %}
 {%- if cookiecutter.use_flake8 == 'y' %}
 flake8
 flake8-bandit
@@ -15,8 +16,18 @@ flake8-simplify
 pep8-naming
 {%- endif %}
 invoke
+{%- if cookiecutter.use_mypy == 'y' %}
 lxml
 mypy
+types-requests
+types-PyYAML
+types-beautifulsoup4
+types-click
+types-html5lib
+types-python-dateutil
+types-urllib3
+{%- endif %}
+{%- if cookiecutter.use_pytest == 'y' %}
 pytest
 pytest-cov
 pytest-html
@@ -25,11 +36,7 @@ pytest-mock
 pytest-randomly
 pytest-repeat
 pytest-timeout
+{%- endif %}
 pyyaml
-types-PyYAML
-types-beautifulsoup4
-types-click
-types-html5lib
-types-python-dateutil
-types-requests
-types-urllib3
+coverage[toml]
+coverage-conditional-plugin
