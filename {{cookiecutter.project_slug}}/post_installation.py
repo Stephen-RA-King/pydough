@@ -17,7 +17,9 @@ import yaml
 from nacl import encoding, public
 
 PLATFORM = sys.platform
-SLUG_DIR = Path.cwd()
+SLUG_DIR = Path(__file__).resolve().parent
+os.chdir(SLUG_DIR)
+REQ_DIR = SLUG_DIR / "requirements"
 LOG_DIR = SLUG_DIR / "logs"
 GITHUB_TOKEN = keyring.get_password("github", "token")
 TEST_PYPI_TOKEN = keyring.get_password("testpypi", "token")
@@ -303,7 +305,7 @@ def main() -> None:
     logger.info(".... OK")
 
     logger.info("\nInstalling requirements")
-    execute("pip-sync", "requirements.txt")
+    execute("pip-sync", "development.txt", cwd=REQ_DIR)
     logger.info(".... OK")
 
     if not options.rerun:
