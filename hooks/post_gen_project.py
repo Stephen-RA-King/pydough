@@ -142,7 +142,7 @@ def main():
     pip_configure("True")
 
     upgrade_basics_list = [
-        "pip",
+        "#pip",
         "wheel",
         "setuptools",
         "build",

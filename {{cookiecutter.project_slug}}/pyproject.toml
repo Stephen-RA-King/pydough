@@ -128,6 +128,9 @@ skip = [
     "*/header.png",
     ".pypirc",
     "CHANGELOG.md",
+	"README.md",
+    "LICENSE",
+    "docs/",
 ]
 {%- endif %}
 {%- if cookiecutter.use_isort == 'y' %}
@@ -239,6 +242,7 @@ addopts = [
     "--strict-config",
     "--cov=src",
     "--cov-report", "html:reports/coverage",
+	"--cov-report", "xml:coverage.xml",
     "--html=reports/pytest.html",
     "--capture=tee-sys",
     "--durations=10",
@@ -270,7 +274,6 @@ console_output_style = "progress"
 [tool.coverage.run]
 branch = true
 source = ["src"]
-parallel = true
 omit = [
     "docs/*",
     "tests/*",
