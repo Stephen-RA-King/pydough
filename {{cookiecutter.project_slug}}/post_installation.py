@@ -101,7 +101,7 @@ def execute(
         out, err = proc.communicate()
         decoded_out = out.decode("utf-8")
         decoded_err = err.decode("utf-8")
-        if err and not supress_exception:
+        if proc.returncode != 0 and not supress_exception:
             logger.exception(decoded_err)
             raise Exception(decoded_err)
         else:
@@ -366,8 +366,8 @@ def main() -> None:
     logger.info("\nInstalling requirements")
     execute(
         "pip-sync",
-        "development.txt",
-        cwd=REQ_DIR,
+        str(REQ_DIR / "development.txt"),
+        cwd=SLUG_DIR,
         show_progress=True,
         progress_label="Installing requirements",
     )
@@ -384,10 +384,6 @@ def main() -> None:
 
     if not options.rerun:
         readthedocs_update()
-
-    logger.info("\nInstalling the package as an 'editable' package locally")
-    execute(sys.executable, "-m", "pip", "install", "-e", ".")
-    logger.info(".... OK")
 
     message = (
         "\nSUCCESS! - ALL POST INSTALLATION TASKS ARE COMPLETE - "
