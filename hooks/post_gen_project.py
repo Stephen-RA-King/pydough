@@ -132,9 +132,9 @@ def generate_requirements(requirements):
             "-q",
             "--resolver=backtracking",
             "--no-strip-extras",
-            requirement,
+            str(REQ_DIR / requirement),
             supress_exception=False,
-            cwd=REQ_DIR
+            cwd=SLUG_DIR
         )
 
 
