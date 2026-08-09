@@ -1,5 +1,4 @@
 # Core Library modules
-import argparse
 import json
 import logging.config
 import os
@@ -66,15 +65,6 @@ loggers:
 
 logging.config.dictConfig(yaml.safe_load(LOGGING_CONFIG))
 logger = logging.getLogger("post")
-
-parser = argparse.ArgumentParser()
-parser.add_argument(
-    "-r",
-    "--rerun",
-    help="refresh the post installation procedure",
-    action="store_true"
-)
-options = parser.parse_args()
 
 
 def execute(
@@ -343,6 +333,15 @@ def remove_modules() -> None:
         logger.info("............ OK")
 
 
+def repo_has_commits() -> bool:
+    """Return True if the local repo already has at least one commit."""
+    try:
+        execute("git", "rev-parse", "--verify", "HEAD")
+        return True
+    except Exception:
+        return False
+
+
 def file_word_replace(filepath: str, old_word: str, new_word: str) -> None:
     with open(filepath) as file:
         file_data = file.read()
@@ -352,11 +351,12 @@ def file_word_replace(filepath: str, old_word: str, new_word: str) -> None:
 
 
 def main() -> None:
-    if not options.rerun:
-        github_create_repo()
-        github_create_secret("PYPI_API_TOKEN", PYPI_TOKEN)
-        github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
-        readthedocs_create()
+    already_bootstrapped = repo_has_commits()
+
+    github_create_repo()
+    github_create_secret("PYPI_API_TOKEN", PYPI_TOKEN)
+    github_create_secret("TEST_PYPI_API_TOKEN", TEST_PYPI_TOKEN)
+    readthedocs_create()
 
     logger.info("\nUpdating .pypi file with secret tokens")
     file_word_replace(".pypirc", "token1", PYPI_TOKEN)
@@ -373,7 +373,7 @@ def main() -> None:
     )
     logger.info(".... OK")
 
-    if not options.rerun:
+    if not already_bootstrapped:
         logger.info("\nInitial git add, commit & push")
         execute("git", "add", "assets/*")
         execute(
@@ -381,9 +381,14 @@ def main() -> None:
         )
         execute("git", "push", "-q", "-u","--force", "origin", "{{ cookiecutter.initial_git_branch_name }}")
         logger.info(".... OK")
+    else:
+        logger.info("\nRepo already has commits - skipping initial commit & push")
 
-    if not options.rerun:
-        readthedocs_update()
+    readthedocs_update()
+
+    logger.info("\nInstalling the package as an 'editable' package locally")
+    execute(sys.executable, "-m", "pip", "install", "-e", ".")
+    logger.info(".... OK")
 
     message = (
         "\nSUCCESS! - ALL POST INSTALLATION TASKS ARE COMPLETE - "
