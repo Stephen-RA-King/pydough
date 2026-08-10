@@ -26,7 +26,7 @@ jobs:
         python-version: {{ ns.versions | tojson }}
     steps:
       # Step 2. Check-out repository
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       # Step 3. Set up Python
       - uses: actions/setup-python@v6
