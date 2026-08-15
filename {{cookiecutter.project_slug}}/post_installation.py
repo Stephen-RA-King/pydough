@@ -92,7 +92,7 @@ def execute(
         decoded_out = out.decode("utf-8")
         decoded_err = err.decode("utf-8")
         if proc.returncode != 0 and not supress_exception:
-            logger.exception(decoded_err)
+            logger.error(decoded_err)
             raise Exception(decoded_err)
         else:
             return decoded_out
@@ -335,11 +335,8 @@ def remove_modules() -> None:
 
 def repo_has_commits() -> bool:
     """Return True if the local repo already has at least one commit."""
-    try:
-        execute("git", "rev-parse", "--verify", "HEAD")
-        return True
-    except Exception:
-        return False
+    out = execute("git", "rev-parse", "--verify", "HEAD", supress_exception=True)
+    return bool(out.strip())
 
 
 def file_word_replace(filepath: str, old_word: str, new_word: str) -> None:
