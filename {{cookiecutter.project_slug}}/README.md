@@ -223,8 +223,8 @@ Use the command line as normal in the container.
 ```bash
 root@4d315992ca28:/app# {{ cookiecutter.project_name }} -h
 ```
-{%- endif %}
 
+{% endif -%}
 # ⚠️ Limitations
 
 ---
@@ -282,15 +282,15 @@ Distributed under the {{cookiecutter.license}} license. See [![][license-image]]
 
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 [![](assets/linkedin.png)](https://www.linkedin.com/in/sr-king)
-{%- endif %}
+{% endif -%}
 [![](assets/github.png)](https://github.com/{{ cookiecutter.github_username }})
 [![](assets/pypi.png)](https://pypi.org/project/{{ cookiecutter.project_name }})
 {% if cookiecutter.use_docker == 'y' -%}
 [![Docker](assets/docker.png)](https://hub.docker.com/r/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_name }})
-{%- endif %}
+{% endif -%}
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 [![](assets/www.png)](https://stephen-ra-king.github.io/justpython/)
-{%- endif %}
+{% endif -%}
 [![](assets/email2.png)](mailto:{{ cookiecutter.email }})
 [![](assets/github.png)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }})
 
@@ -301,19 +301,18 @@ Created with Cookiecutter template: [![pydough][pydough-image]][pydough-url]
 
 {% if cookiecutter.github_username == 'Stephen-RA-King' -%}
 Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](https://zenodo.org/badge/latestdoi/xxxxxxxxx)
-{%- endif %}
 
-
+{% endif -%}
 <!-- Markdown link & img dfn's -->
 
 {% if cookiecutter.use_bandit == 'y' -%}
 [bandit-image]: https://img.shields.io/badge/security-bandit-yellow.svg
 [bandit-url]: https://github.com/PyCQA/bandit
-{%- endif %}
+{% endif -%}
 {% if cookiecutter.use_black == 'y' -%}
 [black-image]: https://img.shields.io/badge/code%20style-black-000000.svg
 [black-url]: https://github.com/psf/black
-{%- endif %}
+{% endif -%}
 [codeclimate-image]: https://api.codeclimate.com/v1/badges/7fc352185512a1dab75d/maintainability
 [codeclimate-url]: https://codeclimate.com/github/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/maintainability
 [codecov-image]: https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/branch/main/graph/badge.svg
@@ -325,7 +324,7 @@ Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](http
 {% if cookiecutter.version_control in ["commitizen", "both"] -%}
 [commitizen-image]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
 [commitizen-url]: http://commitizen.github.io/cz-cli/
-{%- endif %}
+{% endif -%}
 [conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square
 [conventional-commits-url]: https://conventionalcommits.org
 [deepsource-image]: https://app.deepsource.com/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}.svg/?label=active+issues&show_trend=true
@@ -333,30 +332,30 @@ Digital object identifier: [![DOI](https://zenodo.org/badge/xxxxxxxxx.svg)](http
 {% if cookiecutter.use_docker == 'y' -%}
 [docker-image]: https://github.com/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_name }}/actions/workflows/docker-image.yml/badge.svg
 [docker-url]: https://github.com/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_name }}/actions/workflows/docker-image.yml
-{%- endif %}
+{% endif -%}
 [downloads-image]: https://static.pepy.tech/personalized-badge/{{cookiecutter.project_name}}?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads
 [downloads-url]: https://pepy.tech/project/{{cookiecutter.project_name}}
 [format-image]: https://img.shields.io/pypi/format/{{ cookiecutter.project_name }}
 {% if cookiecutter.use_isort == 'y' -%}
 [isort-image]: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
 [isort-url]: https://github.com/pycqa/isort/
-{%- endif %}
+{% endif -%}
 [license-image]: https://img.shields.io/pypi/l/{{cookiecutter.project_name}}
 [license-url]: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/blob/main/LICENSE
 {% if cookiecutter.use_mypy == 'y' -%}
 [mypy-image]: http://www.mypy-lang.org/static/mypy_badge.svg
 [mypy-url]: http://mypy-lang.org/
-{%- endif %}
+{% endif -%}
 {% if cookiecutter.use_openssf == 'y' -%}
 [openssf-image]: https://api.securityscorecards.dev/projects/github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/badge
 [openssf-url]: https://scorecard.dev/viewer/?uri=github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}
-{%- endif %}
+{% endif -%}
 {% if cookiecutter.use_pre_commit == 'y' -%}
 [pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
 [pre-commit.ci-image]: https://results.pre-commit.ci/badge/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/main.svg
 [pre-commit.ci-url]: https://results.pre-commit.ci/latest/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/main
-{%- endif %}
+{% endif -%}
 [pydough-image]: https://img.shields.io/badge/Cookiecutter-pydough-orange?logo=cookiecutter
 [pydough-url]: https://github.com/Stephen-RA-King/pydough
 [pypi-url]: https://pypi.org/project/{{ cookiecutter.project_name }}/
