@@ -41,7 +41,7 @@
 [![Pydough][pydough-image]][pydough-url]
 {% if cookiecutter.use_openssf == 'y' -%}
 [![OpenSSFScorecard][openssf-image]][openssf-url]
-{% endif -%}
+{%- endif %}
 
 One to two paragraph statement about your product and what it does.
 
@@ -60,9 +60,9 @@ One to two paragraph statement about your product and what it does.
 -   [Development setup](#-development-setup)
 -   [Configuration](#-configuration)
 -   [Documentation](#-documentation)
-    -   [Read the Docs](https://pynamer.readthedocs.io/en/latest/)
-    -   [API](https://pynamer.readthedocs.io/en/latest/autoapi/pynamer/pynamer/index.html)
-    -   [Wiki](https://github.com/{{ cookiecutter.github_username }}/pynamer/wiki)
+    -   [Read the Docs](https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/)
+    -   [API](https://{{ cookiecutter.pkg_name }}.readthedocs.io/en/latest/autoapi/{{ cookiecutter.pkg_name }}/{{ cookiecutter.pkg_name }}/index.html)
+    -   [Wiki](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pkg_name }}/wiki)
 -   [FAQs](#-faqs)
 -   [What's new in version x.x](#-whats-new-in-version-xx)
 -   [Planned future enhancements](#-planned-future-enhancements)
